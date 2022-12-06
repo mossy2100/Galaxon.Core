@@ -1,0 +1,98 @@
+namespace AstroMultimedia.Core.Numbers;
+
+/// <summary>
+/// Extension methods for Double.
+/// </summary>
+public static class XDouble
+{
+    /// <summary>
+    /// The default maximum difference between 2 double values being compared for equality.
+    /// </summary>
+    public const double DELTA = 1e-9;
+
+    /// <summary>
+    /// Check if 2 double values are equal for practical purposes.
+    ///
+    /// If two double values differ only by the least significant bit, this is more likely
+    /// due to inaccuracies in floating point representations than actual inequality.
+    ///
+    /// This code is copied/adapted from Google Guava DoubleMath.fuzzyEquals().
+    /// <see href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360" />
+    ///
+    /// I initially tried the algorithm from the Microsoft documentation, it didn't work in all cases.
+    /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)" />
+    /// </summary>
+    /// <param name="a">First number.</param>
+    /// <param name="b">Second number.</param>
+    /// <param name="tolerance">The maximum allowable difference between them.</param>
+    /// <returns>If close enough to equal.</returns>
+    public static bool FuzzyEquals(this double a, double b, double tolerance = DELTA)
+    {
+        // Ensure tolerance is non-negative.
+        if (tolerance < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(tolerance), "Cannot be negative.");
+        }
+
+        // ReSharper disable once CompareOfFloatsByEqualityOperator
+        // Handle NaN separately so the method behaves the same as double.Equals().
+        // The equality operator will return false when comparing 2 NaN values.
+        // The equality operator will return true when comparing infinities.
+        return (double.IsNaN(a) && double.IsNaN(b)) || (a == b) || Abs(a - b) <= tolerance;
+    }
+
+    /// <summary>
+    /// Compare two nullable doubles for fuzzy equality.
+    /// </summary>
+    /// <param name="a"></param>
+    /// <param name="b"></param>
+    /// <param name="tolerance"></param>
+    /// <returns></returns>
+    public static bool FuzzyEquals(this double? a, double? b, double tolerance = DELTA)
+    {
+        // If they're both null then they're equal.
+        if (!a.HasValue && !b.HasValue)
+        {
+            return true;
+        }
+
+        // If only one of them is null they're unequal.
+        if (!a.HasValue || !b.HasValue)
+        {
+            return false;
+        }
+
+        // Check for fuzzy equality.
+        return a.Value.FuzzyEquals(b.Value, tolerance);
+    }
+
+    /// <summary>
+    /// Round off a value to a given number of significant figures.
+    /// </summary>
+    /// <param name="d">The number to round.</param>
+    /// <param name="digits">The number of significant figures.</param>
+    /// <returns>The rounded number.</returns>
+    /// TODO TEST. If digits is too high, an exception will be thrown, so this needs to be checked.
+    public static double RoundSigFigs(this double d, int digits)
+    {
+        if (d == 0)
+        {
+            return 0;
+        }
+
+        double scale = Pow(10, Floor(Log10(Abs(d))) + 1);
+        return scale * Round(d / scale, digits);
+    }
+
+    /// <summary>
+    /// Check if a double is a positive integer.
+    /// </summary>
+    public static bool IsPositiveInteger(double d) =>
+        (d > 0) && double.IsInteger(d);
+
+    /// <summary>
+    /// Check if a double is a negative integer.
+    /// </summary>
+    public static bool IsNegativeInteger(double d) =>
+        (d < 0) && double.IsInteger(d);
+}

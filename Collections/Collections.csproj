@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <Company>Astro Multimedia</Company>
+        <RootNamespace>AstroMultimedia.Core.Collections</RootNamespace>
+        <AssemblyName>AstroMultimedia.Core.Collections</AssemblyName>
+        <PackageId>Collections</PackageId>
+        <OutputType>Library</OutputType>
+    </PropertyGroup>
+
+</Project>
