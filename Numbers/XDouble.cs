@@ -95,4 +95,10 @@ public static class XDouble
     /// </summary>
     public static bool IsNegativeInteger(double d) =>
         (d < 0) && double.IsInteger(d);
+
+    /// <summary>
+    /// IsInteger() can be a bit strict. This method allows for some fuzziness.
+    /// </summary>
+    public static bool FuzzyIsInteger(double d, double tolerance = DELTA) =>
+        d.FuzzyEquals(Round(d), tolerance);
 }
