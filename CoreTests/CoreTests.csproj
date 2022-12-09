@@ -24,6 +24,7 @@
       <ProjectReference Include="..\Collections\Collections.csproj" />
       <ProjectReference Include="..\Numbers\Numbers.csproj" />
       <ProjectReference Include="..\Testing\Testing.csproj" />
+      <ProjectReference Include="..\Time\Time.csproj" />
     </ItemGroup>
 
 </Project>

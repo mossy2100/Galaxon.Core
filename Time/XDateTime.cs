@@ -1,4 +1,6 @@
-﻿namespace AstroMultimedia.Core.Time;
+﻿using System.Globalization;
+
+namespace AstroMultimedia.Core.Time;
 
 /// <summary>
 /// Extension methods for the DateTime class.
@@ -12,9 +14,27 @@ public static class XDateTime
     /// .NET (0001-01-01 00:00:00 UTC).
     /// <see cref="GetTotalDays" />
     /// </summary>
-    public const double JULIAN_PERIOD_OFFSET = 1721425.5;
+    public const double JulianPeriodOffset = 1721425.5;
 
     #endregion Constants
+
+    #region Formatting
+
+    /// <summary>
+    /// Format the date using ISO format YYYY-MM-DDThh:mm:ss.
+    /// This format is useful for databases.
+    /// The time zone is not shown. For that, use ToString("u") (UniversalSortableDateTimePattern).
+    /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
+    /// </summary>
+    /// <param name="date">The DateTime instance.</param>
+    /// <returns>A string representing the datetime in ISO format.</returns>
+    public static string ToIsoString(this DateTime date)
+    {
+        DateTimeFormatInfo dtfi = new ();
+        return date.ToString(dtfi.SortableDateTimePattern);
+    }
+
+    #endregion Formatting
 
     #region Extract date and time parts
 
@@ -24,7 +44,8 @@ public static class XDateTime
     /// </summary>
     /// <param name="dt">The DateTime.</param>
     /// <returns>The date part of the DateTime.</returns>
-    public static DateOnly GetDateOnly(this DateTime dt) => DateOnly.FromDateTime(dt);
+    public static DateOnly GetDateOnly(this DateTime dt) =>
+        DateOnly.FromDateTime(dt);
 
     /// <summary>
     /// Get the time part of a DateTime as a TimeOnly object.
@@ -32,7 +53,8 @@ public static class XDateTime
     /// </summary>
     /// <param name="dt">The DateTime.</param>
     /// <returns>The time part of the DateTime.</returns>
-    public static TimeOnly GetTimeOnly(this DateTime dt) => TimeOnly.FromTimeSpan(dt.TimeOfDay);
+    public static TimeOnly GetTimeOnly(this DateTime dt) =>
+        TimeOnly.FromTimeSpan(dt.TimeOfDay);
 
     #endregion Extract date and time parts
 
@@ -47,7 +69,7 @@ public static class XDateTime
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of nanoseconds since the epoch start.</returns>
     public static double GetTotalNanoseconds(this DateTime dt) =>
-        dt.Ticks / Time.TICKS_PER_NANOSECOND;
+        dt.Ticks * TimeSpan.NanosecondsPerTick;
 
     /// <summary>
     /// Get the total number of microseconds from the start of the epoch to the datetime.
@@ -55,7 +77,7 @@ public static class XDateTime
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of microseconds since the epoch start.</returns>
     public static double GetTotalMicroseconds(this DateTime dt) =>
-        (double)dt.Ticks / Time.TICKS_PER_MICROSECOND;
+        (double)dt.Ticks / TimeSpan.TicksPerMicrosecond;
 
     /// <summary>
     /// Get the total number of milliseconds from the start of the epoch to the datetime.
@@ -63,7 +85,7 @@ public static class XDateTime
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of milliseconds since the epoch start.</returns>
     public static double GetTotalMilliseconds(this DateTime dt) =>
-        (double)dt.Ticks / Time.TICKS_PER_MILLISECOND;
+        (double)dt.Ticks / TimeSpan.TicksPerMillisecond;
 
     /// <summary>
     /// Get the total number of seconds from the start of the epoch to the datetime.
@@ -71,7 +93,7 @@ public static class XDateTime
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of seconds since the epoch start.</returns>
     public static double GetTotalSeconds(this DateTime dt) =>
-        (double)dt.Ticks / Time.TICKS_PER_SECOND;
+        (double)dt.Ticks / TimeSpan.TicksPerSecond;
 
     /// <summary>
     /// Get the total number of minutes from the start of the epoch to the datetime.
@@ -79,21 +101,23 @@ public static class XDateTime
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of minutes since the epoch start.</returns>
     public static double GetTotalMinutes(this DateTime dt) =>
-        (double)dt.Ticks / Time.TICKS_PER_MINUTE;
+        (double)dt.Ticks / TimeSpan.TicksPerMinute;
 
     /// <summary>
     /// Get the total number of hours from the start of the epoch to the datetime.
     /// </summary>
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of hours since the epoch start.</returns>
-    public static double GetTotalHours(this DateTime dt) => (double)dt.Ticks / Time.TICKS_PER_HOUR;
+    public static double GetTotalHours(this DateTime dt) =>
+        (double)dt.Ticks / TimeSpan.TicksPerHour;
 
     /// <summary>
     /// Get the total number of days from the start of the epoch to the datetime.
     /// </summary>
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of days since the epoch start.</returns>
-    public static double GetTotalDays(this DateTime dt) => (double)dt.Ticks / Time.TICKS_PER_DAY;
+    public static double GetTotalDays(this DateTime dt) =>
+        (double)dt.Ticks / TimeSpan.TicksPerDay;
 
     #endregion Methods for getting the instant as a count of time units
 
@@ -106,7 +130,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalSeconds(double seconds)
     {
-        long ticks = (long)Math.Round(seconds * Time.TICKS_PER_SECOND);
+        long ticks = (long)Math.Round(seconds * TimeSpan.TicksPerSecond);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
@@ -119,7 +143,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalDays(double days)
     {
-        long ticks = (long)Math.Round(days * Time.TICKS_PER_DAY);
+        long ticks = (long)Math.Round(days * TimeSpan.TicksPerDay);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
@@ -134,7 +158,8 @@ public static class XDateTime
     /// </summary>
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The Julian Day value</returns>
-    public static double ToJulianDay(this DateTime dt) => JULIAN_PERIOD_OFFSET + GetTotalDays(dt);
+    public static double ToJulianDay(this DateTime dt) =>
+        JulianPeriodOffset + GetTotalDays(dt);
 
     /// <summary>
     /// Convert a Julian Day value to a DateTime object.
@@ -143,7 +168,8 @@ public static class XDateTime
     /// The Julian Day value. May include a fractional part indicating the time of day.
     /// </param>
     /// <returns>A new DateTime object.</returns>
-    public static DateTime FromJulianDay(double jd) => FromTotalDays(jd - JULIAN_PERIOD_OFFSET);
+    public static DateTime FromJulianDay(double jd) =>
+        FromTotalDays(jd - JulianPeriodOffset);
 
     #endregion Conversion to/from Julian Day
 }
