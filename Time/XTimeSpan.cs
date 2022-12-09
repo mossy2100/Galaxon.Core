@@ -21,7 +21,7 @@ public static class XTimeSpan
     /// <param name="amount">The amount.</param>
     /// <param name="fromUnit">The amount argument units.</param>
     /// <param name="toUnit">The result units.</param>
-        /// <returns>The amount of the new unit.</returns>
+    /// <returns>The amount of the new unit.</returns>
     public static double Convert(double amount, ETimeUnit fromUnit,
         ETimeUnit toUnit = ETimeUnit.Ticks)
     {
@@ -72,9 +72,12 @@ public static class XTimeSpan
     public const long SecondsPerMinute = 60;
     public const long MinutesPerHour = 60;
     public const long HoursPerDay = 24;
+
     public const long DaysPerWeek = 7;
+
     // Here we're referring to days per Gregorian calendar year.
     public const double DaysPerYear = 365.2425;
+
     // Here we're referring to months per Gregorian calendar year.
     public const long MonthsPerYear = 12;
     public const long YearsPerDecade = 10;
@@ -163,6 +166,7 @@ public static class XTimeSpan
     /// There are a whole number of months, weeks, and days in that period.
     /// </summary>
     public const long YearsPerCycle = 400;
+
     public const long LeapYearsPerCycle = 97;
     public const long MonthsPerCycle = 4800;
     public const long DaysPerCycle = 146_097; // 3 * 3 * 3 * 7 * 773
