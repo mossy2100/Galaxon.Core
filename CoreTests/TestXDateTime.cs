@@ -6,7 +6,7 @@ namespace AstroMultimedia.Core.Tests;
 [TestClass]
 public class TestXDateTime
 {
-    private const double _DELTA = 1e-9;
+    private const double _Delta = 1e-9;
 
     [TestMethod]
     public void TestDateTimeGetTotalDays()
@@ -19,22 +19,22 @@ public class TestXDateTime
 
         // Test current date.
         dt = new DateTime(2022, 6, 8, 5, 50, 24, 0, Utc);
-        Assert.AreEqual(dt.GetTotalDays(), 738313.243333333, _DELTA);
+        Assert.AreEqual(dt.GetTotalDays(), 738313.243333333, _Delta);
 
         // Test middle of range.
         dt = new DateTime(5000, 7, 2, 12, 30, 0, 0, Utc);
-        Assert.AreEqual(dt.GetTotalDays(), 1826029.520833333, _DELTA);
+        Assert.AreEqual(dt.GetTotalDays(), 1826029.520833333, _Delta);
 
         // Test end of range.
         dt = new DateTime(9999, 12, 31, 23, 59, 59, 999, Utc);
-        Assert.AreEqual(dt.GetTotalDays(), 3652058.999999988, _DELTA);
+        Assert.AreEqual(dt.GetTotalDays(), 3652058.999999988, _Delta);
     }
 
     [TestMethod]
     public void TestDateTimeFromTotalDays()
     {
         DateTime dt1, dt2;
-        long epsilon = 1000;
+        const long epsilon = 1000;
 
         dt1 = new DateTime(1, 1, 1, 0, 0, 0, 0, Utc);
         dt2 = XDateTime.FromTotalDays(0);

@@ -37,7 +37,7 @@ public static class XIEnumerable
     }
 
     /// <summary>
-    /// Convert an IEnumerable<T> into a dictionary with the dictionary's keys set to zero-based
+    /// Convert an IEnumerable[T] into a dictionary with the dictionary's keys set to zero-based
     /// index, same as an array.
     /// </summary>
     public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> list)

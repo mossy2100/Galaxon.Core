@@ -86,7 +86,7 @@ public static class XBigInteger
     /// <summary>
     /// Sum all the values in a list of BigIntegers.
     /// </summary>
-    public static BigInteger Sum(this List<BigInteger> nums) =>
+    public static BigInteger Sum(this IEnumerable<BigInteger> nums) =>
         nums.Aggregate((BigInteger)0, (sum, num) => sum + num);
 
     /// <summary>

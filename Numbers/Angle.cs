@@ -30,10 +30,10 @@ public static class Angle
     /// </summary>
     public static double NormalizeDegrees(double degrees, bool signed = true)
     {
-        degrees -= Floor(degrees / DEGREES_PER_CIRCLE) * DEGREES_PER_CIRCLE;
-        if (signed && degrees >= DEGREES_PER_SEMICIRCLE)
+        degrees -= Floor(degrees / DegreesPerCircle) * DegreesPerCircle;
+        if (signed && degrees >= DegreesPerSemicircle)
         {
-            degrees -= DEGREES_PER_CIRCLE;
+            degrees -= DegreesPerCircle;
         }
         return degrees;
     }
@@ -48,7 +48,7 @@ public static class Angle
     /// <param name="degrees">An angle size in degrees.</param>
     /// <returns>The angle size in radians.</returns>
     public static double DegToRad(double degrees) =>
-        degrees * RADIANS_PER_DEGREE;
+        degrees * RadiansPerDegree;
 
     /// <summary>
     /// Convert radians to degrees.
@@ -56,7 +56,7 @@ public static class Angle
     /// <param name="radians">An angle size in radians.</param>
     /// <returns>The angle size in degrees.</returns>
     public static double RadToDeg(double radians) =>
-        radians * DEGREES_PER_RADIAN;
+        radians * DegreesPerRadian;
 
     /// <summary>
     /// Creates a new angle from degrees, arcminutes, and (optionally) arcseconds.
@@ -72,7 +72,7 @@ public static class Angle
     /// <param name="arcseconds">The number of arcseconds.</param>
     /// <returns>The angle in degrees.</returns>
     public static double DmsToDeg(double degrees, double arcminutes, double arcseconds = 0) =>
-        degrees + arcminutes / ARCMINUTES_PER_DEGREE + arcseconds / ARCSECONDS_PER_DEGREE;
+        degrees + arcminutes / ArcminutesPerDegree + arcseconds / ArcsecondsPerDegree;
 
     /// <summary>
     /// Convert degrees, arcminutes, and arcseconds to radians.
@@ -99,10 +99,10 @@ public static class Angle
     {
         double wholeDegrees = Truncate(degrees);
         double fracDegrees = degrees - wholeDegrees;
-        double arcminutes = fracDegrees * ARCMINUTES_PER_DEGREE;
+        double arcminutes = fracDegrees * ArcminutesPerDegree;
         double wholeArcminutes = Truncate(arcminutes);
         double fracArcminutes = arcminutes - wholeArcminutes;
-        double arcseconds = fracArcminutes * ARCSECONDS_PER_ARCMINUTE;
+        double arcseconds = fracArcminutes * ArcsecondsPerArcminute;
         return (degrees: wholeDegrees, arcminutes: wholeArcminutes, arcseconds);
     }
 
@@ -173,24 +173,24 @@ public static class Angle
 
     #region Constants
 
-    public const double DEGREES_PER_CIRCLE = 360;
-    public const double DEGREES_PER_SEMICIRCLE = 180;
+    public const long DegreesPerCircle = 360;
+    public const long DegreesPerSemicircle = 180;
 
-    public const double ARCMINUTES_PER_DEGREE = 60;
-    public const double ARCMINUTES_PER_CIRCLE = ARCMINUTES_PER_DEGREE * DEGREES_PER_CIRCLE;
+    public const long ArcminutesPerDegree = 60;
+    public const long ArcminutesPerCircle = ArcminutesPerDegree * DegreesPerCircle;
 
-    public const double ARCSECONDS_PER_ARCMINUTE = 60;
-    public const double ARCSECONDS_PER_DEGREE = ARCSECONDS_PER_ARCMINUTE * ARCMINUTES_PER_DEGREE;
-    public const double ARCSECONDS_PER_CIRCLE = ARCSECONDS_PER_DEGREE * DEGREES_PER_CIRCLE;
+    public const long ArcsecondsPerArcminute = 60;
+    public const long ArcsecondsPerDegree = ArcsecondsPerArcminute * ArcminutesPerDegree;
+    public const long ArcsecondsPerCircle = ArcsecondsPerDegree * DegreesPerCircle;
 
-    public const double RADIANS_PER_CIRCLE = Tau;
-    public const double RADIANS_PER_SEMICIRCLE = PI;
+    public const double RadiansPerCircle = Tau;
+    public const double RadiansPerSemicircle = PI;
 
-    public const double RADIANS_PER_DEGREE = 1.745329251994329576923691e-2;
-    public const double DEGREES_PER_RADIAN = 57.29577951308232087679815;
+    public const double RadiansPerDegree = 1.745329251994329576923691e-2;
+    public const double DegreesPerRadian = 57.29577951308232087679815;
 
-    public const double RADIANS_PER_ARCSECOND = 4.848136811095359935899141e-6;
-    public const double ARCSECONDS_PER_RADIAN = 206264.8062470963551564734;
+    public const double RadiansPerArcsecond = 4.848136811095359935899141e-6;
+    public const double ArcsecondsPerRadian = 206264.8062470963551564734;
 
     #endregion Constants
 }

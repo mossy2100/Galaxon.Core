@@ -103,8 +103,8 @@ public class TestXDateOnly
     public void TestSubtract()
     {
         // This uses the dates of Halley's Comet from example 7.d in AA2 p64.
-        DateOnly date1 = new DateOnly(1910, 4, 20);
-        DateOnly date2 = new DateOnly(1986, 2, 9);
+        DateOnly date1 = new (1910, 4, 20);
+        DateOnly date2 = new (1986, 2, 9);
         Assert.AreEqual(date2.Subtract(date1).Days, 27689);
     }
 
@@ -112,7 +112,7 @@ public class TestXDateOnly
     public void TestAdd()
     {
         // From the exercise in AA2 p64.
-        DateOnly date1 = new DateOnly(1991, 7, 11);
+        DateOnly date1 = new (1991, 7, 11);
         DateOnly date2 = date1.AddDays(10000);
         Assert.AreEqual(date2.ToIsoString(), "2018-11-26");
     }
