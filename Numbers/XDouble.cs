@@ -8,7 +8,7 @@ public static class XDouble
     /// <summary>
     /// The default maximum difference between 2 double values being compared for equality.
     /// </summary>
-    public const double DELTA = 1e-9;
+    public const double Delta = 1e-9;
 
     /// <summary>
     /// Check if 2 double values are equal for practical purposes.
@@ -26,7 +26,7 @@ public static class XDouble
     /// <param name="b">Second number.</param>
     /// <param name="tolerance">The maximum allowable difference between them.</param>
     /// <returns>If close enough to equal.</returns>
-    public static bool FuzzyEquals(this double a, double b, double tolerance = DELTA)
+    public static bool FuzzyEquals(this double a, double b, double tolerance = Delta)
     {
         // Ensure tolerance is non-negative.
         if (tolerance < 0)
@@ -48,7 +48,7 @@ public static class XDouble
     /// <param name="b"></param>
     /// <param name="tolerance"></param>
     /// <returns></returns>
-    public static bool FuzzyEquals(this double? a, double? b, double tolerance = DELTA)
+    public static bool FuzzyEquals(this double? a, double? b, double tolerance = Delta)
     {
         // If they're both null then they're equal.
         if (!a.HasValue && !b.HasValue)
@@ -99,6 +99,24 @@ public static class XDouble
     /// <summary>
     /// IsInteger() can be a bit strict. This method allows for some fuzziness.
     /// </summary>
-    public static bool FuzzyIsInteger(double d, double tolerance = DELTA) =>
+    public static bool FuzzyIsInteger(double d, double tolerance = Delta) =>
         d.FuzzyEquals(Round(d), tolerance);
+
+    /// <summary>
+    /// Check if a double is a positive integer, with some fuzziness.
+    /// </summary>
+    public static bool FuzzyIsPositiveInteger(double d, double tolerance = Delta) =>
+        (d > 0) && FuzzyIsInteger(d, tolerance);
+
+    /// <summary>
+    /// Check if a double is a negative integer, with some fuzziness.
+    /// </summary>
+    public static bool FuzzyIsNegativeInteger(double d, double tolerance = Delta) =>
+        (d < 0) && FuzzyIsInteger(d, tolerance);
+
+    /// <summary>
+    /// Check if a value is a perfect square.
+    /// </summary>
+    public static bool IsPerfectSquare(double d) =>
+        double.IsPositive(d) && double.IsInteger(Sqrt(d));
 }

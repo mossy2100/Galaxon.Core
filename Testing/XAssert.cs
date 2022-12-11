@@ -58,7 +58,7 @@ public static class XAssert
     /// <param name="expected">The expected value.</param>
     /// <param name="actual">The actual value.</param>
     /// <param name="delta">The max allowable difference.</param>
-    public static void AreEqual(double expected, double actual, double delta = XDouble.DELTA) =>
+    public static void AreEqual(double expected, double actual, double delta = XDouble.Delta) =>
         Assert.AreEqual(expected, actual, delta);
         // Assert.IsTrue(expected.FuzzyEquals(actual, delta));
 
