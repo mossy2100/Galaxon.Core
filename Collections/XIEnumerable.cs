@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Numerics;
 
 namespace AstroMultimedia.Core.Collections;
 
@@ -46,4 +47,19 @@ public static class XIEnumerable
         return new Dictionary<int, T>(list
             .Select(item => new KeyValuePair<int, T>(index++, item)));
     }
+
+    /// <summary>
+    /// Similar to Sum(), this extension method generates the product of all values in a collection
+    /// of doubles.
+    /// I'd love to make this method generic but I haven't figured out how yet.
+    /// </summary>
+    public static double Product(this IEnumerable<double> source) =>
+        source.Aggregate(1.0, (prod, value) => prod * value);
+
+    /// <summary>
+    /// Get a product of all values in the collection, transformed by the supplied function.
+    /// </summary>
+    public static double Product(this IEnumerable<double> source,
+        Func<double, double> func) =>
+        source.Aggregate(1.0, (prod, value) => prod * func(value));
 }
