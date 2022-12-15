@@ -10,6 +10,52 @@ public static class XDouble
     /// </summary>
     public const double Delta = 1e-9;
 
+    #region Methods for rounding
+
+    /// <summary>
+    /// Round off a value to a given number of significant figures.
+    /// </summary>
+    /// <param name="d">The number to round.</param>
+    /// <param name="digits">The number of significant figures.</param>
+    /// <returns>The rounded number.</returns>
+    /// TODO TEST. If digits is too high, an exception will be thrown, so this needs to be checked.
+    public static double RoundSigFigs(this double d, int digits)
+    {
+        if (d == 0)
+        {
+            return 0;
+        }
+
+        double scale = Pow(10, Floor(Log10(Abs(d))) + 1);
+        return scale * Round(d / scale, digits);
+    }
+
+    #endregion Methods for rounding
+
+    #region Methods for checking if doubles are integers
+
+    /// <summary>
+    /// Check if a double is a positive integer.
+    /// </summary>
+    public static bool IsPositiveInteger(double d) =>
+        (d > 0) && double.IsInteger(d);
+
+    /// <summary>
+    /// Check if a double is a negative integer.
+    /// </summary>
+    public static bool IsNegativeInteger(double d) =>
+        (d < 0) && double.IsInteger(d);
+
+    /// <summary>
+    /// Check if a value is a perfect square.
+    /// </summary>
+    public static bool IsPerfectSquare(double d) =>
+        double.IsPositive(d) && double.IsInteger(Sqrt(d));
+
+    #endregion Methods for checking if doubles are integers
+
+    #region Methods for fuzzy equals
+
     /// <summary>
     /// Check if 2 double values are equal for practical purposes.
     ///
@@ -67,36 +113,6 @@ public static class XDouble
     }
 
     /// <summary>
-    /// Round off a value to a given number of significant figures.
-    /// </summary>
-    /// <param name="d">The number to round.</param>
-    /// <param name="digits">The number of significant figures.</param>
-    /// <returns>The rounded number.</returns>
-    /// TODO TEST. If digits is too high, an exception will be thrown, so this needs to be checked.
-    public static double RoundSigFigs(this double d, int digits)
-    {
-        if (d == 0)
-        {
-            return 0;
-        }
-
-        double scale = Pow(10, Floor(Log10(Abs(d))) + 1);
-        return scale * Round(d / scale, digits);
-    }
-
-    /// <summary>
-    /// Check if a double is a positive integer.
-    /// </summary>
-    public static bool IsPositiveInteger(double d) =>
-        (d > 0) && double.IsInteger(d);
-
-    /// <summary>
-    /// Check if a double is a negative integer.
-    /// </summary>
-    public static bool IsNegativeInteger(double d) =>
-        (d < 0) && double.IsInteger(d);
-
-    /// <summary>
     /// IsInteger() can be a bit strict. This method allows for some fuzziness.
     /// </summary>
     public static bool FuzzyIsInteger(double d, double tolerance = Delta) =>
@@ -114,9 +130,23 @@ public static class XDouble
     public static bool FuzzyIsNegativeInteger(double d, double tolerance = Delta) =>
         (d < 0) && FuzzyIsInteger(d, tolerance);
 
+    #endregion Methods for fuzzy equals
+
+    #region Methods for IEnumerable<double>
+
     /// <summary>
-    /// Check if a value is a perfect square.
+    /// Similar to Sum(), this extension method generates the product of all values in a collection
+    /// of doubles.
+    /// I'd love to make this method generic but I haven't figured out how yet.
     /// </summary>
-    public static bool IsPerfectSquare(double d) =>
-        double.IsPositive(d) && double.IsInteger(Sqrt(d));
+    public static double Product(this IEnumerable<double> source) =>
+        source.Aggregate(1.0, (prod, value) => prod * value);
+
+    /// <summary>
+    /// Get a product of all values in the collection, transformed by the supplied function.
+    /// </summary>
+    public static double Product(this IEnumerable<double> source, Func<double, double> func) =>
+        source.Aggregate(1.0, (prod, value) => prod * func(value));
+
+    #endregion Methods for IEnumerable<double>
 }
