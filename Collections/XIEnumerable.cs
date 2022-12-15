@@ -11,10 +11,6 @@ public static class XIEnumerable
     /// For example, if list1 has 2 instances of "cat" and list2 has one instance of "cat", the
     /// result will have one instance of "cat".
     /// </summary>
-    /// <param name="list1"></param>
-    /// <param name="list2"></param>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
     public static IEnumerable<T> Diff<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
     {
         List<T> result = list1.ToList();
