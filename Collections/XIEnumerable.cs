@@ -1,21 +1,10 @@
-using System.Collections;
-
 namespace AstroMultimedia.Core.Collections;
 
 /// <summary>
-/// Extension methods for List.
+/// Extension methods for IEnumerable and IEnumerable[T].
 /// </summary>
 public static class XIEnumerable
 {
-    public static bool IsEmpty<T>(this IEnumerable<T> list) =>
-        list switch
-        {
-            null => throw new ArgumentNullException(nameof(list)),
-            ICollection<T> genericCollection => genericCollection.Count == 0,
-            ICollection nonGenericCollection => nonGenericCollection.Count == 0,
-            _ => !list.Any()
-        };
-
     /// <summary>
     /// Return list1 with values from list2 removed.
     /// Supports duplicates, so this is not the same as set difference.

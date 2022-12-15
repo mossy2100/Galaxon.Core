@@ -1,7 +1,7 @@
 namespace AstroMultimedia.Core.Collections;
 
 /// <summary>
-/// Extension methods for IEnumerable[T].
+/// Extension methods for Dictionary.
 /// </summary>
 public static class XDictionary
 {
