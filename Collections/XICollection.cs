@@ -8,14 +8,8 @@ namespace AstroMultimedia.Core.Collections;
 public static class XICollection
 {
     /// <summary>
-    /// Check if an ICollection is empty.
+    /// Check if an ICollection (array, list, etc.) is null or empty.
     /// </summary>
-    public static bool IsEmpty(this ICollection list) =>
-        list.Count == 0;
-
-    /// <summary>
-    /// Check if an ICollection[T] is empty.
-    /// </summary>
-    public static bool IsEmpty<T>(this ICollection<T> list) =>
-        list.Count == 0;
+    public static bool IsEmpty(this ICollection? list) =>
+        list is null || list.Count == 0;
 }
