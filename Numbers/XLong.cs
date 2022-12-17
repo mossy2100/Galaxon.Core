@@ -1,6 +1,6 @@
 namespace AstroMultimedia.Core.Numbers;
 
-public static class XInt64
+public static class XLong
 {
     /// <summary>
     /// Get the long value closest to x^y.
