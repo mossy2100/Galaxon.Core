@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Numerics;
+using System.Text;
 using AstroMultimedia.Core.Exceptions;
 
 namespace AstroMultimedia.Core.Strings;
@@ -90,6 +91,31 @@ public static class XString
             sb.Append(charMap[c]);
         }
 
+        return sb.ToString();
+    }
+
+    public static string ToSuperscript(this string str, int invalidCharActionCode = 0) =>
+        str.Transform(SuperAndSubscriptFormatter.SuperscriptChars, invalidCharActionCode);
+
+    public static string ToSubscript(this string str, int invalidCharActionCode = 0) =>
+        str.Transform(SuperAndSubscriptFormatter.SubscriptChars, invalidCharActionCode);
+
+    /// <summary>
+    /// Construct a new string by repeating a string s n times.
+    /// </summary>
+    public static string Repeat(this string s, int n)
+    {
+        // Guard.
+        if (n < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(n), "Cannot be negative.");
+        }
+
+        StringBuilder sb = new ();
+        for (int i = 0; i < n; i++)
+        {
+            sb.Append(s);
+        }
         return sb.ToString();
     }
 }

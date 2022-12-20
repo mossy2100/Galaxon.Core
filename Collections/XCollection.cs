@@ -5,7 +5,7 @@ namespace AstroMultimedia.Core.Collections;
 /// <summary>
 /// Extension methods for ICollection and ICollection[T].
 /// </summary>
-public static class XICollection
+public static class XCollection
 {
     /// <summary>
     /// Check if an ICollection (array, list, etc.) is null or empty.

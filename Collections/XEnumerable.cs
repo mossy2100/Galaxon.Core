@@ -3,7 +3,7 @@ namespace AstroMultimedia.Core.Collections;
 /// <summary>
 /// Extension methods for IEnumerable and IEnumerable[T].
 /// </summary>
-public static class XIEnumerable
+public static class XEnumerable
 {
     /// <summary>
     /// Return list1 with values from list2 removed.
