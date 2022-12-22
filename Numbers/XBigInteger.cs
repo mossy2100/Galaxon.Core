@@ -41,16 +41,6 @@ public static class XBigInteger
         (BigInteger)Round(Math.Sqrt((double)n));
 
     /// <summary>
-    /// Returns an integer that indicates the sign of the BigInteger.
-    ///   -1 if the value is less than 0
-    ///   0 if the value equals 0
-    ///   1 if the value is greater than 0
-    /// Same as Sign() method for int, double, etc.
-    /// </summary>
-    public static BigInteger Sign(BigInteger n) =>
-        n < 0 ? -1 : (n == 0 ? 0 : 1);
-
-    /// <summary>
     /// Get the number of digits in the BigInteger.
     /// </summary>
     public static int NumDigits(this BigInteger n)
