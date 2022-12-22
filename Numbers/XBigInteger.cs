@@ -43,12 +43,10 @@ public static class XBigInteger
     /// <summary>
     /// Returns an integer that indicates the sign of the BigInteger.
     ///   -1 if the value is less than 0
-    ///   0 if the value is == 0
+    ///   0 if the value equals 0
     ///   1 if the value is greater than 0
     /// Same as Sign() method for int, double, etc.
     /// </summary>
-    /// <param name="n"></param>
-    /// <returns></returns>
     public static BigInteger Sign(BigInteger n) =>
-        BigInteger.CopySign(1, n);
+        n < 0 ? -1 : (n == 0 ? 0 : 1);
 }

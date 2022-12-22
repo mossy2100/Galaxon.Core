@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using System.Text;
+﻿using System.Text;
 using AstroMultimedia.Core.Exceptions;
 
 namespace AstroMultimedia.Core.Strings;
@@ -53,7 +52,7 @@ public static class XString
     /// </summary>
     /// <param name="str">The original string.</param>
     /// <param name="charMap">The character map.</param>
-    /// <param name="invalidCharActionCode">
+    /// <param name="action">
     /// Code that tells the algorithm what to do if a character is encountered that is not in the
     /// character map.
     ///   0 = Throw an exception (default).
@@ -63,7 +62,7 @@ public static class XString
     /// <returns></returns>
     /// <exception cref="ArgumentInvalidException"></exception>
     public static string Transform(this string str, Dictionary<char, char> charMap,
-        int invalidCharActionCode = 0)
+        InvalidCharAction action = 0)
     {
         StringBuilder sb = new ();
 
@@ -72,16 +71,16 @@ public static class XString
             // Check for invalid character.
             if (!charMap.ContainsKey(c))
             {
-                switch (invalidCharActionCode)
+                switch (action)
                 {
-                    case 0:
+                    case InvalidCharAction.Throw:
                         throw new ArgumentInvalidException(nameof(str),
                             $"Character '{c}' not found in provided character map.");
 
-                    case 1:
+                    case InvalidCharAction.Skip:
                         continue;
 
-                    case 2:
+                    case InvalidCharAction.Keep:
                         sb.Append(c);
                         continue;
                 }
@@ -94,16 +93,26 @@ public static class XString
         return sb.ToString();
     }
 
-    public static string ToSuperscript(this string str, int invalidCharActionCode = 0) =>
-        str.Transform(SuperAndSubscriptFormatter.SuperscriptChars, invalidCharActionCode);
+    public static string ToSuperscript(this string str,
+        InvalidCharAction action = InvalidCharAction.Skip) =>
+        str.Transform(SuperAndSubscriptFormatter.SuperscriptChars, action);
 
-    public static string ToSubscript(this string str, int invalidCharActionCode = 0) =>
-        str.Transform(SuperAndSubscriptFormatter.SubscriptChars, invalidCharActionCode);
+    public static string ToSubscript(this string str,
+        InvalidCharAction action = InvalidCharAction.Skip) =>
+        str.Transform(SuperAndSubscriptFormatter.SubscriptChars, action);
+
+    public static string ToSmallCaps(this string str,
+        InvalidCharAction action = InvalidCharAction.Keep) =>
+        throw new NotImplementedException();
+
+    public static string RemoveDiacritics(this string str,
+        InvalidCharAction action = InvalidCharAction.Keep) =>
+        throw new NotImplementedException();
 
     /// <summary>
     /// Construct a new string by repeating a string s n times.
     /// </summary>
-    public static string Repeat(this string s, int n)
+    public static string Repeat(string s, int n)
     {
         // Guard.
         if (n < 0)

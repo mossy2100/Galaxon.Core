@@ -14,8 +14,6 @@ namespace AstroMultimedia.Core.Strings;
 /// <see href="https://unicode-table.com/en/" />
 public class SuperAndSubscriptFormatter : IFormatProvider, ICustomFormatter
 {
-    public const byte DefaultInvalidCharActionCode = (byte)1;
-
     /// <summary>
     /// Superscript versions of characters.
     /// The intention here is to support most characters likely to appear in a superscript.
@@ -82,7 +80,8 @@ public class SuperAndSubscriptFormatter : IFormatProvider, ICustomFormatter
     ///   0 = Throw an exception.
     ///   1 = Skip it, excluding it from the output (default).
     ///   2 = Keep the original, untransformed character.
-    /// So, these are the valid formats: sup, sup0, sup1, sup2, sub, sub0, sub1, or sub2
+    /// These map to values in the TransformInvalidCharAction enum.
+    /// Thus, the valid formats are: sup, sup0, sup1, sup2, sub, sub0, sub1, and sub2
     /// </param>
     /// <param name="arg">The number, string, or other object to format.</param>
     /// <param name="provider">Reference to this instance.</param>
@@ -117,7 +116,9 @@ public class SuperAndSubscriptFormatter : IFormatProvider, ICustomFormatter
 
         // Extract the format parameters.
         string format = specifier[..3].ToLower(CultureInfo.InvariantCulture);
-        int code = (specifier.Length == 4) ? (specifier[^1] - '0') : DefaultInvalidCharActionCode;
+        InvalidCharAction action = (specifier.Length == 4)
+            ? (InvalidCharAction)(specifier[^1] - '0')
+            : InvalidCharAction.Skip;
 
         // Convert the argument into a string, which can then be transformed into superscript or
         // subscript.
@@ -170,10 +171,10 @@ public class SuperAndSubscriptFormatter : IFormatProvider, ICustomFormatter
         return format switch
         {
             // Superscript.
-            "sup" => strArg.Transform(SuperscriptChars, code),
+            "sup" => strArg.Transform(SuperscriptChars, action),
 
             // Subscript.
-            "sub" => strArg.Transform(SubscriptChars, code),
+            "sub" => strArg.Transform(SubscriptChars, action),
 
             _ => throw new ArgumentInvalidException(nameof(specifier),
                 "Invalid format.")
