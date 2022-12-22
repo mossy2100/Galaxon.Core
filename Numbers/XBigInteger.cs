@@ -49,4 +49,29 @@ public static class XBigInteger
     /// </summary>
     public static BigInteger Sign(BigInteger n) =>
         n < 0 ? -1 : (n == 0 ? 0 : 1);
+
+    /// <summary>
+    /// Get the number of digits in the BigInteger.
+    /// </summary>
+    public static int NumDigits(this BigInteger n)
+    {
+        // Avoid logarithm of 0.
+        if (n == 0)
+        {
+            return 1;
+        }
+
+        // Avoid logarithm of a negative number.
+        n = BigInteger.Abs(n);
+
+        // Get the logarithm, which will be within 1 of the answer.
+        double log = BigInteger.Log10(n);
+
+        // Account for fuzziness in the double representation of the logarithm.
+        double floor = Floor(log);
+        double round = Round(log);
+        double nDigits = floor + (round > floor && log.FuzzyEquals(round) ? 2 : 1);
+
+        return (int)nDigits;
+    }
 }
