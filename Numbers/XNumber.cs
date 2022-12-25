@@ -30,4 +30,54 @@ public static class XNumber
 
     public static bool IsNumber(object? obj) =>
         IsReal(obj) || IsComplex(obj);
+
+    /// <summary>
+    /// Integer division and modulo operation using floored division.
+    /// The modulus will always have the same sign as the divisor.
+    ///
+    /// Unlike the truncated division and modulo provided by C#'s operators, floored division
+    /// produces a regular cycling pattern through both negative and positive values of the divisor.
+    ///
+    /// It permits things like:
+    ///   bool isOdd = Mod(num, 2) == 1;
+    ///
+    /// Trying to do this using the % operator will fail for negative divisors, however. e.g.
+    ///   bool isOdd = num % 2 == 1;
+    /// In this case, if num is negative 0, num % 2 == -1
+    /// </summary>
+    /// <see href="https://en.wikipedia.org/wiki/Modulo_operation" />
+    public static (T div, T mod) DivMod<T>(T a, T b) where T : INumberBase<T>,
+        IModulusOperators<T, T, T>, IComparisonOperators<T, T, bool>
+    {
+        T d = a / b;
+        T m = a % b;
+        if (m < T.Zero && b > T.Zero || m > T.Zero && b < T.Zero)
+        {
+            m += b;
+            d--;
+        }
+        return (d, m);
+    }
+
+    /// <summary>
+    /// Corrected integer division operation.
+    /// </summary>
+    /// <see cref="DivMod{T}" />
+    public static T Div<T>(T a, T b) where T : INumberBase<T>, IModulusOperators<T, T, T>,
+        IComparisonOperators<T, T, bool>
+    {
+        (T d, T m) = DivMod(a, b);
+        return d;
+    }
+
+    /// <summary>
+    /// Corrected modulo operation.
+    /// </summary>
+    /// <see cref="DivMod{T}" />
+    public static T Mod<T>(T a, T b) where T : INumberBase<T>, IModulusOperators<T, T, T>,
+        IComparisonOperators<T, T, bool>
+    {
+        (T d, T m) = DivMod(a, b);
+        return m;
+    }
 }

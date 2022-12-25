@@ -105,11 +105,11 @@ public class TestXDecimal
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LnThrowsIfArgZero() => XDecimal.Ln(0);
+    public void LnThrowsIfArgZero() => XDecimal.Log(0);
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LnThrowsIfArgNegative() => XDecimal.Ln(-1);
+    public void LnThrowsIfArgNegative() => XDecimal.Log(-1);
 
     [TestMethod]
     public void LnTest()
@@ -117,40 +117,40 @@ public class TestXDecimal
         decimal m;
 
         m = 1;
-        XAssert.AreEqual(0, XDecimal.Ln(m));
+        XAssert.AreEqual(0, XDecimal.Log(m));
 
         m = 2;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 10;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = DecimalEx.E;
-        XAssert.AreEqual(1, XDecimal.Ln(m));
+        XAssert.AreEqual(1, XDecimal.Log(m));
 
         m = decimal.MaxValue;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = DecimalEx.SmallestNonZeroDec;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 1.23456789m;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 9.87654321m;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 123456789m;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 9876543210m;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 0.00000000000000000123456789m;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
 
         m = 0.00000000000000000987654321m;
-        XAssert.AreEqual(Log((double)m), XDecimal.Ln(m));
+        XAssert.AreEqual(Log((double)m), XDecimal.Log(m));
     }
 
     [TestMethod]

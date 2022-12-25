@@ -79,7 +79,7 @@ public static class XAssert
             int m = (int)Math.Floor(Math.Log10(Math.Abs(expected)));
             if (m > 0)
             {
-                decimal scaleFactor = XDecimal.Pow10(m);
+                decimal scaleFactor = XDecimal.Exp10(m);
                 a /= scaleFactor;
                 e /= scaleFactor;
             }
