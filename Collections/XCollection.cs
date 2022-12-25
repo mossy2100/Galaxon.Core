@@ -1,6 +1,6 @@
 using System.Collections;
 
-namespace AstroMultimedia.Core.Collections;
+namespace Galaxon.Core.Collections;
 
 /// <summary>
 /// Extension methods for ICollection and ICollection[T].

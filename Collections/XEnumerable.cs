@@ -1,4 +1,4 @@
-namespace AstroMultimedia.Core.Collections;
+namespace Galaxon.Core.Collections;
 
 /// <summary>
 /// Extension methods for IEnumerable and IEnumerable[T].

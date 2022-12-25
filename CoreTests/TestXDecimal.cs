@@ -1,8 +1,8 @@
-using AstroMultimedia.Core.Numbers;
-using AstroMultimedia.Core.Testing;
+using Galaxon.Core.Numbers;
+using Galaxon.Core.Testing;
 using DecimalMath;
 
-namespace AstroMultimedia.Core.Tests;
+namespace Galaxon.Core.Tests;
 
 [TestClass]
 public class TestXDecimal

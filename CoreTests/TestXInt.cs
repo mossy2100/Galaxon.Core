@@ -1,6 +1,6 @@
-using AstroMultimedia.Core.Numbers;
+using Galaxon.Core.Numbers;
 
-namespace AstroMultimedia.Core.Tests;
+namespace Galaxon.Core.Tests;
 
 [TestClass]
 public class TestXInt

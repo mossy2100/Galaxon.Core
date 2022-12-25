@@ -1,4 +1,4 @@
-namespace AstroMultimedia.Core.Time;
+namespace Galaxon.Core.Time;
 
 public enum ETimeUnit
 {

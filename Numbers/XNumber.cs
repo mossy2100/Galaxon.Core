@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace AstroMultimedia.Core.Numbers;
+namespace Galaxon.Core.Numbers;
 
 public static class XNumber
 {

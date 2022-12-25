@@ -1,8 +1,8 @@
 ﻿using System.Runtime.Remoting;
 using System.Text;
-using AstroMultimedia.Core.Exceptions;
+using Galaxon.Core.Exceptions;
 
-namespace AstroMultimedia.Core.Strings;
+namespace Galaxon.Core.Strings;
 
 /// <summary>
 /// Extension methods for String.

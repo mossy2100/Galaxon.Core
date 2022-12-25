@@ -1,4 +1,4 @@
-namespace AstroMultimedia.Core.Strings;
+namespace Galaxon.Core.Strings;
 
 public enum InvalidCharAction
 {

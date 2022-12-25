@@ -5,8 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Company>Astro Multimedia</Company>
-        <RootNamespace>AstroMultimedia.Core.Collections</RootNamespace>
-        <AssemblyName>AstroMultimedia.Core.Collections</AssemblyName>
+        <RootNamespace>Galaxon.Core.Collections</RootNamespace>
+        <AssemblyName>Galaxon.Core.Collections</AssemblyName>
         <PackageId>Collections</PackageId>
         <OutputType>Library</OutputType>
     </PropertyGroup>

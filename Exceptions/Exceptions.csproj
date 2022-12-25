@@ -5,8 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Company>Astro Multimedia</Company>
-        <RootNamespace>AstroMultimedia.Core.Exceptions</RootNamespace>
-        <AssemblyName>AstroMultimedia.Core.Exceptions</AssemblyName>
+        <RootNamespace>Galaxon.Core.Exceptions</RootNamespace>
+        <AssemblyName>Galaxon.Core.Exceptions</AssemblyName>
         <PackageId>Exceptions</PackageId>
         <OutputType>Library</OutputType>
     </PropertyGroup>

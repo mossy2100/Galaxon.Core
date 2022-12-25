@@ -5,8 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Company>Astro Multimedia</Company>
-        <RootNamespace>AstroMultimedia.Core.Time</RootNamespace>
-        <AssemblyName>AstroMultimedia.Core.Time</AssemblyName>
+        <RootNamespace>Galaxon.Core.Time</RootNamespace>
+        <AssemblyName>Galaxon.Core.Time</AssemblyName>
         <PackageId>Time</PackageId>
         <OutputType>Library</OutputType>
     </PropertyGroup>

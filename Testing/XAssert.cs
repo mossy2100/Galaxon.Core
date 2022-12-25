@@ -1,6 +1,6 @@
-﻿using AstroMultimedia.Core.Numbers;
+﻿using Galaxon.Core.Numbers;
 
-namespace AstroMultimedia.Core.Testing;
+namespace Galaxon.Core.Testing;
 
 /// <summary>
 /// Container for my own custom Assert methods.

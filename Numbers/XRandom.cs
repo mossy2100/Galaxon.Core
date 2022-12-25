@@ -1,4 +1,4 @@
-namespace AstroMultimedia.Core.Numbers;
+namespace Galaxon.Core.Numbers;
 
 public static class XRandom
 {

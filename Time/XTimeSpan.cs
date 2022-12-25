@@ -1,4 +1,4 @@
-namespace AstroMultimedia.Core.Time;
+namespace Galaxon.Core.Time;
 
 /// <summary>
 /// Additional members to supplement the TimeSpan class.

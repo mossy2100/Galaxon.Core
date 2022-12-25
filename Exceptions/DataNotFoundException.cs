@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace AstroMultimedia.Core.Exceptions;
+namespace Galaxon.Core.Exceptions;
 
 /// <summary>
 /// This exception is often needed when working with databases, and a bit more informative than the

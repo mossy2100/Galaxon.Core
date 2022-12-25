@@ -1,4 +1,4 @@
-namespace AstroMultimedia.Core.Exceptions;
+namespace Galaxon.Core.Exceptions;
 
 /// <summary>
 /// This exception type is useful for an ArgumentException when the argument is invalid for a

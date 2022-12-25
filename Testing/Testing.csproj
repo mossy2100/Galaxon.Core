@@ -5,8 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <Company>Astro Multimedia</Company>
-        <RootNamespace>AstroMultimedia.Core.Testing</RootNamespace>
-        <AssemblyName>AstroMultimedia.Core.Testing</AssemblyName>
+        <RootNamespace>Galaxon.Core.Testing</RootNamespace>
+        <AssemblyName>Galaxon.Core.Testing</AssemblyName>
         <PackageId>Testing</PackageId>
         <OutputType>Library</OutputType>
     </PropertyGroup>

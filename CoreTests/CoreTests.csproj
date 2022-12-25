@@ -7,9 +7,9 @@
 
         <IsPackable>false</IsPackable>
 
-        <RootNamespace>AstroMultimedia.Core.Tests</RootNamespace>
+        <RootNamespace>Galaxon.Core.Tests</RootNamespace>
 
-        <AssemblyName>AstroMultimedia.Core.Tests</AssemblyName>
+        <AssemblyName>Galaxon.Core.Tests</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>

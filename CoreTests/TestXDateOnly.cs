@@ -1,6 +1,6 @@
-﻿using AstroMultimedia.Core.Time;
+﻿using Galaxon.Core.Time;
 
-namespace AstroMultimedia.Core.Tests;
+namespace Galaxon.Core.Tests;
 
 [TestClass]
 public class TestXDateOnly

@@ -1,10 +1,10 @@
 using System.Globalization;
 using System.Numerics;
 using System.Text.RegularExpressions;
-using AstroMultimedia.Core.Exceptions;
-using AstroMultimedia.Core.Numbers;
+using Galaxon.Core.Exceptions;
+using Galaxon.Core.Numbers;
 
-namespace AstroMultimedia.Core.Strings;
+namespace Galaxon.Core.Strings;
 
 /// <summary>
 /// Enables formatting of a number or numeric string as its superscript or subscript form.

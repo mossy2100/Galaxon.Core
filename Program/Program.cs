@@ -1,4 +1,4 @@
-﻿using AstroMultimedia.Core.Numbers;
+﻿using Galaxon.Core.Numbers;
 
 foreach (int b in new [] { -5, 5 })
 {

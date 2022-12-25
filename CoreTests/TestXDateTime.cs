@@ -1,7 +1,7 @@
-﻿using AstroMultimedia.Core.Time;
+﻿using Galaxon.Core.Time;
 using static System.DateTimeKind;
 
-namespace AstroMultimedia.Core.Tests;
+namespace Galaxon.Core.Tests;
 
 [TestClass]
 public class TestXDateTime

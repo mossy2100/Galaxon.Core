@@ -1,6 +1,6 @@
-using AstroMultimedia.Core.Collections;
+using Galaxon.Core.Collections;
 
-namespace AstroMultimedia.Core.Tests;
+namespace Galaxon.Core.Tests;
 
 [TestClass]
 public class TestXEnumerable

@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace AstroMultimedia.Core.Time;
+namespace Galaxon.Core.Time;
 
 /// <summary>
 /// Extension methods for the DateTime class.

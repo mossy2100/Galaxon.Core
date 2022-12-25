@@ -1,6 +1,6 @@
 using System.Text;
 
-namespace AstroMultimedia.Core.Strings;
+namespace Galaxon.Core.Strings;
 
 /// <summary>
 /// Extension methods for StringBuilder.
