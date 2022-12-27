@@ -10,29 +10,51 @@ public static class XDouble
     /// </summary>
     public const double Delta = 1e-9;
 
-    #region Methods for rounding
+    #region Miscellaneous methods
 
     /// <summary>
     /// Round off a value to a given number of significant figures.
     /// </summary>
     /// <param name="d">The number to round.</param>
-    /// <param name="digits">The number of significant figures.</param>
+    /// <param name="nSigFigs">The number of significant figures.</param>
     /// <returns>The rounded number.</returns>
-    /// TODO TEST. If digits is too high, an exception will be thrown, so this needs to be checked.
-    public static double RoundSigFigs(this double d, int digits)
+    public static double RoundSigFigs(double d, int nSigFigs)
     {
-        if (d == 0)
+        if (d <= 0)
         {
-            return 0;
+            throw new ArgumentOutOfRangeException(nameof(nSigFigs), "Must be positive.");
         }
 
-        double scale = Pow(10, Floor(Log10(Abs(d))) + 1);
-        return scale * Round(d / scale, digits);
+        // The maximum number of significant digits supported by double is 17, so if it's this or
+        // greater there's nothing to do.
+        if (d >= 17)
+        {
+            return d;
+        }
+
+        double scale = Pow(10, Floor(Log10(d)) + 1);
+        return scale * Round(d / scale, nSigFigs);
     }
 
-    #endregion Methods for rounding
+    /// <summary>
+    /// Disassemble the double into its component parts.
+    /// </summary>
+    /// <see href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format#IEEE_754_double-precision_binary_floating-point_format:_binary64" />
+    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this double x)
+    {
+        ulong xul = BitConverter.DoubleToUInt64Bits(x);
+        byte signBit =
+            (byte)((xul & 0b10000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000) >> 63);
+        ushort expBits =
+            (ushort)((xul & 0b01111111_11110000_00000000_00000000_00000000_00000000_00000000_00000000) >> 52);
+        ulong fracBits =
+            xul & 0b00000000_00001111_11111111_11111111_11111111_11111111_11111111_11111111;
+        return (signBit, expBits, fracBits);
+    }
 
-    #region Methods for checking if doubles are integers
+    #endregion Miscellaneous methods
+
+    #region Methods for checking doubles as integers
 
     /// <summary>
     /// Check if a double is a positive integer.
@@ -52,7 +74,7 @@ public static class XDouble
     public static bool IsPerfectSquare(double d) =>
         double.IsPositive(d) && double.IsInteger(Sqrt(d));
 
-    #endregion Methods for checking if doubles are integers
+    #endregion Methods for checking doubles as integers
 
     #region Methods for fuzzy equals
 
