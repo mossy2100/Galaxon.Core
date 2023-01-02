@@ -1,5 +1,3 @@
-using System.Text;
-
 namespace Galaxon.Core.Numbers;
 
 public static class XUlong
@@ -48,6 +46,8 @@ public static class XUlong
             _ => (ulong)-n
         };
 
+    #region Methods for working with binary and hexadecimal strings
+
     /// <summary>
     /// Get the ulong as a string of hexadecimal digits.
     /// </summary>
@@ -81,4 +81,6 @@ public static class XUlong
     /// </summary>
     public static ulong FromBinString(string strDigits) =>
         Convert.ToUInt64(strDigits, 2);
+
+    #endregion Methods for working with binary and hexadecimal strings
 }

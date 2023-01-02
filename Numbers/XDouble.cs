@@ -36,22 +36,6 @@ public static class XDouble
         return scale * Round(d / scale, nSigFigs);
     }
 
-    /// <summary>
-    /// Disassemble the double into its component parts.
-    /// </summary>
-    /// <see href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format#IEEE_754_double-precision_binary_floating-point_format:_binary64" />
-    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this double x)
-    {
-        ulong xul = BitConverter.DoubleToUInt64Bits(x);
-        byte signBit =
-            (byte)((xul & 0b10000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000) >> 63);
-        ushort expBits =
-            (ushort)((xul & 0b01111111_11110000_00000000_00000000_00000000_00000000_00000000_00000000) >> 52);
-        ulong fracBits =
-            xul & 0b00000000_00001111_11111111_11111111_11111111_11111111_11111111_11111111;
-        return (signBit, expBits, fracBits);
-    }
-
     #endregion Miscellaneous methods
 
     #region Methods for checking doubles as integers
