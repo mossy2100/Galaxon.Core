@@ -30,11 +30,8 @@ public class ArgumentFormatException : ArgumentException
     /// <param name="paramName">The parameter name.</param>
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
-    public ArgumentFormatException(
-        string? paramName = null,
-        string? message = null,
-        Exception? innerException = null
-    ) : base(message, paramName, innerException)
+    public ArgumentFormatException(string? paramName = null, string? message = null,
+        Exception? innerException = null) : base(message, paramName, innerException)
     {
     }
 }

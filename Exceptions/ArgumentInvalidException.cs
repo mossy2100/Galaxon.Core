@@ -29,11 +29,8 @@ public class ArgumentInvalidException : ArgumentException
     /// <param name="paramName">The parameter name.</param>
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
-    public ArgumentInvalidException(
-        string? paramName = null,
-        string? message = null,
-        Exception? innerException = null
-    ) : base(message, paramName, innerException)
+    public ArgumentInvalidException(string? paramName = null, string? message = null,
+        Exception? innerException = null) : base(message, paramName, innerException)
     {
     }
 }

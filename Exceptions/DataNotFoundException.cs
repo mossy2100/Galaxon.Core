@@ -14,10 +14,8 @@ public class DataNotFoundException : DataException
     /// </summary>
     /// <param name="message"></param>
     /// <param name="innerException"></param>
-    public DataNotFoundException(
-        string? message = null,
-        Exception? innerException = null
-    ) : base(message, innerException)
+    public DataNotFoundException(string? message = null, Exception? innerException = null)
+        : base(message, innerException)
     {
     }
 }
