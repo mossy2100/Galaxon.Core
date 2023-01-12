@@ -1,0 +1,1285 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XDecimal
+  commentId: T:Galaxon.Core.Numbers.XDecimal
+  id: XDecimal
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XDecimal.Acosh(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Acot(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Acoth(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Acsc(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Acsch(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Asec(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Asech(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Asinh(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Atanh(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Cosh(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Cot(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Coth(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Csc(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Csch(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Exp10(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Exp2(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.IsInteger(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Log(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Log2(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.RoundSigFigs(System.Decimal,System.Int32)
+  - Galaxon.Core.Numbers.XDecimal.Sec(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Sech(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Sinh(System.Decimal)
+  - Galaxon.Core.Numbers.XDecimal.Tanh(System.Decimal)
+  langs:
+  - csharp
+  - vb
+  name: XDecimal
+  nameWithType: XDecimal
+  fullName: Galaxon.Core.Numbers.XDecimal
+  type: Class
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XDecimal
+    path: Numbers/XDecimal.cs
+    startLine: 4
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: 'public static class XDecimal : object'
+    content.vb: >-
+      Public Module XDecimal
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XDecimal.Log(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal)
+  id: Log(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Log(Decimal)
+  nameWithType: XDecimal.Log(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Log(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Log
+    path: Numbers/XDecimal.cs
+    startLine: 21
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCalculate the natural logarithm of a decimal.\nThe algorithm is from:\n<a href=\"https://en.wikipedia.org/wiki/Natural_logarithm\">https://en.wikipedia.org/wiki/Natural_logarithm</a>\nI found that DecimalEx.Log() hangs for very small values so I made this version.\nIt&apos;s tested, fast, and doesn&apos;t break with the largest or smallest decimal values.\n<see cref=\"!:Math.Log(double)\"></see>\n"
+  example: []
+  syntax:
+    content: public static decimal Log(decimal m)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: A decimal value.
+    return:
+      type: System.Decimal
+      description: The natural logarithm of the given value.
+    content.vb: Public Shared Function Log(m As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Log*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)
+  id: Log(System.Decimal,System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Log(Decimal, Decimal)
+  nameWithType: XDecimal.Log(Decimal, Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Log(System.Decimal, System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Log
+    path: Numbers/XDecimal.cs
+    startLine: 111
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nLogarithm of a decimal in a specified base.\n<see cref=\"!:Math.Log(double, double)\"></see>\n<xref href=\"Galaxon.Core.Numbers.XDecimal.Log(System.Decimal%2cSystem.Decimal)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static decimal Log(decimal m, decimal b)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: The decimal value.
+    - id: b
+      type: System.Decimal
+      description: The base.
+    return:
+      type: System.Decimal
+      description: The logarithm of z in base b.
+    content.vb: Public Shared Function Log(m As Decimal, b As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Log*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)
+  id: Log10(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Log10(Decimal)
+  nameWithType: XDecimal.Log10(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Log10
+    path: Numbers/XDecimal.cs
+    startLine: 139
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nLogarithm of a decimal in base 10.\n<see cref=\"!:Math.Log10\"></see>\n<xref href=\"Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static decimal Log10(decimal m)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: The decimal value.
+    return:
+      type: System.Decimal
+      description: The logarithm of the number in base 10.
+    content.vb: Public Shared Function Log10(m As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Log10*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Exp10(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Exp10(System.Decimal)
+  id: Exp10(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Exp10(Decimal)
+  nameWithType: XDecimal.Exp10(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Exp10(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Exp10
+    path: Numbers/XDecimal.cs
+    startLine: 147
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCalculate 10 raised to a decimal power.\n"
+  example: []
+  syntax:
+    content: public static decimal Exp10(decimal m)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: A decimal value.
+    return:
+      type: System.Decimal
+      description: 10^d
+    content.vb: Public Shared Function Exp10(m As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Exp10*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Log2(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Log2(System.Decimal)
+  id: Log2(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Log2(Decimal)
+  nameWithType: XDecimal.Log2(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Log2(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Log2
+    path: Numbers/XDecimal.cs
+    startLine: 158
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nLogarithm of a decimal in base 2.\n"
+  example: []
+  syntax:
+    content: public static decimal Log2(decimal m)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: The decimal value.
+    return:
+      type: System.Decimal
+      description: The logarithm of the number in base 2.
+    content.vb: Public Shared Function Log2(m As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Log2*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Exp2(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Exp2(System.Decimal)
+  id: Exp2(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Exp2(Decimal)
+  nameWithType: XDecimal.Exp2(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Exp2(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Exp2
+    path: Numbers/XDecimal.cs
+    startLine: 166
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCalculate 2 raised to a decimal power.\n"
+  example: []
+  syntax:
+    content: public static decimal Exp2(decimal m)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: A decimal value.
+    return:
+      type: System.Decimal
+      description: 2^d
+    content.vb: Public Shared Function Exp2(m As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Exp2*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Cot(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Cot(System.Decimal)
+  id: Cot(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Cot(Decimal)
+  nameWithType: XDecimal.Cot(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Cot(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Cot
+    path: Numbers/XDecimal.cs
+    startLine: 177
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturns the cotangent of the specified angle.\n"
+  example: []
+  syntax:
+    content: public static decimal Cot(decimal alpha)
+    parameters:
+    - id: alpha
+      type: System.Decimal
+      description: An angle, measured in radians.
+    return:
+      type: System.Decimal
+    content.vb: Public Shared Function Cot(alpha As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Cot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Sec(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Sec(System.Decimal)
+  id: Sec(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Sec(Decimal)
+  nameWithType: XDecimal.Sec(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Sec(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Sec
+    path: Numbers/XDecimal.cs
+    startLine: 192
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturns the secant of the specified angle.\n"
+  example: []
+  syntax:
+    content: public static decimal Sec(decimal alpha)
+    parameters:
+    - id: alpha
+      type: System.Decimal
+      description: An angle, measured in radians.
+    return:
+      type: System.Decimal
+    content.vb: Public Shared Function Sec(alpha As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Sec*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Csc(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Csc(System.Decimal)
+  id: Csc(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Csc(Decimal)
+  nameWithType: XDecimal.Csc(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Csc(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Csc
+    path: Numbers/XDecimal.cs
+    startLine: 208
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturns the cosecant of the specified angle.\n"
+  example: []
+  syntax:
+    content: public static decimal Csc(decimal alpha)
+    parameters:
+    - id: alpha
+      type: System.Decimal
+      description: An angle, measured in radians.
+    return:
+      type: System.Decimal
+    content.vb: Public Shared Function Csc(alpha As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Csc*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Acot(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Acot(System.Decimal)
+  id: Acot(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Acot(Decimal)
+  nameWithType: XDecimal.Acot(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Acot(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Acot
+    path: Numbers/XDecimal.cs
+    startLine: 224
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturns the angle whose cotangent is the specified number.\n"
+  example: []
+  syntax:
+    content: public static decimal Acot(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: A number representing a cotangent.
+    return:
+      type: System.Decimal
+    content.vb: Public Shared Function Acot(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Acot*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Asec(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Asec(System.Decimal)
+  id: Asec(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Asec(Decimal)
+  nameWithType: XDecimal.Asec(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Asec(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Asec
+    path: Numbers/XDecimal.cs
+    startLine: 231
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturns the angle whose secant is the specified number.\n"
+  example: []
+  syntax:
+    content: public static decimal Asec(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: A number representing a secant.
+    return:
+      type: System.Decimal
+    content.vb: Public Shared Function Asec(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Asec*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Acsc(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Acsc(System.Decimal)
+  id: Acsc(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Acsc(Decimal)
+  nameWithType: XDecimal.Acsc(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Acsc(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Acsc
+    path: Numbers/XDecimal.cs
+    startLine: 247
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturns the angle whose cosecant is the specified number.\n"
+  example: []
+  syntax:
+    content: public static decimal Acsc(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: A number representing a cosecant.
+    return:
+      type: System.Decimal
+    content.vb: Public Shared Function Acsc(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Acsc*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Sinh(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Sinh(System.Decimal)
+  id: Sinh(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Sinh(Decimal)
+  nameWithType: XDecimal.Sinh(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Sinh(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Sinh
+    path: Numbers/XDecimal.cs
+    startLine: 263
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nHyperbolic sine.\n"
+  example: []
+  syntax:
+    content: public static decimal Sinh(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic angle.
+    return:
+      type: System.Decimal
+      description: The hyperbolic sine of the given angle.
+    content.vb: Public Shared Function Sinh(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Sinh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Cosh(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Cosh(System.Decimal)
+  id: Cosh(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Cosh(Decimal)
+  nameWithType: XDecimal.Cosh(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Cosh(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Cosh
+    path: Numbers/XDecimal.cs
+    startLine: 271
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nHyperbolic cosine.\n"
+  example: []
+  syntax:
+    content: public static decimal Cosh(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic angle.
+    return:
+      type: System.Decimal
+      description: The hyperbolic cosine of the given angle.
+    content.vb: Public Shared Function Cosh(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Cosh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Tanh(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Tanh(System.Decimal)
+  id: Tanh(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Tanh(Decimal)
+  nameWithType: XDecimal.Tanh(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Tanh(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Tanh
+    path: Numbers/XDecimal.cs
+    startLine: 279
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nHyperbolic tangent.\n"
+  example: []
+  syntax:
+    content: public static decimal Tanh(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic angle.
+    return:
+      type: System.Decimal
+      description: The hyperbolic tangent of the given angle.
+    content.vb: Public Shared Function Tanh(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Tanh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Coth(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Coth(System.Decimal)
+  id: Coth(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Coth(Decimal)
+  nameWithType: XDecimal.Coth(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Coth(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Coth
+    path: Numbers/XDecimal.cs
+    startLine: 290
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nHyperbolic cotangent.\n"
+  example: []
+  syntax:
+    content: public static decimal Coth(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic angle.
+    return:
+      type: System.Decimal
+      description: The hyperbolic cotangent of the given angle.
+    content.vb: Public Shared Function Coth(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Coth*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Sech(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Sech(System.Decimal)
+  id: Sech(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Sech(Decimal)
+  nameWithType: XDecimal.Sech(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Sech(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Sech
+    path: Numbers/XDecimal.cs
+    startLine: 301
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nHyperbolic secant.\n"
+  example: []
+  syntax:
+    content: public static decimal Sech(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic angle.
+    return:
+      type: System.Decimal
+      description: The hyperbolic secant of the given angle.
+    content.vb: Public Shared Function Sech(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Sech*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Csch(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Csch(System.Decimal)
+  id: Csch(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Csch(Decimal)
+  nameWithType: XDecimal.Csch(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Csch(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Csch
+    path: Numbers/XDecimal.cs
+    startLine: 309
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nHyperbolic cosecant.\n"
+  example: []
+  syntax:
+    content: public static decimal Csch(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic angle.
+    return:
+      type: System.Decimal
+      description: The hyperbolic cosecant of the given angle.
+    content.vb: Public Shared Function Csch(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Csch*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Asinh(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Asinh(System.Decimal)
+  id: Asinh(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Asinh(Decimal)
+  nameWithType: XDecimal.Asinh(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Asinh(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Asinh
+    path: Numbers/XDecimal.cs
+    startLine: 317
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInverse hyperbolic sine.\n"
+  example: []
+  syntax:
+    content: public static decimal Asinh(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic sine of an angle.
+    return:
+      type: System.Decimal
+      description: The angle.
+    content.vb: Public Shared Function Asinh(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Asinh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Acosh(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Acosh(System.Decimal)
+  id: Acosh(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Acosh(Decimal)
+  nameWithType: XDecimal.Acosh(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Acosh(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Acosh
+    path: Numbers/XDecimal.cs
+    startLine: 325
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInverse hyperbolic cosine.\n"
+  example: []
+  syntax:
+    content: public static decimal Acosh(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic cosine of an angle.
+    return:
+      type: System.Decimal
+      description: The angle.
+    content.vb: Public Shared Function Acosh(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Acosh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Atanh(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Atanh(System.Decimal)
+  id: Atanh(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Atanh(Decimal)
+  nameWithType: XDecimal.Atanh(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Atanh(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Atanh
+    path: Numbers/XDecimal.cs
+    startLine: 333
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInverse hyperbolic tangent.\n"
+  example: []
+  syntax:
+    content: public static decimal Atanh(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic tangent of an angle.
+    return:
+      type: System.Decimal
+      description: The angle.
+    content.vb: Public Shared Function Atanh(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Atanh*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Acoth(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Acoth(System.Decimal)
+  id: Acoth(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Acoth(Decimal)
+  nameWithType: XDecimal.Acoth(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Acoth(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Acoth
+    path: Numbers/XDecimal.cs
+    startLine: 341
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInverse hyperbolic cotangent.\n"
+  example: []
+  syntax:
+    content: public static decimal Acoth(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic cotangent of an angle.
+    return:
+      type: System.Decimal
+      description: The angle.
+    content.vb: Public Shared Function Acoth(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Acoth*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Asech(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Asech(System.Decimal)
+  id: Asech(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Asech(Decimal)
+  nameWithType: XDecimal.Asech(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Asech(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Asech
+    path: Numbers/XDecimal.cs
+    startLine: 349
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInverse hyperbolic secant.\n"
+  example: []
+  syntax:
+    content: public static decimal Asech(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic secant of an angle.
+    return:
+      type: System.Decimal
+      description: The angle.
+    content.vb: Public Shared Function Asech(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Asech*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.Acsch(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Acsch(System.Decimal)
+  id: Acsch(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: Acsch(Decimal)
+  nameWithType: XDecimal.Acsch(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.Acsch(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Acsch
+    path: Numbers/XDecimal.cs
+    startLine: 357
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInverse hyperbolic cosecant.\n"
+  example: []
+  syntax:
+    content: public static decimal Acsch(decimal x)
+    parameters:
+    - id: x
+      type: System.Decimal
+      description: The hyperbolic cosecant of an angle.
+    return:
+      type: System.Decimal
+      description: The angle.
+    content.vb: Public Shared Function Acsch(x As Decimal) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.Acsch*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.IsInteger(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.IsInteger(System.Decimal)
+  id: IsInteger(System.Decimal)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: IsInteger(Decimal)
+  nameWithType: XDecimal.IsInteger(Decimal)
+  fullName: Galaxon.Core.Numbers.XDecimal.IsInteger(System.Decimal)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsInteger
+    path: Numbers/XDecimal.cs
+    startLine: 364
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsInteger(decimal m)
+    parameters:
+    - id: m
+      type: System.Decimal
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInteger(m As Decimal) As Boolean
+  overload: Galaxon.Core.Numbers.XDecimal.IsInteger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDecimal.RoundSigFigs(System.Decimal,System.Int32)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.RoundSigFigs(System.Decimal,System.Int32)
+  id: RoundSigFigs(System.Decimal,System.Int32)
+  parent: Galaxon.Core.Numbers.XDecimal
+  langs:
+  - csharp
+  - vb
+  name: RoundSigFigs(Decimal, Int32)
+  nameWithType: XDecimal.RoundSigFigs(Decimal, Int32)
+  fullName: Galaxon.Core.Numbers.XDecimal.RoundSigFigs(System.Decimal, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDecimal.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: RoundSigFigs
+    path: Numbers/XDecimal.cs
+    startLine: 374
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nRound off a value to a given number of significant figures.\n"
+  example: []
+  syntax:
+    content: public static decimal RoundSigFigs(decimal m, int n)
+    parameters:
+    - id: m
+      type: System.Decimal
+      description: The number to round.
+    - id: n
+      type: System.Int32
+      description: The number of significant figures.
+    return:
+      type: System.Decimal
+      description: The rounded number.
+    content.vb: Public Shared Function RoundSigFigs(m As Decimal, n As Integer) As Decimal
+  overload: Galaxon.Core.Numbers.XDecimal.RoundSigFigs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Numbers.XDecimal.Log*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Log
+  name: Log
+  nameWithType: XDecimal.Log
+  fullName: Galaxon.Core.Numbers.XDecimal.Log
+- uid: System.Decimal
+  isExternal: true
+  name: Decimal
+  nameWithType: Decimal
+  fullName: System.Decimal
+- uid: Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)
+  isExternal: true
+- uid: Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)
+  commentId: M:Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)
+  isExternal: true
+- uid: Galaxon.Core.Numbers.XDecimal.Log10*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Log10
+  name: Log10
+  nameWithType: XDecimal.Log10
+  fullName: Galaxon.Core.Numbers.XDecimal.Log10
+- uid: Galaxon.Core.Numbers.XDecimal.Exp10*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Exp10
+  name: Exp10
+  nameWithType: XDecimal.Exp10
+  fullName: Galaxon.Core.Numbers.XDecimal.Exp10
+- uid: Galaxon.Core.Numbers.XDecimal.Log2*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Log2
+  name: Log2
+  nameWithType: XDecimal.Log2
+  fullName: Galaxon.Core.Numbers.XDecimal.Log2
+- uid: Galaxon.Core.Numbers.XDecimal.Exp2*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Exp2
+  name: Exp2
+  nameWithType: XDecimal.Exp2
+  fullName: Galaxon.Core.Numbers.XDecimal.Exp2
+- uid: Galaxon.Core.Numbers.XDecimal.Cot*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Cot
+  name: Cot
+  nameWithType: XDecimal.Cot
+  fullName: Galaxon.Core.Numbers.XDecimal.Cot
+- uid: Galaxon.Core.Numbers.XDecimal.Sec*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Sec
+  name: Sec
+  nameWithType: XDecimal.Sec
+  fullName: Galaxon.Core.Numbers.XDecimal.Sec
+- uid: Galaxon.Core.Numbers.XDecimal.Csc*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Csc
+  name: Csc
+  nameWithType: XDecimal.Csc
+  fullName: Galaxon.Core.Numbers.XDecimal.Csc
+- uid: Galaxon.Core.Numbers.XDecimal.Acot*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Acot
+  name: Acot
+  nameWithType: XDecimal.Acot
+  fullName: Galaxon.Core.Numbers.XDecimal.Acot
+- uid: Galaxon.Core.Numbers.XDecimal.Asec*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Asec
+  name: Asec
+  nameWithType: XDecimal.Asec
+  fullName: Galaxon.Core.Numbers.XDecimal.Asec
+- uid: Galaxon.Core.Numbers.XDecimal.Acsc*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Acsc
+  name: Acsc
+  nameWithType: XDecimal.Acsc
+  fullName: Galaxon.Core.Numbers.XDecimal.Acsc
+- uid: Galaxon.Core.Numbers.XDecimal.Sinh*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Sinh
+  name: Sinh
+  nameWithType: XDecimal.Sinh
+  fullName: Galaxon.Core.Numbers.XDecimal.Sinh
+- uid: Galaxon.Core.Numbers.XDecimal.Cosh*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Cosh
+  name: Cosh
+  nameWithType: XDecimal.Cosh
+  fullName: Galaxon.Core.Numbers.XDecimal.Cosh
+- uid: Galaxon.Core.Numbers.XDecimal.Tanh*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Tanh
+  name: Tanh
+  nameWithType: XDecimal.Tanh
+  fullName: Galaxon.Core.Numbers.XDecimal.Tanh
+- uid: Galaxon.Core.Numbers.XDecimal.Coth*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Coth
+  name: Coth
+  nameWithType: XDecimal.Coth
+  fullName: Galaxon.Core.Numbers.XDecimal.Coth
+- uid: Galaxon.Core.Numbers.XDecimal.Sech*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Sech
+  name: Sech
+  nameWithType: XDecimal.Sech
+  fullName: Galaxon.Core.Numbers.XDecimal.Sech
+- uid: Galaxon.Core.Numbers.XDecimal.Csch*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Csch
+  name: Csch
+  nameWithType: XDecimal.Csch
+  fullName: Galaxon.Core.Numbers.XDecimal.Csch
+- uid: Galaxon.Core.Numbers.XDecimal.Asinh*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Asinh
+  name: Asinh
+  nameWithType: XDecimal.Asinh
+  fullName: Galaxon.Core.Numbers.XDecimal.Asinh
+- uid: Galaxon.Core.Numbers.XDecimal.Acosh*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Acosh
+  name: Acosh
+  nameWithType: XDecimal.Acosh
+  fullName: Galaxon.Core.Numbers.XDecimal.Acosh
+- uid: Galaxon.Core.Numbers.XDecimal.Atanh*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Atanh
+  name: Atanh
+  nameWithType: XDecimal.Atanh
+  fullName: Galaxon.Core.Numbers.XDecimal.Atanh
+- uid: Galaxon.Core.Numbers.XDecimal.Acoth*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Acoth
+  name: Acoth
+  nameWithType: XDecimal.Acoth
+  fullName: Galaxon.Core.Numbers.XDecimal.Acoth
+- uid: Galaxon.Core.Numbers.XDecimal.Asech*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Asech
+  name: Asech
+  nameWithType: XDecimal.Asech
+  fullName: Galaxon.Core.Numbers.XDecimal.Asech
+- uid: Galaxon.Core.Numbers.XDecimal.Acsch*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.Acsch
+  name: Acsch
+  nameWithType: XDecimal.Acsch
+  fullName: Galaxon.Core.Numbers.XDecimal.Acsch
+- uid: Galaxon.Core.Numbers.XDecimal.IsInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.IsInteger
+  name: IsInteger
+  nameWithType: XDecimal.IsInteger
+  fullName: Galaxon.Core.Numbers.XDecimal.IsInteger
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Galaxon.Core.Numbers.XDecimal.RoundSigFigs*
+  commentId: Overload:Galaxon.Core.Numbers.XDecimal.RoundSigFigs
+  name: RoundSigFigs
+  nameWithType: XDecimal.RoundSigFigs
+  fullName: Galaxon.Core.Numbers.XDecimal.RoundSigFigs
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

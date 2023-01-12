@@ -1,0 +1,399 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XUlong
+  commentId: T:Galaxon.Core.Numbers.XUlong
+  id: XUlong
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XUlong.Abs(System.Int64)
+  - Galaxon.Core.Numbers.XUlong.Sum(IEnumerable{System.UInt64})
+  - Galaxon.Core.Numbers.XUlong.Sum(IEnumerable{System.UInt64},Func{System.UInt64,System.UInt64})
+  langs:
+  - csharp
+  - vb
+  name: XUlong
+  nameWithType: XUlong
+  fullName: Galaxon.Core.Numbers.XUlong
+  type: Class
+  source:
+    remote:
+      path: Numbers/XUlong.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XUlong
+    path: Numbers/XUlong.cs
+    startLine: 2
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: 'public static class XUlong : object'
+    content.vb: >-
+      Public Module XUlong
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XUlong.Sum(IEnumerable{System.UInt64})
+  commentId: M:Galaxon.Core.Numbers.XUlong.Sum(IEnumerable{System.UInt64})
+  id: Sum(IEnumerable{System.UInt64})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XUlong
+  langs:
+  - csharp
+  - vb
+  name: Sum(IEnumerable<UInt64>)
+  nameWithType: XUlong.Sum(IEnumerable<UInt64>)
+  fullName: Galaxon.Core.Numbers.XUlong.Sum(IEnumerable<System.UInt64>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XUlong.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Sum
+    path: Numbers/XUlong.cs
+    startLine: 9
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nGet the sum of all values in the collection.\n"
+  example: []
+  syntax:
+    content: public static ulong Sum(this IEnumerable<ulong> source)
+    parameters:
+    - id: source
+      type: IEnumerable{System.UInt64}
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Sum(source As IEnumerable(Of ULong)) As ULong
+  overload: Galaxon.Core.Numbers.XUlong.Sum*
+  nameWithType.vb: XUlong.Sum(IEnumerable(Of UInt64))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XUlong.Sum(IEnumerable(Of System.UInt64))
+  name.vb: Sum(IEnumerable(Of UInt64))
+- uid: Galaxon.Core.Numbers.XUlong.Sum(IEnumerable{System.UInt64},Func{System.UInt64,System.UInt64})
+  commentId: M:Galaxon.Core.Numbers.XUlong.Sum(IEnumerable{System.UInt64},Func{System.UInt64,System.UInt64})
+  id: Sum(IEnumerable{System.UInt64},Func{System.UInt64,System.UInt64})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XUlong
+  langs:
+  - csharp
+  - vb
+  name: Sum(IEnumerable<UInt64>, Func<UInt64, UInt64>)
+  nameWithType: XUlong.Sum(IEnumerable<UInt64>, Func<UInt64, UInt64>)
+  fullName: Galaxon.Core.Numbers.XUlong.Sum(IEnumerable<System.UInt64>, Func<System.UInt64, System.UInt64>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XUlong.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Sum
+    path: Numbers/XUlong.cs
+    startLine: 15
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nGet the sum of all values in the collection, transformed by the supplied function.\n"
+  example: []
+  syntax:
+    content: public static ulong Sum(this IEnumerable<ulong> source, Func<ulong, ulong> func)
+    parameters:
+    - id: source
+      type: IEnumerable{System.UInt64}
+    - id: func
+      type: Func{System.UInt64,System.UInt64}
+    return:
+      type: System.UInt64
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Sum(source As IEnumerable(Of ULong), func As Func(Of ULong, ULong)) As ULong
+  overload: Galaxon.Core.Numbers.XUlong.Sum*
+  nameWithType.vb: XUlong.Sum(IEnumerable(Of UInt64), Func(Of UInt64, UInt64))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XUlong.Sum(IEnumerable(Of System.UInt64), Func(Of System.UInt64, System.UInt64))
+  name.vb: Sum(IEnumerable(Of UInt64), Func(Of UInt64, UInt64))
+- uid: Galaxon.Core.Numbers.XUlong.Abs(System.Int64)
+  commentId: M:Galaxon.Core.Numbers.XUlong.Abs(System.Int64)
+  id: Abs(System.Int64)
+  parent: Galaxon.Core.Numbers.XUlong
+  langs:
+  - csharp
+  - vb
+  name: Abs(Int64)
+  nameWithType: XUlong.Abs(Int64)
+  fullName: Galaxon.Core.Numbers.XUlong.Abs(System.Int64)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XUlong.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Abs
+    path: Numbers/XUlong.cs
+    startLine: 28
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturn the absolute value of a long as a ulong.\nThis addresses an issue with long.Abs(), which is that Abs(long.MinValue) can&apos;t be expressed\nas a long, and so wrap-around occurs.\nUnsigned integer types don&apos;t have an Abs() method, so there&apos;s no collision.\n"
+  example: []
+  syntax:
+    content: public static ulong Abs(long n)
+    parameters:
+    - id: n
+      type: System.Int64
+      description: A long value.
+    return:
+      type: System.UInt64
+      description: The absolute value as a ulong.
+    content.vb: Public Shared Function Abs(n As Long) As ULong
+  overload: Galaxon.Core.Numbers.XUlong.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Numbers.XUlong.Sum*
+  commentId: Overload:Galaxon.Core.Numbers.XUlong.Sum
+  name: Sum
+  nameWithType: XUlong.Sum
+  fullName: Galaxon.Core.Numbers.XUlong.Sum
+- uid: IEnumerable{System.UInt64}
+  commentId: '!:IEnumerable{System.UInt64}'
+  definition: IEnumerable`1
+  name: IEnumerable<UInt64>
+  nameWithType: IEnumerable<UInt64>
+  fullName: IEnumerable<System.UInt64>
+  nameWithType.vb: IEnumerable(Of UInt64)
+  fullName.vb: IEnumerable(Of System.UInt64)
+  name.vb: IEnumerable(Of UInt64)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.UInt64
+  isExternal: true
+  name: UInt64
+  nameWithType: UInt64
+  fullName: System.UInt64
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func{System.UInt64,System.UInt64}
+  commentId: '!:Func{System.UInt64,System.UInt64}'
+  definition: Func`2
+  name: Func<UInt64, UInt64>
+  nameWithType: Func<UInt64, UInt64>
+  fullName: Func<System.UInt64, System.UInt64>
+  nameWithType.vb: Func(Of UInt64, UInt64)
+  fullName.vb: Func(Of System.UInt64, System.UInt64)
+  name.vb: Func(Of UInt64, UInt64)
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.UInt64
+    name: UInt64
+    nameWithType: UInt64
+    fullName: System.UInt64
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`2
+  isExternal: true
+  name: Func<, >
+  nameWithType: Func<, >
+  fullName: Func<, >
+  nameWithType.vb: Func(Of , )
+  fullName.vb: Func(Of , )
+  name.vb: Func(Of , )
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Galaxon.Core.Numbers.XUlong.Abs*
+  commentId: Overload:Galaxon.Core.Numbers.XUlong.Abs
+  name: Abs
+  nameWithType: XUlong.Abs
+  fullName: Galaxon.Core.Numbers.XUlong.Abs
+- uid: System.Int64
+  isExternal: true
+  name: Int64
+  nameWithType: Int64
+  fullName: System.Int64

@@ -1,0 +1,104 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XUint
+  commentId: T:Galaxon.Core.Numbers.XUint
+  id: XUint
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XUint.Abs(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: XUint
+  nameWithType: XUint
+  fullName: Galaxon.Core.Numbers.XUint
+  type: Class
+  source:
+    remote:
+      path: Numbers/XUint.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XUint
+    path: ../../../Core/Numbers/XUint.cs
+    startLine: 2
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: 'public static class XUint : object'
+    content.vb: >-
+      Public Module XUint
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XUint.Abs(System.Int32)
+  commentId: M:Galaxon.Core.Numbers.XUint.Abs(System.Int32)
+  id: Abs(System.Int32)
+  parent: Galaxon.Core.Numbers.XUint
+  langs:
+  - csharp
+  - vb
+  name: Abs(Int32)
+  nameWithType: XUint.Abs(Int32)
+  fullName: Galaxon.Core.Numbers.XUint.Abs(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XUint.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Abs
+    path: ../../../Core/Numbers/XUint.cs
+    startLine: 12
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturn the absolute value of an int as a uint.\nThis addresses an issue with int.Abs(), which is that Abs(int.MinValue) can&apos;t be expressed\nas a int, and so wrap-around occurs.\nUnsigned integer types don&apos;t have an Abs() method, so there&apos;s no collision.\n"
+  example: []
+  syntax:
+    content: public static uint Abs(int n)
+    parameters:
+    - id: n
+      type: System.Int32
+      description: A int value.
+    return:
+      type: System.UInt32
+      description: The absolute value as a uint.
+    content.vb: Public Shared Function Abs(n As Integer) As UInteger
+  overload: Galaxon.Core.Numbers.XUint.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: Galaxon.Core.Numbers.XUint.Abs*
+  commentId: Overload:Galaxon.Core.Numbers.XUint.Abs
+  name: Abs
+  nameWithType: XUint.Abs
+  fullName: Galaxon.Core.Numbers.XUint.Abs
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: System.UInt32
+  commentId: '!:System.UInt32'
+  isExternal: true
+  name: UInt32
+  nameWithType: UInt32
+  fullName: System.UInt32

@@ -1,0 +1,508 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Time.ETimeUnit
+  commentId: T:Galaxon.Core.Time.ETimeUnit
+  id: ETimeUnit
+  parent: Galaxon.Core.Time
+  children:
+  - Galaxon.Core.Time.ETimeUnit.Centuries
+  - Galaxon.Core.Time.ETimeUnit.Days
+  - Galaxon.Core.Time.ETimeUnit.Decades
+  - Galaxon.Core.Time.ETimeUnit.Hours
+  - Galaxon.Core.Time.ETimeUnit.Microseconds
+  - Galaxon.Core.Time.ETimeUnit.Millennia
+  - Galaxon.Core.Time.ETimeUnit.Milliseconds
+  - Galaxon.Core.Time.ETimeUnit.Minutes
+  - Galaxon.Core.Time.ETimeUnit.Months
+  - Galaxon.Core.Time.ETimeUnit.Nanoseconds
+  - Galaxon.Core.Time.ETimeUnit.Seconds
+  - Galaxon.Core.Time.ETimeUnit.Ticks
+  - Galaxon.Core.Time.ETimeUnit.Weeks
+  - Galaxon.Core.Time.ETimeUnit.Years
+  langs:
+  - csharp
+  - vb
+  name: ETimeUnit
+  nameWithType: ETimeUnit
+  fullName: Galaxon.Core.Time.ETimeUnit
+  type: Enum
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ETimeUnit
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 2
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: 'public enum ETimeUnit : int'
+    content.vb: Public Enum ETimeUnit As Integer
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Galaxon.Core.Time.ETimeUnit.Nanoseconds
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Nanoseconds
+  id: Nanoseconds
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Nanoseconds
+  nameWithType: ETimeUnit.Nanoseconds
+  fullName: Galaxon.Core.Time.ETimeUnit.Nanoseconds
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Nanoseconds
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 4
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Nanoseconds = 0
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Ticks
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Ticks
+  id: Ticks
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Ticks
+  nameWithType: ETimeUnit.Ticks
+  fullName: Galaxon.Core.Time.ETimeUnit.Ticks
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Ticks
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Ticks = 1
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Microseconds
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Microseconds
+  id: Microseconds
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Microseconds
+  nameWithType: ETimeUnit.Microseconds
+  fullName: Galaxon.Core.Time.ETimeUnit.Microseconds
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Microseconds
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 6
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Microseconds = 2
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Milliseconds
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Milliseconds
+  id: Milliseconds
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Milliseconds
+  nameWithType: ETimeUnit.Milliseconds
+  fullName: Galaxon.Core.Time.ETimeUnit.Milliseconds
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Milliseconds
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Milliseconds = 3
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Seconds
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Seconds
+  id: Seconds
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Seconds
+  nameWithType: ETimeUnit.Seconds
+  fullName: Galaxon.Core.Time.ETimeUnit.Seconds
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Seconds
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 8
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Seconds = 4
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Minutes
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Minutes
+  id: Minutes
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Minutes
+  nameWithType: ETimeUnit.Minutes
+  fullName: Galaxon.Core.Time.ETimeUnit.Minutes
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Minutes
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 9
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Minutes = 5
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Hours
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Hours
+  id: Hours
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Hours
+  nameWithType: ETimeUnit.Hours
+  fullName: Galaxon.Core.Time.ETimeUnit.Hours
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Hours
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 10
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Hours = 6
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Days
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Days
+  id: Days
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Days
+  nameWithType: ETimeUnit.Days
+  fullName: Galaxon.Core.Time.ETimeUnit.Days
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Days
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 11
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Days = 7
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Weeks
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Weeks
+  id: Weeks
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Weeks
+  nameWithType: ETimeUnit.Weeks
+  fullName: Galaxon.Core.Time.ETimeUnit.Weeks
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Weeks
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 12
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Weeks = 8
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Months
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Months
+  id: Months
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Months
+  nameWithType: ETimeUnit.Months
+  fullName: Galaxon.Core.Time.ETimeUnit.Months
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Months
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 13
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Months = 9
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Years
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Years
+  id: Years
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Years
+  nameWithType: ETimeUnit.Years
+  fullName: Galaxon.Core.Time.ETimeUnit.Years
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Years
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 14
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Years = 10
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Decades
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Decades
+  id: Decades
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Decades
+  nameWithType: ETimeUnit.Decades
+  fullName: Galaxon.Core.Time.ETimeUnit.Decades
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Decades
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 15
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Decades = 11
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Centuries
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Centuries
+  id: Centuries
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Centuries
+  nameWithType: ETimeUnit.Centuries
+  fullName: Galaxon.Core.Time.ETimeUnit.Centuries
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Centuries
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 16
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Centuries = 12
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.ETimeUnit.Millennia
+  commentId: F:Galaxon.Core.Time.ETimeUnit.Millennia
+  id: Millennia
+  parent: Galaxon.Core.Time.ETimeUnit
+  langs:
+  - csharp
+  - vb
+  name: Millennia
+  nameWithType: ETimeUnit.Millennia
+  fullName: Galaxon.Core.Time.ETimeUnit.Millennia
+  type: Field
+  source:
+    remote:
+      path: Time/ETimeUnit.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Millennia
+    path: ../../../Core/Time/ETimeUnit.cs
+    startLine: 17
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  syntax:
+    content: Millennia = 13
+    return:
+      type: Galaxon.Core.Time.ETimeUnit
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Galaxon.Core.Time
+  commentId: N:Galaxon.Core.Time
+  name: Galaxon.Core.Time
+  nameWithType: Galaxon.Core.Time
+  fullName: Galaxon.Core.Time
+- uid: Galaxon.Core.Time.ETimeUnit
+  commentId: T:Galaxon.Core.Time.ETimeUnit
+  parent: Galaxon.Core.Time
+  name: ETimeUnit
+  nameWithType: ETimeUnit
+  fullName: Galaxon.Core.Time.ETimeUnit

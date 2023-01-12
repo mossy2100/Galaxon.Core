@@ -1,0 +1,200 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Galaxon.Core.Numbers
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Galaxon.Core.Numbers
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Galaxon.Core.Numbers">
+  
+  <h1 id="Galaxon_Core_Numbers" data-uid="Galaxon.Core.Numbers" class="text-break">Namespace Galaxon.Core.Numbers
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.ConvertBase.html">ConvertBase</a></h4>
+      <section><p>This class supports conversion between integers and strings of digits in a specified base,
+which can be in the range 2..64.</p>
+<p>NB: &quot;radix&quot; is used as a synonym for &quot;base&quot; in method arguments, because &quot;base&quot; is a keyword in
+C#.</p>
+<p>All built-in integer types are supported, including Int128, UInt128, and BigInteger.</p>
+<p>Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
+26 letters in the English alphabet.</p>
+<p>Here I've appended the 28 of the 32 non-alphanumeric (symbol) ASCII characters to this character
+set in order to extend the range of supported bases to 64. The symbols are appended to the
+standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8 and I
+assume all, or almost all, computer keyboards will support all of them.</p>
+<p>This has been done to add support for base 64, mainly for my own amusement, and to provide
+an alternative to bog-standard Base64 encoding (see link). The difference here, if it matters,
+is that the base 64 digit values used here are compatible with hexadecimal digit values, and all
+other bases.</p>
+<p>The 4 omitted characters are '.' (period), ',' (comma), and '_' (underscore) because these are
+used as group separators (in different contexts), and '&quot;' (double quote) which is the string
+delimiter in C#.</p>
+<p>As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
+Use the parameter &quot;letterCase&quot; to specify for the result to use all lower- or all upper-case
+letters. See the method documentation for ToBase() for how to use this parameter.</p>
+<p>The default is to use lower-case for all letters except for L (see the Digits constant).
+Lower-case letters are more easily distinguishable from numerals than upper-case letters.
+For example:
+O looks like 0
+I looks like 1
+Z looks like 2
+S looks like 5
+G looks like 6
+T looks like 7
+B looks like 8
+The only similar problem with lower-case letters is that l looks like 1, so upper-case is used
+for this letter only. (This is also why we use &quot;L&quot; as a suffix for long literals, as a rule.)</p>
+<p>These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
+between letters and numbers, so it's not the issue it once was.
+Multiple coding standards for CSS require lower-case hex digits in color literals.
+&quot;L&quot; is not a hexadecimal digit, so this behaviour doesn't violate that standard.
+Other than that, I can't find any standards that mandate one over the other.</p>
+<h2 id="the-core-methods-are-tobase-and-frombase-in-addition-convenience-methods-are-provided-inthe-form-of-to-and-from-methods-for-all-bases-that-are-a-power-of-2">The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
+the form of &quot;To&quot; and &quot;From&quot; methods for all bases that are a power of 2:</h2>
+<h2 id="numeral-system----------base---abbreviation">Numeral system          Base   Abbreviation</h2>
+<h2 id="binary-------------------2--------binquaternary---------------4--------quatoctal--------------------8--------octhexadecimal-------------16--------hextriacontakaidecimal----32--------triatetrasexagesimal--------64--------tetra">binary                   2        Bin
+quaternary               4        Quat
+octal                    8        Oct
+hexadecimal             16        Hex
+triacontakaidecimal*    32        Tria
+tetrasexagesimal        64        Tetra</h2>
+<p>*Base 32 is more correctly called duotrigesimal. However, there are multiple methods in use for
+encoding base 32 digits; the one used here is called triacontakaidecimal (see link below), also
+known as base32hex. It's the same encoding used in Java in JavaScript.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XBigInteger.html">XBigInteger</a></h4>
+      <section><p>Extension methods for BigInteger.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XBinaryInteger.html">XBinaryInteger</a></h4>
+      <section><p>Extension methods for IBinaryInteger{T}</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XByte.html">XByte</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XDecimal.html">XDecimal</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XDouble.html">XDouble</a></h4>
+      <section><p>Extension methods for Double.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XFloatingPoint.html">XFloatingPoint</a></h4>
+      <section><p>Extension methods for IFloatingPoint{T}.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XInt.html">XInt</a></h4>
+      <section><p>Extension class for INumberBase.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XLong.html">XLong</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XNumberBase.html">XNumberBase</a></h4>
+      <section><p>Extension methods for INumberBase and INumberBase{T}.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XRandom.html">XRandom</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XUint.html">XUint</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XUlong.html">XUlong</a></h4>
+      <section></section>
+      <h4><a class="xref" href="Galaxon.Core.Numbers.XUshort.html">XUshort</a></h4>
+      <section></section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

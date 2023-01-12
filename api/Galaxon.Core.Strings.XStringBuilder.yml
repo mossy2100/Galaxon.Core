@@ -1,0 +1,193 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Strings.XStringBuilder
+  commentId: T:Galaxon.Core.Strings.XStringBuilder
+  id: XStringBuilder
+  parent: Galaxon.Core.Strings
+  children:
+  - Galaxon.Core.Strings.XStringBuilder.Prepend(StringBuilder,System.Nullable{System.Object})
+  langs:
+  - csharp
+  - vb
+  name: XStringBuilder
+  nameWithType: XStringBuilder
+  fullName: Galaxon.Core.Strings.XStringBuilder
+  type: Class
+  source:
+    remote:
+      path: Strings/XStringBuilder.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XStringBuilder
+    path: Strings/XStringBuilder.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Strings
+  namespace: Galaxon.Core.Strings
+  summary: "\nExtension methods for StringBuilder.\n"
+  example: []
+  syntax:
+    content: 'public static class XStringBuilder : object'
+    content.vb: >-
+      Public Module XStringBuilder
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Strings.XStringBuilder.Prepend(StringBuilder,System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Strings.XStringBuilder.Prepend(StringBuilder,System.Nullable{System.Object})
+  id: Prepend(StringBuilder,System.Nullable{System.Object})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Strings.XStringBuilder
+  langs:
+  - csharp
+  - vb
+  name: Prepend(StringBuilder, Nullable<Object>)
+  nameWithType: XStringBuilder.Prepend(StringBuilder, Nullable<Object>)
+  fullName: Galaxon.Core.Strings.XStringBuilder.Prepend(StringBuilder, System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Strings/XStringBuilder.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Prepend
+    path: Strings/XStringBuilder.cs
+    startLine: 13
+  assemblies:
+  - Galaxon.Core.Strings
+  namespace: Galaxon.Core.Strings
+  summary: "\nPrepends a StringBuilder with a string.\nReflects Append().\n"
+  example: []
+  syntax:
+    content: public static StringBuilder Prepend(this StringBuilder sb, object? value)
+    parameters:
+    - id: sb
+      type: StringBuilder
+    - id: value
+      type: System.Nullable{System.Object}
+    return:
+      type: StringBuilder
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Prepend(sb As StringBuilder, value As Object?) As StringBuilder
+  overload: Galaxon.Core.Strings.XStringBuilder.Prepend*
+  nameWithType.vb: XStringBuilder.Prepend(StringBuilder, Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Strings.XStringBuilder.Prepend(StringBuilder, System.Nullable(Of System.Object))
+  name.vb: Prepend(StringBuilder, Nullable(Of Object))
+references:
+- uid: Galaxon.Core.Strings
+  commentId: N:Galaxon.Core.Strings
+  name: Galaxon.Core.Strings
+  nameWithType: Galaxon.Core.Strings
+  fullName: Galaxon.Core.Strings
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Strings.XStringBuilder.Prepend*
+  commentId: Overload:Galaxon.Core.Strings.XStringBuilder.Prepend
+  name: Prepend
+  nameWithType: XStringBuilder.Prepend
+  fullName: Galaxon.Core.Strings.XStringBuilder.Prepend
+- uid: StringBuilder
+  isExternal: true
+  name: StringBuilder
+  nameWithType: StringBuilder
+  fullName: StringBuilder
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

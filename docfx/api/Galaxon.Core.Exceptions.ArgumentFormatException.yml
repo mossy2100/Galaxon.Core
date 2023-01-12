@@ -1,0 +1,222 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Exceptions.ArgumentFormatException
+  commentId: T:Galaxon.Core.Exceptions.ArgumentFormatException
+  id: ArgumentFormatException
+  parent: Galaxon.Core.Exceptions
+  children:
+  - Galaxon.Core.Exceptions.ArgumentFormatException.#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{Exception})
+  langs:
+  - csharp
+  - vb
+  name: ArgumentFormatException
+  nameWithType: ArgumentFormatException
+  fullName: Galaxon.Core.Exceptions.ArgumentFormatException
+  type: Class
+  source:
+    remote:
+      path: Exceptions/ArgumentFormatException.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ArgumentFormatException
+    path: ../../../Core/Exceptions/ArgumentFormatException.cs
+    startLine: 24
+  assemblies:
+  - Galaxon.Core.Exceptions
+  namespace: Galaxon.Core.Exceptions
+  summary: "\nThis exception type is useful for an ArgumentException that is also a FormatException.\nThe usual FormatException is probably best reserved for situations not involving method\nparameters, e.g. parsing a file.\n\nI&apos;m using the same parameter order here as used by\n<see cref=\"!:ArgumentNullException\"></see>\n<see cref=\"!:ArgumentOutOfRangeException\"></see>\ni.e. (paramName, message), for consistency. The base class\n<see cref=\"!:ArgumentException\"></see>\nhas the parameters in a different order, i.e. (message, paramName), which can be confusing.\n\nI&apos;ve resolved not to use ArgumentException anymore but to treat it as an abstract base class.\nThis will avoid the issue with the arguments being out of order, and the lack of specificity.\n\nNormally for any ArgumentException we want to identify the argument causing the exception (which\nshould be done using nameof()), unless there are several, in which case the offending arguments\ncan be identified in the message.\n\nIf you don&apos;t want to specify the parameter name, set the paramName argument to null or use named\narguments.\n"
+  example: []
+  syntax:
+    content: 'public class ArgumentFormatException : ArgumentException'
+    content.vb: >-
+      Public Class ArgumentFormatException
+
+          Inherits ArgumentException
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Galaxon.Core.Exceptions.ArgumentFormatException.#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{Exception})
+  commentId: M:Galaxon.Core.Exceptions.ArgumentFormatException.#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{Exception})
+  id: '#ctor(System.Nullable{System.String},System.Nullable{System.String},System.Nullable{Exception})'
+  parent: Galaxon.Core.Exceptions.ArgumentFormatException
+  langs:
+  - csharp
+  - vb
+  name: ArgumentFormatException(Nullable<String>, Nullable<String>, Nullable<Exception>)
+  nameWithType: ArgumentFormatException.ArgumentFormatException(Nullable<String>, Nullable<String>, Nullable<Exception>)
+  fullName: Galaxon.Core.Exceptions.ArgumentFormatException.ArgumentFormatException(System.Nullable<System.String>, System.Nullable<System.String>, System.Nullable<Exception>)
+  type: Constructor
+  source:
+    remote:
+      path: Exceptions/ArgumentFormatException.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: .ctor
+    path: ../../../Core/Exceptions/ArgumentFormatException.cs
+    startLine: 32
+  assemblies:
+  - Galaxon.Core.Exceptions
+  namespace: Galaxon.Core.Exceptions
+  summary: "\nConstructor. All parameters are optional.\n"
+  example: []
+  syntax:
+    content: public ArgumentFormatException(string? paramName = null, string? message = null, Exception? innerException = null)
+    parameters:
+    - id: paramName
+      type: System.Nullable{System.String}
+      description: The parameter name.
+    - id: message
+      type: System.Nullable{System.String}
+      description: The message.
+    - id: innerException
+      type: System.Nullable{Exception}
+      description: The inner exception.
+    content.vb: Public Sub New(paramName As String? = Nothing, message As String? = Nothing, innerException As Exception? = Nothing)
+  overload: Galaxon.Core.Exceptions.ArgumentFormatException.#ctor*
+  nameWithType.vb: ArgumentFormatException.ArgumentFormatException(Nullable(Of String), Nullable(Of String), Nullable(Of Exception))
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+  fullName.vb: Galaxon.Core.Exceptions.ArgumentFormatException.ArgumentFormatException(System.Nullable(Of System.String), System.Nullable(Of System.String), System.Nullable(Of Exception))
+  name.vb: ArgumentFormatException(Nullable(Of String), Nullable(Of String), Nullable(Of Exception))
+references:
+- uid: Galaxon.Core.Exceptions
+  commentId: N:Galaxon.Core.Exceptions
+  name: Galaxon.Core.Exceptions
+  nameWithType: Galaxon.Core.Exceptions
+  fullName: Galaxon.Core.Exceptions
+- uid: Galaxon.Core.Exceptions.ArgumentFormatException.#ctor*
+  commentId: Overload:Galaxon.Core.Exceptions.ArgumentFormatException.#ctor
+  name: ArgumentFormatException
+  nameWithType: ArgumentFormatException.ArgumentFormatException
+  fullName: Galaxon.Core.Exceptions.ArgumentFormatException.ArgumentFormatException
+- uid: System.Nullable{System.String}
+  commentId: '!:System.Nullable{System.String}'
+  definition: System.Nullable`1
+  name: Nullable<String>
+  nameWithType: Nullable<String>
+  fullName: System.Nullable<System.String>
+  nameWithType.vb: Nullable(Of String)
+  fullName.vb: System.Nullable(Of System.String)
+  name.vb: Nullable(Of String)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.String
+    name: String
+    nameWithType: String
+    fullName: System.String
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable{Exception}
+  commentId: '!:System.Nullable{Exception}'
+  definition: System.Nullable`1
+  name: Nullable<Exception>
+  nameWithType: Nullable<Exception>
+  fullName: System.Nullable<Exception>
+  nameWithType.vb: Nullable(Of Exception)
+  fullName.vb: System.Nullable(Of Exception)
+  name.vb: Nullable(Of Exception)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: Exception
+    name: Exception
+    nameWithType: Exception
+    fullName: Exception
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: Exception
+    name: Exception
+    nameWithType: Exception
+    fullName: Exception
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

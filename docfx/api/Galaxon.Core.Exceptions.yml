@@ -1,0 +1,34 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Exceptions
+  commentId: N:Galaxon.Core.Exceptions
+  id: Galaxon.Core.Exceptions
+  children:
+  - Galaxon.Core.Exceptions.ArgumentFormatException
+  - Galaxon.Core.Exceptions.ArgumentInvalidException
+  - Galaxon.Core.Exceptions.DataNotFoundException
+  langs:
+  - csharp
+  - vb
+  name: Galaxon.Core.Exceptions
+  nameWithType: Galaxon.Core.Exceptions
+  fullName: Galaxon.Core.Exceptions
+  type: Namespace
+  assemblies:
+  - Galaxon.Core.Exceptions
+references:
+- uid: Galaxon.Core.Exceptions.ArgumentFormatException
+  commentId: T:Galaxon.Core.Exceptions.ArgumentFormatException
+  name: ArgumentFormatException
+  nameWithType: ArgumentFormatException
+  fullName: Galaxon.Core.Exceptions.ArgumentFormatException
+- uid: Galaxon.Core.Exceptions.ArgumentInvalidException
+  commentId: T:Galaxon.Core.Exceptions.ArgumentInvalidException
+  name: ArgumentInvalidException
+  nameWithType: ArgumentInvalidException
+  fullName: Galaxon.Core.Exceptions.ArgumentInvalidException
+- uid: Galaxon.Core.Exceptions.DataNotFoundException
+  commentId: T:Galaxon.Core.Exceptions.DataNotFoundException
+  name: DataNotFoundException
+  nameWithType: DataNotFoundException
+  fullName: Galaxon.Core.Exceptions.DataNotFoundException

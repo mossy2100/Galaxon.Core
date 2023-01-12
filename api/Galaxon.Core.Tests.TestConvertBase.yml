@@ -1,0 +1,380 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Tests.TestConvertBase
+  commentId: T:Galaxon.Core.Tests.TestConvertBase
+  id: TestConvertBase
+  parent: Galaxon.Core.Tests
+  children:
+  - Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero
+  - Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative
+  - Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive
+  - Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth
+  - Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth
+  - Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase
+  - Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax
+  - Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes
+  - Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase
+  langs:
+  - csharp
+  - vb
+  name: TestConvertBase
+  nameWithType: TestConvertBase
+  fullName: Galaxon.Core.Tests.TestConvertBase
+  type: Class
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestConvertBase
+    path: CoreTests/TestConvertBase.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: 'public class TestConvertBase : object'
+    content.vb: >-
+      Public Class TestConvertBase
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero
+  id: TesIntToBaseZero
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TesIntToBaseZero()
+  nameWithType: TestConvertBase.TesIntToBaseZero()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TesIntToBaseZero
+    path: CoreTests/TestConvertBase.cs
+    startLine: 8
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TesIntToBaseZero()
+    content.vb: Public Sub TesIntToBaseZero
+  overload: Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive
+  id: TestIntToBase16Positive
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestIntToBase16Positive()
+  nameWithType: TestConvertBase.TestIntToBase16Positive()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestIntToBase16Positive
+    path: CoreTests/TestConvertBase.cs
+    startLine: 22
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestIntToBase16Positive()
+    content.vb: Public Sub TestIntToBase16Positive
+  overload: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative
+  id: TestIntToBase16Negative
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestIntToBase16Negative()
+  nameWithType: TestConvertBase.TestIntToBase16Negative()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestIntToBase16Negative
+    path: CoreTests/TestConvertBase.cs
+    startLine: 46
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestIntToBase16Negative()
+    content.vb: Public Sub TestIntToBase16Negative
+  overload: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes
+  id: TestToBaseDifferentTypes
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestToBaseDifferentTypes()
+  nameWithType: TestConvertBase.TestToBaseDifferentTypes()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToBaseDifferentTypes
+    path: CoreTests/TestConvertBase.cs
+    startLine: 77
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  remarks: "\nUseful converter:\n"
+  example: []
+  syntax:
+    content: public void TestToBaseDifferentTypes()
+    content.vb: Public Sub TestToBaseDifferentTypes
+  overload: Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes*
+  see:
+  - linkType: HRef
+    linkId: https://www.rapidtables.com/convert/number/decimal-to-hex.html
+    altText: https://www.rapidtables.com/convert/number/decimal-to-hex.html
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax
+  id: TestToBase8MinMax
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestToBase8MinMax()
+  nameWithType: TestConvertBase.TestToBase8MinMax()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToBase8MinMax
+    path: CoreTests/TestConvertBase.cs
+    startLine: 111
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToBase8MinMax()
+    content.vb: Public Sub TestToBase8MinMax
+  overload: Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth
+  id: TestToBase2WithWidth
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestToBase2WithWidth()
+  nameWithType: TestConvertBase.TestToBase2WithWidth()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToBase2WithWidth
+    path: CoreTests/TestConvertBase.cs
+    startLine: 128
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToBase2WithWidth()
+    content.vb: Public Sub TestToBase2WithWidth
+  overload: Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth
+  id: TestToBase16WithWidth
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestToBase16WithWidth()
+  nameWithType: TestConvertBase.TestToBase16WithWidth()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToBase16WithWidth
+    path: CoreTests/TestConvertBase.cs
+    startLine: 151
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToBase16WithWidth()
+    content.vb: Public Sub TestToBase16WithWidth
+  overload: Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase
+  id: TestToBase32WithCase
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestToBase32WithCase()
+  nameWithType: TestConvertBase.TestToBase32WithCase()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToBase32WithCase
+    path: CoreTests/TestConvertBase.cs
+    startLine: 174
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToBase32WithCase()
+    content.vb: Public Sub TestToBase32WithCase
+  overload: Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase
+  commentId: M:Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase
+  id: TestToBaseInvalidBase
+  parent: Galaxon.Core.Tests.TestConvertBase
+  langs:
+  - csharp
+  - vb
+  name: TestToBaseInvalidBase()
+  nameWithType: TestConvertBase.TestToBaseInvalidBase()
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestConvertBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToBaseInvalidBase
+    path: CoreTests/TestConvertBase.cs
+    startLine: 183
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToBaseInvalidBase()
+    content.vb: Public Sub TestToBaseInvalidBase
+  overload: Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Galaxon.Core.Tests
+  commentId: N:Galaxon.Core.Tests
+  name: Galaxon.Core.Tests
+  nameWithType: Galaxon.Core.Tests
+  fullName: Galaxon.Core.Tests
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero
+  name: TesIntToBaseZero
+  nameWithType: TestConvertBase.TesIntToBaseZero
+  fullName: Galaxon.Core.Tests.TestConvertBase.TesIntToBaseZero
+- uid: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive
+  name: TestIntToBase16Positive
+  nameWithType: TestConvertBase.TestIntToBase16Positive
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Positive
+- uid: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative
+  name: TestIntToBase16Negative
+  nameWithType: TestConvertBase.TestIntToBase16Negative
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestIntToBase16Negative
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes
+  name: TestToBaseDifferentTypes
+  nameWithType: TestConvertBase.TestToBaseDifferentTypes
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBaseDifferentTypes
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax
+  name: TestToBase8MinMax
+  nameWithType: TestConvertBase.TestToBase8MinMax
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase8MinMax
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth
+  name: TestToBase2WithWidth
+  nameWithType: TestConvertBase.TestToBase2WithWidth
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase2WithWidth
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth
+  name: TestToBase16WithWidth
+  nameWithType: TestConvertBase.TestToBase16WithWidth
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase16WithWidth
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase
+  name: TestToBase32WithCase
+  nameWithType: TestConvertBase.TestToBase32WithCase
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBase32WithCase
+- uid: Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase*
+  commentId: Overload:Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase
+  name: TestToBaseInvalidBase
+  nameWithType: TestConvertBase.TestToBaseInvalidBase
+  fullName: Galaxon.Core.Tests.TestConvertBase.TestToBaseInvalidBase

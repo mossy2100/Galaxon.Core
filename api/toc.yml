@@ -1,0 +1,100 @@
+### YamlMime:TableOfContent
+- uid: Galaxon.Core.Collections
+  name: Galaxon.Core.Collections
+  items:
+  - uid: Galaxon.Core.Collections.XCollection
+    name: XCollection
+  - uid: Galaxon.Core.Collections.XDictionary
+    name: XDictionary
+  - uid: Galaxon.Core.Collections.XEnumerable
+    name: XEnumerable
+- uid: Galaxon.Core.Exceptions
+  name: Galaxon.Core.Exceptions
+  items:
+  - uid: Galaxon.Core.Exceptions.ArgumentFormatException
+    name: ArgumentFormatException
+  - uid: Galaxon.Core.Exceptions.ArgumentInvalidException
+    name: ArgumentInvalidException
+  - uid: Galaxon.Core.Exceptions.DataNotFoundException
+    name: DataNotFoundException
+- uid: Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  items:
+  - uid: Galaxon.Core.Numbers.ConvertBase
+    name: ConvertBase
+  - uid: Galaxon.Core.Numbers.XBigInteger
+    name: XBigInteger
+  - uid: Galaxon.Core.Numbers.XBinaryInteger
+    name: XBinaryInteger
+  - uid: Galaxon.Core.Numbers.XByte
+    name: XByte
+  - uid: Galaxon.Core.Numbers.XDecimal
+    name: XDecimal
+  - uid: Galaxon.Core.Numbers.XDouble
+    name: XDouble
+  - uid: Galaxon.Core.Numbers.XFloatingPoint
+    name: XFloatingPoint
+  - uid: Galaxon.Core.Numbers.XInt
+    name: XInt
+  - uid: Galaxon.Core.Numbers.XLong
+    name: XLong
+  - uid: Galaxon.Core.Numbers.XNumberBase
+    name: XNumberBase
+  - uid: Galaxon.Core.Numbers.XRandom
+    name: XRandom
+  - uid: Galaxon.Core.Numbers.XUint
+    name: XUint
+  - uid: Galaxon.Core.Numbers.XUlong
+    name: XUlong
+  - uid: Galaxon.Core.Numbers.XUshort
+    name: XUshort
+- uid: Galaxon.Core.Strings
+  name: Galaxon.Core.Strings
+  items:
+  - uid: Galaxon.Core.Strings.InvalidCharAction
+    name: InvalidCharAction
+  - uid: Galaxon.Core.Strings.SuperAndSubscript
+    name: SuperAndSubscript
+  - uid: Galaxon.Core.Strings.XString
+    name: XString
+  - uid: Galaxon.Core.Strings.XStringBuilder
+    name: XStringBuilder
+- uid: Galaxon.Core.Testing
+  name: Galaxon.Core.Testing
+  items:
+  - uid: Galaxon.Core.Testing.XAssert
+    name: XAssert
+- uid: Galaxon.Core.Tests
+  name: Galaxon.Core.Tests
+  items:
+  - uid: Galaxon.Core.Tests.TestConvertBase
+    name: TestConvertBase
+  - uid: Galaxon.Core.Tests.TestXBigInteger
+    name: TestXBigInteger
+  - uid: Galaxon.Core.Tests.TestXDateOnly
+    name: TestXDateOnly
+  - uid: Galaxon.Core.Tests.TestXDateTime
+    name: TestXDateTime
+  - uid: Galaxon.Core.Tests.TestXDecimal
+    name: TestXDecimal
+  - uid: Galaxon.Core.Tests.TestXDictionary
+    name: TestXDictionary
+  - uid: Galaxon.Core.Tests.TestXDouble
+    name: TestXDouble
+  - uid: Galaxon.Core.Tests.TestXEnumerable
+    name: TestXEnumerable
+  - uid: Galaxon.Core.Tests.TestXInt
+    name: TestXInt
+  - uid: Galaxon.Core.Tests.TestXUlong
+    name: TestXUlong
+- uid: Galaxon.Core.Time
+  name: Galaxon.Core.Time
+  items:
+  - uid: Galaxon.Core.Time.ETimeUnit
+    name: ETimeUnit
+  - uid: Galaxon.Core.Time.XDateOnly
+    name: XDateOnly
+  - uid: Galaxon.Core.Time.XDateTime
+    name: XDateTime
+  - uid: Galaxon.Core.Time.XTimeSpan
+    name: XTimeSpan

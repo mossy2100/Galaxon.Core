@@ -1,0 +1,340 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Collections.XEnumerable
+  commentId: T:Galaxon.Core.Collections.XEnumerable
+  id: XEnumerable
+  parent: Galaxon.Core.Collections
+  children:
+  - Galaxon.Core.Collections.XEnumerable.Diff``1(IEnumerable{``0},IEnumerable{``0})
+  - Galaxon.Core.Collections.XEnumerable.ToDictionary``1(IEnumerable{``0})
+  langs:
+  - csharp
+  - vb
+  name: XEnumerable
+  nameWithType: XEnumerable
+  fullName: Galaxon.Core.Collections.XEnumerable
+  type: Class
+  source:
+    remote:
+      path: Collections/XEnumerable.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XEnumerable
+    path: ../../../Core/Collections/XEnumerable.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Collections
+  namespace: Galaxon.Core.Collections
+  summary: "\nExtension methods for IEnumerable and IEnumerable[T].\n"
+  example: []
+  syntax:
+    content: 'public static class XEnumerable : object'
+    content.vb: >-
+      Public Module XEnumerable
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Collections.XEnumerable.Diff``1(IEnumerable{``0},IEnumerable{``0})
+  commentId: M:Galaxon.Core.Collections.XEnumerable.Diff``1(IEnumerable{``0},IEnumerable{``0})
+  id: Diff``1(IEnumerable{``0},IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Collections.XEnumerable
+  langs:
+  - csharp
+  - vb
+  name: Diff<T>(IEnumerable<T>, IEnumerable<T>)
+  nameWithType: XEnumerable.Diff<T>(IEnumerable<T>, IEnumerable<T>)
+  fullName: Galaxon.Core.Collections.XEnumerable.Diff<T>(IEnumerable<T>, IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Collections/XEnumerable.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Diff
+    path: ../../../Core/Collections/XEnumerable.cs
+    startLine: 13
+  assemblies:
+  - Galaxon.Core.Collections
+  namespace: Galaxon.Core.Collections
+  summary: "\nReturn list1 with values from list2 removed.\nSupports duplicates, so this is not the same as set difference.\nFor example, if list1 has 2 instances of &quot;cat&quot; and list2 has one instance of &quot;cat&quot;, the\nresult will have one instance of &quot;cat&quot;.\n"
+  example: []
+  syntax:
+    content: public static IEnumerable<T> Diff<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
+    parameters:
+    - id: list1
+      type: IEnumerable{{T}}
+    - id: list2
+      type: IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: IEnumerable{{T}}
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Diff(Of T)(list1 As IEnumerable(Of T), list2 As IEnumerable(Of T)) As IEnumerable(Of T)
+  overload: Galaxon.Core.Collections.XEnumerable.Diff*
+  nameWithType.vb: XEnumerable.Diff(Of T)(IEnumerable(Of T), IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Collections.XEnumerable.Diff(Of T)(IEnumerable(Of T), IEnumerable(Of T))
+  name.vb: Diff(Of T)(IEnumerable(Of T), IEnumerable(Of T))
+- uid: Galaxon.Core.Collections.XEnumerable.ToDictionary``1(IEnumerable{``0})
+  commentId: M:Galaxon.Core.Collections.XEnumerable.ToDictionary``1(IEnumerable{``0})
+  id: ToDictionary``1(IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Collections.XEnumerable
+  langs:
+  - csharp
+  - vb
+  name: ToDictionary<T>(IEnumerable<T>)
+  nameWithType: XEnumerable.ToDictionary<T>(IEnumerable<T>)
+  fullName: Galaxon.Core.Collections.XEnumerable.ToDictionary<T>(IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Collections/XEnumerable.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToDictionary
+    path: ../../../Core/Collections/XEnumerable.cs
+    startLine: 28
+  assemblies:
+  - Galaxon.Core.Collections
+  namespace: Galaxon.Core.Collections
+  summary: "\nConvert an IEnumerable[T] into a dictionary with the dictionary&apos;s keys set to zero-based\nindex, same as an array or list. This can be useful when the index is meaningful and you\nwant to filter on it.\n"
+  example: []
+  syntax:
+    content: public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> list)
+    parameters:
+    - id: list
+      type: IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: Dictionary{System.Int32,{T}}
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToDictionary(Of T)(list As IEnumerable(Of T)) As Dictionary(Of Integer, T)
+  overload: Galaxon.Core.Collections.XEnumerable.ToDictionary*
+  nameWithType.vb: XEnumerable.ToDictionary(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Collections.XEnumerable.ToDictionary(Of T)(IEnumerable(Of T))
+  name.vb: ToDictionary(Of T)(IEnumerable(Of T))
+references:
+- uid: Galaxon.Core.Collections
+  commentId: N:Galaxon.Core.Collections
+  name: Galaxon.Core.Collections
+  nameWithType: Galaxon.Core.Collections
+  fullName: Galaxon.Core.Collections
+- uid: Galaxon.Core.Collections.XEnumerable.Diff*
+  commentId: Overload:Galaxon.Core.Collections.XEnumerable.Diff
+  name: Diff
+  nameWithType: XEnumerable.Diff
+  fullName: Galaxon.Core.Collections.XEnumerable.Diff
+- uid: IEnumerable{{T}}
+  commentId: '!:IEnumerable{``0}'
+  definition: IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Galaxon.Core.Collections.XEnumerable.ToDictionary*
+  commentId: Overload:Galaxon.Core.Collections.XEnumerable.ToDictionary
+  name: ToDictionary
+  nameWithType: XEnumerable.ToDictionary
+  fullName: Galaxon.Core.Collections.XEnumerable.ToDictionary
+- uid: Dictionary{System.Int32,{T}}
+  commentId: '!:Dictionary{System.Int32,``0}'
+  definition: Dictionary`2
+  name: Dictionary<Int32, T>
+  nameWithType: Dictionary<Int32, T>
+  fullName: Dictionary<System.Int32, T>
+  nameWithType.vb: Dictionary(Of Int32, T)
+  fullName.vb: Dictionary(Of System.Int32, T)
+  name.vb: Dictionary(Of Int32, T)
+  spec.csharp:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Int32
+    name: Int32
+    nameWithType: Int32
+    fullName: System.Int32
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Dictionary`2
+  isExternal: true
+  name: Dictionary<, >
+  nameWithType: Dictionary<, >
+  fullName: Dictionary<, >
+  nameWithType.vb: Dictionary(Of , )
+  fullName.vb: Dictionary(Of , )
+  name.vb: Dictionary(Of , )
+  spec.csharp:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Dictionary`2
+    name: Dictionary
+    nameWithType: Dictionary
+    fullName: Dictionary
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

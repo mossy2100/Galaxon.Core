@@ -1,0 +1,382 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Tests.TestXDateOnly
+  commentId: T:Galaxon.Core.Tests.TestXDateOnly
+  id: TestXDateOnly
+  parent: Galaxon.Core.Tests
+  children:
+  - Galaxon.Core.Tests.TestXDateOnly.TestAdd
+  - Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay
+  - Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays
+  - Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays
+  - Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay
+  - Galaxon.Core.Tests.TestXDateOnly.TestEaster
+  - Galaxon.Core.Tests.TestXDateOnly.TestEaster2
+  - Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear
+  - Galaxon.Core.Tests.TestXDateOnly.TestSubtract
+  langs:
+  - csharp
+  - vb
+  name: TestXDateOnly
+  nameWithType: TestXDateOnly
+  fullName: Galaxon.Core.Tests.TestXDateOnly
+  type: Class
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestXDateOnly
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 4
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: 'public class TestXDateOnly : object'
+    content.vb: >-
+      Public Class TestXDateOnly
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays
+  id: TestDateOnlyGetTotalDays
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestDateOnlyGetTotalDays()
+  nameWithType: TestXDateOnly.TestDateOnlyGetTotalDays()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestDateOnlyGetTotalDays
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestDateOnlyGetTotalDays()
+    content.vb: Public Sub TestDateOnlyGetTotalDays
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays
+  id: TestDateOnlyFromTotalDays
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestDateOnlyFromTotalDays()
+  nameWithType: TestXDateOnly.TestDateOnlyFromTotalDays()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestDateOnlyFromTotalDays
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 29
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestDateOnlyFromTotalDays()
+    content.vb: Public Sub TestDateOnlyFromTotalDays
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay
+  id: TestDateOnlyToJulianDay
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestDateOnlyToJulianDay()
+  nameWithType: TestXDateOnly.TestDateOnlyToJulianDay()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestDateOnlyToJulianDay
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 52
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestDateOnlyToJulianDay()
+    content.vb: Public Sub TestDateOnlyToJulianDay
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay
+  id: TestDateOnlyFromJulianDay
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestDateOnlyFromJulianDay()
+  nameWithType: TestXDateOnly.TestDateOnlyFromJulianDay()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestDateOnlyFromJulianDay
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 75
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestDateOnlyFromJulianDay()
+    content.vb: Public Sub TestDateOnlyFromJulianDay
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestSubtract
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestSubtract
+  id: TestSubtract
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestSubtract()
+  nameWithType: TestXDateOnly.TestSubtract()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestSubtract()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestSubtract
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 101
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestSubtract()
+    content.vb: Public Sub TestSubtract
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestSubtract*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestAdd
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestAdd
+  id: TestAdd
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestAdd()
+  nameWithType: TestXDateOnly.TestAdd()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestAdd()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestAdd
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 110
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestAdd()
+    content.vb: Public Sub TestAdd
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestAdd*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear
+  id: TestFromDayOfYear
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestFromDayOfYear()
+  nameWithType: TestXDateOnly.TestFromDayOfYear()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestFromDayOfYear
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 119
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestFromDayOfYear()
+    content.vb: Public Sub TestFromDayOfYear
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestEaster
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestEaster
+  id: TestEaster
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestEaster()
+  nameWithType: TestXDateOnly.TestEaster()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestEaster()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestEaster
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 172
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  summary: "\nThese examples are from Meeus AA2 p67.\nI&apos;ve also verified the dates at:\n<a href=\"https://www.assa.org.au/edm\">https://www.assa.org.au/edm</a>\n"
+  example: []
+  syntax:
+    content: public static void TestEaster()
+    content.vb: Public Shared Sub TestEaster
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestEaster*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestEaster2
+  commentId: M:Galaxon.Core.Tests.TestXDateOnly.TestEaster2
+  id: TestEaster2
+  parent: Galaxon.Core.Tests.TestXDateOnly
+  langs:
+  - csharp
+  - vb
+  name: TestEaster2()
+  nameWithType: TestXDateOnly.TestEaster2()
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestEaster2()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestEaster2
+    path: CoreTests/TestXDateOnly.cs
+    startLine: 213
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  summary: "\nTests the Easter dates from the database (1600-2299).\nTODO Update to use a data file.\n"
+  example: []
+  syntax:
+    content: public static void TestEaster2()
+    content.vb: Public Shared Sub TestEaster2
+  overload: Galaxon.Core.Tests.TestXDateOnly.TestEaster2*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Tests
+  commentId: N:Galaxon.Core.Tests
+  name: Galaxon.Core.Tests
+  nameWithType: Galaxon.Core.Tests
+  fullName: Galaxon.Core.Tests
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays
+  name: TestDateOnlyGetTotalDays
+  nameWithType: TestXDateOnly.TestDateOnlyGetTotalDays
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyGetTotalDays
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays
+  name: TestDateOnlyFromTotalDays
+  nameWithType: TestXDateOnly.TestDateOnlyFromTotalDays
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromTotalDays
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay
+  name: TestDateOnlyToJulianDay
+  nameWithType: TestXDateOnly.TestDateOnlyToJulianDay
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyToJulianDay
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay
+  name: TestDateOnlyFromJulianDay
+  nameWithType: TestXDateOnly.TestDateOnlyFromJulianDay
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestDateOnlyFromJulianDay
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestSubtract*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestSubtract
+  name: TestSubtract
+  nameWithType: TestXDateOnly.TestSubtract
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestSubtract
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestAdd*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestAdd
+  name: TestAdd
+  nameWithType: TestXDateOnly.TestAdd
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestAdd
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear
+  name: TestFromDayOfYear
+  nameWithType: TestXDateOnly.TestFromDayOfYear
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestFromDayOfYear
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestEaster*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestEaster
+  name: TestEaster
+  nameWithType: TestXDateOnly.TestEaster
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestEaster
+- uid: Galaxon.Core.Tests.TestXDateOnly.TestEaster2*
+  commentId: Overload:Galaxon.Core.Tests.TestXDateOnly.TestEaster2
+  name: TestEaster2
+  nameWithType: TestXDateOnly.TestEaster2
+  fullName: Galaxon.Core.Tests.TestXDateOnly.TestEaster2

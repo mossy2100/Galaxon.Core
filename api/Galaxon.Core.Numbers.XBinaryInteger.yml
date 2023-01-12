@@ -1,0 +1,52 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XBinaryInteger
+  commentId: T:Galaxon.Core.Numbers.XBinaryInteger
+  id: XBinaryInteger
+  parent: Galaxon.Core.Numbers
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: XBinaryInteger
+  nameWithType: XBinaryInteger
+  fullName: Galaxon.Core.Numbers.XBinaryInteger
+  type: Class
+  source:
+    remote:
+      path: Numbers/XBinaryInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XBinaryInteger
+    path: Numbers/XBinaryInteger.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nExtension methods for IBinaryInteger{T}\n"
+  example: []
+  syntax:
+    content: 'public class XBinaryInteger : object'
+    content.vb: >-
+      Public Class XBinaryInteger
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

@@ -1,0 +1,820 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Time.XDateTime
+  commentId: T:Galaxon.Core.Time.XDateTime
+  id: XDateTime
+  parent: Galaxon.Core.Time
+  children:
+  - Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)
+  - Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)
+  - Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)
+  - Galaxon.Core.Time.XDateTime.GetDateOnly(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTimeOnly(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalHours(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalMinutes(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(DateTime)
+  - Galaxon.Core.Time.XDateTime.GetTotalSeconds(DateTime)
+  - Galaxon.Core.Time.XDateTime.JulianPeriodOffset
+  - Galaxon.Core.Time.XDateTime.ToIsoString(DateTime)
+  - Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)
+  langs:
+  - csharp
+  - vb
+  name: XDateTime
+  nameWithType: XDateTime
+  fullName: Galaxon.Core.Time.XDateTime
+  type: Class
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XDateTime
+    path: Time/XDateTime.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nExtension methods for the DateTime class.\n"
+  example: []
+  syntax:
+    content: 'public static class XDateTime : object'
+    content.vb: >-
+      Public Module XDateTime
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Time.XDateTime.JulianPeriodOffset
+  commentId: F:Galaxon.Core.Time.XDateTime.JulianPeriodOffset
+  id: JulianPeriodOffset
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: JulianPeriodOffset
+  nameWithType: XDateTime.JulianPeriodOffset
+  fullName: Galaxon.Core.Time.XDateTime.JulianPeriodOffset
+  type: Field
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: JulianPeriodOffset
+    path: Time/XDateTime.cs
+    startLine: 16
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nThe number of days from the start of the Julian period to the start of the epoch used by\n.NET (0001-01-01 00:00:00 UTC).\n<xref href=\"Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public const double JulianPeriodOffset = null
+    return:
+      type: System.Double
+    content.vb: Public Const JulianPeriodOffset As Double = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Time.XDateTime.ToIsoString(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.ToIsoString(DateTime)
+  id: ToIsoString(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: ToIsoString(DateTime)
+  nameWithType: XDateTime.ToIsoString(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.ToIsoString(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToIsoString
+    path: Time/XDateTime.cs
+    startLine: 30
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nFormat the date using ISO format YYYY-MM-DDThh:mm:ss.\nThis format is useful for databases.\nThe time zone is not shown. For that, use ToString(&quot;u&quot;) (UniversalSortableDateTimePattern).\n<a href=\"https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0\">https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0</a>\n"
+  example: []
+  syntax:
+    content: public static string ToIsoString(this DateTime date)
+    parameters:
+    - id: date
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.String
+      description: A string representing the datetime in ISO format.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToIsoString(date As DateTime) As String
+  overload: Galaxon.Core.Time.XDateTime.ToIsoString*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetDateOnly(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetDateOnly(DateTime)
+  id: GetDateOnly(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetDateOnly(DateTime)
+  nameWithType: XDateTime.GetDateOnly(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetDateOnly(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetDateOnly
+    path: Time/XDateTime.cs
+    startLine: 46
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the date part of a DateTime as a DateOnly object.\nAn alternative to the Date property, which returns a DateTime.\n"
+  example: []
+  syntax:
+    content: public static DateOnly GetDateOnly(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime.
+    return:
+      type: DateOnly
+      description: The date part of the DateTime.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetDateOnly(dt As DateTime) As DateOnly
+  overload: Galaxon.Core.Time.XDateTime.GetDateOnly*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTimeOnly(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTimeOnly(DateTime)
+  id: GetTimeOnly(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTimeOnly(DateTime)
+  nameWithType: XDateTime.GetTimeOnly(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTimeOnly(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTimeOnly
+    path: Time/XDateTime.cs
+    startLine: 55
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the time part of a DateTime as a TimeOnly object.\nAn alternative to the TimeOfDay property, which returns a TimeSpan.\n"
+  example: []
+  syntax:
+    content: public static TimeOnly GetTimeOnly(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime.
+    return:
+      type: TimeOnly
+      description: The time part of the DateTime.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTimeOnly(dt As DateTime) As TimeOnly
+  overload: Galaxon.Core.Time.XDateTime.GetTimeOnly*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(DateTime)
+  id: GetTotalNanoseconds(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalNanoseconds(DateTime)
+  nameWithType: XDateTime.GetTotalNanoseconds(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalNanoseconds
+    path: Time/XDateTime.cs
+    startLine: 70
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of nanoseconds from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalNanoseconds(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of nanoseconds since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalNanoseconds(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalNanoseconds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(DateTime)
+  id: GetTotalMicroseconds(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalMicroseconds(DateTime)
+  nameWithType: XDateTime.GetTotalMicroseconds(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalMicroseconds
+    path: Time/XDateTime.cs
+    startLine: 78
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of microseconds from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalMicroseconds(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of microseconds since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalMicroseconds(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalMicroseconds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(DateTime)
+  id: GetTotalMilliseconds(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalMilliseconds(DateTime)
+  nameWithType: XDateTime.GetTotalMilliseconds(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalMilliseconds
+    path: Time/XDateTime.cs
+    startLine: 86
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of milliseconds from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalMilliseconds(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of milliseconds since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalMilliseconds(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalMilliseconds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalSeconds(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalSeconds(DateTime)
+  id: GetTotalSeconds(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalSeconds(DateTime)
+  nameWithType: XDateTime.GetTotalSeconds(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalSeconds(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalSeconds
+    path: Time/XDateTime.cs
+    startLine: 94
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of seconds from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalSeconds(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of seconds since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalSeconds(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalSeconds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalMinutes(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalMinutes(DateTime)
+  id: GetTotalMinutes(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalMinutes(DateTime)
+  nameWithType: XDateTime.GetTotalMinutes(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalMinutes(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalMinutes
+    path: Time/XDateTime.cs
+    startLine: 102
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of minutes from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalMinutes(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of minutes since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalMinutes(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalMinutes*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalHours(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalHours(DateTime)
+  id: GetTotalHours(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalHours(DateTime)
+  nameWithType: XDateTime.GetTotalHours(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalHours(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalHours
+    path: Time/XDateTime.cs
+    startLine: 110
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of hours from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalHours(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of hours since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalHours(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalHours*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)
+  id: GetTotalDays(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: GetTotalDays(DateTime)
+  nameWithType: XDateTime.GetTotalDays(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalDays
+    path: Time/XDateTime.cs
+    startLine: 118
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the total number of days from the start of the epoch to the datetime.\n"
+  example: []
+  syntax:
+    content: public static double GetTotalDays(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The number of days since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalDays(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.GetTotalDays*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)
+  commentId: M:Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)
+  id: FromTotalSeconds(System.Double)
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: FromTotalSeconds(Double)
+  nameWithType: XDateTime.FromTotalSeconds(Double)
+  fullName: Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FromTotalSeconds
+    path: Time/XDateTime.cs
+    startLine: 130
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nCreate a new DateTime given the number of seconds since the start of the epoch.\n"
+  example: []
+  syntax:
+    content: public static DateTime FromTotalSeconds(double seconds)
+    parameters:
+    - id: seconds
+      type: System.Double
+      description: The number of seconds.
+    return:
+      type: DateTime
+      description: A new DateTime object.
+    content.vb: Public Shared Function FromTotalSeconds(seconds As Double) As DateTime
+  overload: Galaxon.Core.Time.XDateTime.FromTotalSeconds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)
+  commentId: M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)
+  id: FromTotalDays(System.Double)
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: FromTotalDays(Double)
+  nameWithType: XDateTime.FromTotalDays(Double)
+  fullName: Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FromTotalDays
+    path: Time/XDateTime.cs
+    startLine: 143
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nCreate a new DateTime given the number of days since the start of the epoch.\n"
+  example: []
+  syntax:
+    content: public static DateTime FromTotalDays(double days)
+    parameters:
+    - id: days
+      type: System.Double
+      description: "\nThe day count. May include a fractional part indicating the time of day.\n"
+    return:
+      type: DateTime
+      description: A new DateTime object.
+    content.vb: Public Shared Function FromTotalDays(days As Double) As DateTime
+  overload: Galaxon.Core.Time.XDateTime.FromTotalDays*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)
+  id: ToJulianDay(DateTime)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: ToJulianDay(DateTime)
+  nameWithType: XDateTime.ToJulianDay(DateTime)
+  fullName: Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToJulianDay
+    path: Time/XDateTime.cs
+    startLine: 160
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nExpress the DateTime as a Julian Day.\nThe time of day information in the DateTime will be expressed as the fractional part of\nthe return value. Note, however, a Julian Day begins at 12:00 noon.\n"
+  example: []
+  syntax:
+    content: public static double ToJulianDay(this DateTime dt)
+    parameters:
+    - id: dt
+      type: DateTime
+      description: The DateTime instance.
+    return:
+      type: System.Double
+      description: The Julian Day value
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToJulianDay(dt As DateTime) As Double
+  overload: Galaxon.Core.Time.XDateTime.ToJulianDay*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)
+  commentId: M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)
+  id: FromJulianDay(System.Double)
+  parent: Galaxon.Core.Time.XDateTime
+  langs:
+  - csharp
+  - vb
+  name: FromJulianDay(Double)
+  nameWithType: XDateTime.FromJulianDay(Double)
+  fullName: Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateTime.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FromJulianDay
+    path: Time/XDateTime.cs
+    startLine: 170
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nConvert a Julian Day value to a DateTime object.\n"
+  example: []
+  syntax:
+    content: public static DateTime FromJulianDay(double jd)
+    parameters:
+    - id: jd
+      type: System.Double
+      description: "\nThe Julian Day value. May include a fractional part indicating the time of day.\n"
+    return:
+      type: DateTime
+      description: A new DateTime object.
+    content.vb: Public Shared Function FromJulianDay(jd As Double) As DateTime
+  overload: Galaxon.Core.Time.XDateTime.FromJulianDay*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Time
+  commentId: N:Galaxon.Core.Time
+  name: Galaxon.Core.Time
+  nameWithType: Galaxon.Core.Time
+  fullName: Galaxon.Core.Time
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)
+  isExternal: true
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: Galaxon.Core.Time.XDateTime.ToIsoString*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.ToIsoString
+  name: ToIsoString
+  nameWithType: XDateTime.ToIsoString
+  fullName: Galaxon.Core.Time.XDateTime.ToIsoString
+- uid: DateTime
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: DateTime
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Galaxon.Core.Time.XDateTime.GetDateOnly*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetDateOnly
+  name: GetDateOnly
+  nameWithType: XDateTime.GetDateOnly
+  fullName: Galaxon.Core.Time.XDateTime.GetDateOnly
+- uid: DateOnly
+  isExternal: true
+  name: DateOnly
+  nameWithType: DateOnly
+  fullName: DateOnly
+- uid: Galaxon.Core.Time.XDateTime.GetTimeOnly*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTimeOnly
+  name: GetTimeOnly
+  nameWithType: XDateTime.GetTimeOnly
+  fullName: Galaxon.Core.Time.XDateTime.GetTimeOnly
+- uid: TimeOnly
+  commentId: '!:TimeOnly'
+  isExternal: true
+  name: TimeOnly
+  nameWithType: TimeOnly
+  fullName: TimeOnly
+- uid: Galaxon.Core.Time.XDateTime.GetTotalNanoseconds*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalNanoseconds
+  name: GetTotalNanoseconds
+  nameWithType: XDateTime.GetTotalNanoseconds
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalNanoseconds
+- uid: Galaxon.Core.Time.XDateTime.GetTotalMicroseconds*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalMicroseconds
+  name: GetTotalMicroseconds
+  nameWithType: XDateTime.GetTotalMicroseconds
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalMicroseconds
+- uid: Galaxon.Core.Time.XDateTime.GetTotalMilliseconds*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalMilliseconds
+  name: GetTotalMilliseconds
+  nameWithType: XDateTime.GetTotalMilliseconds
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalMilliseconds
+- uid: Galaxon.Core.Time.XDateTime.GetTotalSeconds*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalSeconds
+  name: GetTotalSeconds
+  nameWithType: XDateTime.GetTotalSeconds
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalSeconds
+- uid: Galaxon.Core.Time.XDateTime.GetTotalMinutes*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalMinutes
+  name: GetTotalMinutes
+  nameWithType: XDateTime.GetTotalMinutes
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalMinutes
+- uid: Galaxon.Core.Time.XDateTime.GetTotalHours*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalHours
+  name: GetTotalHours
+  nameWithType: XDateTime.GetTotalHours
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalHours
+- uid: Galaxon.Core.Time.XDateTime.GetTotalDays*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.GetTotalDays
+  name: GetTotalDays
+  nameWithType: XDateTime.GetTotalDays
+  fullName: Galaxon.Core.Time.XDateTime.GetTotalDays
+- uid: Galaxon.Core.Time.XDateTime.FromTotalSeconds*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.FromTotalSeconds
+  name: FromTotalSeconds
+  nameWithType: XDateTime.FromTotalSeconds
+  fullName: Galaxon.Core.Time.XDateTime.FromTotalSeconds
+- uid: Galaxon.Core.Time.XDateTime.FromTotalDays*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.FromTotalDays
+  name: FromTotalDays
+  nameWithType: XDateTime.FromTotalDays
+  fullName: Galaxon.Core.Time.XDateTime.FromTotalDays
+- uid: Galaxon.Core.Time.XDateTime.ToJulianDay*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.ToJulianDay
+  name: ToJulianDay
+  nameWithType: XDateTime.ToJulianDay
+  fullName: Galaxon.Core.Time.XDateTime.ToJulianDay
+- uid: Galaxon.Core.Time.XDateTime.FromJulianDay*
+  commentId: Overload:Galaxon.Core.Time.XDateTime.FromJulianDay
+  name: FromJulianDay
+  nameWithType: XDateTime.FromJulianDay
+  fullName: Galaxon.Core.Time.XDateTime.FromJulianDay

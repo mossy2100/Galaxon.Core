@@ -1,0 +1,1090 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XNumberBase
+  commentId: T:Galaxon.Core.Numbers.XNumberBase
+  id: XNumberBase
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XNumberBase.Div``1(``0,``0)
+  - Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  - Galaxon.Core.Numbers.XNumberBase.Implements(System.Object,Type)
+  - Galaxon.Core.Numbers.XNumberBase.IsComplex(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.IsInteger(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.IsNumber(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.IsReal(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.IsSignedInteger(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger(System.Nullable{System.Object})
+  - Galaxon.Core.Numbers.XNumberBase.Mod``1(``0,``0)
+  - Galaxon.Core.Numbers.XNumberBase.Product``1(IEnumerable{``0})
+  - Galaxon.Core.Numbers.XNumberBase.Product``1(IEnumerable{``0},Func{``0,``0})
+  langs:
+  - csharp
+  - vb
+  name: XNumberBase
+  nameWithType: XNumberBase
+  fullName: Galaxon.Core.Numbers.XNumberBase
+  type: Class
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XNumberBase
+    path: Numbers/XNumberBase.cs
+    startLine: 10
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nExtension methods for INumberBase and INumberBase{T}.\n"
+  remarks: "\nTODO: Sort out methods to check for implementation of generic interfaces.\n"
+  example: []
+  syntax:
+    content: 'public static class XNumberBase : object'
+    content.vb: >-
+      Public Module XNumberBase
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XNumberBase.Implements(System.Object,Type)
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.Implements(System.Object,Type)
+  id: Implements(System.Object,Type)
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: Implements(Object, Type)
+  nameWithType: XNumberBase.Implements(Object, Type)
+  fullName: Galaxon.Core.Numbers.XNumberBase.Implements(System.Object, Type)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Implements
+    path: Numbers/XNumberBase.cs
+    startLine: 18
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if a type implements a generic interface.\n"
+  example: []
+  syntax:
+    content: public static bool Implements(object obj, Type genericInterface)
+    parameters:
+    - id: obj
+      type: System.Object
+    - id: genericInterface
+      type: Type
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: Public Shared Function Implements(obj As Object, genericInterface As Type) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.Implements*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XNumberBase.IsSignedInteger(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsSignedInteger(System.Nullable{System.Object})
+  id: IsSignedInteger(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsSignedInteger(Nullable<Object>)
+  nameWithType: XNumberBase.IsSignedInteger(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsSignedInteger(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsSignedInteger
+    path: Numbers/XNumberBase.cs
+    startLine: 25
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsSignedInteger(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsSignedInteger(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsSignedInteger*
+  nameWithType.vb: XNumberBase.IsSignedInteger(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsSignedInteger(System.Nullable(Of System.Object))
+  name.vb: IsSignedInteger(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger(System.Nullable{System.Object})
+  id: IsUnsignedInteger(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsUnsignedInteger(Nullable<Object>)
+  nameWithType: XNumberBase.IsUnsignedInteger(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsUnsignedInteger
+    path: Numbers/XNumberBase.cs
+    startLine: 28
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsUnsignedInteger(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsUnsignedInteger(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger*
+  nameWithType.vb: XNumberBase.IsUnsignedInteger(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger(System.Nullable(Of System.Object))
+  name.vb: IsUnsignedInteger(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint(System.Nullable{System.Object})
+  id: IsFloatingPoint(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsFloatingPoint(Nullable<Object>)
+  nameWithType: XNumberBase.IsFloatingPoint(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsFloatingPoint
+    path: Numbers/XNumberBase.cs
+    startLine: 31
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsFloatingPoint(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsFloatingPoint(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint*
+  nameWithType.vb: XNumberBase.IsFloatingPoint(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint(System.Nullable(Of System.Object))
+  name.vb: IsFloatingPoint(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.IsInteger(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsInteger(System.Nullable{System.Object})
+  id: IsInteger(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsInteger(Nullable<Object>)
+  nameWithType: XNumberBase.IsInteger(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsInteger(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsInteger
+    path: Numbers/XNumberBase.cs
+    startLine: 34
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsInteger(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsInteger(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsInteger*
+  nameWithType.vb: XNumberBase.IsInteger(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsInteger(System.Nullable(Of System.Object))
+  name.vb: IsInteger(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.IsReal(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsReal(System.Nullable{System.Object})
+  id: IsReal(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsReal(Nullable<Object>)
+  nameWithType: XNumberBase.IsReal(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsReal(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsReal
+    path: Numbers/XNumberBase.cs
+    startLine: 37
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsReal(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsReal(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsReal*
+  nameWithType.vb: XNumberBase.IsReal(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsReal(System.Nullable(Of System.Object))
+  name.vb: IsReal(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.IsComplex(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsComplex(System.Nullable{System.Object})
+  id: IsComplex(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsComplex(Nullable<Object>)
+  nameWithType: XNumberBase.IsComplex(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsComplex(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsComplex
+    path: Numbers/XNumberBase.cs
+    startLine: 40
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsComplex(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsComplex(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsComplex*
+  nameWithType.vb: XNumberBase.IsComplex(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsComplex(System.Nullable(Of System.Object))
+  name.vb: IsComplex(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.IsNumber(System.Nullable{System.Object})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.IsNumber(System.Nullable{System.Object})
+  id: IsNumber(System.Nullable{System.Object})
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: IsNumber(Nullable<Object>)
+  nameWithType: XNumberBase.IsNumber(Nullable<Object>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsNumber(System.Nullable<System.Object>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsNumber
+    path: Numbers/XNumberBase.cs
+    startLine: 43
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: public static bool IsNumber(object? obj)
+    parameters:
+    - id: obj
+      type: System.Nullable{System.Object}
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsNumber(obj As Object?) As Boolean
+  overload: Galaxon.Core.Numbers.XNumberBase.IsNumber*
+  nameWithType.vb: XNumberBase.IsNumber(Nullable(Of Object))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.IsNumber(System.Nullable(Of System.Object))
+  name.vb: IsNumber(Nullable(Of Object))
+- uid: Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  id: DivMod``1(``0,``0)
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: DivMod<T>(T, T)
+  nameWithType: XNumberBase.DivMod<T>(T, T)
+  fullName: Galaxon.Core.Numbers.XNumberBase.DivMod<T>(T, T)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: DivMod
+    path: Numbers/XNumberBase.cs
+    startLine: 65
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nInteger division and modulo operation using floored division.\nThe modulus will always have the same sign as the divisor.\n\nUnlike the truncated division and modulo provided by C#&apos;s operators, floored division\nproduces a regular cycling pattern through both negative and positive values of the divisor.\n\nIt permits things like:\nbool isOdd = Mod(num, 2) == 1;\n\nTrying to do this using the % operator will fail for negative divisors, however. e.g.\nbool isOdd = num % 2 == 1;\nIn this case, if num is negative 0, num % 2 == -1\n"
+  example: []
+  syntax:
+    content: >-
+      public static (T div, T mod) DivMod<T>(T a, T b)
+          where T : INumberBase<T>, IModulusOperators<T, T, T>, IComparisonOperators<T, T, bool>
+    parameters:
+    - id: a
+      type: '{T}'
+    - id: b
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: System.ValueTuple{{T},{T}}
+    content.vb: Public Shared Function DivMod(Of T As {INumberBase(Of T), IModulusOperators(Of T, T, T), IComparisonOperators(Of T, T, Boolean)})(a As T, b As T) As(div As T, mod As T)(Of T , T)
+  overload: Galaxon.Core.Numbers.XNumberBase.DivMod*
+  see:
+  - linkType: HRef
+    linkId: https://en.wikipedia.org/wiki/Modulo_operation
+    altText: https://en.wikipedia.org/wiki/Modulo_operation
+  nameWithType.vb: XNumberBase.DivMod(Of T)(T, T)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.DivMod(Of T)(T, T)
+  name.vb: DivMod(Of T)(T, T)
+- uid: Galaxon.Core.Numbers.XNumberBase.Div``1(``0,``0)
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.Div``1(``0,``0)
+  id: Div``1(``0,``0)
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: Div<T>(T, T)
+  nameWithType: XNumberBase.Div<T>(T, T)
+  fullName: Galaxon.Core.Numbers.XNumberBase.Div<T>(T, T)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Div
+    path: Numbers/XNumberBase.cs
+    startLine: 82
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCorrected integer division operation.\n"
+  example: []
+  syntax:
+    content: >-
+      public static T Div<T>(T a, T b)
+          where T : INumberBase<T>, IModulusOperators<T, T, T>, IComparisonOperators<T, T, bool>
+    parameters:
+    - id: a
+      type: '{T}'
+    - id: b
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function Div(Of T As {INumberBase(Of T), IModulusOperators(Of T, T, T), IComparisonOperators(Of T, T, Boolean)})(a As T, b As T) As T
+  overload: Galaxon.Core.Numbers.XNumberBase.Div*
+  see:
+  - linkId: Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+    commentId: M:Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  nameWithType.vb: XNumberBase.Div(Of T)(T, T)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.Div(Of T)(T, T)
+  name.vb: Div(Of T)(T, T)
+- uid: Galaxon.Core.Numbers.XNumberBase.Mod``1(``0,``0)
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.Mod``1(``0,``0)
+  id: Mod``1(``0,``0)
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: Mod<T>(T, T)
+  nameWithType: XNumberBase.Mod<T>(T, T)
+  fullName: Galaxon.Core.Numbers.XNumberBase.Mod<T>(T, T)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Mod
+    path: Numbers/XNumberBase.cs
+    startLine: 93
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCorrected modulo operation.\n"
+  example: []
+  syntax:
+    content: >-
+      public static T Mod<T>(T a, T b)
+          where T : INumberBase<T>, IModulusOperators<T, T, T>, IComparisonOperators<T, T, bool>
+    parameters:
+    - id: a
+      type: '{T}'
+    - id: b
+      type: '{T}'
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: Public Shared Function Mod(Of T As {INumberBase(Of T), IModulusOperators(Of T, T, T), IComparisonOperators(Of T, T, Boolean)})(a As T, b As T) As T
+  overload: Galaxon.Core.Numbers.XNumberBase.Mod*
+  see:
+  - linkId: Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+    commentId: M:Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  nameWithType.vb: XNumberBase.Mod(Of T)(T, T)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.Mod(Of T)(T, T)
+  name.vb: Mod(Of T)(T, T)
+- uid: Galaxon.Core.Numbers.XNumberBase.Product``1(IEnumerable{``0})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.Product``1(IEnumerable{``0})
+  id: Product``1(IEnumerable{``0})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: Product<T>(IEnumerable<T>)
+  nameWithType: XNumberBase.Product<T>(IEnumerable<T>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.Product<T>(IEnumerable<T>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Product
+    path: Numbers/XNumberBase.cs
+    startLine: 108
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nSimilar to Sum(), this extension method generates the product of all values in a collection\nof numbers.\n"
+  example: []
+  syntax:
+    content: >-
+      public static T Product<T>(this IEnumerable<T> source)
+          where T : INumberBase<T>
+    parameters:
+    - id: source
+      type: IEnumerable{{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Product(Of T As INumberBase(Of T))(source As IEnumerable(Of T)) As T
+  overload: Galaxon.Core.Numbers.XNumberBase.Product*
+  nameWithType.vb: XNumberBase.Product(Of T)(IEnumerable(Of T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.Product(Of T)(IEnumerable(Of T))
+  name.vb: Product(Of T)(IEnumerable(Of T))
+- uid: Galaxon.Core.Numbers.XNumberBase.Product``1(IEnumerable{``0},Func{``0,``0})
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.Product``1(IEnumerable{``0},Func{``0,``0})
+  id: Product``1(IEnumerable{``0},Func{``0,``0})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XNumberBase
+  langs:
+  - csharp
+  - vb
+  name: Product<T>(IEnumerable<T>, Func<T, T>)
+  nameWithType: XNumberBase.Product<T>(IEnumerable<T>, Func<T, T>)
+  fullName: Galaxon.Core.Numbers.XNumberBase.Product<T>(IEnumerable<T>, Func<T, T>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XNumberBase.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Product
+    path: Numbers/XNumberBase.cs
+    startLine: 115
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nSimilar to Sum(), get a product of all values in the collection, transformed by the supplied\nfunction.\n"
+  example: []
+  syntax:
+    content: >-
+      public static T Product<T>(this IEnumerable<T> source, Func<T, T> func)
+          where T : INumberBase<T>
+    parameters:
+    - id: source
+      type: IEnumerable{{T}}
+    - id: func
+      type: Func{{T},{T}}
+    typeParameters:
+    - id: T
+    return:
+      type: '{T}'
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Product(Of T As INumberBase(Of T))(source As IEnumerable(Of T), func As Func(Of T, T)) As T
+  overload: Galaxon.Core.Numbers.XNumberBase.Product*
+  nameWithType.vb: XNumberBase.Product(Of T)(IEnumerable(Of T), Func(Of T, T))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XNumberBase.Product(Of T)(IEnumerable(Of T), Func(Of T, T))
+  name.vb: Product(Of T)(IEnumerable(Of T), Func(Of T, T))
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Numbers.XNumberBase.Implements*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.Implements
+  name: Implements
+  nameWithType: XNumberBase.Implements
+  fullName: Galaxon.Core.Numbers.XNumberBase.Implements
+- uid: Type
+  commentId: '!:Type'
+  isExternal: true
+  name: Type
+  nameWithType: Type
+  fullName: Type
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Galaxon.Core.Numbers.XNumberBase.IsSignedInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsSignedInteger
+  name: IsSignedInteger
+  nameWithType: XNumberBase.IsSignedInteger
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsSignedInteger
+- uid: System.Nullable{System.Object}
+  commentId: '!:System.Nullable{System.Object}'
+  definition: System.Nullable`1
+  name: Nullable<Object>
+  nameWithType: Nullable<Object>
+  fullName: System.Nullable<System.Object>
+  nameWithType.vb: Nullable(Of Object)
+  fullName.vb: System.Nullable(Of System.Object)
+  name.vb: Nullable(Of Object)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Object
+    name: Object
+    nameWithType: Object
+    fullName: System.Object
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger
+  name: IsUnsignedInteger
+  nameWithType: XNumberBase.IsUnsignedInteger
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsUnsignedInteger
+- uid: Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint
+  name: IsFloatingPoint
+  nameWithType: XNumberBase.IsFloatingPoint
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsFloatingPoint
+- uid: Galaxon.Core.Numbers.XNumberBase.IsInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsInteger
+  name: IsInteger
+  nameWithType: XNumberBase.IsInteger
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsInteger
+- uid: Galaxon.Core.Numbers.XNumberBase.IsReal*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsReal
+  name: IsReal
+  nameWithType: XNumberBase.IsReal
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsReal
+- uid: Galaxon.Core.Numbers.XNumberBase.IsComplex*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsComplex
+  name: IsComplex
+  nameWithType: XNumberBase.IsComplex
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsComplex
+- uid: Galaxon.Core.Numbers.XNumberBase.IsNumber*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.IsNumber
+  name: IsNumber
+  nameWithType: XNumberBase.IsNumber
+  fullName: Galaxon.Core.Numbers.XNumberBase.IsNumber
+- uid: Galaxon.Core.Numbers.XNumberBase.DivMod*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.DivMod
+  name: DivMod
+  nameWithType: XNumberBase.DivMod
+  fullName: Galaxon.Core.Numbers.XNumberBase.DivMod
+- uid: '{T}'
+  commentId: '!:T'
+  definition: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.ValueTuple{{T},{T}}
+  commentId: '!:System.ValueTuple{``0,``0}'
+  definition: System.ValueTuple`2
+  name: (, )<T, T>
+  nameWithType: (, )<T, T>
+  fullName: System.ValueTuple<T, T>
+  nameWithType.vb: (, )(Of T, T)
+  fullName.vb: System.ValueTuple(Of T, T)
+  name.vb: (, )(Of T, T)
+  spec.csharp:
+  - uid: System.ValueTuple`2
+    name: (, )
+    nameWithType: (, )
+    fullName: System.ValueTuple
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.ValueTuple`2
+    name: (, )
+    nameWithType: (, )
+    fullName: System.ValueTuple
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: T
+  name: T
+  nameWithType: T
+  fullName: T
+- uid: System.ValueTuple`2
+  commentId: '!:System.ValueTuple`2'
+  isExternal: true
+  name: (, )<, >
+  nameWithType: (, )<, >
+  fullName: System.ValueTuple<, >
+  nameWithType.vb: (, )(Of , )
+  fullName.vb: System.ValueTuple(Of , )
+  name.vb: (, )(Of , )
+  spec.csharp:
+  - uid: System.ValueTuple`2
+    name: (, )
+    nameWithType: (, )
+    fullName: System.ValueTuple
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.ValueTuple`2
+    name: (, )
+    nameWithType: (, )
+    fullName: System.ValueTuple
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  commentId: M:Galaxon.Core.Numbers.XNumberBase.DivMod``1(``0,``0)
+  isExternal: true
+- uid: Galaxon.Core.Numbers.XNumberBase.Div*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.Div
+  name: Div
+  nameWithType: XNumberBase.Div
+  fullName: Galaxon.Core.Numbers.XNumberBase.Div
+- uid: Galaxon.Core.Numbers.XNumberBase.Mod*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.Mod
+  name: Mod
+  nameWithType: XNumberBase.Mod
+  fullName: Galaxon.Core.Numbers.XNumberBase.Mod
+- uid: Galaxon.Core.Numbers.XNumberBase.Product*
+  commentId: Overload:Galaxon.Core.Numbers.XNumberBase.Product
+  name: Product
+  nameWithType: XNumberBase.Product
+  fullName: Galaxon.Core.Numbers.XNumberBase.Product
+- uid: IEnumerable{{T}}
+  commentId: '!:IEnumerable{``0}'
+  definition: IEnumerable`1
+  name: IEnumerable<T>
+  nameWithType: IEnumerable<T>
+  fullName: IEnumerable<T>
+  nameWithType.vb: IEnumerable(Of T)
+  fullName.vb: IEnumerable(Of T)
+  name.vb: IEnumerable(Of T)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func{{T},{T}}
+  commentId: '!:Func{``0,``0}'
+  definition: Func`2
+  name: Func<T, T>
+  nameWithType: Func<T, T>
+  fullName: Func<T, T>
+  nameWithType.vb: Func(Of T, T)
+  fullName.vb: Func(Of T, T)
+  name.vb: Func(Of T, T)
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: T
+    nameWithType: T
+    fullName: T
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`2
+  isExternal: true
+  name: Func<, >
+  nameWithType: Func<, >
+  fullName: Func<, >
+  nameWithType.vb: Func(Of , )
+  fullName.vb: Func(Of , )
+  name.vb: Func(Of , )
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

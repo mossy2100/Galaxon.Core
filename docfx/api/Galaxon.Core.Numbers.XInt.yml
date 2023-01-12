@@ -1,0 +1,100 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XInt
+  commentId: T:Galaxon.Core.Numbers.XInt
+  id: XInt
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XInt.Sqrt(System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: XInt
+  nameWithType: XInt
+  fullName: Galaxon.Core.Numbers.XInt
+  type: Class
+  source:
+    remote:
+      path: Numbers/XInt.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XInt
+    path: ../../../Core/Numbers/XInt.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nExtension class for INumberBase.\n"
+  example: []
+  syntax:
+    content: 'public static class XInt : object'
+    content.vb: >-
+      Public Module XInt
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XInt.Sqrt(System.Int32)
+  commentId: M:Galaxon.Core.Numbers.XInt.Sqrt(System.Int32)
+  id: Sqrt(System.Int32)
+  parent: Galaxon.Core.Numbers.XInt
+  langs:
+  - csharp
+  - vb
+  name: Sqrt(Int32)
+  nameWithType: XInt.Sqrt(Int32)
+  fullName: Galaxon.Core.Numbers.XInt.Sqrt(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XInt.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Sqrt
+    path: ../../../Core/Numbers/XInt.cs
+    startLine: 12
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nGet the int closest to the square root of the given int.\n"
+  example: []
+  syntax:
+    content: public static int Sqrt(int n)
+    parameters:
+    - id: n
+      type: System.Int32
+      description: ''
+    return:
+      type: System.Int32
+      description: ''
+    content.vb: Public Shared Function Sqrt(n As Integer) As Integer
+  overload: Galaxon.Core.Numbers.XInt.Sqrt*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: Galaxon.Core.Numbers.XInt.Sqrt*
+  commentId: Overload:Galaxon.Core.Numbers.XInt.Sqrt
+  name: Sqrt
+  nameWithType: XInt.Sqrt
+  fullName: Galaxon.Core.Numbers.XInt.Sqrt
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32

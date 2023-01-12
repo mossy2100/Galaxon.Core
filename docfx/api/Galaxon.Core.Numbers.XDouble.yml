@@ -1,0 +1,909 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XDouble
+  commentId: T:Galaxon.Core.Numbers.XDouble
+  id: XDouble
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XDouble.Delta
+  - Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Double,System.Double,System.Double)
+  - Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Nullable{System.Double},System.Nullable{System.Double},System.Double)
+  - Galaxon.Core.Numbers.XDouble.FuzzyIsInteger(System.Double,System.Double)
+  - Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger(System.Double,System.Double)
+  - Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger(System.Double,System.Double)
+  - Galaxon.Core.Numbers.XDouble.IsNegativeInteger(System.Double)
+  - Galaxon.Core.Numbers.XDouble.IsPerfectSquare(System.Double)
+  - Galaxon.Core.Numbers.XDouble.IsPositiveInteger(System.Double)
+  - Galaxon.Core.Numbers.XDouble.Product(IEnumerable{System.Double})
+  - Galaxon.Core.Numbers.XDouble.Product(IEnumerable{System.Double},Func{System.Double,System.Double})
+  - Galaxon.Core.Numbers.XDouble.RoundSigFigs(System.Double,System.Int32)
+  langs:
+  - csharp
+  - vb
+  name: XDouble
+  nameWithType: XDouble
+  fullName: Galaxon.Core.Numbers.XDouble
+  type: Class
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XDouble
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nExtension methods for Double.\n"
+  example: []
+  syntax:
+    content: 'public static class XDouble : object'
+    content.vb: >-
+      Public Module XDouble
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XDouble.Delta
+  commentId: F:Galaxon.Core.Numbers.XDouble.Delta
+  id: Delta
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: Delta
+  nameWithType: XDouble.Delta
+  fullName: Galaxon.Core.Numbers.XDouble.Delta
+  type: Field
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Delta
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 10
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nThe default maximum difference between 2 double values being compared for equality.\n"
+  example: []
+  syntax:
+    content: public const double Delta = null
+    return:
+      type: System.Double
+    content.vb: Public Const Delta As Double = Nothing
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Numbers.XDouble.RoundSigFigs(System.Double,System.Int32)
+  commentId: M:Galaxon.Core.Numbers.XDouble.RoundSigFigs(System.Double,System.Int32)
+  id: RoundSigFigs(System.Double,System.Int32)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: RoundSigFigs(Double, Int32)
+  nameWithType: XDouble.RoundSigFigs(Double, Int32)
+  fullName: Galaxon.Core.Numbers.XDouble.RoundSigFigs(System.Double, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: RoundSigFigs
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 20
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nRound off a value to a given number of significant figures.\n"
+  example: []
+  syntax:
+    content: public static double RoundSigFigs(double d, int nSigFigs)
+    parameters:
+    - id: d
+      type: System.Double
+      description: The number to round.
+    - id: nSigFigs
+      type: System.Int32
+      description: The number of significant figures.
+    return:
+      type: System.Double
+      description: The rounded number.
+    content.vb: Public Shared Function RoundSigFigs(d As Double, nSigFigs As Integer) As Double
+  overload: Galaxon.Core.Numbers.XDouble.RoundSigFigs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.IsPositiveInteger(System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.IsPositiveInteger(System.Double)
+  id: IsPositiveInteger(System.Double)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: IsPositiveInteger(Double)
+  nameWithType: XDouble.IsPositiveInteger(Double)
+  fullName: Galaxon.Core.Numbers.XDouble.IsPositiveInteger(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsPositiveInteger
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 45
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if a double is a positive integer.\n"
+  example: []
+  syntax:
+    content: public static bool IsPositiveInteger(double d)
+    parameters:
+    - id: d
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsPositiveInteger(d As Double) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.IsPositiveInteger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.IsNegativeInteger(System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.IsNegativeInteger(System.Double)
+  id: IsNegativeInteger(System.Double)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: IsNegativeInteger(Double)
+  nameWithType: XDouble.IsNegativeInteger(Double)
+  fullName: Galaxon.Core.Numbers.XDouble.IsNegativeInteger(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsNegativeInteger
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 51
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if a double is a negative integer.\n"
+  example: []
+  syntax:
+    content: public static bool IsNegativeInteger(double d)
+    parameters:
+    - id: d
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsNegativeInteger(d As Double) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.IsNegativeInteger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.IsPerfectSquare(System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.IsPerfectSquare(System.Double)
+  id: IsPerfectSquare(System.Double)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: IsPerfectSquare(Double)
+  nameWithType: XDouble.IsPerfectSquare(Double)
+  fullName: Galaxon.Core.Numbers.XDouble.IsPerfectSquare(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsPerfectSquare
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 57
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if a value is a perfect square.\n"
+  example: []
+  syntax:
+    content: public static bool IsPerfectSquare(double d)
+    parameters:
+    - id: d
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function IsPerfectSquare(d As Double) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.IsPerfectSquare*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Double,System.Double,System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Double,System.Double,System.Double)
+  id: FuzzyEquals(System.Double,System.Double,System.Double)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: FuzzyEquals(Double, Double, Double)
+  nameWithType: XDouble.FuzzyEquals(Double, Double, Double)
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Double, System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FuzzyEquals
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 80
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if 2 double values are equal for practical purposes.\n\nIf two double values differ only by the least significant bit, this is more likely\ndue to inaccuracies in floating point representations than actual inequality.\n\nThis code is copied/adapted from Google Guava DoubleMath.fuzzyEquals().\n<a href=\"https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360\">https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360</a>\n\nI initially tried the algorithm from the Microsoft documentation, it didn&apos;t work in all cases.\n<a href=\"https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)\">https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)</a>\n"
+  example: []
+  syntax:
+    content: public static bool FuzzyEquals(this double a, double b, double tolerance = null)
+    parameters:
+    - id: a
+      type: System.Double
+      description: First number.
+    - id: b
+      type: System.Double
+      description: Second number.
+    - id: tolerance
+      type: System.Double
+      description: The maximum allowable difference between them.
+    return:
+      type: System.Boolean
+      description: If close enough to equal.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function FuzzyEquals(a As Double, b As Double, tolerance As Double = Nothing) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.FuzzyEquals*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Nullable{System.Double},System.Nullable{System.Double},System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Nullable{System.Double},System.Nullable{System.Double},System.Double)
+  id: FuzzyEquals(System.Nullable{System.Double},System.Nullable{System.Double},System.Double)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: FuzzyEquals(Nullable<Double>, Nullable<Double>, Double)
+  nameWithType: XDouble.FuzzyEquals(Nullable<Double>, Nullable<Double>, Double)
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Nullable<System.Double>, System.Nullable<System.Double>, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FuzzyEquals
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 102
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCompare two nullable doubles for fuzzy equality.\n"
+  example: []
+  syntax:
+    content: public static bool FuzzyEquals(this double? a, double? b, double tolerance = null)
+    parameters:
+    - id: a
+      type: System.Nullable{System.Double}
+      description: ''
+    - id: b
+      type: System.Nullable{System.Double}
+      description: ''
+    - id: tolerance
+      type: System.Double
+      description: ''
+    return:
+      type: System.Boolean
+      description: ''
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function FuzzyEquals(a As Double?, b As Double?, tolerance As Double = Nothing) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.FuzzyEquals*
+  nameWithType.vb: XDouble.FuzzyEquals(Nullable(Of Double), Nullable(Of Double), Double)
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Nullable(Of System.Double), System.Nullable(Of System.Double), System.Double)
+  name.vb: FuzzyEquals(Nullable(Of Double), Nullable(Of Double), Double)
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyIsInteger(System.Double,System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.FuzzyIsInteger(System.Double,System.Double)
+  id: FuzzyIsInteger(System.Double,System.Double)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIsInteger(Double, Double)
+  nameWithType: XDouble.FuzzyIsInteger(Double, Double)
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyIsInteger(System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FuzzyIsInteger
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 123
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nIsInteger() can be a bit strict. This method allows for some fuzziness.\n"
+  example: []
+  syntax:
+    content: public static bool FuzzyIsInteger(double d, double tolerance = null)
+    parameters:
+    - id: d
+      type: System.Double
+    - id: tolerance
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function FuzzyIsInteger(d As Double, tolerance As Double = Nothing) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.FuzzyIsInteger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger(System.Double,System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger(System.Double,System.Double)
+  id: FuzzyIsPositiveInteger(System.Double,System.Double)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIsPositiveInteger(Double, Double)
+  nameWithType: XDouble.FuzzyIsPositiveInteger(Double, Double)
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger(System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FuzzyIsPositiveInteger
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 129
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if a double is a positive integer, with some fuzziness.\n"
+  example: []
+  syntax:
+    content: public static bool FuzzyIsPositiveInteger(double d, double tolerance = null)
+    parameters:
+    - id: d
+      type: System.Double
+    - id: tolerance
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function FuzzyIsPositiveInteger(d As Double, tolerance As Double = Nothing) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger(System.Double,System.Double)
+  commentId: M:Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger(System.Double,System.Double)
+  id: FuzzyIsNegativeInteger(System.Double,System.Double)
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: FuzzyIsNegativeInteger(Double, Double)
+  nameWithType: XDouble.FuzzyIsNegativeInteger(Double, Double)
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger(System.Double, System.Double)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FuzzyIsNegativeInteger
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 135
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nCheck if a double is a negative integer, with some fuzziness.\n"
+  example: []
+  syntax:
+    content: public static bool FuzzyIsNegativeInteger(double d, double tolerance = null)
+    parameters:
+    - id: d
+      type: System.Double
+    - id: tolerance
+      type: System.Double
+    return:
+      type: System.Boolean
+    content.vb: Public Shared Function FuzzyIsNegativeInteger(d As Double, tolerance As Double = Nothing) As Boolean
+  overload: Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Numbers.XDouble.Product(IEnumerable{System.Double})
+  commentId: M:Galaxon.Core.Numbers.XDouble.Product(IEnumerable{System.Double})
+  id: Product(IEnumerable{System.Double})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: Product(IEnumerable<Double>)
+  nameWithType: XDouble.Product(IEnumerable<Double>)
+  fullName: Galaxon.Core.Numbers.XDouble.Product(IEnumerable<System.Double>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Product
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 147
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nSimilar to Sum(), this extension method generates the product of all values in a collection\nof doubles.\nI&apos;d love to make this method generic but I haven&apos;t figured out how yet.\n"
+  example: []
+  syntax:
+    content: public static double Product(this IEnumerable<double> source)
+    parameters:
+    - id: source
+      type: IEnumerable{System.Double}
+    return:
+      type: System.Double
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Product(source As IEnumerable(Of Double)) As Double
+  overload: Galaxon.Core.Numbers.XDouble.Product*
+  nameWithType.vb: XDouble.Product(IEnumerable(Of Double))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XDouble.Product(IEnumerable(Of System.Double))
+  name.vb: Product(IEnumerable(Of Double))
+- uid: Galaxon.Core.Numbers.XDouble.Product(IEnumerable{System.Double},Func{System.Double,System.Double})
+  commentId: M:Galaxon.Core.Numbers.XDouble.Product(IEnumerable{System.Double},Func{System.Double,System.Double})
+  id: Product(IEnumerable{System.Double},Func{System.Double,System.Double})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Numbers.XDouble
+  langs:
+  - csharp
+  - vb
+  name: Product(IEnumerable<Double>, Func<Double, Double>)
+  nameWithType: XDouble.Product(IEnumerable<Double>, Func<Double, Double>)
+  fullName: Galaxon.Core.Numbers.XDouble.Product(IEnumerable<System.Double>, Func<System.Double, System.Double>)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XDouble.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Product
+    path: ../../../Core/Numbers/XDouble.cs
+    startLine: 153
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nGet a product of all values in the collection, transformed by the supplied function.\n"
+  example: []
+  syntax:
+    content: public static double Product(this IEnumerable<double> source, Func<double, double> func)
+    parameters:
+    - id: source
+      type: IEnumerable{System.Double}
+    - id: func
+      type: Func{System.Double,System.Double}
+    return:
+      type: System.Double
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Product(source As IEnumerable(Of Double), func As Func(Of Double, Double)) As Double
+  overload: Galaxon.Core.Numbers.XDouble.Product*
+  nameWithType.vb: XDouble.Product(IEnumerable(Of Double), Func(Of Double, Double))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Numbers.XDouble.Product(IEnumerable(Of System.Double), Func(Of System.Double, System.Double))
+  name.vb: Product(IEnumerable(Of Double), Func(Of Double, Double))
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: Galaxon.Core.Numbers.XDouble.RoundSigFigs*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.RoundSigFigs
+  name: RoundSigFigs
+  nameWithType: XDouble.RoundSigFigs
+  fullName: Galaxon.Core.Numbers.XDouble.RoundSigFigs
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Galaxon.Core.Numbers.XDouble.IsPositiveInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.IsPositiveInteger
+  name: IsPositiveInteger
+  nameWithType: XDouble.IsPositiveInteger
+  fullName: Galaxon.Core.Numbers.XDouble.IsPositiveInteger
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: Galaxon.Core.Numbers.XDouble.IsNegativeInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.IsNegativeInteger
+  name: IsNegativeInteger
+  nameWithType: XDouble.IsNegativeInteger
+  fullName: Galaxon.Core.Numbers.XDouble.IsNegativeInteger
+- uid: Galaxon.Core.Numbers.XDouble.IsPerfectSquare*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.IsPerfectSquare
+  name: IsPerfectSquare
+  nameWithType: XDouble.IsPerfectSquare
+  fullName: Galaxon.Core.Numbers.XDouble.IsPerfectSquare
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyEquals*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.FuzzyEquals
+  name: FuzzyEquals
+  nameWithType: XDouble.FuzzyEquals
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyEquals
+- uid: System.Nullable{System.Double}
+  commentId: '!:System.Nullable{System.Double}'
+  definition: System.Nullable`1
+  name: Nullable<Double>
+  nameWithType: Nullable<Double>
+  fullName: System.Nullable<System.Double>
+  nameWithType.vb: Nullable(Of Double)
+  fullName.vb: System.Nullable(Of System.Double)
+  name.vb: Nullable(Of Double)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyIsInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.FuzzyIsInteger
+  name: FuzzyIsInteger
+  nameWithType: XDouble.FuzzyIsInteger
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyIsInteger
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger
+  name: FuzzyIsPositiveInteger
+  nameWithType: XDouble.FuzzyIsPositiveInteger
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyIsPositiveInteger
+- uid: Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger
+  name: FuzzyIsNegativeInteger
+  nameWithType: XDouble.FuzzyIsNegativeInteger
+  fullName: Galaxon.Core.Numbers.XDouble.FuzzyIsNegativeInteger
+- uid: Galaxon.Core.Numbers.XDouble.Product*
+  commentId: Overload:Galaxon.Core.Numbers.XDouble.Product
+  name: Product
+  nameWithType: XDouble.Product
+  fullName: Galaxon.Core.Numbers.XDouble.Product
+- uid: IEnumerable{System.Double}
+  commentId: '!:IEnumerable{System.Double}'
+  definition: IEnumerable`1
+  name: IEnumerable<Double>
+  nameWithType: IEnumerable<Double>
+  fullName: IEnumerable<System.Double>
+  nameWithType.vb: IEnumerable(Of Double)
+  fullName.vb: IEnumerable(Of System.Double)
+  name.vb: IEnumerable(Of Double)
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: IEnumerable`1
+  isExternal: true
+  name: IEnumerable<>
+  nameWithType: IEnumerable<>
+  fullName: IEnumerable<>
+  nameWithType.vb: IEnumerable(Of )
+  fullName.vb: IEnumerable(Of )
+  name.vb: IEnumerable(Of )
+  spec.csharp:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: IEnumerable`1
+    name: IEnumerable
+    nameWithType: IEnumerable
+    fullName: IEnumerable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func{System.Double,System.Double}
+  commentId: '!:Func{System.Double,System.Double}'
+  definition: Func`2
+  name: Func<Double, Double>
+  nameWithType: Func<Double, Double>
+  fullName: Func<System.Double, System.Double>
+  nameWithType.vb: Func(Of Double, Double)
+  fullName.vb: Func(Of System.Double, System.Double)
+  name.vb: Func(Of Double, Double)
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - uid: System.Double
+    name: Double
+    nameWithType: Double
+    fullName: System.Double
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: Func`2
+  isExternal: true
+  name: Func<, >
+  nameWithType: Func<, >
+  fullName: Func<, >
+  nameWithType.vb: Func(Of , )
+  fullName.vb: Func(Of , )
+  name.vb: Func(Of , )
+  spec.csharp:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: Func`2
+    name: Func
+    nameWithType: Func
+    fullName: Func
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: ', '
+    nameWithType: ', '
+    fullName: ', '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

@@ -1,0 +1,110 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Numbers.XUshort
+  commentId: T:Galaxon.Core.Numbers.XUshort
+  id: XUshort
+  parent: Galaxon.Core.Numbers
+  children:
+  - Galaxon.Core.Numbers.XUshort.Abs(System.Int16)
+  langs:
+  - csharp
+  - vb
+  name: XUshort
+  nameWithType: XUshort
+  fullName: Galaxon.Core.Numbers.XUshort
+  type: Class
+  source:
+    remote:
+      path: Numbers/XUshort.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XUshort
+    path: Numbers/XUshort.cs
+    startLine: 2
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  syntax:
+    content: 'public static class XUshort : object'
+    content.vb: >-
+      Public Module XUshort
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Numbers.XUshort.Abs(System.Int16)
+  commentId: M:Galaxon.Core.Numbers.XUshort.Abs(System.Int16)
+  id: Abs(System.Int16)
+  parent: Galaxon.Core.Numbers.XUshort
+  langs:
+  - csharp
+  - vb
+  name: Abs(Int16)
+  nameWithType: XUshort.Abs(Int16)
+  fullName: Galaxon.Core.Numbers.XUshort.Abs(System.Int16)
+  type: Method
+  source:
+    remote:
+      path: Numbers/XUshort.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Abs
+    path: Numbers/XUshort.cs
+    startLine: 12
+  assemblies:
+  - Galaxon.Core.Numbers
+  namespace: Galaxon.Core.Numbers
+  summary: "\nReturn the absolute value of a short as a ushort.\nThis addresses an issue with short.Abs(), which is that Abs(short.MinValue) can&apos;t be expressed\nas a short, and so wrap-around occurs.\nUnsigned integer types don&apos;t have an Abs() method, so there&apos;s no collision.\n"
+  example: []
+  syntax:
+    content: public static ushort Abs(short n)
+    parameters:
+    - id: n
+      type: System.Int16
+      description: A short value.
+    return:
+      type: System.UInt16
+      description: The absolute value as a ushort.
+    content.vb: Public Shared Function Abs(n As Short) As UShort
+  overload: Galaxon.Core.Numbers.XUshort.Abs*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Numbers
+  commentId: N:Galaxon.Core.Numbers
+  name: Galaxon.Core.Numbers
+  nameWithType: Galaxon.Core.Numbers
+  fullName: Galaxon.Core.Numbers
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Numbers.XUshort.Abs*
+  commentId: Overload:Galaxon.Core.Numbers.XUshort.Abs
+  name: Abs
+  nameWithType: XUshort.Abs
+  fullName: Galaxon.Core.Numbers.XUshort.Abs
+- uid: System.Int16
+  commentId: '!:System.Int16'
+  isExternal: true
+  name: Int16
+  nameWithType: Int16
+  fullName: System.Int16
+- uid: System.UInt16
+  commentId: '!:System.UInt16'
+  isExternal: true
+  name: UInt16
+  nameWithType: UInt16
+  fullName: System.UInt16

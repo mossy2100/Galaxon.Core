@@ -1,0 +1,807 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Time.XDateOnly
+  commentId: T:Galaxon.Core.Time.XDateOnly
+  id: XDateOnly
+  parent: Galaxon.Core.Time
+  children:
+  - Galaxon.Core.Time.XDateOnly.Christmas(System.Int32)
+  - Galaxon.Core.Time.XDateOnly.Easter(System.Int32)
+  - Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32,System.Int32)
+  - Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)
+  - Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)
+  - Galaxon.Core.Time.XDateOnly.GetTicks(DateOnly)
+  - Galaxon.Core.Time.XDateOnly.GetTotalDays(DateOnly)
+  - Galaxon.Core.Time.XDateOnly.GetTotalSeconds(DateOnly)
+  - Galaxon.Core.Time.XDateOnly.Subtract(DateOnly,DateOnly)
+  - Galaxon.Core.Time.XDateOnly.Subtract(DateOnly,TimeSpan)
+  - Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly)
+  - Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly,DateTimeKind)
+  - Galaxon.Core.Time.XDateOnly.ToIsoString(DateOnly)
+  - Galaxon.Core.Time.XDateOnly.ToJulianDay(DateOnly)
+  langs:
+  - csharp
+  - vb
+  name: XDateOnly
+  nameWithType: XDateOnly
+  fullName: Galaxon.Core.Time.XDateOnly
+  type: Class
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XDateOnly
+    path: Time/XDateOnly.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nExtension methods for the DateOnly class.\n"
+  example: []
+  syntax:
+    content: 'public static class XDateOnly : object'
+    content.vb: >-
+      Public Module XDateOnly
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Time.XDateOnly.ToIsoString(DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.ToIsoString(DateOnly)
+  id: ToIsoString(DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: ToIsoString(DateOnly)
+  nameWithType: XDateOnly.ToIsoString(DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.ToIsoString(DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToIsoString
+    path: Time/XDateOnly.cs
+    startLine: 17
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nFormat the date using ISO 8601 format YYYY-MM-DD.\n<a href=\"https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates\">https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates</a>\n"
+  example: []
+  syntax:
+    content: public static string ToIsoString(this DateOnly date)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    return:
+      type: System.String
+      description: A string representing the date in ISO format.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToIsoString(date As DateOnly) As String
+  overload: Galaxon.Core.Time.XDateOnly.ToIsoString*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly)
+  id: ToDateTime(DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: ToDateTime(DateOnly)
+  nameWithType: XDateOnly.ToDateTime(DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToDateTime
+    path: Time/XDateOnly.cs
+    startLine: 29
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nConvert a DateOnly to a DateTime, with default time 00:00:00.\n"
+  example: []
+  syntax:
+    content: public static DateTime ToDateTime(this DateOnly date)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    return:
+      type: DateTime
+      description: The new DateTime object
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToDateTime(date As DateOnly) As DateTime
+  overload: Galaxon.Core.Time.XDateOnly.ToDateTime*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly,DateTimeKind)
+  commentId: M:Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly,DateTimeKind)
+  id: ToDateTime(DateOnly,DateTimeKind)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: ToDateTime(DateOnly, DateTimeKind)
+  nameWithType: XDateOnly.ToDateTime(DateOnly, DateTimeKind)
+  fullName: Galaxon.Core.Time.XDateOnly.ToDateTime(DateOnly, DateTimeKind)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToDateTime
+    path: Time/XDateOnly.cs
+    startLine: 38
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nConvert a DateOnly to a DateTime, with default time 00:00:00 and specified DateTimeKind.\n"
+  example: []
+  syntax:
+    content: public static DateTime ToDateTime(this DateOnly date, DateTimeKind kind)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    - id: kind
+      type: DateTimeKind
+      description: The DateTimeKind.
+    return:
+      type: DateTime
+      description: The new DateTime object
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToDateTime(date As DateOnly, kind As DateTimeKind) As DateTime
+  overload: Galaxon.Core.Time.XDateOnly.ToDateTime*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.GetTicks(DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.GetTicks(DateOnly)
+  id: GetTicks(DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: GetTicks(DateOnly)
+  nameWithType: XDateOnly.GetTicks(DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.GetTicks(DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTicks
+    path: Time/XDateOnly.cs
+    startLine: 59
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the number of ticks between the start of the epoch (0001-01-01 00:00:00) and the start\nof the date.\nIf extension properties are added to the language I may change this to a property &quot;Ticks&quot;\nlater, for consistency with DateTime.\n<a href=\"https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0\">https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0</a>\n"
+  example: []
+  syntax:
+    content: public static long GetTicks(this DateOnly date)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    return:
+      type: System.Int64
+      description: The number of ticks.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTicks(date As DateOnly) As Long
+  overload: Galaxon.Core.Time.XDateOnly.GetTicks*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.GetTotalSeconds(DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.GetTotalSeconds(DateOnly)
+  id: GetTotalSeconds(DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: GetTotalSeconds(DateOnly)
+  nameWithType: XDateOnly.GetTotalSeconds(DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.GetTotalSeconds(DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalSeconds
+    path: Time/XDateOnly.cs
+    startLine: 67
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the number of seconds between the start of the epoch and the start of the date.\n"
+  example: []
+  syntax:
+    content: public static long GetTotalSeconds(this DateOnly date)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    return:
+      type: System.Int64
+      description: The number of seconds since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalSeconds(date As DateOnly) As Long
+  overload: Galaxon.Core.Time.XDateOnly.GetTotalSeconds*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.GetTotalDays(DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.GetTotalDays(DateOnly)
+  id: GetTotalDays(DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: GetTotalDays(DateOnly)
+  nameWithType: XDateOnly.GetTotalDays(DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.GetTotalDays(DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: GetTotalDays
+    path: Time/XDateOnly.cs
+    startLine: 75
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the number of days between the start of the epoch and the start of the date.\n"
+  example: []
+  syntax:
+    content: public static long GetTotalDays(this DateOnly date)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    return:
+      type: System.Int64
+      description: The number of days since the epoch start.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function GetTotalDays(date As DateOnly) As Long
+  overload: Galaxon.Core.Time.XDateOnly.GetTotalDays*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.Subtract(DateOnly,DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.Subtract(DateOnly,DateOnly)
+  id: Subtract(DateOnly,DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: Subtract(DateOnly, DateOnly)
+  nameWithType: XDateOnly.Subtract(DateOnly, DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.Subtract(DateOnly, DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Subtract
+    path: Time/XDateOnly.cs
+    startLine: 99
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nReturns the difference between two dates (as DateOnly objects) as a TimeSpan.\nEmulates the DateTime.Subtract(DateTime) method.\nBecause we&apos;re subtracting dates without time of day information, the result will contain\nonly a whole number of days; the hours, minutes, and seconds parts of the TimeSpan will\nbe 0.\nIf the DateOnly instance date is later than the parameter date, the result will be\npositive.\nIf they are the same dates, the result will be zero.\nOtherwise, the result will be negative.\n<a href=\"https://learn.microsoft.com/en-us/dotnet/api/system.datetime.subtract?view=net-7.0#system-datetime-subtract(system-datetime)\">https://learn.microsoft.com/en-us/dotnet/api/system.datetime.subtract?view=net-7.0#system-datetime-subtract(system-datetime)</a>\n"
+  example: []
+  syntax:
+    content: public static TimeSpan Subtract(this DateOnly date, DateOnly date2)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    - id: date2
+      type: DateOnly
+      description: The DateOnly to be subtracted.
+    return:
+      type: TimeSpan
+      description: The difference between the two dates as a TimeSpan.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Subtract(date As DateOnly, date2 As DateOnly) As TimeSpan
+  overload: Galaxon.Core.Time.XDateOnly.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.Subtract(DateOnly,TimeSpan)
+  commentId: M:Galaxon.Core.Time.XDateOnly.Subtract(DateOnly,TimeSpan)
+  id: Subtract(DateOnly,TimeSpan)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: Subtract(DateOnly, TimeSpan)
+  nameWithType: XDateOnly.Subtract(DateOnly, TimeSpan)
+  fullName: Galaxon.Core.Time.XDateOnly.Subtract(DateOnly, TimeSpan)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Subtract
+    path: Time/XDateOnly.cs
+    startLine: 112
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nReturns a DateTime with a TimeSpan subtracted.\nEmulates the DateTime.Subtract(TimeSpan) method.\nBecause time of day information is discarded, the TimeSpan parameter is effectively\nrounded up to the nearest whole day.\n<a href=\"https://learn.microsoft.com/en-us/dotnet/api/system.datetime.subtract?view=net-7.0#system-datetime-subtract(system-timespan)\">https://learn.microsoft.com/en-us/dotnet/api/system.datetime.subtract?view=net-7.0#system-datetime-subtract(system-timespan)</a>\n"
+  example: []
+  syntax:
+    content: public static DateOnly Subtract(this DateOnly date, TimeSpan span)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    - id: span
+      type: TimeSpan
+      description: The TimeSpan to be subtracted.
+    return:
+      type: DateOnly
+      description: The resulting date.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function Subtract(date As DateOnly, span As TimeSpan) As DateOnly
+  overload: Galaxon.Core.Time.XDateOnly.Subtract*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)
+  commentId: M:Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)
+  id: FromTotalDays(System.Int64)
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: FromTotalDays(Int64)
+  nameWithType: XDateOnly.FromTotalDays(Int64)
+  fullName: Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FromTotalDays
+    path: Time/XDateOnly.cs
+    startLine: 125
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nDetermine the date given the number of days from the start of the epoch (0001-01-01).\n<xref href=\"Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static DateOnly FromTotalDays(long days)
+    parameters:
+    - id: days
+      type: System.Int64
+      description: The number of days.
+    return:
+      type: DateOnly
+      description: A new DateOnly object.
+    content.vb: Public Shared Function FromTotalDays(days As Long) As DateOnly
+  overload: Galaxon.Core.Time.XDateOnly.FromTotalDays*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32,System.Int32)
+  commentId: M:Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32,System.Int32)
+  id: FromDayOfYear(System.Int32,System.Int32)
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: FromDayOfYear(Int32, Int32)
+  nameWithType: XDateOnly.FromDayOfYear(Int32, Int32)
+  fullName: Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32, System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FromDayOfYear
+    path: Time/XDateOnly.cs
+    startLine: 135
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nConstruct a new DateOnly instance given a year and the day of the year.\nFormula from Meeus (Astronomical Algorithms 2 ed., p66).\n"
+  example: []
+  syntax:
+    content: public static DateOnly FromDayOfYear(int year, int dayOfYear)
+    parameters:
+    - id: year
+      type: System.Int32
+      description: The year (1..9999).
+    - id: dayOfYear
+      type: System.Int32
+      description: The day of the year (1..366).
+    return:
+      type: DateOnly
+      description: ''
+    content.vb: Public Shared Function FromDayOfYear(year As Integer, dayOfYear As Integer) As DateOnly
+  overload: Galaxon.Core.Time.XDateOnly.FromDayOfYear*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.ToJulianDay(DateOnly)
+  commentId: M:Galaxon.Core.Time.XDateOnly.ToJulianDay(DateOnly)
+  id: ToJulianDay(DateOnly)
+  isExtensionMethod: true
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: ToJulianDay(DateOnly)
+  nameWithType: XDateOnly.ToJulianDay(DateOnly)
+  fullName: Galaxon.Core.Time.XDateOnly.ToJulianDay(DateOnly)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: ToJulianDay
+    path: Time/XDateOnly.cs
+    startLine: 157
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nConvert a  DateOnly object to a Julian Day value.\nThe result gives the Julian Day at the start of the given date\n(00:00:00, i.e. midnight), which will always have a fraction of 0.5, since a Julian Day\nstarts at 12:00:00 (noon).\n<xref href=\"Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static double ToJulianDay(this DateOnly date)
+    parameters:
+    - id: date
+      type: DateOnly
+      description: The DateOnly instance.
+    return:
+      type: System.Double
+      description: The Julian Day value.
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function ToJulianDay(date As DateOnly) As Double
+  overload: Galaxon.Core.Time.XDateOnly.ToJulianDay*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)
+  commentId: M:Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)
+  id: FromJulianDay(System.Double)
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: FromJulianDay(Double)
+  nameWithType: XDateOnly.FromJulianDay(Double)
+  fullName: Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: FromJulianDay
+    path: Time/XDateOnly.cs
+    startLine: 169
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nConvert a Julian Day value to a DateOnly object.\n<xref href=\"Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)\" data-throw-if-not-resolved=\"false\"></xref>\n"
+  example: []
+  syntax:
+    content: public static DateOnly FromJulianDay(double jd)
+    parameters:
+    - id: jd
+      type: System.Double
+      description: "\nThe Julian Day value. If a fractional part indicating the time of day is included, this\ninformation will be discarded.\n"
+    return:
+      type: DateOnly
+      description: A new DateOnly object.
+    content.vb: Public Shared Function FromJulianDay(jd As Double) As DateOnly
+  overload: Galaxon.Core.Time.XDateOnly.FromJulianDay*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.Easter(System.Int32)
+  commentId: M:Galaxon.Core.Time.XDateOnly.Easter(System.Int32)
+  id: Easter(System.Int32)
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: Easter(Int32)
+  nameWithType: XDateOnly.Easter(Int32)
+  fullName: Galaxon.Core.Time.XDateOnly.Easter(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Easter
+    path: Time/XDateOnly.cs
+    startLine: 188
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the date of Easter Sunday in the given year, in the Gregorian Calendar.\nFormula is from Wikipedia.\nThis method uses the &quot;Meeus/Jones/Butcher&quot; algorithm from 1876, with the New Scientist\nmodifications from 1961.\nTested for years 1600..2299.\n"
+  example: []
+  syntax:
+    content: public static DateOnly Easter(int year)
+    parameters:
+    - id: year
+      type: System.Int32
+      description: The Gregorian year number.
+    return:
+      type: DateOnly
+      description: The date of Easter Sunday for the given year.
+    content.vb: Public Shared Function Easter(year As Integer) As DateOnly
+  overload: Galaxon.Core.Time.XDateOnly.Easter*
+  see:
+  - linkType: HRef
+    linkId: https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm
+    altText: https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm
+  - linkType: HRef
+    linkId: https://www.census.gov/data/software/x13as/genhol/easter-dates.html
+    altText: https://www.census.gov/data/software/x13as/genhol/easter-dates.html
+  - linkType: HRef
+    linkId: https://www.assa.org.au/edm
+    altText: https://www.assa.org.au/edm
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+- uid: Galaxon.Core.Time.XDateOnly.Christmas(System.Int32)
+  commentId: M:Galaxon.Core.Time.XDateOnly.Christmas(System.Int32)
+  id: Christmas(System.Int32)
+  parent: Galaxon.Core.Time.XDateOnly
+  langs:
+  - csharp
+  - vb
+  name: Christmas(Int32)
+  nameWithType: XDateOnly.Christmas(Int32)
+  fullName: Galaxon.Core.Time.XDateOnly.Christmas(System.Int32)
+  type: Method
+  source:
+    remote:
+      path: Time/XDateOnly.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Christmas
+    path: Time/XDateOnly.cs
+    startLine: 210
+  assemblies:
+  - Galaxon.Core.Time
+  namespace: Galaxon.Core.Time
+  summary: "\nGet the date of Christmas Day in the given year, in the Gregorian Calendar.\n"
+  example: []
+  syntax:
+    content: public static DateOnly Christmas(int y)
+    parameters:
+    - id: y
+      type: System.Int32
+    return:
+      type: DateOnly
+    content.vb: Public Shared Function Christmas(y As Integer) As DateOnly
+  overload: Galaxon.Core.Time.XDateOnly.Christmas*
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+references:
+- uid: Galaxon.Core.Time
+  commentId: N:Galaxon.Core.Time
+  name: Galaxon.Core.Time
+  nameWithType: Galaxon.Core.Time
+  fullName: Galaxon.Core.Time
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Time.XDateOnly.ToIsoString*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.ToIsoString
+  name: ToIsoString
+  nameWithType: XDateOnly.ToIsoString
+  fullName: Galaxon.Core.Time.XDateOnly.ToIsoString
+- uid: DateOnly
+  isExternal: true
+  name: DateOnly
+  nameWithType: DateOnly
+  fullName: DateOnly
+- uid: System.String
+  isExternal: true
+  name: String
+  nameWithType: String
+  fullName: System.String
+- uid: Galaxon.Core.Time.XDateOnly.ToDateTime*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.ToDateTime
+  name: ToDateTime
+  nameWithType: XDateOnly.ToDateTime
+  fullName: Galaxon.Core.Time.XDateOnly.ToDateTime
+- uid: DateTime
+  isExternal: true
+  name: DateTime
+  nameWithType: DateTime
+  fullName: DateTime
+- uid: DateTimeKind
+  commentId: '!:DateTimeKind'
+  isExternal: true
+  name: DateTimeKind
+  nameWithType: DateTimeKind
+  fullName: DateTimeKind
+- uid: Galaxon.Core.Time.XDateOnly.GetTicks*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.GetTicks
+  name: GetTicks
+  nameWithType: XDateOnly.GetTicks
+  fullName: Galaxon.Core.Time.XDateOnly.GetTicks
+- uid: System.Int64
+  isExternal: true
+  name: Int64
+  nameWithType: Int64
+  fullName: System.Int64
+- uid: Galaxon.Core.Time.XDateOnly.GetTotalSeconds*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.GetTotalSeconds
+  name: GetTotalSeconds
+  nameWithType: XDateOnly.GetTotalSeconds
+  fullName: Galaxon.Core.Time.XDateOnly.GetTotalSeconds
+- uid: Galaxon.Core.Time.XDateOnly.GetTotalDays*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.GetTotalDays
+  name: GetTotalDays
+  nameWithType: XDateOnly.GetTotalDays
+  fullName: Galaxon.Core.Time.XDateOnly.GetTotalDays
+- uid: Galaxon.Core.Time.XDateOnly.Subtract*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.Subtract
+  name: Subtract
+  nameWithType: XDateOnly.Subtract
+  fullName: Galaxon.Core.Time.XDateOnly.Subtract
+- uid: TimeSpan
+  isExternal: true
+  name: TimeSpan
+  nameWithType: TimeSpan
+  fullName: TimeSpan
+- uid: Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)
+  commentId: M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)
+  isExternal: true
+- uid: Galaxon.Core.Time.XDateOnly.FromTotalDays*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.FromTotalDays
+  name: FromTotalDays
+  nameWithType: XDateOnly.FromTotalDays
+  fullName: Galaxon.Core.Time.XDateOnly.FromTotalDays
+- uid: Galaxon.Core.Time.XDateOnly.FromDayOfYear*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.FromDayOfYear
+  name: FromDayOfYear
+  nameWithType: XDateOnly.FromDayOfYear
+  fullName: Galaxon.Core.Time.XDateOnly.FromDayOfYear
+- uid: System.Int32
+  isExternal: true
+  name: Int32
+  nameWithType: Int32
+  fullName: System.Int32
+- uid: Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)
+  commentId: M:Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)
+  isExternal: true
+- uid: Galaxon.Core.Time.XDateOnly.ToJulianDay*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.ToJulianDay
+  name: ToJulianDay
+  nameWithType: XDateOnly.ToJulianDay
+  fullName: Galaxon.Core.Time.XDateOnly.ToJulianDay
+- uid: System.Double
+  isExternal: true
+  name: Double
+  nameWithType: Double
+  fullName: System.Double
+- uid: Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)
+  commentId: M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)
+  isExternal: true
+- uid: Galaxon.Core.Time.XDateOnly.FromJulianDay*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.FromJulianDay
+  name: FromJulianDay
+  nameWithType: XDateOnly.FromJulianDay
+  fullName: Galaxon.Core.Time.XDateOnly.FromJulianDay
+- uid: Galaxon.Core.Time.XDateOnly.Easter*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.Easter
+  name: Easter
+  nameWithType: XDateOnly.Easter
+  fullName: Galaxon.Core.Time.XDateOnly.Easter
+- uid: Galaxon.Core.Time.XDateOnly.Christmas*
+  commentId: Overload:Galaxon.Core.Time.XDateOnly.Christmas
+  name: Christmas
+  nameWithType: XDateOnly.Christmas
+  fullName: Galaxon.Core.Time.XDateOnly.Christmas

@@ -1,0 +1,117 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Tests.TestXInt
+  commentId: T:Galaxon.Core.Tests.TestXInt
+  id: TestXInt
+  parent: Galaxon.Core.Tests
+  children:
+  - Galaxon.Core.Tests.TestXInt.TestSqrt
+  - Galaxon.Core.Tests.TestXInt.TestSqrt2
+  langs:
+  - csharp
+  - vb
+  name: TestXInt
+  nameWithType: TestXInt
+  fullName: Galaxon.Core.Tests.TestXInt
+  type: Class
+  source:
+    remote:
+      path: CoreTests/TestXInt.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestXInt
+    path: ../../../Core/CoreTests/TestXInt.cs
+    startLine: 4
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: 'public class TestXInt : object'
+    content.vb: >-
+      Public Class TestXInt
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Galaxon.Core.Tests.TestXInt.TestSqrt
+  commentId: M:Galaxon.Core.Tests.TestXInt.TestSqrt
+  id: TestSqrt
+  parent: Galaxon.Core.Tests.TestXInt
+  langs:
+  - csharp
+  - vb
+  name: TestSqrt()
+  nameWithType: TestXInt.TestSqrt()
+  fullName: Galaxon.Core.Tests.TestXInt.TestSqrt()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXInt.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestSqrt
+    path: ../../../Core/CoreTests/TestXInt.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestSqrt()
+    content.vb: Public Sub TestSqrt
+  overload: Galaxon.Core.Tests.TestXInt.TestSqrt*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXInt.TestSqrt2
+  commentId: M:Galaxon.Core.Tests.TestXInt.TestSqrt2
+  id: TestSqrt2
+  parent: Galaxon.Core.Tests.TestXInt
+  langs:
+  - csharp
+  - vb
+  name: TestSqrt2()
+  nameWithType: TestXInt.TestSqrt2()
+  fullName: Galaxon.Core.Tests.TestXInt.TestSqrt2()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXInt.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestSqrt2
+    path: ../../../Core/CoreTests/TestXInt.cs
+    startLine: 16
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestSqrt2()
+    content.vb: Public Sub TestSqrt2
+  overload: Galaxon.Core.Tests.TestXInt.TestSqrt2*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Galaxon.Core.Tests
+  commentId: N:Galaxon.Core.Tests
+  name: Galaxon.Core.Tests
+  nameWithType: Galaxon.Core.Tests
+  fullName: Galaxon.Core.Tests
+- uid: Galaxon.Core.Tests.TestXInt.TestSqrt*
+  commentId: Overload:Galaxon.Core.Tests.TestXInt.TestSqrt
+  name: TestSqrt
+  nameWithType: TestXInt.TestSqrt
+  fullName: Galaxon.Core.Tests.TestXInt.TestSqrt
+- uid: Galaxon.Core.Tests.TestXInt.TestSqrt2*
+  commentId: Overload:Galaxon.Core.Tests.TestXInt.TestSqrt2
+  name: TestSqrt2
+  nameWithType: TestXInt.TestSqrt2
+  fullName: Galaxon.Core.Tests.TestXInt.TestSqrt2

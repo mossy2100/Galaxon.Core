@@ -1,0 +1,266 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Tests.TestXBigInteger
+  commentId: T:Galaxon.Core.Tests.TestXBigInteger
+  id: TestXBigInteger
+  parent: Galaxon.Core.Tests
+  children:
+  - Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative
+  - Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive
+  - Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero
+  - Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative
+  - Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive
+  - Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero
+  langs:
+  - csharp
+  - vb
+  name: TestXBigInteger
+  nameWithType: TestXBigInteger
+  fullName: Galaxon.Core.Tests.TestXBigInteger
+  type: Class
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestXBigInteger
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: 'public class TestXBigInteger : object'
+    content.vb: >-
+      Public Class TestXBigInteger
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero
+  commentId: M:Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero
+  id: TestToUnsignedZero
+  parent: Galaxon.Core.Tests.TestXBigInteger
+  langs:
+  - csharp
+  - vb
+  name: TestToUnsignedZero()
+  nameWithType: TestXBigInteger.TestToUnsignedZero()
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToUnsignedZero
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 8
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToUnsignedZero()
+    content.vb: Public Sub TestToUnsignedZero
+  overload: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive
+  commentId: M:Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive
+  id: TestToUnsignedPositive
+  parent: Galaxon.Core.Tests.TestXBigInteger
+  langs:
+  - csharp
+  - vb
+  name: TestToUnsignedPositive()
+  nameWithType: TestXBigInteger.TestToUnsignedPositive()
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToUnsignedPositive
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 17
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToUnsignedPositive()
+    content.vb: Public Sub TestToUnsignedPositive
+  overload: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative
+  commentId: M:Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative
+  id: TestToUnsignedNegative
+  parent: Galaxon.Core.Tests.TestXBigInteger
+  langs:
+  - csharp
+  - vb
+  name: TestToUnsignedNegative()
+  nameWithType: TestXBigInteger.TestToUnsignedNegative()
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestToUnsignedNegative
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 55
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestToUnsignedNegative()
+    content.vb: Public Sub TestToUnsignedNegative
+  overload: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero
+  commentId: M:Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero
+  id: TestNumDigitsZero
+  parent: Galaxon.Core.Tests.TestXBigInteger
+  langs:
+  - csharp
+  - vb
+  name: TestNumDigitsZero()
+  nameWithType: TestXBigInteger.TestNumDigitsZero()
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestNumDigitsZero
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 88
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestNumDigitsZero()
+    content.vb: Public Sub TestNumDigitsZero
+  overload: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive
+  commentId: M:Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive
+  id: TestNumDigitsPositive
+  parent: Galaxon.Core.Tests.TestXBigInteger
+  langs:
+  - csharp
+  - vb
+  name: TestNumDigitsPositive()
+  nameWithType: TestXBigInteger.TestNumDigitsPositive()
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestNumDigitsPositive
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 99
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestNumDigitsPositive()
+    content.vb: Public Sub TestNumDigitsPositive
+  overload: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative
+  commentId: M:Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative
+  id: TestNumDigitsNegative
+  parent: Galaxon.Core.Tests.TestXBigInteger
+  langs:
+  - csharp
+  - vb
+  name: TestNumDigitsNegative()
+  nameWithType: TestXBigInteger.TestNumDigitsNegative()
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative()
+  type: Method
+  source:
+    remote:
+      path: CoreTests/TestXBigInteger.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestNumDigitsNegative
+    path: CoreTests/TestXBigInteger.cs
+    startLine: 138
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: public void TestNumDigitsNegative()
+    content.vb: Public Sub TestNumDigitsNegative
+  overload: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative*
+  modifiers.csharp:
+  - public
+  modifiers.vb:
+  - Public
+references:
+- uid: Galaxon.Core.Tests
+  commentId: N:Galaxon.Core.Tests
+  name: Galaxon.Core.Tests
+  nameWithType: Galaxon.Core.Tests
+  fullName: Galaxon.Core.Tests
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero*
+  commentId: Overload:Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero
+  name: TestToUnsignedZero
+  nameWithType: TestXBigInteger.TestToUnsignedZero
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedZero
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive*
+  commentId: Overload:Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive
+  name: TestToUnsignedPositive
+  nameWithType: TestXBigInteger.TestToUnsignedPositive
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedPositive
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative*
+  commentId: Overload:Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative
+  name: TestToUnsignedNegative
+  nameWithType: TestXBigInteger.TestToUnsignedNegative
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestToUnsignedNegative
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero*
+  commentId: Overload:Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero
+  name: TestNumDigitsZero
+  nameWithType: TestXBigInteger.TestNumDigitsZero
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsZero
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive*
+  commentId: Overload:Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive
+  name: TestNumDigitsPositive
+  nameWithType: TestXBigInteger.TestNumDigitsPositive
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsPositive
+- uid: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative*
+  commentId: Overload:Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative
+  name: TestNumDigitsNegative
+  nameWithType: TestXBigInteger.TestNumDigitsNegative
+  fullName: Galaxon.Core.Tests.TestXBigInteger.TestNumDigitsNegative

@@ -1,0 +1,50 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Tests.TestXUlong
+  commentId: T:Galaxon.Core.Tests.TestXUlong
+  id: TestXUlong
+  parent: Galaxon.Core.Tests
+  children: []
+  langs:
+  - csharp
+  - vb
+  name: TestXUlong
+  nameWithType: TestXUlong
+  fullName: Galaxon.Core.Tests.TestXUlong
+  type: Class
+  source:
+    remote:
+      path: CoreTests/TestXUlong.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: TestXUlong
+    path: CoreTests/TestXUlong.cs
+    startLine: 2
+  assemblies:
+  - Galaxon.Core.Tests
+  namespace: Galaxon.Core.Tests
+  syntax:
+    content: 'public class TestXUlong : object'
+    content.vb: >-
+      Public Class TestXUlong
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - class
+  modifiers.vb:
+  - Public
+  - Class
+references:
+- uid: Galaxon.Core.Tests
+  commentId: N:Galaxon.Core.Tests
+  name: Galaxon.Core.Tests
+  nameWithType: Galaxon.Core.Tests
+  fullName: Galaxon.Core.Tests
+- uid: System.Object
+  commentId: '!:System.Object'
+  isExternal: true
+  name: Object
+  nameWithType: Object
+  fullName: System.Object

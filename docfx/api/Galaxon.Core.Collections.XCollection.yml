@@ -1,0 +1,186 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Collections.XCollection
+  commentId: T:Galaxon.Core.Collections.XCollection
+  id: XCollection
+  parent: Galaxon.Core.Collections
+  children:
+  - Galaxon.Core.Collections.XCollection.IsEmpty(System.Nullable{ICollection})
+  langs:
+  - csharp
+  - vb
+  name: XCollection
+  nameWithType: XCollection
+  fullName: Galaxon.Core.Collections.XCollection
+  type: Class
+  source:
+    remote:
+      path: Collections/XCollection.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: XCollection
+    path: ../../../Core/Collections/XCollection.cs
+    startLine: 7
+  assemblies:
+  - Galaxon.Core.Collections
+  namespace: Galaxon.Core.Collections
+  summary: "\nExtension methods for ICollection and ICollection[T].\n"
+  example: []
+  syntax:
+    content: 'public static class XCollection : object'
+    content.vb: >-
+      Public Module XCollection
+
+          Inherits Object
+  inheritance:
+  - System.Object
+  modifiers.csharp:
+  - public
+  - static
+  - class
+  modifiers.vb:
+  - Public
+  - Module
+- uid: Galaxon.Core.Collections.XCollection.IsEmpty(System.Nullable{ICollection})
+  commentId: M:Galaxon.Core.Collections.XCollection.IsEmpty(System.Nullable{ICollection})
+  id: IsEmpty(System.Nullable{ICollection})
+  isExtensionMethod: true
+  parent: Galaxon.Core.Collections.XCollection
+  langs:
+  - csharp
+  - vb
+  name: IsEmpty(Nullable<ICollection>)
+  nameWithType: XCollection.IsEmpty(Nullable<ICollection>)
+  fullName: Galaxon.Core.Collections.XCollection.IsEmpty(System.Nullable<ICollection>)
+  type: Method
+  source:
+    remote:
+      path: Collections/XCollection.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: IsEmpty
+    path: ../../../Core/Collections/XCollection.cs
+    startLine: 12
+  assemblies:
+  - Galaxon.Core.Collections
+  namespace: Galaxon.Core.Collections
+  summary: "\nCheck if an ICollection (array, list, etc.) is null or empty.\n"
+  example: []
+  syntax:
+    content: public static bool IsEmpty(this ICollection? list)
+    parameters:
+    - id: list
+      type: System.Nullable{ICollection}
+    return:
+      type: System.Boolean
+    content.vb: >-
+      <ExtensionAttribute>
+
+      Public Shared Function IsEmpty(list As ICollection?) As Boolean
+  overload: Galaxon.Core.Collections.XCollection.IsEmpty*
+  nameWithType.vb: XCollection.IsEmpty(Nullable(Of ICollection))
+  modifiers.csharp:
+  - public
+  - static
+  modifiers.vb:
+  - Public
+  - Shared
+  fullName.vb: Galaxon.Core.Collections.XCollection.IsEmpty(System.Nullable(Of ICollection))
+  name.vb: IsEmpty(Nullable(Of ICollection))
+references:
+- uid: Galaxon.Core.Collections
+  commentId: N:Galaxon.Core.Collections
+  name: Galaxon.Core.Collections
+  nameWithType: Galaxon.Core.Collections
+  fullName: Galaxon.Core.Collections
+- uid: Galaxon.Core.Collections.XCollection.IsEmpty*
+  commentId: Overload:Galaxon.Core.Collections.XCollection.IsEmpty
+  name: IsEmpty
+  nameWithType: XCollection.IsEmpty
+  fullName: Galaxon.Core.Collections.XCollection.IsEmpty
+- uid: System.Nullable{ICollection}
+  commentId: '!:System.Nullable{ICollection}'
+  definition: System.Nullable`1
+  name: Nullable<ICollection>
+  nameWithType: Nullable<ICollection>
+  fullName: System.Nullable<ICollection>
+  nameWithType.vb: Nullable(Of ICollection)
+  fullName.vb: System.Nullable(Of ICollection)
+  name.vb: Nullable(Of ICollection)
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - uid: ICollection
+    name: ICollection
+    nameWithType: ICollection
+    fullName: ICollection
+    isExternal: true
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - uid: ICollection
+    name: ICollection
+    nameWithType: ICollection
+    fullName: ICollection
+    isExternal: true
+  - name: )
+    nameWithType: )
+    fullName: )
+- uid: System.Boolean
+  isExternal: true
+  name: Boolean
+  nameWithType: Boolean
+  fullName: System.Boolean
+- uid: System.Nullable`1
+  isExternal: true
+  name: Nullable<>
+  nameWithType: Nullable<>
+  fullName: System.Nullable<>
+  nameWithType.vb: Nullable(Of )
+  fullName.vb: System.Nullable(Of )
+  name.vb: Nullable(Of )
+  spec.csharp:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: <
+    nameWithType: <
+    fullName: <
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: '>'
+    nameWithType: '>'
+    fullName: '>'
+  spec.vb:
+  - uid: System.Nullable`1
+    name: Nullable
+    nameWithType: Nullable
+    fullName: System.Nullable
+    isExternal: true
+  - name: '(Of '
+    nameWithType: '(Of '
+    fullName: '(Of '
+  - name: ''
+    nameWithType: ''
+    fullName: ''
+  - name: )
+    nameWithType: )
+    fullName: )

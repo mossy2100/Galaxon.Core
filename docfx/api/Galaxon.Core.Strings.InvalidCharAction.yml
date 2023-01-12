@@ -1,0 +1,145 @@
+### YamlMime:ManagedReference
+items:
+- uid: Galaxon.Core.Strings.InvalidCharAction
+  commentId: T:Galaxon.Core.Strings.InvalidCharAction
+  id: InvalidCharAction
+  parent: Galaxon.Core.Strings
+  children:
+  - Galaxon.Core.Strings.InvalidCharAction.Keep
+  - Galaxon.Core.Strings.InvalidCharAction.Skip
+  - Galaxon.Core.Strings.InvalidCharAction.Throw
+  langs:
+  - csharp
+  - vb
+  name: InvalidCharAction
+  nameWithType: InvalidCharAction
+  fullName: Galaxon.Core.Strings.InvalidCharAction
+  type: Enum
+  source:
+    remote:
+      path: Strings/InvalidCharAction.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: InvalidCharAction
+    path: ../../../Core/Strings/InvalidCharAction.cs
+    startLine: 2
+  assemblies:
+  - Galaxon.Core.Strings
+  namespace: Galaxon.Core.Strings
+  syntax:
+    content: 'public enum InvalidCharAction : int'
+    content.vb: Public Enum InvalidCharAction As Integer
+  modifiers.csharp:
+  - public
+  - enum
+  modifiers.vb:
+  - Public
+  - Enum
+- uid: Galaxon.Core.Strings.InvalidCharAction.Throw
+  commentId: F:Galaxon.Core.Strings.InvalidCharAction.Throw
+  id: Throw
+  parent: Galaxon.Core.Strings.InvalidCharAction
+  langs:
+  - csharp
+  - vb
+  name: Throw
+  nameWithType: InvalidCharAction.Throw
+  fullName: Galaxon.Core.Strings.InvalidCharAction.Throw
+  type: Field
+  source:
+    remote:
+      path: Strings/InvalidCharAction.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Throw
+    path: ../../../Core/Strings/InvalidCharAction.cs
+    startLine: 4
+  assemblies:
+  - Galaxon.Core.Strings
+  namespace: Galaxon.Core.Strings
+  syntax:
+    content: Throw = 0
+    return:
+      type: Galaxon.Core.Strings.InvalidCharAction
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Strings.InvalidCharAction.Skip
+  commentId: F:Galaxon.Core.Strings.InvalidCharAction.Skip
+  id: Skip
+  parent: Galaxon.Core.Strings.InvalidCharAction
+  langs:
+  - csharp
+  - vb
+  name: Skip
+  nameWithType: InvalidCharAction.Skip
+  fullName: Galaxon.Core.Strings.InvalidCharAction.Skip
+  type: Field
+  source:
+    remote:
+      path: Strings/InvalidCharAction.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Skip
+    path: ../../../Core/Strings/InvalidCharAction.cs
+    startLine: 5
+  assemblies:
+  - Galaxon.Core.Strings
+  namespace: Galaxon.Core.Strings
+  syntax:
+    content: Skip = 1
+    return:
+      type: Galaxon.Core.Strings.InvalidCharAction
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+- uid: Galaxon.Core.Strings.InvalidCharAction.Keep
+  commentId: F:Galaxon.Core.Strings.InvalidCharAction.Keep
+  id: Keep
+  parent: Galaxon.Core.Strings.InvalidCharAction
+  langs:
+  - csharp
+  - vb
+  name: Keep
+  nameWithType: InvalidCharAction.Keep
+  fullName: Galaxon.Core.Strings.InvalidCharAction.Keep
+  type: Field
+  source:
+    remote:
+      path: Strings/InvalidCharAction.cs
+      branch: main
+      repo: git@github.com:mossy2100/Core.git
+    id: Keep
+    path: ../../../Core/Strings/InvalidCharAction.cs
+    startLine: 6
+  assemblies:
+  - Galaxon.Core.Strings
+  namespace: Galaxon.Core.Strings
+  syntax:
+    content: Keep = 2
+    return:
+      type: Galaxon.Core.Strings.InvalidCharAction
+  modifiers.csharp:
+  - public
+  - const
+  modifiers.vb:
+  - Public
+  - Const
+references:
+- uid: Galaxon.Core.Strings
+  commentId: N:Galaxon.Core.Strings
+  name: Galaxon.Core.Strings
+  nameWithType: Galaxon.Core.Strings
+  fullName: Galaxon.Core.Strings
+- uid: Galaxon.Core.Strings.InvalidCharAction
+  commentId: T:Galaxon.Core.Strings.InvalidCharAction
+  parent: Galaxon.Core.Strings
+  name: InvalidCharAction
+  nameWithType: InvalidCharAction
+  fullName: Galaxon.Core.Strings.InvalidCharAction
