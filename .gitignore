@@ -354,11 +354,12 @@ riderModule.iml
 /_ReSharper.Caches/
 
 # DocFX stuff
-docfx/**/DROP/
-docfx/**/TEMP/
-docfx/**/packages/
-docfx/**/bin/
-docfx/**/obj/
-docfx/_site/
-docfx/api/*.yml
-docfx/api/.manifest
+docfx_project/**/DROP/
+docfx_project/**/TEMP/
+docfx_project/**/packages/
+docfx_project/**/bin/
+docfx_project/**/obj/
+docfx_project/_site/
+docfx_project/api/*.yml
+docfx_project/api/.manifest
+docfx_project/**/.gitignore
