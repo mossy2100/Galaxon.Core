@@ -4,7 +4,7 @@ namespace Galaxon.Core.Exceptions;
 
 /// <summary>
 /// Exception for when an attempt is made to obtain data from a database, but it isn't found.
-/// It's a bit more specific that DataException, and sometimes ObjectNotFoundException is not
+/// It's a bit more specific than DataException, and sometimes ObjectNotFoundException is not
 /// exactly what is meant.
 /// </summary>
 public class DataNotFoundException : DataException
