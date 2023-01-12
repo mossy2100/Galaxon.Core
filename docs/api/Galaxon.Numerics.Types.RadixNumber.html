@@ -1,0 +1,2291 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class RadixNumber
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class RadixNumber
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Galaxon.Numerics.Types.RadixNumber">
+  
+  
+  <h1 id="Galaxon_Numerics_Types_RadixNumber" data-uid="Galaxon.Numerics.Types.RadixNumber" class="text-break">Class RadixNumber
+  </h1>
+  <div class="markdown level0 summary"><p>This class supports numbers with a specified radix, which can be in the range 2..36.</p>
+<p>Additional support is provided in the form of &quot;To&quot; and &quot;From&quot; methods for:</p>
+<ul>
+<li>binary (base 2)</li>
+<li>quaternary (base 4)</li>
+<li>octal (base 8)</li>
+<li>decimal (base 10)</li>
+<li>duodecimal (base 12)</li>
+<li>hexadecimal (base 16)</li>
+<li>vigesimal (base 20)</li>
+<li>triacontakaidecimal (base 32)</li>
+</ul>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">RadixNumber</span></div>
+  </div>
+  <div class="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">IEquatable</span>&lt;<a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a>&gt;</div>
+    <div><span class="xref">ICloneable</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Galaxon.Numerics.Types.html">Galaxon.Numerics.Types</a></h6>
+  <h6><strong>Assembly</strong>: Galaxon.Numerics.Types.dll</h6>
+  <h5 id="Galaxon_Numerics_Types_RadixNumber_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class RadixNumber : IComparable&lt;RadixNumber&gt;</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber__ctor_System_String_System_SByte_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.%23ctor(System.String%2CSystem.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L95">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber__ctor_" data-uid="Galaxon.Numerics.Types.RadixNumber.#ctor*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber__ctor_System_String_System_SByte_" data-uid="Galaxon.Numerics.Types.RadixNumber.#ctor(System.String,System.SByte)">RadixNumber(String, SByte)</h4>
+  <div class="markdown level1 summary"><p>Construct from a string of digits in the given radix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RadixNumber(string digits, sbyte radix = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">radix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber__ctor_System_UInt64_System_SByte_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.%23ctor(System.UInt64%2CSystem.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L76">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber__ctor_" data-uid="Galaxon.Numerics.Types.RadixNumber.#ctor*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber__ctor_System_UInt64_System_SByte_" data-uid="Galaxon.Numerics.Types.RadixNumber.#ctor(System.UInt64,System.SByte)">RadixNumber(UInt64, SByte)</h4>
+  <div class="markdown level1 summary"><p>Construct from a unsigned long (or smaller unsigned int).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RadixNumber(ulong value, sbyte radix = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">radix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_CommonRadixes.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.CommonRadixes%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L42">View Source</a>
+  </span>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_CommonRadixes" data-uid="Galaxon.Numerics.Types.RadixNumber.CommonRadixes">CommonRadixes</h4>
+  <div class="markdown level1 summary"><p>Common radixes, which will allow us to use faster internal methods.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly sbyte[] CommonRadixes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.SByte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_Digits.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.Digits%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L39">View Source</a>
+  </span>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_Digits" data-uid="Galaxon.Numerics.Types.RadixNumber.Digits">Digits</h4>
+  <div class="markdown level1 summary"><p>Valid digits as a string, supporting up to radix 36. These are the same digits used by Java
+and JavaScript.
+Lower-case letters are also valid, but that's taken care of by changing the case of input
+and output strings as needed.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string Digits = null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_MaxRadix.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.MaxRadix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L27">View Source</a>
+  </span>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_MaxRadix" data-uid="Galaxon.Numerics.Types.RadixNumber.MaxRadix">MaxRadix</h4>
+  <div class="markdown level1 summary"><p>The maximum radix supported by the type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MaxRadix = null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_MinRadix.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.MinRadix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L24">View Source</a>
+  </span>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_MinRadix" data-uid="Galaxon.Numerics.Types.RadixNumber.MinRadix">MinRadix</h4>
+  <div class="markdown level1 summary"><p>The minimum radix supported by the type.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const int MinRadix = null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_Radix.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.Radix%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L59">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_Radix_" data-uid="Galaxon.Numerics.Types.RadixNumber.Radix*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_Radix" data-uid="Galaxon.Numerics.Types.RadixNumber.Radix">Radix</h4>
+  <div class="markdown level1 summary"><p>The radix of the number system (e.g. 2 for binary, 16 for hexadecimal).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public sbyte Radix { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_Value.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.Value%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L55">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_Value_" data-uid="Galaxon.Numerics.Types.RadixNumber.Value*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_Value" data-uid="Galaxon.Numerics.Types.RadixNumber.Value">Value</h4>
+  <div class="markdown level1 summary"><p>The value of the number. Any ulong value is valid, so we don't need to change the range. The
+compiler will do that.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ulong Value { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_CheckRadix_System_SByte_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.CheckRadix(System.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L285">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_CheckRadix_" data-uid="Galaxon.Numerics.Types.RadixNumber.CheckRadix*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_CheckRadix_System_SByte_" data-uid="Galaxon.Numerics.Types.RadixNumber.CheckRadix(System.SByte)">CheckRadix(SByte)</h4>
+  <div class="markdown level1 summary"><p>Checks if the provided radix is valid for use by this class.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void CheckRadix(sbyte radix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">radix</span></td>
+        <td><p>The radix to check.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_Clone.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.Clone%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L273">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_Clone_" data-uid="Galaxon.Numerics.Types.RadixNumber.Clone*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_Clone" data-uid="Galaxon.Numerics.Types.RadixNumber.Clone">Clone()</h4>
+  <div class="markdown level1 summary"><p>Clone a RadixNumber.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public object Clone()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><p>The new RadixNumber.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_CompareTo_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.CompareTo(Galaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L244">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_CompareTo_" data-uid="Galaxon.Numerics.Types.RadixNumber.CompareTo*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_CompareTo_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.CompareTo(Galaxon.Numerics.Types.RadixNumber)">CompareTo(RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Compare two values.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td><p>Another RadixNum value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>An integer less than 0 if the first RadixNumber's value is less then the second's.
+Zero (0) if the first RadixNumber's value is equal to the second's.
+An integer greater than 0 if the first RadixNumber's value is greater the second's.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_DigitsToValue_System_String_System_SByte_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.DigitsToValue(System.String%2CSystem.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L309">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_DigitsToValue_" data-uid="Galaxon.Numerics.Types.RadixNumber.DigitsToValue*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_DigitsToValue_System_String_System_SByte_" data-uid="Galaxon.Numerics.Types.RadixNumber.DigitsToValue(System.String,System.SByte)">DigitsToValue(String, SByte)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of digits in the specified radix to an unsigned long.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static ulong DigitsToValue(string digits, sbyte radix = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">radix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_Equals_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.Equals(Galaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L257">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_Equals_" data-uid="Galaxon.Numerics.Types.RadixNumber.Equals*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_Equals_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.Equals(Galaxon.Numerics.Types.RadixNumber)">Equals(RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>See if two RadixNum values are equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool Equals(RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td><p>Another RadixNum value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_Equals_System_Nullable_System_Object__.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.Equals(System.Nullable%7BSystem.Object%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L263">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_Equals_" data-uid="Galaxon.Numerics.Types.RadixNumber.Equals*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_Equals_System_Nullable_System_Object__" data-uid="Galaxon.Numerics.Types.RadixNumber.Equals(System.Nullable{System.Object})">Equals(Nullable&lt;Object&gt;)</h4>
+  <div class="markdown level1 summary"><p>See if the RadixNum is equal to the given value.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object? radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">System.Object</span>&gt;</td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td><p>Some other value.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromBinString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromBinString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L408">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromBinString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromBinString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromBinString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromBinString(System.String)">FromBinString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of binary digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromBinString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromDecString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromDecString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L420">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromDecString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromDecString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromDecString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromDecString(System.String)">FromDecString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of decimal digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromDecString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromDuoString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromDuoString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L424">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromDuoString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromDuoString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromDuoString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromDuoString(System.String)">FromDuoString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of duodecimal digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromDuoString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromHexString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromHexString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L428">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromHexString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromHexString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromHexString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromHexString(System.String)">FromHexString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of hexadecimal digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromHexString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromOctString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromOctString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L416">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromOctString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromOctString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromOctString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromOctString(System.String)">FromOctString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of octal digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromOctString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromQuatString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromQuatString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L412">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromQuatString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromQuatString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromQuatString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromQuatString(System.String)">FromQuatString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of quaternary digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromQuatString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromTriaString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromTriaString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L436">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromTriaString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromTriaString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromTriaString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromTriaString(System.String)">FromTriaString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of triacontakaidecimal digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromTriaString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_FromVigString_System_String_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.FromVigString(System.String)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L432">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_FromVigString_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromVigString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_FromVigString_System_String_" data-uid="Galaxon.Numerics.Types.RadixNumber.FromVigString(System.String)">FromVigString(String)</h4>
+  <div class="markdown level1 summary"><p>Convert a string of vigesimal digits into a RadixNum.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber FromVigString(string digits)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">digits</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_GetHashCode.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.GetHashCode%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L268">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_GetHashCode_" data-uid="Galaxon.Numerics.Types.RadixNumber.GetHashCode*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_GetHashCode" data-uid="Galaxon.Numerics.Types.RadixNumber.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToBinString_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToBinString(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L116">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToBinString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToBinString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToBinString_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToBinString(System.Boolean)">ToBinString(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to binary string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToBinString(bool includePrefix = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0b&quot; prefix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of binary digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToDecString_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToDecString(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L155">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToDecString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToDecString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToDecString_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToDecString(System.Boolean)">ToDecString(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to decimal string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToDecString(bool includePrefix = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0d&quot; prefix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of decimal digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToDuoString_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToDuoString(System.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L169">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToDuoString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToDuoString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToDuoString_System_Boolean_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToDuoString(System.Boolean,System.Boolean)">ToDuoString(Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to duodecimal string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToDuoString(bool includePrefix = false, bool upperCase = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0z&quot; prefix.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">upperCase</span></td>
+        <td><p>If the letter digits should be uppercase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of duodecimal digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToHexString_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToHexString(System.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L187">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToHexString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToHexString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToHexString_System_Boolean_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToHexString(System.Boolean,System.Boolean)">ToHexString(Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to hexadecimal string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToHexString(bool includePrefix = false, bool upperCase = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0x&quot; prefix.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">upperCase</span></td>
+        <td><p>If the letter digits should be uppercase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of hexadecimal digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToOctString_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToOctString(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L142">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToOctString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToOctString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToOctString_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToOctString(System.Boolean)">ToOctString(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to octal string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToOctString(bool includePrefix = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0o&quot; prefix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of octal digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToQuatString_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToQuatString(System.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L129">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToQuatString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToQuatString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToQuatString_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToQuatString(System.Boolean)">ToQuatString(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to quaternary string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToQuatString(bool includePrefix = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0q&quot; prefix.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of quaternary digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToRadix_System_SByte_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToRadix(System.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L110">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToRadix_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToRadix*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToRadix_System_SByte_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToRadix(System.SByte)">ToRadix(SByte)</h4>
+  <div class="markdown level1 summary"><p>Converts number to a given radix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public RadixNumber ToRadix(sbyte radix2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">radix2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToString.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToString%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L105">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToString" data-uid="Galaxon.Numerics.Types.RadixNumber.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Convert a RadixNumber to a string.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToTriaString_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToTriaString(System.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L223">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToTriaString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToTriaString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToTriaString_System_Boolean_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToTriaString(System.Boolean,System.Boolean)">ToTriaString(Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to triacontakaidecimal string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToTriaString(bool includePrefix = false, bool upperCase = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0t&quot; prefix.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">upperCase</span></td>
+        <td><p>If the letter digits should be uppercase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of triacontakaidecimal digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ToVigString_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ToVigString(System.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L205">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ToVigString_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToVigString*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ToVigString_System_Boolean_System_Boolean_" data-uid="Galaxon.Numerics.Types.RadixNumber.ToVigString(System.Boolean,System.Boolean)">ToVigString(Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Converts to vigesimal string representation.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ToVigString(bool includePrefix = false, bool upperCase = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includePrefix</span></td>
+        <td><p>If to include the &quot;0v&quot; prefix.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">upperCase</span></td>
+        <td><p>If the letter digits should be uppercase.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>The value as a string of vigesimal digits.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_ValueToDigits_System_UInt64_System_SByte_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.ValueToDigits(System.UInt64%2CSystem.SByte)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L367">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_ValueToDigits_" data-uid="Galaxon.Numerics.Types.RadixNumber.ValueToDigits*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_ValueToDigits_System_UInt64_System_SByte_" data-uid="Galaxon.Numerics.Types.RadixNumber.ValueToDigits(System.UInt64,System.SByte)">ValueToDigits(UInt64, SByte)</h4>
+  <div class="markdown level1 summary"><p>Convert an unsigned long to a string of digits in the specified radix.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ValueToDigits(ulong value, sbyte radix = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.SByte</span></td>
+        <td><span class="parametername">radix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="operators">Operators
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_Addition_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_Addition(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L478">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_Addition_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Addition*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_Addition_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Addition(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">Addition(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload + operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber operator +(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_BitwiseAnd_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_BitwiseAnd(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L512">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_BitwiseAnd_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_BitwiseAnd*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_BitwiseAnd_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_BitwiseAnd(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">BitwiseAnd(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber operator &amp;(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_BitwiseOr_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_BitwiseOr(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L523">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_BitwiseOr_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_BitwiseOr*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_BitwiseOr_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_BitwiseOr(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">BitwiseOr(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload bitwise OR (|) operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber operator |(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_Equality_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_Equality(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L444">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_Equality_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Equality*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_Equality_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Equality(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">Equality(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload == operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_GreaterThan_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_GreaterThan(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L456">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_GreaterThan_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_GreaterThan*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_GreaterThan_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_GreaterThan(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">GreaterThan(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload &gt; operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator&gt;(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_GreaterThanOrEqual_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_GreaterThanOrEqual(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L464">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_GreaterThanOrEqual_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_GreaterThanOrEqual*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_GreaterThanOrEqual_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_GreaterThanOrEqual(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">GreaterThanOrEqual(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload &gt;= operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &gt;=(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_Implicit_Galaxon_Numerics_Types_RadixNumber__System_UInt64.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_Implicit(Galaxon.Numerics.Types.RadixNumber)~System.UInt64%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L538">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_Implicit_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Implicit*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_Implicit_Galaxon_Numerics_Types_RadixNumber__System_UInt64" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Implicit(Galaxon.Numerics.Types.RadixNumber)~System.UInt64">Implicit(RadixNumber to UInt64)</h4>
+  <div class="markdown level1 summary"><p>Implicit conversion to ulong.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator ulong (RadixNumber radixNum)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.UInt64</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_Inequality_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_Inequality(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L448">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_Inequality_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Inequality*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_Inequality_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Inequality(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">Inequality(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload != operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_LessThan_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_LessThan(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L452">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_LessThan_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_LessThan*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_LessThan_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_LessThan(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">LessThan(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload &lt; operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_LessThanOrEqual_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_LessThanOrEqual(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L460">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_LessThanOrEqual_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_LessThanOrEqual*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_LessThanOrEqual_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_LessThanOrEqual(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">LessThanOrEqual(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload &lt;= operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator &lt;=(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_OnesComplement_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_OnesComplement(Galaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L508">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_OnesComplement_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_OnesComplement*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_OnesComplement_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_OnesComplement(Galaxon.Numerics.Types.RadixNumber)">OnesComplement(RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload bitwise NOT (~) operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber operator ~(RadixNumber radixNum)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber_op_Subtraction_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber.op_Subtraction(Galaxon.Numerics.Types.RadixNumber%2CGalaxon.Numerics.Types.RadixNumber)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L493">View Source</a>
+  </span>
+  <a id="Galaxon_Numerics_Types_RadixNumber_op_Subtraction_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Subtraction*"></a>
+  <h4 id="Galaxon_Numerics_Types_RadixNumber_op_Subtraction_Galaxon_Numerics_Types_RadixNumber_Galaxon_Numerics_Types_RadixNumber_" data-uid="Galaxon.Numerics.Types.RadixNumber.op_Subtraction(Galaxon.Numerics.Types.RadixNumber,Galaxon.Numerics.Types.RadixNumber)">Subtraction(RadixNumber, RadixNumber)</h4>
+  <div class="markdown level1 summary"><p>Overload - operator.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static RadixNumber operator -(RadixNumber radixNum, RadixNumber radixNum2)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td><span class="parametername">radixNum2</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">IEquatable&lt;&gt;</span>
+  </div>
+  <div>
+      <span class="xref">ICloneable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mossy2100/Numerics/new/main/apiSpec/new?filename=Galaxon_Numerics_Types_RadixNumber.md&amp;value=---%0Auid%3A%20Galaxon.Numerics.Types.RadixNumber%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/mossy2100/Numerics/blob/main/Types/old/RadixNumber.cs/#L19" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

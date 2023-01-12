@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespace Galaxon.Numerics.Types
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespace Galaxon.Numerics.Types
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Galaxon.Numerics.Types">
+  
+  <h1 id="Galaxon_Numerics_Types" data-uid="Galaxon.Numerics.Types" class="text-break">Namespace Galaxon.Numerics.Types
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="classes">Classes
+  </h3>
+      <h4><a class="xref" href="Galaxon.Numerics.Types.Gigadecimal.html">Gigadecimal</a></h4>
+      <section><p>Software implementation of large decimal floating point value.</p>
+<p>In this file:</p>
+<ul>
+<li>&quot;B&quot; means 1 billion.</li>
+<li>&quot;gigadecimal&quot; means base 1 billion (c.f. decimal, hexadecimal, sexagesimal).</li>
+<li>A &quot;gigadigit&quot; is a &quot;gigadecimal digit&quot;.</li>
+</ul>
+<p>The number has two parts: a significand and a exponent.
+The maximum total size in memory is 60 bytes:
+Significand: pointer (8 bytes) plus up to 12 ints (48 bytes)
+Exponent: 1 int (4 bytes)</p>
+<h1 id="significand">Significand</h1>
+<p>The maximum size of the significand is 12 ints or 48 bytes, which can encode up to 108 decimal
+digits.
+Each int encodes 1 gigadigit, equal to 9 digits, or a range of 0..999,999,999.
+The int at index 0 in the array thus encodes the first 9 digits of the decimal significand, the
+int at index 1 encodes the second 9 digits, etc.
+Each int in the significand also includes the sign. The overall sign of the number will be the
+same for each gigadigit in the significand.</p>
+<h1 id="exponent">Exponent</h1>
+<p>4 bytes (1 int). Note, this is not a power of 10 but a power of B.
+The decimal exponent equals the value stored in the byte (the gigadecimal exponent) * 9.
+The gigadecimal exponent range is -2,147,483,648 to 2,147,483,647, which corresponds to a decimal
+exponent range of -19,327,352,832 to 19,327,352,823.
+Each number conceptually represents a value in scientific notation, i.e. having the form
+[-]9.999.. * 10^[-]999.. (or [-]9.999..e[-]9.999..) except the base is gigadecimal, i.e. the
+value is found from
+S[0] * B^M + S[1] * B^(M - 1) + S[2] * B^(M - 2)...
+where S is the significand, B is 10^9, and M is the exponent.</p>
+</section>
+      <h4><a class="xref" href="Galaxon.Numerics.Types.LongDecimal.html">LongDecimal</a></h4>
+      <section><p>Software implementation of large decimal floating point value.
+The maximum total size is 55 bytes.
+Flags: 1 byte. Contains bits for the sign, Infinity, and NaN.
+This is probably an unnecessary memory optimisation since it will cost speed
+to extract bits from the flags byte. I might change them to booleans later.</p>
+<ul>
+<li>bit 0 is for the sign. 0 means positive, 1 means negative.</li>
+<li>bit 1 is for Infinity.</li>
+<li>bit 2 is for NaN.</li>
+<li>bit 3 indicates a quiet NaN (0) or a signalling NaN (1). Not sure if
+I'll need this - got the idea from the IEEE decimal specification.</li>
+<li>bits 4..7 are unused. I could wedge another digit in here if needs be
+but for now I'll keep it spare.
+Bits 1 and 0:
+00 =&gt; finite and positive
+01 =&gt; finite and negative
+10 =&gt; infinite and positive = +∞
+11 =&gt; infinite and negative = -∞
+Bits 3 and 2:
+00 =&gt; A number
+10 =&gt; Invalid
+01 =&gt; Quiet NaN
+11 =&gt; Signalling NaN
+Significand: Up to 50 bytes. As each byte encodes 2 binary-coded decimal
+digits, this will permit a maximum of 100 digits (1 before the decimal, 99
+after). Conceptually, the number is written using scientific notation, e.g.
+9.999999... * 10^999...
+Thus:
+The byte at index 0 in the array encodes digits 0 and 1, which correspond to
+10^0 and 10^-1 (i.e. units and tenths (0.0..9.9).
+The byte at index 1 in the array encodes digits 2 and 3, which correspond to
+10^-2 and 10^-3 (i.e. hundredths and thousands) (0.000..0.099).
+etc.
+In theory the maximum number of digits could be configurable, but this would
+add another byte per object.
+Exponent: 4 bytes. One ordinary signed int.</li>
+</ul>
+</section>
+      <h4><a class="xref" href="Galaxon.Numerics.Types.RadixNumber.html">RadixNumber</a></h4>
+      <section><p>This class supports numbers with a specified radix, which can be in the range 2..36.</p>
+<p>Additional support is provided in the form of &quot;To&quot; and &quot;From&quot; methods for:</p>
+<ul>
+<li>binary (base 2)</li>
+<li>quaternary (base 4)</li>
+<li>octal (base 8)</li>
+<li>decimal (base 10)</li>
+<li>duodecimal (base 12)</li>
+<li>hexadecimal (base 16)</li>
+<li>vigesimal (base 20)</li>
+<li>triacontakaidecimal (base 32)</li>
+</ul>
+</section>
+    <h3 id="structs">Structs
+  </h3>
+      <h4><a class="xref" href="Galaxon.Numerics.Types.BigRational.html">BigRational</a></h4>
+      <section><p>Encapsulates a rational.
+Unlike Java's BigRational, the rationals are not automatically reduced (reduced) because
+this is a bit slow and not always required. So, you can pass true to the constructor, or call
+Reduce() yourself when needed.
+<a href="https://en.wikipedia.org/wiki/Rational_number">https://en.wikipedia.org/wiki/Rational_number</a>
+<a href="https://introcs.cs.princeton.edu/java/92symbolic/BigRational.java.html">https://introcs.cs.princeton.edu/java/92symbolic/BigRational.java.html</a>
+<a href="https://github.com/danm-de/BigRationals">https://github.com/danm-de/BigRationals</a></p>
+</section>
+      <h4><a class="xref" href="Galaxon.Numerics.Types.DecimalComplex.html">DecimalComplex</a></h4>
+      <section></section>
+    <h3 id="enums">Enums
+  </h3>
+      <h4><a class="xref" href="Galaxon.Numerics.Types.Flag.html">Flag</a></h4>
+      <section></section>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

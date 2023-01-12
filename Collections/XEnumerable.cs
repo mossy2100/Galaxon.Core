@@ -26,10 +26,10 @@ public static class XEnumerable
     /// index, same as an array or list. This can be useful when the index is meaningful and you
     /// want to filter on it.
     /// </summary>
-    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> list)
+    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> enumerable)
     {
         int index = 0;
-        return new Dictionary<int, T>(list
+        return new Dictionary<int, T>(enumerable
             .Select(item => new KeyValuePair<int, T>(index++, item)));
     }
 }
