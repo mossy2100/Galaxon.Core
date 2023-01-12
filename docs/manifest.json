@@ -1,20 +1,8 @@
 {
   "homepages": [],
-  "source_base_path": "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core",
+  "source_base_path": "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/docfx",
   "xrefmap": "xrefmap.yml",
   "files": [
-    {
-      "type": "Conceptual",
-      "source_relative_path": "README.md",
-      "output": {
-        ".html": {
-          "relative_path": "README.html",
-          "hash": "vB8UVT2Cpc0EtquOUQ1rysHVABZks7UNIHgAe8jjHvg="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
     {
       "type": "ManagedReference",
       "source_relative_path": "api/Galaxon.Core.Collections.XCollection.yml",
@@ -117,7 +105,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Galaxon.Core.Numbers.ConvertBase.html",
-          "hash": "KDeMZSgYz0ojmfoKHTzQinXUjAIOUxbDJq8ZGhw8qWg="
+          "hash": "AwgFpbA7MUSdy2hgi3d3avHllV3XuiIy0lcBHKBghGc="
         }
       },
       "is_incremental": false,
@@ -189,7 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Galaxon.Core.Numbers.XFloatingPoint.html",
-          "hash": "8eQbE0+atEUn23DSMHNxNF9F66FN5ItHhR8kyOd4JUE="
+          "hash": "2fEYiGvp7MCQiuVCRDrd5YpRUvdReN9k4shec8/RHNg="
         }
       },
       "is_incremental": false,
@@ -225,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Galaxon.Core.Numbers.XNumberBase.html",
-          "hash": "mUSPJ3irL48yYuvxTgNilTUpHceggCRW6JIo3HsdtWw="
+          "hash": "iR1SD1mV43KOaQiEntk9qAa5BmVsYA85PDBTf3eeSko="
         }
       },
       "is_incremental": false,
@@ -309,7 +297,7 @@
       "output": {
         ".html": {
           "relative_path": "api/Galaxon.Core.Strings.SuperAndSubscript.html",
-          "hash": "T39+vM6UrkPeGTooXqi8qRwDhW57/7S4sfjxoc75DmM="
+          "hash": "Y5HHFAk1K5eFW6Bu0+cZ+S0kqvCc5rcf3694FR9KFe4="
         }
       },
       "is_incremental": false,
@@ -591,12 +579,6 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 1,
-          "skipped_file_count": 0
-        },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build",

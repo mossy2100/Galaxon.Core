@@ -104,6 +104,7 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static (byte signBit, ushort expBits, ulong fracBits) Disassemble&lt;T&gt;(this T x)
+
     where T : IFloatingPoint&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -168,6 +169,7 @@
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static (byte nExpBits, byte nFracBits, ushort expOffset) GetStructure&lt;T&gt;(this T x)
+
     where T : IFloatingPoint&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>

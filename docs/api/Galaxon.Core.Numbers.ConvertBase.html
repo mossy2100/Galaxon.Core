@@ -245,6 +245,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromBase&lt;T&gt;(string digits, byte radix)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -330,6 +331,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromBin&lt;T&gt;(string digits)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -397,6 +399,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromHex&lt;T&gt;(string digits)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -464,6 +467,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromOct&lt;T&gt;(string digits)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -531,6 +535,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromQuat&lt;T&gt;(string digits)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -598,6 +603,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromTetra&lt;T&gt;(string digits)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -665,6 +671,7 @@ known as base32hex. It's the same encoding used in Java in JavaScript.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static T FromTria&lt;T&gt;(string digits)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -734,6 +741,7 @@ bits. This reflects the behaviour of other base-conversion methods in .NET.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToBase&lt;T&gt;(this T n, byte radix, int width = 1, bool? letterCase = null)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -838,6 +846,7 @@ false = lower-case</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToBase&lt;T&gt;(this T n, byte radix, bool? letterCase)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -933,6 +942,7 @@ false = lower-case</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToBin&lt;T&gt;(this T n, int width = 1)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1006,6 +1016,7 @@ up the width.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToHex&lt;T&gt;(this T n, int width = 1, bool? letterCase = null)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1085,6 +1096,7 @@ up the width.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToOct&lt;T&gt;(this T n, int width = 1)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1158,6 +1170,7 @@ up the width.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToQuat&lt;T&gt;(this T n, int width = 1)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1231,6 +1244,7 @@ up the width.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToTetra&lt;T&gt;(this T n, int width = 1, bool? letterCase = null)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
@@ -1310,6 +1324,7 @@ up the width.</p>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public static string ToTria&lt;T&gt;(this T n, int width = 1, bool? letterCase = null)
+
     where T : IBinaryInteger&lt;T&gt;</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
