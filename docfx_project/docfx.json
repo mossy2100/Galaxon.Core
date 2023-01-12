@@ -48,7 +48,7 @@
         ]
       }
     ],
-    "dest": "_site",
+    "dest": "../../mossy2100.github.io/Galaxon.Core",
     "globalMetadataFiles": [],
     "fileMetadataFiles": [],
     "template": [
