@@ -363,3 +363,6 @@ docfx_project/_site/
 docfx_project/api/*.yml
 docfx_project/api/.manifest
 docfx_project/**/.gitignore
+
+# Exclude program
+Program/
