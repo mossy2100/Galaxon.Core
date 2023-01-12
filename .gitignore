@@ -364,5 +364,5 @@ docfx_project/api/*.yml
 docfx_project/api/.manifest
 docfx_project/**/.gitignore
 
-# Exclude program
+# Exclude the Program project, which is just for testing and not part of the package.
 Program/
