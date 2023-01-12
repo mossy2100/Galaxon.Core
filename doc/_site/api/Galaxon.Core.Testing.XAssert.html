@@ -1,0 +1,416 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class XAssert
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class XAssert
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Galaxon.Core.Testing.XAssert">
+  
+  
+  <h1 id="Galaxon_Core_Testing_XAssert" data-uid="Galaxon.Core.Testing.XAssert" class="text-break">Class XAssert
+  </h1>
+  <div class="markdown level0 summary"><p>Container for my own custom Assert methods.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">XAssert</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Galaxon.Core.Testing.html">Galaxon.Core.Testing</a></h6>
+  <h6><strong>Assembly</strong>: Galaxon.Core.Testing.dll</h6>
+  <h5 id="Galaxon_Core_Testing_XAssert_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class XAssert : object</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert_AreEqual_DateTime_DateTime_System_Nullable_TimeSpan__.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert.AreEqual(DateTime%2CDateTime%2CSystem.Nullable%7BTimeSpan%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L34">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Testing_XAssert_AreEqual_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual*"></a>
+  <h4 id="Galaxon_Core_Testing_XAssert_AreEqual_DateTime_DateTime_System_Nullable_TimeSpan__" data-uid="Galaxon.Core.Testing.XAssert.AreEqual(DateTime,DateTime,System.Nullable{TimeSpan})">AreEqual(DateTime, DateTime, Nullable&lt;TimeSpan&gt;)</h4>
+  <div class="markdown level1 summary"><p>Helper function to compare DateTimes for equality.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(DateTime dt1, DateTime dt2, TimeSpan? delta = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt1</span></td>
+        <td><p>The first DateTime</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt2</span></td>
+        <td><p>The second DateTime</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Nullable</span>&lt;<span class="xref">TimeSpan</span>&gt;</td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>Maximum acceptable difference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert_AreEqual_System_Double_System_Decimal_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert.AreEqual(System.Double%2CSystem.Decimal)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L70">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Testing_XAssert_AreEqual_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual*"></a>
+  <h4 id="Galaxon_Core_Testing_XAssert_AreEqual_System_Double_System_Decimal_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual(System.Double,System.Decimal)">AreEqual(Double, Decimal)</h4>
+  <div class="markdown level1 summary"><p>Helper function to test if a double equals a decimal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(double expected, decimal actual)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>Expected double value</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Decimal</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>Actual decimal value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert_AreEqual_System_Double_System_Double_System_Double_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert.AreEqual(System.Double%2CSystem.Double%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L61">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Testing_XAssert_AreEqual_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual*"></a>
+  <h4 id="Galaxon_Core_Testing_XAssert_AreEqual_System_Double_System_Double_System_Double_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual(System.Double,System.Double,System.Double)">AreEqual(Double, Double, Double)</h4>
+  <div class="markdown level1 summary"><p>Compares 2 doubles to see if they are close enough to be considered equal.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual(double expected, double actual, double delta = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td><p>The expected value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td><p>The actual value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>The max allowable difference.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert_AreEqual_System_ValueTuple_System_Double_System_Double_System_Double__System_ValueTuple_System_Double_System_Double_System_Double__System_Double_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert.AreEqual(System.ValueTuple%7BSystem.Double%2CSystem.Double%2CSystem.Double%7D%2CSystem.ValueTuple%7BSystem.Double%2CSystem.Double%2CSystem.Double%7D%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L20">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Testing_XAssert_AreEqual_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual*"></a>
+  <h4 id="Galaxon_Core_Testing_XAssert_AreEqual_System_ValueTuple_System_Double_System_Double_System_Double__System_ValueTuple_System_Double_System_Double_System_Double__System_Double_" data-uid="Galaxon.Core.Testing.XAssert.AreEqual(System.ValueTuple{System.Double,System.Double,System.Double},System.ValueTuple{System.Double,System.Double,System.Double},System.Double)">AreEqual((Double d, Double m, Double s), (Double d, Double m, Double s), Double)</h4>
+  <div class="markdown level1 summary"><p>Helper function to compare DMS (degrees, minutes, seconds) tuples for
+equality.
+I may need to rethink the delta parameter (e.g. make it also a tuple so
+I can set different deltas for degrees, minutes, and seconds) but for
+now it's fine.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqual((double d, double m, double s) A, (double d, double m, double s) B, double delta = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Double</span>, <span class="xref">System.Double</span>, <span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">A</span></td>
+        <td><p>Angle 1</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.ValueTuple</span>&lt;<span class="xref">System.Double</span>, <span class="xref">System.Double</span>, <span class="xref">System.Double</span>&gt;</td>
+        <td><span class="parametername">B</span></td>
+        <td><p>Angle 2</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">delta</span></td>
+        <td><p>Maximum acceptable difference between value pairs.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert_AreEqualPercent_System_Double_System_Double_System_Double_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert.AreEqualPercent(System.Double%2CSystem.Double%2CSystem.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L92">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Testing_XAssert_AreEqualPercent_" data-uid="Galaxon.Core.Testing.XAssert.AreEqualPercent*"></a>
+  <h4 id="Galaxon_Core_Testing_XAssert_AreEqualPercent_System_Double_System_Double_System_Double_" data-uid="Galaxon.Core.Testing.XAssert.AreEqualPercent(System.Double,System.Double,System.Double)">AreEqualPercent(Double, Double, Double)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void AreEqualPercent(double expected, double actual, double percent)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">expected</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">actual</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">percent</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert_IsInRange_System_Double_System_Double_System_Double_System_Boolean_System_Boolean_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert.IsInRange(System.Double%2CSystem.Double%2CSystem.Double%2CSystem.Boolean%2CSystem.Boolean)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L48">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Testing_XAssert_IsInRange_" data-uid="Galaxon.Core.Testing.XAssert.IsInRange*"></a>
+  <h4 id="Galaxon_Core_Testing_XAssert_IsInRange_System_Double_System_Double_System_Double_System_Boolean_System_Boolean_" data-uid="Galaxon.Core.Testing.XAssert.IsInRange(System.Double,System.Double,System.Double,System.Boolean,System.Boolean)">IsInRange(Double, Double, Double, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Check if a value is in a given range.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static void IsInRange(double value, double lower, double upper, bool includeLower = true, bool includeUpper = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>The value to test.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">lower</span></td>
+        <td><p>The lower value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">upper</span></td>
+        <td><p>The upper value.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeLower</span></td>
+        <td><p>Include lower value in the range.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeUpper</span></td>
+        <td><p>Include upper value in the range.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Testing_XAssert.md&amp;value=---%0Auid%3A%20Galaxon.Core.Testing.XAssert%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/mossy2100/Core/blob/main/Testing/XAssert.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

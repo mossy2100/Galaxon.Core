@@ -359,6 +359,6 @@ doc/**/TEMP/
 doc/**/packages/
 doc/**/bin/
 doc/**/obj/
-doc/_site/
+#doc/_site/
 doc/api/*.yml
 doc/api/.manifest

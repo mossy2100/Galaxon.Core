@@ -1,0 +1,875 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class XDateTime
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class XDateTime
+   ">
+    <meta name="generator" content="docfx 2.59.4.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="Galaxon.Core.Time.XDateTime">
+  
+  
+  <h1 id="Galaxon_Core_Time_XDateTime" data-uid="Galaxon.Core.Time.XDateTime" class="text-break">Class XDateTime
+  </h1>
+  <div class="markdown level0 summary"><p>Extension methods for the DateTime class.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">XDateTime</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="Galaxon.Core.Time.html">Galaxon.Core.Time</a></h6>
+  <h6><strong>Assembly</strong>: Galaxon.Core.Time.dll</h6>
+  <h5 id="Galaxon_Core_Time_XDateTime_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class XDateTime : object</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_JulianPeriodOffset.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.JulianPeriodOffset%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L17">View Source</a>
+  </span>
+  <h4 id="Galaxon_Core_Time_XDateTime_JulianPeriodOffset" data-uid="Galaxon.Core.Time.XDateTime.JulianPeriodOffset">JulianPeriodOffset</h4>
+  <div class="markdown level1 summary"><p>The number of days from the start of the Julian period to the start of the epoch used by
+.NET (0001-01-01 00:00:00 UTC).
+<a class="xref" href="Galaxon.Core.Time.XDateTime.html#Galaxon_Core_Time_XDateTime_GetTotalDays_DateTime_">GetTotalDays(DateTime)</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const double JulianPeriodOffset = null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_FromJulianDay_System_Double_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L171">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_FromJulianDay_" data-uid="Galaxon.Core.Time.XDateTime.FromJulianDay*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_FromJulianDay_System_Double_" data-uid="Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)">FromJulianDay(Double)</h4>
+  <div class="markdown level1 summary"><p>Convert a Julian Day value to a DateTime object.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FromJulianDay(double jd)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">jd</span></td>
+        <td><p>The Julian Day value. May include a fractional part indicating the time of day.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A new DateTime object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_FromTotalDays_System_Double_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L144">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_FromTotalDays_" data-uid="Galaxon.Core.Time.XDateTime.FromTotalDays*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_FromTotalDays_System_Double_" data-uid="Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)">FromTotalDays(Double)</h4>
+  <div class="markdown level1 summary"><p>Create a new DateTime given the number of days since the start of the epoch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FromTotalDays(double days)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">days</span></td>
+        <td><p>The day count. May include a fractional part indicating the time of day.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A new DateTime object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_FromTotalSeconds_System_Double_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L131">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_FromTotalSeconds_" data-uid="Galaxon.Core.Time.XDateTime.FromTotalSeconds*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_FromTotalSeconds_System_Double_" data-uid="Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)">FromTotalSeconds(Double)</h4>
+  <div class="markdown level1 summary"><p>Create a new DateTime given the number of seconds since the start of the epoch.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateTime FromTotalSeconds(double seconds)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><span class="parametername">seconds</span></td>
+        <td><p>The number of seconds.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><p>A new DateTime object.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetDateOnly_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetDateOnly(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L47">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetDateOnly_" data-uid="Galaxon.Core.Time.XDateTime.GetDateOnly*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetDateOnly_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetDateOnly(DateTime)">GetDateOnly(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the date part of a DateTime as a DateOnly object.
+An alternative to the Date property, which returns a DateTime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DateOnly GetDateOnly(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateOnly</span></td>
+        <td><p>The date part of the DateTime.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTimeOnly_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTimeOnly(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L56">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTimeOnly_" data-uid="Galaxon.Core.Time.XDateTime.GetTimeOnly*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTimeOnly_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTimeOnly(DateTime)">GetTimeOnly(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the time part of a DateTime as a TimeOnly object.
+An alternative to the TimeOfDay property, which returns a TimeSpan.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static TimeOnly GetTimeOnly(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">TimeOnly</span></td>
+        <td><p>The time part of the DateTime.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalDays_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L119">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalDays_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalDays*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalDays_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalDays(DateTime)">GetTotalDays(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of days from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalDays(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of days since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalHours_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalHours(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L111">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalHours_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalHours*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalHours_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalHours(DateTime)">GetTotalHours(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of hours from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalHours(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of hours since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalMicroseconds_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L79">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalMicroseconds_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalMicroseconds*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalMicroseconds_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(DateTime)">GetTotalMicroseconds(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of microseconds from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalMicroseconds(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of microseconds since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalMilliseconds_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L87">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalMilliseconds_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalMilliseconds*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalMilliseconds_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(DateTime)">GetTotalMilliseconds(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of milliseconds from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalMilliseconds(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of milliseconds since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalMinutes_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalMinutes(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L103">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalMinutes_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalMinutes*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalMinutes_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalMinutes(DateTime)">GetTotalMinutes(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of minutes from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalMinutes(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of minutes since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalNanoseconds_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L71">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalNanoseconds_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalNanoseconds*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalNanoseconds_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(DateTime)">GetTotalNanoseconds(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of nanoseconds from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalNanoseconds(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of nanoseconds since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_GetTotalSeconds_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.GetTotalSeconds(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L95">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_GetTotalSeconds_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalSeconds*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_GetTotalSeconds_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.GetTotalSeconds(DateTime)">GetTotalSeconds(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Get the total number of seconds from the start of the epoch to the datetime.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double GetTotalSeconds(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The number of seconds since the epoch start.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_ToIsoString_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.ToIsoString(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L31">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_ToIsoString_" data-uid="Galaxon.Core.Time.XDateTime.ToIsoString*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_ToIsoString_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.ToIsoString(DateTime)">ToIsoString(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Format the date using ISO format YYYY-MM-DDThh:mm:ss.
+This format is useful for databases.
+The time zone is not shown. For that, use ToString(&quot;u&quot;) (UniversalSortableDateTimePattern).
+<a href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0">https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0</a></p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static string ToIsoString(this DateTime date)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">date</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>A string representing the datetime in ISO format.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <span class="small pull-right mobile-hide">
+    <span class="divider">|</span>
+    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime_ToJulianDay_DateTime_.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
+  </span>
+  <span class="small pull-right mobile-hide">
+    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L161">View Source</a>
+  </span>
+  <a id="Galaxon_Core_Time_XDateTime_ToJulianDay_" data-uid="Galaxon.Core.Time.XDateTime.ToJulianDay*"></a>
+  <h4 id="Galaxon_Core_Time_XDateTime_ToJulianDay_DateTime_" data-uid="Galaxon.Core.Time.XDateTime.ToJulianDay(DateTime)">ToJulianDay(DateTime)</h4>
+  <div class="markdown level1 summary"><p>Express the DateTime as a Julian Day.
+The time of day information in the DateTime will be expressed as the fractional part of
+the return value. Note, however, a Julian Day begins at 12:00 noon.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static double ToJulianDay(this DateTime dt)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">DateTime</span></td>
+        <td><span class="parametername">dt</span></td>
+        <td><p>The DateTime instance.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Double</span></td>
+        <td><p>The Julian Day value</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/mossy2100/Core/new/main/apiSpec/new?filename=Galaxon_Core_Time_XDateTime.md&amp;value=---%0Auid%3A%20Galaxon.Core.Time.XDateTime%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
+                  </li>
+                  <li>
+                    <a href="https://github.com/mossy2100/Core/blob/main/Time/XDateTime.cs/#L8" class="contribution-link">View Source</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+                <h5>In This Article</h5>
+                <div></div>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
