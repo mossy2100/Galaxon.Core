@@ -3,14 +3,16 @@
 namespace Galaxon.Core.Exceptions;
 
 /// <summary>
-/// This exception is often needed when working with databases, and a bit more informative than the
-/// base DataException.
+/// Exception for when an attempt is made to obtain data from a database, but it isn't found.
+/// It's a bit more specific that DataException, and sometimes ObjectNotFoundException is not
+/// exactly what is meant.
 /// </summary>
 public class DataNotFoundException : DataException
 {
     /// <summary>
-    /// Constructor.
-    /// All arguments are optional.
+    /// Initializes a new instance of the DataNotFoundException class with an error message
+    /// (optional), and a reference to the inner exception that is the cause of this exception
+    /// (optional).
     /// </summary>
     /// <param name="message"></param>
     /// <param name="innerException"></param>

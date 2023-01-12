@@ -1,5 +1,4 @@
-﻿using System.Runtime.Remoting;
-using System.Text;
+﻿using System.Text;
 using Galaxon.Core.Exceptions;
 
 namespace Galaxon.Core.Strings;
@@ -93,22 +92,6 @@ public static class XString
 
         return sb.ToString();
     }
-
-    public static string ToSuperscript(this string str,
-        InvalidCharAction action = InvalidCharAction.Skip) =>
-        str.Transform(SuperAndSubscriptFormatter.SuperscriptChars, action);
-
-    public static string? ToSuperscript(this object obj,
-        InvalidCharAction action = InvalidCharAction.Skip) =>
-        obj.ToString()?.ToSuperscript();
-
-    public static string ToSubscript(this string str,
-        InvalidCharAction action = InvalidCharAction.Skip) =>
-        str.Transform(SuperAndSubscriptFormatter.SubscriptChars, action);
-
-    public static string? ToSubscript(this object obj,
-        InvalidCharAction action = InvalidCharAction.Skip) =>
-        obj.ToString()?.ToSubscript();
 
     public static string ToSmallCaps(this string str,
         InvalidCharAction action = InvalidCharAction.Keep) =>

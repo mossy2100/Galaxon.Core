@@ -4,7 +4,7 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <Company>Astro Multimedia</Company>
+        <Company>Galaxon Games</Company>
         <RootNamespace>Galaxon.Core.Numbers</RootNamespace>
         <AssemblyName>Galaxon.Core.Numbers</AssemblyName>
         <PackageId>Numbers</PackageId>
@@ -13,6 +13,23 @@
 
     <ItemGroup>
       <PackageReference Include="DecimalMath.DecimalEx" Version="1.0.2" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Collections\Collections.csproj" />
+      <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="old\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="old\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="old\**" />
     </ItemGroup>
 
 </Project>

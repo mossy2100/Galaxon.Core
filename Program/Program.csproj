@@ -5,6 +5,8 @@
         <TargetFramework>net7.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <AssemblyName>Galaxon.Core.Program</AssemblyName>
+        <RootNamespace>Galaxon.Core.Program</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>

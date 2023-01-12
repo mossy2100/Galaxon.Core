@@ -1,0 +1,2 @@
+Convert double.Product() LINQ method to IEnumerable<T>.Product() in XNumber.
+Remove other implementations of Product() wherever they are, such as BigDecimal.

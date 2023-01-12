@@ -9,7 +9,7 @@ public static class XStringBuilder
 {
     /// <summary>
     /// Prepends a StringBuilder with a string.
-    /// Works same as Append().
+    /// Reflects Append().
     /// </summary>
     public static StringBuilder Prepend(this StringBuilder sb, object? value) =>
         (value == null) ? sb : sb.Insert(0, value.ToString());

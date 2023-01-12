@@ -1,14 +1,14 @@
 namespace Galaxon.Core.Collections;
 
 /// <summary>
-/// Extension methods for IEnumerable and IEnumerable[T].
+/// Extension methods for IEnumerable and IEnumerable{T}.
 /// </summary>
 public static class XEnumerable
 {
     /// <summary>
     /// Return list1 with values from list2 removed.
     /// Supports duplicates, so this is not the same as set difference.
-    /// For example, if list1 has 2 instances of "cat" and list2 has one instance of "cat", the
+    /// For example, if list1 has two instances of "cat" and list2 has one instance of "cat", the
     /// result will have one instance of "cat".
     /// </summary>
     public static IEnumerable<T> Diff<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
@@ -22,7 +22,7 @@ public static class XEnumerable
     }
 
     /// <summary>
-    /// Convert an IEnumerable[T] into a dictionary with the dictionary's keys set to zero-based
+    /// Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to zero-based
     /// index, same as an array or list. This can be useful when the index is meaningful and you
     /// want to filter on it.
     /// </summary>
