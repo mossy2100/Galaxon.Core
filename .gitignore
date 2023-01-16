@@ -353,16 +353,5 @@ MigrationBackup/
 riderModule.iml
 /_ReSharper.Caches/
 
-# DocFX stuff
-docfx_project/**/DROP/
-docfx_project/**/TEMP/
-docfx_project/**/packages/
-docfx_project/**/bin/
-docfx_project/**/obj/
-docfx_project/_site/
-docfx_project/api/*.yml
-docfx_project/api/.manifest
-docfx_project/**/.gitignore
-
-# Exclude the Program project, which is just for testing and not part of the package.
-Program/
+# macOS files
+.DS_Store
