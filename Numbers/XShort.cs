@@ -1,6 +1,6 @@
 namespace Galaxon.Core.Numbers;
 
-/// <summary>Extension methods for short and ushort.</summary>
+/// <summary>Extension methods for short.</summary>
 public static class XShort
 {
     /// <summary>

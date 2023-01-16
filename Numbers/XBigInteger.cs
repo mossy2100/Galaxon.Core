@@ -138,10 +138,17 @@ public static class XBigInteger
     #region Extension methods for IEnumerable<BigInteger>
 
     /// <summary>
-    /// Sum all the values in a list of BigIntegers.
+    /// Get the sum of all values in the collection.
     /// </summary>
     public static BigInteger Sum(this IEnumerable<BigInteger> nums) =>
         nums.Aggregate((BigInteger)0, (sum, num) => sum + num);
+
+    /// <summary>
+    /// Get the sum of all values in the collection, transformed by the supplied function.
+    /// </summary>
+    public static BigInteger Sum(this IEnumerable<BigInteger> source,
+        Func<BigInteger, BigInteger> func) =>
+        source.Aggregate((BigInteger)0, (sum, value) => sum + func(value));
 
     #endregion Extension methods for IEnumerable<BigInteger>
 }

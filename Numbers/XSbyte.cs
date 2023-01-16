@@ -1,7 +1,7 @@
 namespace Galaxon.Core.Numbers;
 
-/// <summary>Extension methods for sbyte and byte.</summary>
-public static class XByte
+/// <summary>Extension methods for sbyte.</summary>
+public static class XSbyte
 {
     /// <summary>
     /// Return the absolute value of an sbyte as a byte.

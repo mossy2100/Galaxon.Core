@@ -1,6 +1,6 @@
 namespace Galaxon.Core.Numbers;
 
-/// <summary>Extension methods for long and ulong.</summary>
+/// <summary>Extension methods for long.</summary>
 public static class XLong
 {
     /// <summary>
@@ -36,19 +36,36 @@ public static class XLong
             _ => (ulong)-n
         };
 
-    #region Methods for IEnumerable<ulong>
+    /// <summary>
+    /// Get a random long.
+    /// </summary>
+    public static long GetRandom()
+    {
+        Random rnd = new ();
+
+        // Get a random value in the range 0..long.MaxValue.
+        // It's non-negative, so the most significant bit will always be 0.
+        long n = rnd.NextInt64();
+
+        // Get a random sign bit.
+        byte signBit = (byte)rnd.Next(2);
+
+        return ((long)signBit << 63) | n;
+    }
+
+    #region Extension methods for IEnumerable<long>
 
     /// <summary>
     /// Get the sum of all values in the collection.
     /// </summary>
-    public static ulong Sum(this IEnumerable<ulong> source) =>
-        source.Aggregate(0ul, (sum, value) => sum + value);
+    public static long Sum(this IEnumerable<long> source) =>
+        source.Aggregate(0L, (sum, value) => sum + value);
 
     /// <summary>
     /// Get the sum of all values in the collection, transformed by the supplied function.
     /// </summary>
-    public static ulong Sum(this IEnumerable<ulong> source, Func<ulong, ulong> func) =>
-        source.Aggregate(0ul, (sum, value) => sum + func(value));
+    public static long Sum(this IEnumerable<long> source, Func<long, long> func) =>
+        source.Aggregate(0L, (sum, value) => sum + func(value));
 
-    #endregion Methods for IEnumerable<ulong>
+    #endregion Extension methods for IEnumerable<long>
 }
