@@ -179,6 +179,11 @@ public class TestXDecimal
         y = XDecimal.Assemble(signBit, scaleBits, intBits);
         Assert.AreEqual(x, y);
 
+        x = -12345678901234567890m;
+        (signBit, scaleBits, intBits) = x.Disassemble();
+        y = XDecimal.Assemble(signBit, scaleBits, intBits);
+        Assert.AreEqual(x, y);
+
         x = decimal.MinValue;
         (signBit, scaleBits, intBits) = x.Disassemble();
         y = XDecimal.Assemble(signBit, scaleBits, intBits);

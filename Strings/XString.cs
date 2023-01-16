@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 using Galaxon.Core.Exceptions;
 
 namespace Galaxon.Core.Strings;
@@ -42,62 +43,72 @@ public static class XString
         str == new string(str.Reverse().ToArray());
 
     /// <summary>
-    /// Transform characters in a string into other characters by using a character map.
+    /// Replace characters in a string with other characters by using a character map.
     /// Example use cases:
     ///   * making a string upper- or lower-case
     ///   * converting lowercase characters to small caps
     ///   * making a string superscript or subscript
     ///   * transliteration/removal of diacritics
-    ///   * converting non-alphanumeric characters into hyphens, e.g. for a URL
     /// </summary>
     /// <param name="str">The original string.</param>
     /// <param name="charMap">The character map.</param>
     /// <param name="action">
     /// Code that tells the algorithm what to do if a character is encountered that is not in the
     /// character map.
-    ///   0 = Throw an exception (default).
-    ///   1 = Skip it, excluding it from the output.
-    ///   2 = Keep the original, untransformed character.
+    ///   Throw = Throw an exception.
+    ///   Skip  = Skip it, excluding it from the output.
+    ///   Keep  = Keep the original, untransformed character.
     /// </param>
-    /// <returns></returns>
-    /// <exception cref="ArgumentInvalidException"></exception>
-    public static string Transform(this string str, Dictionary<char, char> charMap,
-        InvalidCharAction action = 0)
+    /// <returns>The transformed string.</returns>
+    /// <exception cref="ArgumentInvalidException">
+    /// If the original character isn't found in the character map.
+    /// </exception>
+    /// <exception cref="ArgumentOutOfRangeException">
+    /// If the InvalidCharAction is out of range.
+    /// </exception>
+    public static string ReplaceChars(this string str, Dictionary<char, string> charMap,
+        InvalidCharAction action = InvalidCharAction.Keep)
     {
         StringBuilder sb = new ();
 
-        foreach (char c in str)
+        foreach (char original in str)
         {
-            // Check for invalid character.
-            if (!charMap.ContainsKey(c))
+            // Get the replacement character if it's there.
+            bool mapHasChar = charMap.TryGetValue(original, out string? replacement);
+
+            if (mapHasChar)
             {
+                // Append the replacement character.
+                sb.Append(replacement);
+            }
+            else
+            {
+                // The original character was not in the map.
                 switch (action)
                 {
                     case InvalidCharAction.Throw:
                         throw new ArgumentInvalidException(nameof(str),
-                            $"Character '{c}' not found in provided character map.");
+                            $"Character '{original}' not found in the character map.");
 
                     case InvalidCharAction.Skip:
-                        continue;
+                        break;
 
                     case InvalidCharAction.Keep:
-                        sb.Append(c);
-                        continue;
+                        // Append the original character.
+                        sb.Append(original);
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(action), action,
+                            "Invalid code provided for the invalid character found action.");
                 }
             }
-
-            // Append the transformed character.
-            sb.Append(charMap[c]);
         }
 
         return sb.ToString();
     }
 
     public static string ToSmallCaps(this string str,
-        InvalidCharAction action = InvalidCharAction.Keep) =>
-        throw new NotImplementedException();
-
-    public static string RemoveDiacritics(this string str,
         InvalidCharAction action = InvalidCharAction.Keep) =>
         throw new NotImplementedException();
 
@@ -119,4 +130,63 @@ public static class XString
         }
         return sb.ToString();
     }
+
+    /// <summary>
+    /// Remove whitespace from a string.
+    /// </summary>
+    /// <see href="https://www.compart.com/en/unicode/category/Zs" />
+    /// <param name="str">The string to process.</param>
+    /// <returns>The string with whitespace characters removed.</returns>
+    public static string StripWhitespace(this string str) =>
+        Regex.Replace(str, @"[\s\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008"
+            + @"\u2009\u200A\u202F\u205F\u3000]", "");
+
+    /// <summary>
+    /// Remove brackets (and whatever's between them) from a string.
+    /// </summary>
+    /// <param name="str">The string to process.</param>
+    /// <param name="round">If round brackets should be removed.</param>
+    /// <param name="square">If square brackets should be removed</param>
+    /// <param name="curly">If curly brackets should be removed</param>
+    /// <param name="angle">If angle brackets should be removed</param>
+    /// <returns>The string with brackets removed.</returns>
+    public static string StripBrackets(this string str, bool round = true, bool square = true,
+        bool curly = true, bool angle = true)
+    {
+        if (round)
+        {
+            str = Regex.Replace(str, @"\([^\)]*\)", "");
+        }
+
+        if (square)
+        {
+            str = Regex.Replace(str, @"\[[^\]]*\]", "");
+        }
+
+        if (curly)
+        {
+            str = Regex.Replace(str, @"{[^}]*}", "");
+        }
+
+        if (angle)
+        {
+            str = Regex.Replace(str, @"<[^>]*>", "");
+        }
+
+        return str;
+    }
+
+    /// <summary>Strip HTML tags from a string.</summary>
+    /// <param name="str">The string to process.</param>
+    /// <returns>The string with HTML tags removed.</returns>
+    public static string StripTags(this string str) =>
+        str.StripBrackets(false, false, false, true);
+
+    /// <summary>
+    /// Check if a string contains only ASCII characters.
+    /// </summary>
+    /// <param name="str">The string to check.</param>
+    /// <returns></returns>
+    public static bool IsAscii(this string str) =>
+        str.All(char.IsAscii);
 }
