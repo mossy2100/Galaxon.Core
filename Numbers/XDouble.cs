@@ -1,14 +1,38 @@
 namespace Galaxon.Core.Numbers;
 
-/// <summary>
-/// Extension methods for Double.
-/// </summary>
+/// <summary>Extension methods and other bonus stuff for double.</summary>
 public static class XDouble
 {
+    #region Constants
+
     /// <summary>
     /// The default maximum difference between 2 double values being compared for equality.
     /// </summary>
     public const double Delta = 1e-9;
+
+    /// <summary>The number of bits in the exponent.</summary>
+    public const byte NumExpBits = 11;
+
+    /// <summary>The number of bits in the fraction.</summary>
+    public const byte NumFracBits = 52;
+
+    /// <summary>The minimum binary exponent supported by the type.</summary>
+    public const short MinExp = -1022;
+
+    /// <summary>The maximum binary exponent supported by the type.</summary>
+    public const short MaxExp = 1023;
+
+    /// <summary>
+    /// The maximum positive subnormal value.
+    /// </summary>
+    public static double MaxPosSubnormalValue => Assemble(0, 0, 0x3f_ffff_ffff_ffff);
+
+    /// <summary>
+    /// The minimum positive normal value.
+    /// </summary>
+    public static double MinPosNormalValue => Assemble(0, 1, 0);
+
+    #endregion Constants
 
     #region Miscellaneous methods
 
@@ -34,6 +58,40 @@ public static class XDouble
 
         double scale = Pow(10, Floor(Log10(d)) + 1);
         return scale * Round(d / scale, nSigFigs);
+    }
+
+    /// <summary>
+    /// Disassemble the double into its bitwise components.
+    /// </summary>
+    /// <see href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format" />
+    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this double x) =>
+        x.Disassemble<double>();
+
+    /// <summary>
+    /// Assemble a new double from parts.
+    /// </summary>
+    /// <param name="signBit">The sign bit (1 or 0).</param>
+    /// <param name="expBits">The exponent bits.</param>
+    /// <param name="fracBits">The fraction bits.</param>
+    /// <returns>The new double.</returns>
+    public static double Assemble(byte signBit, ushort expBits, ulong fracBits) =>
+        XFloatingPoint.Assemble<double>(signBit, expBits, fracBits);
+
+    /// <summary>
+    /// Get a random double.
+    /// </summary>
+    public static double GetRandom()
+    {
+        Random rnd = new ();
+        while (true)
+        {
+            long bits = rnd.NextInt64();
+            double d = BitConverter.Int64BitsToDouble(bits);
+            if (double.IsFinite(d))
+            {
+                return d;
+            }
+        }
     }
 
     #endregion Miscellaneous methods

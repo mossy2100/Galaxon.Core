@@ -1,6 +1,7 @@
 namespace Galaxon.Core.Numbers;
 
-public static class XUshort
+/// <summary>Extension methods for short and ushort.</summary>
+public static class XShort
 {
     /// <summary>
     /// Return the absolute value of a short as a ushort.

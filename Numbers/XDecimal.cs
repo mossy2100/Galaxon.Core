@@ -2,6 +2,7 @@ using DecimalMath;
 
 namespace Galaxon.Core.Numbers;
 
+/// <summary>Extension methods for decimal.</summary>
 public static class XDecimal
 {
     #region Exponentiation methods
@@ -380,6 +381,16 @@ public static class XDecimal
         }
         decimal scale = Exp10(Floor(Log10(Abs(m))) + 1);
         return scale * Round(m / scale, n);
+    }
+
+    /// <summary>
+    /// Returns a random decimal.
+    /// </summary>
+    public static decimal GetRandom()
+    {
+        Random rnd = new ();
+        return
+            new decimal(rnd.Next(), rnd.Next(), rnd.Next(), rnd.Next(2) == 1, (byte)rnd.Next(29));
     }
 
     #endregion Miscellaneous methods

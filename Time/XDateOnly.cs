@@ -186,7 +186,7 @@ public static class XDateOnly
     /// <see href="https://www.assa.org.au/edm" />
     /// <param name="year">The Gregorian year number.</param>
     /// <returns>The date of Easter Sunday for the given year.</returns>
-    public static DateOnly Easter(int year)
+    public static DateOnly GetEaster(int year)
     {
         int a = year % 19;
         int b = year / 100;
@@ -208,7 +208,7 @@ public static class XDateOnly
     /// <summary>
     /// Get the date of Christmas Day in the given year, in the Gregorian Calendar.
     /// </summary>
-    public static DateOnly Christmas(int y) =>
+    public static DateOnly GetChristmas(int y) =>
         new (y, 12, 31);
 
     #endregion Find special dates

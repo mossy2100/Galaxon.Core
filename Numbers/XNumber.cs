@@ -2,13 +2,11 @@ using System.Numerics;
 
 namespace Galaxon.Core.Numbers;
 
-/// <summary>
-/// Extension methods for INumberBase and INumberBase{T}.
-/// </summary>
+/// <summary>Extension methods for numbers (INumber{T} and INumberBase{T}).</summary>
 /// <remarks>
 /// TODO: Sort out methods to check for implementation of generic interfaces.
 /// </remarks>
-public static class XNumberBase
+public static class XNumber
 {
     #region Inspection methods
 

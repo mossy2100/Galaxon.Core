@@ -102,7 +102,7 @@ public static class XString
         throw new NotImplementedException();
 
     /// <summary>
-    /// Construct a new string by repeating a string s n times.
+    /// Construct a new string by repeating a string multiple times.
     /// </summary>
     public static string Repeat(string s, int n)
     {

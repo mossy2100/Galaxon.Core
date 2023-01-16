@@ -175,34 +175,34 @@ public class TestXDateOnly
     {
         DateOnly date;
 
-        date = XDateOnly.Easter(1991);
+        date = XDateOnly.GetEaster(1991);
         Assert.AreEqual(date.ToIsoString(), "1991-03-31");
 
-        date = XDateOnly.Easter(1992);
+        date = XDateOnly.GetEaster(1992);
         Assert.AreEqual(date.ToIsoString(), "1992-04-19");
 
-        date = XDateOnly.Easter(1993);
+        date = XDateOnly.GetEaster(1993);
         Assert.AreEqual(date.ToIsoString(), "1993-04-11");
 
-        date = XDateOnly.Easter(1954);
+        date = XDateOnly.GetEaster(1954);
         Assert.AreEqual(date.ToIsoString(), "1954-04-18");
 
-        date = XDateOnly.Easter(2000);
+        date = XDateOnly.GetEaster(2000);
         Assert.AreEqual(date.ToIsoString(), "2000-04-23");
 
-        date = XDateOnly.Easter(1818);
+        date = XDateOnly.GetEaster(1818);
         Assert.AreEqual(date.ToIsoString(), "1818-03-22");
 
-        date = XDateOnly.Easter(2285);
+        date = XDateOnly.GetEaster(2285);
         Assert.AreEqual(date.ToIsoString(), "2285-03-22");
 
-        date = XDateOnly.Easter(1886);
+        date = XDateOnly.GetEaster(1886);
         Assert.AreEqual(date.ToIsoString(), "1886-04-25");
 
-        date = XDateOnly.Easter(1943);
+        date = XDateOnly.GetEaster(1943);
         Assert.AreEqual(date.ToIsoString(), "1943-04-25");
 
-        date = XDateOnly.Easter(2038);
+        date = XDateOnly.GetEaster(2038);
         Assert.AreEqual(date.ToIsoString(), "2038-04-25");
     }
 

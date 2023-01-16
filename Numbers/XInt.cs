@@ -1,8 +1,6 @@
 namespace Galaxon.Core.Numbers;
 
-/// <summary>
-/// Extension class for INumberBase.
-/// </summary>
+/// <summary>Extension methods for int and uint.</summary>
 public static class XInt
 {
     /// <summary>
@@ -12,4 +10,20 @@ public static class XInt
     /// <returns></returns>
     public static int Sqrt(int n) =>
         (int)Round(Math.Sqrt(n));
+
+    /// <summary>
+    /// Return the absolute value of an int as a uint.
+    /// This addresses an issue with int.Abs(), which is that Abs(int.MinValue) can't be expressed
+    /// as a int, and so wrap-around occurs.
+    /// Unsigned integer types don't have an Abs() method, so there's no collision.
+    /// </summary>
+    /// <param name="n">A int value.</param>
+    /// <returns>The absolute value as a uint.</returns>
+    public static uint Abs(int n) =>
+        n switch
+        {
+            int.MinValue => int.MaxValue + 1u,
+            >= 0 => (uint)n,
+            _ => (uint)-n
+        };
 }

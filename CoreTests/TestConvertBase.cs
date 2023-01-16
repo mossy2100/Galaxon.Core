@@ -133,19 +133,19 @@ public class TestConvertBase
         string s;
 
         x = 0;
-        s = x.ToBase(2, 8);
+        s = x.ToBase(2).ZeroPad(8);
         Assert.AreEqual("00000000", s);
 
         x = 50;
-        s = x.ToBase(2, 8);
+        s = x.ToBase(2).ZeroPad(8);
         Assert.AreEqual("00110010", s);
 
         x = 100;
-        s = x.ToBase(2, 8);
+        s = x.ToBase(2).ZeroPad(8);
         Assert.AreEqual("01100100", s);
 
         x = 200;
-        s = x.ToBase(2, 8);
+        s = x.ToBase(2).ZeroPad(8);
         Assert.AreEqual("11001000", s);
     }
 
@@ -156,19 +156,19 @@ public class TestConvertBase
         string s;
 
         x = 0;
-        s = x.ToBase(16, 16);
+        s = x.ToBase(16).ZeroPad(16);
         Assert.AreEqual("0000000000000000", s);
 
         x = 12345;
-        s = x.ToBase(16, 16);
+        s = x.ToBase(16).ZeroPad(16);
         Assert.AreEqual("0000000000003039", s);
 
         x = 987654321;
-        s = x.ToBase(16, 16);
+        s = x.ToBase(16).ZeroPad(16);
         Assert.AreEqual("000000003ade68b1", s);
 
         x = 20015998341291;
-        s = x.ToBase(16, 16);
+        s = x.ToBase(16).ZeroPad(16);
         Assert.AreEqual("00001234567890ab", s);
     }
 

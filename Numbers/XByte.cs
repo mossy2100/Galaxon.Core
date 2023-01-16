@@ -1,5 +1,6 @@
 namespace Galaxon.Core.Numbers;
 
+/// <summary>Extension methods for sbyte and byte.</summary>
 public static class XByte
 {
     /// <summary>

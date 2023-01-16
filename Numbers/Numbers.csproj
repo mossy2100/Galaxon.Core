@@ -18,6 +18,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Collections\Collections.csproj" />
       <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
+      <ProjectReference Include="..\Strings\Strings.csproj" />
     </ItemGroup>
 
     <ItemGroup>

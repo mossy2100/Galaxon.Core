@@ -2,11 +2,18 @@ using System.Numerics;
 
 namespace Galaxon.Core.Numbers;
 
-/// <summary>
-/// Extension methods for BigInteger.
-/// </summary>
+/// <summary>Extension methods for BigInteger.</summary>
 public static class XBigInteger
 {
+    #region Fields
+
+    /// <summary>
+    /// Cache for GreatestCommonDivisor().
+    /// </summary>
+    private static readonly Dictionary<string, BigInteger> s_gcdCache = new ();
+
+    #endregion Fields
+
     #region Digit-related methods
 
     /// <summary>
@@ -40,7 +47,7 @@ public static class XBigInteger
 
     #endregion Digit-related methods
 
-    #region Other methods
+    #region Miscellaneous other methods
 
     /// <summary>
     /// Get the unsigned, 2s-complement version of the value, containing the fewest number of bytes.
@@ -67,7 +74,66 @@ public static class XBigInteger
         return new BigInteger(bytes.ToArray());
     }
 
-    #endregion Other methods
+    #endregion Miscellaneous other methods
+
+    #region Methods relating to greatest common divisor
+
+    public static BigInteger LeastCommonMultiple(BigInteger a, BigInteger b)
+    {
+        // Special case.
+        if (a == 0 || b == 0)
+        {
+            return 0;
+        }
+
+        return a * (b / GreatestCommonDivisor(a, b));
+    }
+
+    /// <summary>
+    /// Determine the greatest common divisor of two integers.
+    /// Synonyms: greatest common factor, highest common factor.
+    /// </summary>
+    public static BigInteger GreatestCommonDivisor(BigInteger a, BigInteger b)
+    {
+        // Make a and b non-negative, since the result will be the same for negative values.
+        a = BigInteger.Abs(a);
+        b = BigInteger.Abs(b);
+
+        // Make a < b, to reduce the cache size by half and simplify terminating conditions.
+        if (a > b)
+        {
+            (a, b) = (b, a);
+        }
+
+        // Optimization/terminating conditions.
+        if (a == b || a == 0)
+        {
+            return b;
+        }
+        if (a == 1)
+        {
+            return 1;
+        }
+
+        BigInteger gcd;
+
+        // Check the cache.
+        string key = $"{a}/{b}";
+        if (s_gcdCache.TryGetValue(key, out gcd))
+        {
+            return gcd;
+        }
+
+        // Get the result by recursion.
+        gcd = GreatestCommonDivisor(a, b % a);
+
+        // Store the result in the cache.
+        s_gcdCache[key] = gcd;
+
+        return gcd;
+    }
+
+    #endregion Methods relating to greatest common divisor
 
     #region Extension methods for IEnumerable<BigInteger>
 
