@@ -1,3 +1,4 @@
+using System.Numerics;
 using DecimalMath;
 
 namespace Galaxon.Core.Numbers;
@@ -5,6 +6,19 @@ namespace Galaxon.Core.Numbers;
 /// <summary>Extension methods for decimal.</summary>
 public static class XDecimal
 {
+    #region Constants
+
+    /// <summary>The number of bits in the exponent.</summary>
+    public const byte NumExpBits = 8;
+
+    /// <summary>The number of bits in the integer part.</summary>
+    public const byte NumIntBits = 96;
+
+    /// <summary>The minimum scale factor (inverse decimal exponent).</summary>
+    public const short MaxScale = 28;
+
+    #endregion Constants
+
     #region Exponentiation methods
 
     /// <summary>
@@ -53,13 +67,13 @@ public static class XDecimal
         decimal x;
 
         // Some cleverness to avoid overflow if scale == 29.
-        if (scale <= 28)
+        if (scale <= MaxScale)
         {
             x = m / Exp10(scale);
         }
         else
         {
-            x = m / 1e28m / Exp10(scale - 28);
+            x = m / 1e28m / Exp10(scale - MaxScale);
         }
 
         // Use the Taylor series.
@@ -391,6 +405,59 @@ public static class XDecimal
         Random rnd = new ();
         return
             new decimal(rnd.Next(), rnd.Next(), rnd.Next(), rnd.Next(2) == 1, (byte)rnd.Next(29));
+    }
+
+    /// <summary>
+    /// Disassemble the decimal into bitwise parts.
+    /// </summary>
+    public static (byte signBit, byte scaleBits, UInt128 intBits) Disassemble(this decimal x)
+    {
+        int[] parts = decimal.GetBits(x);
+        uint lo = (uint)parts[0];
+        uint mid = (uint)parts[1];
+        uint hi = (uint)parts[2];
+        uint flags = (uint)parts[3];
+        byte signBit = (byte)(flags >> 31);
+        byte scaleBits = (byte)(flags >> 16 & 0xff);
+        UInt128 intBits = (UInt128)hi << 64 | (UInt128)mid << 32 | (UInt128)lo;
+        return (signBit, scaleBits, intBits);
+    }
+
+    /// <summary>
+    /// Assemble a new decimal value from bitwise parts.
+    /// </summary>
+    /// <param name="signBit">The sign bit (1 or 0).</param>
+    /// <param name="scaleBits">The scale bits.</param>
+    /// <param name="intBits">The integer bits.</param>
+    /// <returns>The new decimal.</returns>
+    public static decimal Assemble(byte signBit, byte scaleBits, UInt128 intBits)
+    {
+        // Check signBit has a valid value.
+        if (signBit > 1)
+        {
+            throw new ArgumentOutOfRangeException(nameof(signBit), "Must be 0 or 1.");
+        }
+
+        // Check scaleBits is within the valid range.
+        if (scaleBits > MaxScale)
+        {
+            throw new ArgumentOutOfRangeException(nameof(scaleBits),
+                $"Must be less than or equal to {MaxScale}.");
+        }
+
+        // Check intBits is within the valid range.
+        UInt128 intBitsMax = ((UInt128)1 << 96) - 1;
+        if (intBits > intBitsMax)
+        {
+            throw new ArgumentOutOfRangeException(nameof(intBits),
+                $"Must be less than or equal to {intBitsMax}.");
+        }
+
+        int lo = (int)(intBits & 0xffffffff);
+        int mid = (int)((intBits >> 32) & 0xffffffff);
+        int hi = (int)((intBits >> 64) & 0xffffffff);
+
+        return new decimal(lo, mid, hi, signBit == 1, scaleBits);
     }
 
     #endregion Miscellaneous methods

@@ -159,4 +159,50 @@ public class TestXDecimal
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
     public void LogThrowsIfBase1() => XDecimal.Log(1.234m, 1);
+
+    [TestMethod]
+    public void TestDisassembleAssemble()
+    {
+        decimal x;
+        decimal y;
+        byte signBit;
+        byte scaleBits;
+        UInt128 intBits;
+
+        x = 0m;
+        (signBit, scaleBits, intBits) = x.Disassemble();
+        y = XDecimal.Assemble(signBit, scaleBits, intBits);
+        Assert.AreEqual(x, y);
+
+        x = 12345678901234567890m;
+        (signBit, scaleBits, intBits) = x.Disassemble();
+        y = XDecimal.Assemble(signBit, scaleBits, intBits);
+        Assert.AreEqual(x, y);
+
+        x = decimal.MinValue;
+        (signBit, scaleBits, intBits) = x.Disassemble();
+        y = XDecimal.Assemble(signBit, scaleBits, intBits);
+        Assert.AreEqual(x, y);
+
+        x = decimal.MaxValue;
+        (signBit, scaleBits, intBits) = x.Disassemble();
+        y = XDecimal.Assemble(signBit, scaleBits, intBits);
+        Assert.AreEqual(x, y);
+    }
+
+    /// <summary>
+    /// Get some random decimal values and check Disassemble and Assemble work as expected.
+    /// </summary>
+    [TestMethod]
+    public void TestDisassembleAssembleRandom()
+    {
+        const int n = 100;
+        for (int i = 0; i < n; i++)
+        {
+            decimal x = XDecimal.GetRandom();
+            (byte signBit, byte scaleBits, UInt128 intBits) = x.Disassemble();
+            decimal y = XDecimal.Assemble(signBit, scaleBits, intBits);
+            Assert.AreEqual(x, y);
+        }
+    }
 }
