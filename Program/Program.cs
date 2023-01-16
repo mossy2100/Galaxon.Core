@@ -22,5 +22,5 @@ foreach ((char c, string str) in ligMap)
 }
 
 File.WriteAllText(
-    "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Program/CombinedMap.txt",
+    "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Program/data/CombinedMap.txt",
     sb.ToString());
