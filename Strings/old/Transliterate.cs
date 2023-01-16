@@ -27,6 +27,9 @@ public static class Transliterate
         { 'ą', "a" }, // \u0105
         { 'ǎ', "a" }, // \u01CE
         { 'ǻ', "a" }, // \u01FB
+        { 'ɐ', "a" }, // \u0250
+        { 'ɑ', "a" }, // \u0251
+        { 'ɒ', "a" }, // \u0252
         { 'ạ', "a" }, // \u1EA1
         { 'ả', "a" }, // \u1EA3
         { 'ấ', "a" }, // \u1EA5
@@ -92,6 +95,7 @@ public static class Transliterate
         { 'Ĉ', "C" }, // \u0108
         { 'Ċ', "C" }, // \u010A
         { 'Č', "C" }, // \u010C
+        { 'ʗ', "C" }, // \u0297
         { 'ď', "d" }, // \u010F
         { 'đ', "d" }, // \u0111
         { 'ɖ', "d" }, // \u0256
@@ -109,6 +113,7 @@ public static class Transliterate
         { 'ǆ', "dz" }, // \u01C6
         { 'ǳ', "dz" }, // \u01F3
         { 'ʣ', "dz" }, // \u02A3
+        { 'ʤ', "dz" }, // \u02A4
         { 'ʥ', "dz" }, // \u02A5
         { 'ǅ', "Dz" }, // \u01C5
         { 'ǲ', "Dz" }, // \u01F2
@@ -123,6 +128,13 @@ public static class Transliterate
         { 'ė', "e" }, // \u0117
         { 'ę', "e" }, // \u0119
         { 'ě', "e" }, // \u011B
+        { 'ɘ', "e" }, // \u0258
+        { 'ə', "e" }, // \u0259
+        { 'ɛ', "e" }, // \u025B
+        { 'ɜ', "e" }, // \u025C
+        { 'ɝ', "e" }, // \u025D
+        { 'ɞ', "e" }, // \u025E
+        { 'ʚ', "e" }, // \u029A
         { 'ẹ', "e" }, // \u1EB9
         { 'ẻ', "e" }, // \u1EBB
         { 'ẽ', "e" }, // \u1EBD
@@ -140,6 +152,7 @@ public static class Transliterate
         { 'Ė', "E" }, // \u0116
         { 'Ę', "E" }, // \u0118
         { 'Ě', "E" }, // \u011A
+        { 'Ɛ', "E" }, // \u0190
         { 'Ẹ', "E" }, // \u1EB8
         { 'Ẻ', "E" }, // \u1EBA
         { 'Ẽ', "E" }, // \u1EBC
@@ -155,6 +168,7 @@ public static class Transliterate
         { 'ﬄ', "ffl" }, // \uFB04
         { 'ﬁ', "fi" }, // \uFB01
         { 'ﬂ', "fl" }, // \uFB02
+        { 'ʩ', "fn" }, // \u02A9
         { 'ĝ', "g" }, // \u011D
         { 'ğ', "g" }, // \u011F
         { 'ġ', "g" }, // \u0121
@@ -174,7 +188,11 @@ public static class Transliterate
         { 'Ḡ', "G" }, // \u1E20
         { 'ĥ', "h" }, // \u0125
         { 'ħ', "h" }, // \u0127
+        { 'ɥ', "h" }, // \u0265
         { 'ɦ', "h" }, // \u0266
+        { 'ɧ', "h" }, // \u0267
+        { 'ʮ', "h" }, // \u02AE
+        { 'ʯ', "h" }, // \u02AF
         { 'ḥ', "h" }, // \u1E25
         { 'ḫ', "h" }, // \u1E2B
         { 'ẖ', "h" }, // \u1E96
@@ -195,6 +213,7 @@ public static class Transliterate
         { 'ı', "i" }, // \u0131
         { 'ǐ', "i" }, // \u01D0
         { 'ɨ', "i" }, // \u0268
+        { 'ɩ', "i" }, // \u0269
         { 'ỉ', "i" }, // \u1EC9
         { 'ị', "i" }, // \u1ECB
         { 'Ì', "I" }, // \u00CC
@@ -219,7 +238,9 @@ public static class Transliterate
         { 'ʝ', "j" }, // \u029D
         { 'Ĵ', "J" }, // \u0134
         { 'ķ', "k" }, // \u0137
+        { 'ĸ', "k" }, // \u0138
         { 'ƙ', "k" }, // \u0199
+        { 'ʞ', "k" }, // \u029E
         { 'ḳ', "k" }, // \u1E33
         { 'ḵ', "k" }, // \u1E35
         { 'Ķ', "K" }, // \u0136
@@ -255,8 +276,11 @@ public static class Transliterate
         { 'Ǉ', "LJ" }, // \u01C7
         { 'ỻ', "ll" }, // \u1EFB
         { 'Ỻ', "LL" }, // \u1EFA
+        { 'ɮ', "lz" }, // \u026E
         { 'ʪ', "ls" }, // \u02AA
         { 'ʫ', "lz" }, // \u02AB
+        { 'ɯ', "m" }, // \u026F
+        { 'ɰ', "m" }, // \u0270
         { 'ɱ', "m" }, // \u0271
         { 'ḿ', "m" }, // \u1E3F
         { 'ṁ', "m" }, // \u1E41
@@ -269,6 +293,7 @@ public static class Transliterate
         { 'ņ', "n" }, // \u0146
         { 'ň', "n" }, // \u0148
         { 'ŉ', "n" }, // \u0149
+        { 'ŋ', "n" }, // \u014B
         { 'ǹ', "n" }, // \u01F9
         { 'ɲ', "n" }, // \u0272
         { 'ɳ', "n" }, // \u0273
@@ -280,6 +305,7 @@ public static class Transliterate
         { 'Ń', "N" }, // \u0143
         { 'Ņ', "N" }, // \u0145
         { 'Ň', "N" }, // \u0147
+        { 'Ŋ', "N" }, // \u014A
         { 'Ɲ', "N" }, // \u019D
         { 'Ǹ', "N" }, // \u01F8
         { 'Ṅ', "N" }, // \u1E44
@@ -302,6 +328,8 @@ public static class Transliterate
         { 'ǒ', "o" }, // \u01D2
         { 'ǫ', "o" }, // \u01EB
         { 'ǿ', "o" }, // \u01FF
+        { 'ɵ', "o" }, // \u0275
+        { 'ʘ', "o" }, // \u0298
         { 'ọ', "o" }, // \u1ECD
         { 'ỏ', "o" }, // \u1ECF
         { 'ố', "o" }, // \u1ED1
@@ -349,9 +377,13 @@ public static class Transliterate
         { 'ŕ', "r" }, // \u0155
         { 'ŗ', "r" }, // \u0157
         { 'ř', "r" }, // \u0159
+        { 'ɹ', "r" }, // \u0279
+        { 'ɺ', "r" }, // \u027A
+        { 'ɻ', "r" }, // \u027B
         { 'ɼ', "r" }, // \u027C
         { 'ɽ', "r" }, // \u027D
         { 'ɾ', "r" }, // \u027E
+        { 'ɿ', "r" }, // \u027F
         { 'ṙ', "r" }, // \u1E59
         { 'ṛ', "r" }, // \u1E5B
         { 'ṝ', "r" }, // \u1E5D
@@ -359,6 +391,7 @@ public static class Transliterate
         { 'Ŕ', "R" }, // \u0154
         { 'Ŗ', "R" }, // \u0156
         { 'Ř', "R" }, // \u0158
+        { 'ʁ', "R" }, // \u0281
         { 'Ṙ', "R" }, // \u1E58
         { 'Ṛ', "R" }, // \u1E5A
         { 'Ṝ', "R" }, // \u1E5C
@@ -367,8 +400,12 @@ public static class Transliterate
         { 'ŝ', "s" }, // \u015D
         { 'ş', "s" }, // \u015F
         { 'š', "s" }, // \u0161
+        { 'ſ', "s" }, // \u017F
         { 'ș', "s" }, // \u0219
         { 'ʂ', "s" }, // \u0282
+        { 'ʃ', "s" }, // \u0283
+        { 'ʅ', "s" }, // \u0285
+        { 'ʆ', "s" }, // \u0286
         { 'ṡ', "s" }, // \u1E61
         { 'ṣ', "s" }, // \u1E63
         { 'Ś', "S" }, // \u015A
@@ -385,12 +422,12 @@ public static class Transliterate
         { 'ť', "t" }, // \u0165
         { 'ŧ', "t" }, // \u0167
         { 'ț', "t" }, // \u021B
+        { 'ʇ', "t" }, // \u0287
         { 'ʈ', "t" }, // \u0288
         { 'ṭ', "t" }, // \u1E6D
         { 'ṯ', "t" }, // \u1E6F
         { 'ṱ', "t" }, // \u1E71
         { 'ẗ', "t" }, // \u1E97
-        { 'ᵺ', "th" }, // \u1D7A
         { 'Ţ', "T" }, // \u0162
         { 'Ť', "T" }, // \u0164
         { 'Ŧ', "T" }, // \u0166
@@ -399,7 +436,9 @@ public static class Transliterate
         { 'Ṯ', "T" }, // \u1E6E
         { 'Ṱ', "T" }, // \u1E70
         { 'ʨ', "tc" }, // \u02A8
+        { 'ᵺ', "th" }, // \u1D7A
         { 'ʦ', "ts" }, // \u02A6
+        { 'ʧ', "ts" }, // \u02A7
         { 'ꜩ', "tz" }, // \uA729
         { 'Ꜩ', "TZ" }, // \uA728
         { 'ù', "u" }, // \u00F9
@@ -451,9 +490,12 @@ public static class Transliterate
         { 'Ự', "U" }, // \u1EF0
         { 'ᵫ', "ue" }, // \u1D6B
         { 'ꭣ', "uo" }, // \uAB63
+        { 'ʋ', "v" }, // \u028B
+        { 'ʌ', "v" }, // \u028C
         { 'ꝡ', "vy" }, // \uA761
         { 'Ꝡ', "VY" }, // \uA760
         { 'ŵ', "w" }, // \u0175
+        { 'ʍ', "w" }, // \u028D
         { 'ẁ', "w" }, // \u1E81
         { 'ẃ', "w" }, // \u1E83
         { 'ẅ', "w" }, // \u1E85
@@ -461,11 +503,13 @@ public static class Transliterate
         { 'Ẁ', "W" }, // \u1E80
         { 'Ẃ', "W" }, // \u1E82
         { 'Ẅ', "W" }, // \u1E84
+        { 'ʬ', "ww" }, // \u02AC
         { 'ý', "y" }, // \u00FD
         { 'ÿ', "y" }, // \u00FF
         { 'ŷ', "y" }, // \u0177
         { 'ƴ', "y" }, // \u01B4
         { 'ȳ', "y" }, // \u0233
+        { 'ʎ', "y" }, // \u028E
         { 'ẏ', "y" }, // \u1E8F
         { 'ỳ', "y" }, // \u1EF3
         { 'ỵ', "y" }, // \u1EF5
@@ -485,8 +529,11 @@ public static class Transliterate
         { 'ż', "z" }, // \u017C
         { 'ž', "z" }, // \u017E
         { 'ƶ', "z" }, // \u01B6
+        { 'ǯ', "z" }, // \u01EF
         { 'ʐ', "z" }, // \u0290
         { 'ʑ', "z" }, // \u0291
+        { 'ʒ', "z" }, // \u0292
+        { 'ʓ', "z" }, // \u0293
         { 'ẓ', "z" }, // \u1E93
         { 'ẕ', "z" }, // \u1E95
         { 'Ź', "Z" }, // \u0179
@@ -498,11 +545,12 @@ public static class Transliterate
     };
 
     /// <summary>
-    /// Remove diacritics and expand ligature and digraph characters by replacing them with
+    /// Remove diacritics, and expand ligature and digraph characters, by replacing them with
     /// similar-looking ASCII equivalents.
+    /// This can be useful when generating friendly URLs from page titles.
     /// </summary>
-    /// <param name="str">The string to remove diacritics from.</param>
-    /// <returns>The string with diacritics removed.</returns>
+    /// <param name="str">The string to process.</param>
+    /// <returns>The string with letters changed.</returns>
     public static string ToAsciiLetters(this string str) =>
         str.ReplaceChars(AsciiSubstitutionMap);
 }

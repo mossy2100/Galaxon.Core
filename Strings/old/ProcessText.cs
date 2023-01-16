@@ -14,51 +14,37 @@ public class ProcessText
             File.ReadAllText(
                 "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Program/data/diacritics.html");
 
-        Regex rx = new (@"<tr>\s*"
+        Regex rxTableRow = new (@"<tr>\s*"
             + @"<td>(?<unicode>[0-9a-f]{4})</td>\s*"
             + @"<td>(?<htmlEntity>[^<]+)</td>\s*"
             + @"<td>(?<name>[^<]+)</td>\s*"
             + @"<td>(?<description>[^<]+)</td>\s*"
             + @"</tr>", RegexOptions.IgnoreCase);
 
-        Regex upper = new ("capital (ligature )?(?<uppercaseLetters>[a-z]+)",
+        Regex rxUpper = new ("capital (ligature )?(?<uppercaseLetters>[a-z]+)",
             RegexOptions.IgnoreCase);
-        Regex lower = new ("(lowercase|small letter) (?<lowercaseLetters>[a-z]+)",
+        Regex rxLower = new ("(lowercase|small letter) (?<lowercaseLetters>[a-z]+)",
             RegexOptions.IgnoreCase);
 
-        StringBuilder sbDiacriticMap = new ();
-        StringBuilder sbLigatureMap = new ();
+        var asciiSubMap = Transliterate.AsciiSubstitutionMap;
 
-        MatchCollection matches = rx.Matches(diacriticsHtml);
+        StringBuilder sbAsciiSubItems = new ();
+
+        MatchCollection matches = rxTableRow.Matches(diacriticsHtml);
         foreach (Match match in matches)
         {
             string unicode = match.Groups["unicode"].Value;
             char c = (char)ConvertBase.FromHex<ushort>(unicode);
-            // string name = match.Groups["name"].Value;
-            string description = match.Groups["description"].Value;
 
-            // string item = unicode.PadRight(10) + c.ToString().PadRight(10) + name.PadRight(20) + description;
-            // Console.WriteLine(item);
-
-            // Fix the case in the description.
-            string[] words = description.Split(' ');
-            string[] words2 = new string[words.Length];
-            for (int i = 0; i < words.Length; i++)
+            if (asciiSubMap.ContainsKey(c))
             {
-                if (words[i].Length <= 2)
-                {
-                    words2[i] = words[i].ToUpper();
-                }
-                else
-                {
-                    words2[i] = words[i].ToLower();
-                }
+                continue;
             }
-            string description2 = string.Join(' ', words2);
 
             // Look for upper and lower case letters.
+            string description = match.Groups["description"].Value;
             string replacement = "";
-            var upperMatch = upper.Match(description);
+            var upperMatch = rxUpper.Match(description);
             if (upperMatch.Success)
             {
                 string uppercaseLetters = upperMatch.Groups["uppercaseLetters"].Value;
@@ -67,7 +53,7 @@ public class ProcessText
                     replacement += uppercaseLetters.ToUpper();
                 }
             }
-            var lowerMatch = lower.Match(description);
+            var lowerMatch = rxLower.Match(description);
             if (lowerMatch.Success)
             {
                 string lowercaseLetters = lowerMatch.Groups["lowercaseLetters"].Value;
@@ -76,25 +62,15 @@ public class ProcessText
                     replacement += lowercaseLetters.ToLower();
                 }
             }
-            string listItem = $"{{ '{c}', \"{replacement}\" }},".PadRight(17)
-                + $"// \\u{unicode} ({description2})\n";
+
+            string listItem = $"{{ '{c}', \"{replacement}\" }}, // \\u{unicode} ({description})\n";
             Console.Write(listItem);
-            if (replacement.Length < 2)
-            {
-                sbDiacriticMap.Append(listItem);
-            }
-            else
-            {
-                sbLigatureMap.Append(listItem);
-            }
+            sbAsciiSubItems.Append(listItem);
         }
 
         File.WriteAllText(
-            "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Program/data/DiacriticMap.txt",
-            sbDiacriticMap.ToString());
-        File.WriteAllText(
-            "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Program/data/LigatureMap.txt",
-            sbLigatureMap.ToString());
+            "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Program/data/AsciiSubMap.txt",
+            sbAsciiSubItems.ToString());
     }
 
     public static void ProcessLigaturesHtml()
