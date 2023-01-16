@@ -174,4 +174,58 @@ public class TestXBigInteger
         nDigits = bi.NumDigits();
         Assert.AreEqual(20, nDigits);
     }
+
+    [TestMethod]
+    public void TestGreatestCommonDivisor()
+    {
+        // Equal values. 0, 1, prime, composite.
+        Assert.AreEqual(0, XBigInteger.GreatestCommonDivisor(0, 0));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(1, 1));
+        Assert.AreEqual(5, XBigInteger.GreatestCommonDivisor(5, 5));
+        Assert.AreEqual(10, XBigInteger.GreatestCommonDivisor(10, 10));
+
+        // 0 and 1.
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(1, 0));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(0, 1));
+
+        // 0 and prime.
+        Assert.AreEqual(5, XBigInteger.GreatestCommonDivisor(5, 0));
+        Assert.AreEqual(5, XBigInteger.GreatestCommonDivisor(0, 5));
+
+        // 0 and composite.
+        Assert.AreEqual(10, XBigInteger.GreatestCommonDivisor(10, 0));
+        Assert.AreEqual(10, XBigInteger.GreatestCommonDivisor(0, 10));
+
+        // 1 and prime.
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(1, 5));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(5, 1));
+
+        // 1 and composite.
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(1, 10));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(10, 1));
+
+        // Prime and prime.
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(3, 7));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(7, 3));
+
+        // Prime and composite with a common factor.
+        Assert.AreEqual(5, XBigInteger.GreatestCommonDivisor(10, 5));
+        Assert.AreEqual(5, XBigInteger.GreatestCommonDivisor(5, 10));
+
+        // Prime and composite without a common factor.
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(6, 5));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(5, 6));
+
+        // Composite and composite with a prime common factor.
+        Assert.AreEqual(2, XBigInteger.GreatestCommonDivisor(4, 6));
+        Assert.AreEqual(2, XBigInteger.GreatestCommonDivisor(6, 4));
+
+        // Composite and composite with a composite common factor.
+        Assert.AreEqual(4, XBigInteger.GreatestCommonDivisor(4, 16));
+        Assert.AreEqual(4, XBigInteger.GreatestCommonDivisor(16, 4));
+
+        // Composite and composite without a common factor.
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(4, 9));
+        Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(9, 4));
+    }
 }
