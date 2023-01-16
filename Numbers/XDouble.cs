@@ -85,7 +85,7 @@ public static class XDouble
         Random rnd = new ();
         while (true)
         {
-            long bits = rnd.NextInt64();
+            long bits = XLong.GetRandom();
             double d = BitConverter.Int64BitsToDouble(bits);
             if (double.IsFinite(d))
             {

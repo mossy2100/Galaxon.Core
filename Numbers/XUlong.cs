@@ -7,7 +7,7 @@ public static class XUlong
     /// Get a random ulong.
     /// </summary>
     public static ulong GetRandom() =>
-        (ulong)XInt.GetRandom();
+        (ulong)XLong.GetRandom();
 
     #region Extension methods for IEnumerable<ulong>
 

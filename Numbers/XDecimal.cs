@@ -403,8 +403,12 @@ public static class XDecimal
     public static decimal GetRandom()
     {
         Random rnd = new ();
-        return
-            new decimal(rnd.Next(), rnd.Next(), rnd.Next(), rnd.Next(2) == 1, (byte)rnd.Next(29));
+        int lo = XInt.GetRandom();
+        int mid = XInt.GetRandom();
+        int hi = XInt.GetRandom();
+        bool isNegative = rnd.Next(2) == 1;
+        byte scale = (byte)rnd.Next(29);
+        return new decimal(lo, mid, hi, isNegative, scale);
     }
 
     /// <summary>

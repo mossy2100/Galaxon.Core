@@ -50,7 +50,7 @@ public static class XFloat
         Random rnd = new ();
         while (true)
         {
-            int bits = rnd.Next();
+            int bits = XInt.GetRandom();
             float f = BitConverter.Int32BitsToSingle(bits);
             if (float.IsFinite(f))
             {

@@ -1,4 +1,9 @@
 ﻿using Galaxon.Core.Numbers;
-using Galaxon.Core.Strings;
 
-Console.WriteLine("0x" + 0b1111111111.ToHex().ZeroPad(8).GroupDigits());
+Console.WriteLine("Testing...");
+
+for (int i = 0; i < 1000; i++)
+{
+    Half n = XHalf.GetRandom();
+    Console.WriteLine(n);
+}

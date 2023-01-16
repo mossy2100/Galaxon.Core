@@ -50,7 +50,7 @@ public static class XHalf
         Random rnd = new ();
         while (true)
         {
-            short bits = (short)rnd.Next();
+            short bits = XShort.GetRandom();
             Half d = BitConverter.Int16BitsToHalf(bits);
             if (Half.IsFinite(d))
             {
