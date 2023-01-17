@@ -27,4 +27,11 @@
       <None Remove="old\**" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="AnyAscii" Version="0.3.1" />
+      <PackageReference Include="Google.Cloud.Translate.V3" Version="3.0.0" />
+      <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
+      <PackageReference Include="Romanization.NET" Version="0.9.5" />
+    </ItemGroup>
+
 </Project>
