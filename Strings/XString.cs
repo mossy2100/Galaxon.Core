@@ -53,64 +53,33 @@ public static class XString
     /// </summary>
     /// <param name="str">The original string.</param>
     /// <param name="charMap">The character map.</param>
-    /// <param name="action">
-    /// Code that tells the algorithm what to do if a character is encountered that is not in the
-    /// character map.
-    ///   Throw = Throw an exception.
-    ///   Skip  = Skip it, excluding it from the output.
-    ///   Keep  = Keep the original, untransformed character.
-    /// </param>
+    /// <param name="keepCharsNotInMap">If a character is encountered that is not in the character
+    /// map, either keep it (true) or skip it (false).</param>
     /// <returns>The transformed string.</returns>
-    /// <exception cref="ArgumentInvalidException">
-    /// If the original character isn't found in the character map.
-    /// </exception>
-    /// <exception cref="ArgumentOutOfRangeException">
-    /// If the InvalidCharAction is out of range.
-    /// </exception>
     public static string ReplaceChars(this string str, Dictionary<char, string> charMap,
-        InvalidCharAction action = InvalidCharAction.Keep)
+        bool keepCharsNotInMap = true )
     {
         StringBuilder sb = new ();
 
         foreach (char original in str)
         {
             // Get the replacement character if it's there.
-            bool mapHasChar = charMap.TryGetValue(original, out string? replacement);
-
-            if (mapHasChar)
+            if (charMap.TryGetValue(original, out string? replacement))
             {
                 // Append the replacement character.
                 sb.Append(replacement);
             }
-            else
+            else if (keepCharsNotInMap)
             {
-                // The original character was not in the map.
-                switch (action)
-                {
-                    case InvalidCharAction.Throw:
-                        throw new ArgumentInvalidException(nameof(str),
-                            $"Character '{original}' not found in the character map.");
-
-                    case InvalidCharAction.Skip:
-                        break;
-
-                    case InvalidCharAction.Keep:
-                        // Append the original character.
-                        sb.Append(original);
-                        break;
-
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(action), action,
-                            "Invalid code provided for the invalid character found action.");
-                }
+                // Append the original character.
+                sb.Append(original);
             }
         }
 
         return sb.ToString();
     }
 
-    public static string ToSmallCaps(this string str,
-        InvalidCharAction action = InvalidCharAction.Keep) =>
+    public static string ToSmallCaps(this string str) =>
         throw new NotImplementedException();
 
     /// <summary>
