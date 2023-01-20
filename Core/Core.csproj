@@ -19,4 +19,16 @@
         <PackageReference Include="Nito.AsyncEx" Version="5.1.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Compile Remove="Strings\old\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Remove="Strings\old\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Strings\old\**" />
+    </ItemGroup>
+
 </Project>

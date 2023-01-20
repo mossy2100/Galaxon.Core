@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using Galaxon.Core.Strings;
-using Galaxon.Core.Strings.Translate;
 
 namespace Galaxon.Core.Tests;
 
@@ -67,21 +66,5 @@ public class TestXString
         s2 = s1.MakeSlug();
         Trace.WriteLine(s2);
         Assert.AreEqual("women-xiwang-nin-zai-shanghaiguo-de-yukuai", s2);
-    }
-
-    [TestMethod]
-    public void TestTranslation()
-    {
-        Environment.SetEnvironmentVariable("GOOGLE_APPLICATION_CREDENTIALS",
-            "/Users/shaun/Documents/Web & software development/C#/Projects/Galaxon/Core/Strings/translation-374919-e49a70ea084f.json");
-
-        string en = "Hello and welcome to Shanghai";
-        string zh = "您好，欢迎来到上海";
-
-        var provider = new TranslateProvider();
-        string translated = provider.Execute(en, "zh-CN");
-
-        Trace.WriteLine($"{en} => {zh}");
-        Assert.AreEqual(zh, translated);
     }
 }

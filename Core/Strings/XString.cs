@@ -164,8 +164,8 @@ public static class XString
     /// Convert a Unicode string (for example, a page title) to a user-, browser-, and search
     /// engine-friendly URL slug containing only lower-case alphanumeric ASCII characters and
     /// hyphens.
-    /// This method does not remove short words, like some algorithms do. I don't perceive this as
-    /// necessary - please let me know if you disagree.
+    /// This method does not remove short words like "a", "the", "of", etc., like some algorithms
+    /// do. I don't perceive this as necessary - please let me know if you disagree.
     /// </summary>
     /// <param name="str">The string to process.</param>
     /// <returns>The ASCII slug.</returns>
