@@ -10,7 +10,7 @@ public static class XLong
     /// <param name="y"></param>
     /// <returns></returns>
     public static long Pow(long x, long y) =>
-        (long)Round(Math.Pow(x, y));
+        (long)Math.Round(Math.Pow(x, y));
 
     /// <summary>
     /// Get the long value closest to √x.
@@ -18,7 +18,7 @@ public static class XLong
     /// <param name="x"></param>
     /// <returns></returns>
     public static long Sqrt(long x) =>
-        (long)Round(Math.Sqrt(x));
+        (long)Math.Round(Math.Sqrt(x));
 
     /// <summary>
     /// Return the absolute value of a long as a ulong.

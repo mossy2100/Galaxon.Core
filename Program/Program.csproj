@@ -9,9 +9,4 @@
         <RootNamespace>Galaxon.Core.Program</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <ProjectReference Include="..\Numbers\Numbers.csproj" />
-      <ProjectReference Include="..\Strings\Strings.csproj" />
-    </ItemGroup>
-
 </Project>

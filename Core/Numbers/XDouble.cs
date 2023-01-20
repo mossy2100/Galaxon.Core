@@ -56,8 +56,8 @@ public static class XDouble
             return d;
         }
 
-        double scale = Pow(10, Floor(Log10(d)) + 1);
-        return scale * Round(d / scale, nSigFigs);
+        double scale = Math.Pow(10, Math.Floor(Math.Log10(d)) + 1);
+        return scale * Math.Round(d / scale, nSigFigs);
     }
 
     /// <summary>
@@ -114,7 +114,7 @@ public static class XDouble
     /// Check if a value is a perfect square.
     /// </summary>
     public static bool IsPerfectSquare(double d) =>
-        double.IsPositive(d) && double.IsInteger(Sqrt(d));
+        double.IsPositive(d) && double.IsInteger(Math.Sqrt(d));
 
     #endregion Methods for checking doubles as integers
 
@@ -148,7 +148,7 @@ public static class XDouble
         // Handle NaN separately so the method behaves the same as double.Equals().
         // The equality operator will return false when comparing 2 NaN values.
         // The equality operator will return true when comparing infinities.
-        return (double.IsNaN(a) && double.IsNaN(b)) || (a == b) || Abs(a - b) <= tolerance;
+        return (double.IsNaN(a) && double.IsNaN(b)) || (a == b) || Math.Abs(a - b) <= tolerance;
     }
 
     /// <summary>
@@ -180,7 +180,7 @@ public static class XDouble
     /// IsInteger() can be a bit strict. This method allows for some fuzziness.
     /// </summary>
     public static bool FuzzyIsInteger(double d, double tolerance = Delta) =>
-        d.FuzzyEquals(Round(d), tolerance);
+        d.FuzzyEquals(Math.Round(d), tolerance);
 
     /// <summary>
     /// Check if a double is a positive integer, with some fuzziness.

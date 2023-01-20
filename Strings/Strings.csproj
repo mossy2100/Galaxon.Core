@@ -12,10 +12,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Exceptions\Exceptions.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
       <Compile Remove="old\**" />
     </ItemGroup>
 

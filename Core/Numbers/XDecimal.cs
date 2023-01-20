@@ -1,4 +1,3 @@
-using System.Numerics;
 using DecimalMath;
 
 namespace Galaxon.Core.Numbers;
@@ -63,7 +62,7 @@ public static class XDecimal
 
         // Scale the value to the range (0..1) so the Taylor series converges quickly and to avoid
         // overflow.
-        int scale = (int)Floor(Math.Log10((double)m)) + 1;
+        int scale = (int)Math.Floor(Math.Log10((double)m)) + 1;
         decimal x;
 
         // Some cleverness to avoid overflow if scale == 29.
@@ -246,7 +245,7 @@ public static class XDecimal
     /// <param name="x">A number representing a secant.</param>
     public static decimal Asec(decimal x)
     {
-        if (Abs(x) < 1)
+        if (Math.Abs(x) < 1)
         {
             throw new ArgumentOutOfRangeException(nameof(x),
                 "The absolute value of the argument must be greater than or equal to 1.");
@@ -262,7 +261,7 @@ public static class XDecimal
     /// <param name="x">A number representing a cosecant.</param>
     public static decimal Acsc(decimal x)
     {
-        if (Abs(x) < 1)
+        if (Math.Abs(x) < 1)
         {
             throw new ArgumentOutOfRangeException(nameof(x),
                 "The absolute value of the argument must be greater than or equal to 1.");
@@ -393,8 +392,8 @@ public static class XDecimal
         {
             return 0;
         }
-        decimal scale = Exp10(Floor(Log10(Abs(m))) + 1);
-        return scale * Round(m / scale, n);
+        decimal scale = Exp10(Math.Floor(Log10(Math.Abs(m))) + 1);
+        return scale * Math.Round(m / scale, n);
     }
 
     /// <summary>

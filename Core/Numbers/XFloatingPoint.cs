@@ -43,7 +43,7 @@ public static class XFloatingPoint
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
     public static short GetMaxExp<T>() where T : IFloatingPoint<T> =>
-        (short)(Pow(2, GetNumExpBits<T>() - 1) - 1);
+        (short)(Math.Pow(2, GetNumExpBits<T>() - 1) - 1);
 
     /// <summary>
     /// Get the minimum positive normal value for the type.

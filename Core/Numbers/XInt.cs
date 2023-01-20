@@ -9,7 +9,7 @@ public static class XInt
     /// <param name="n"></param>
     /// <returns></returns>
     public static int Sqrt(int n) =>
-        (int)Round(Math.Sqrt(n));
+        (int)Math.Round(Math.Sqrt(n));
 
     /// <summary>
     /// Return the absolute value of an int as a uint.

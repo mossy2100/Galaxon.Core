@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using Romanization;
 using Galaxon.Core.Strings;
 using Galaxon.Core.Strings.Translate;
 
@@ -68,18 +67,6 @@ public class TestXString
         s2 = s1.MakeSlug();
         Trace.WriteLine(s2);
         Assert.AreEqual("women-xiwang-nin-zai-shanghaiguo-de-yukuai", s2);
-    }
-
-    [TestMethod]
-    public void TestRomanization()
-    {
-        string s1;
-        string s2;
-
-        s1 = "我们希望您在上海过得愉快。";
-        Chinese.HanyuPinyin chinese = new ();
-        s2 = chinese.Process(s1);
-        Trace.WriteLine(s2);
     }
 
     [TestMethod]
