@@ -105,4 +105,17 @@ public class TestXString
         s2 = s1.ToSubscript();
         Assert.AreEqual("v₀", s2);
     }
+
+    [TestMethod]
+    public void TestStringToSmallCaps()
+    {
+        string s1 = "A quick brown fox jumps over the lazy dog.";
+        string s2 = s1.ToSmallCaps();
+        Assert.AreEqual("A ꞯᴜɪᴄᴋ ʙʀᴏᴡɴ ꜰᴏx ᴊᴜᴍᴘꜱ ᴏᴠᴇʀ ᴛʜᴇ ʟᴀᴢʏ ᴅᴏɢ.", s2);
+
+        // Article title. Example with numbers and symbols.
+        s1 = "10 Tips To Become A Good Programmer - C# Corner";
+        s2 = s1.ToSmallCaps();
+        Assert.AreEqual("10 Tɪᴘꜱ Tᴏ Bᴇᴄᴏᴍᴇ A Gᴏᴏᴅ Pʀᴏɢʀᴀᴍᴍᴇʀ - C# Cᴏʀɴᴇʀ", s2);
+    }
 }

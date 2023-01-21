@@ -1222,6 +1222,11 @@
             Extension methods for String.
             </summary>
         </member>
+        <member name="F:Galaxon.Core.Strings.XString.SmallCapsChars">
+            <summary>
+            Map from lower-case letters to their Unicode small caps equivalents.
+            </summary>
+        </member>
         <member name="M:Galaxon.Core.Strings.XString.EqualsIgnoreCase(System.String,System.String)">
             <summary>
             See if 2 strings are equal, ignoring case.
@@ -1333,6 +1338,14 @@
             </summary>
             <param name="str">The string.</param>
             <returns>The string of subscript characters.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToSmallCaps(System.String)">
+            <summary>
+            Convert all lower-case letters in a string to their Unicode small caps variant.
+            Only works for English letters, so, if necessary (e.g. if the string is in a different
+            language), you may wish to call AnyAscii.Transliterate() on the string first.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="T:Galaxon.Core.Strings.XStringBuilder">
             <summary>

@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
 using AnyAscii;
-using Galaxon.Core.Exceptions;
 using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Strings;
@@ -11,6 +10,42 @@ namespace Galaxon.Core.Strings;
 /// </summary>
 public static class XString
 {
+    /// <summary>
+    /// Map from lower-case letters to their Unicode small caps equivalents.
+    /// </summary>
+    public static readonly Dictionary<char, string> SmallCapsChars = new ()
+    {
+        { 'a', "ᴀ" },
+        { 'b', "ʙ" },
+        { 'c', "ᴄ" },
+        { 'd', "ᴅ" },
+        { 'e', "ᴇ" },
+        { 'f', "ꜰ" },
+        { 'g', "ɢ" },
+        { 'h', "ʜ" },
+        { 'i', "ɪ" },
+        { 'j', "ᴊ" },
+        { 'k', "ᴋ" },
+        { 'l', "ʟ" },
+        { 'm', "ᴍ" },
+        { 'n', "ɴ" },
+        { 'o', "ᴏ" },
+        { 'p', "ᴘ" },
+        { 'q', "ꞯ" },
+        { 'r', "ʀ" },
+        { 's', "ꜱ" },
+        { 't', "ᴛ" },
+        { 'u', "ᴜ" },
+        { 'v', "ᴠ" },
+        { 'w', "ᴡ" },
+        // Note: there is no Unicode small caps variant for 'x'. The character used here is the
+        // lower-case 'x' (i.e. same as the original character). The reason for including it in the
+        // map is so any 'x's will be kept even if "keepCharsNotInMap" is false.
+        { 'x', "x" },
+        { 'y', "ʏ" },
+        { 'z', "ᴢ" },
+    };
+
     /// <summary>
     /// See if 2 strings are equal, ignoring case.
     /// </summary>
@@ -210,4 +245,13 @@ public static class XString
     /// <returns>The string of subscript characters.</returns>
     public static string ToSubscript(this string str) =>
         str.ReplaceChars(XBinaryInteger.SubscriptChars);
+
+    /// <summary>
+    /// Convert all lower-case letters in a string to their Unicode small caps variant.
+    /// Only works for English letters, so, if necessary (e.g. if the string is in a different
+    /// language), you may wish to call AnyAscii.Transliterate() on the string first.
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
+    public static string ToSmallCaps(this string str) =>
+        str.ReplaceChars(SmallCapsChars);
 }
