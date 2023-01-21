@@ -1756,6 +1756,41 @@
             </param>
             <returns>A new DateTime object.</returns>
         </member>
+        <member name="T:Galaxon.Core.Time.XTimeOnly">
+            <summary>
+            Extension methods for TimeOnly.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XTimeOnly.IsAm(System.TimeOnly)">
+            <summary>
+            If the time is between midnight and noon.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XTimeOnly.IsPm(System.TimeOnly)">
+            <summary>
+            If the time is between noon and midnight.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XTimeOnly.IsSmallHours(System.TimeOnly)">
+            <summary>
+            If the time is between midnight and 06:00.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XTimeOnly.IsMorning(System.TimeOnly)">
+            <summary>
+            If the time is between 06:00 and noon.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XTimeOnly.IsAfternoon(System.TimeOnly)">
+            <summary>
+            If the time is between noon and 18:00.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XTimeOnly.IsEvening(System.TimeOnly)">
+            <summary>
+            If the time is between 18:00 and midnight.
+            </summary>
+        </member>
         <member name="T:Galaxon.Core.Time.XTimeSpan">
              <summary>
              Additional members to supplement the TimeSpan class.
