@@ -90,19 +90,13 @@ public static class XAssert
         Assert.AreEqual(e, a, 1e-13m);
     }
 
+    /// <summary>
+    /// Compare two double values for equality, with the delta expressed as percentage of the
+    /// expected value rather than an absolute value.
+    /// </summary>
     public static void AreEqualPercent(double expected, double actual, double percent)
     {
-        double delta1 = Math.Abs(expected * percent / 100);
-        double delta2 = Math.Abs(actual * percent / 100);
-        double delta = Math.Max(delta1, delta2);
-
-        // If delta is 0 at this point then both values are very close to 0.
-        // Let's call them equal.
-        if (delta == 0)
-        {
-            return;
-        }
-
+        double delta = Math.Abs(expected * percent / 100);
         Assert.AreEqual(expected, actual, delta);
     }
 }

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Galaxon.Core.Strings;
 
 namespace Galaxon.Core.Numbers;
 
@@ -21,10 +22,10 @@ public static class XBigInteger
     /// e.g. 123 becomes 321.
     /// </summary>
     public static BigInteger Reverse(this BigInteger n) =>
-        BigInteger.Parse(n.ToString().Reverse().ToArray());
+        BigInteger.Parse(n.ToString().Reverse());
 
     /// <summary>
-    /// Check if a number is palindromic.
+    /// Check if a BigInteger is palindromic.
     /// </summary>
     public static bool IsPalindromic(this BigInteger n) =>
         n == n.Reverse();
@@ -50,7 +51,8 @@ public static class XBigInteger
     #region Miscellaneous other methods
 
     /// <summary>
-    /// Get the unsigned, 2s-complement version of the value, containing the fewest number of bytes.
+    /// Get the unsigned, twos-complement version of the value, containing the fewest number of
+    /// bytes.
     /// </summary>
     public static BigInteger ToUnsigned(this BigInteger n)
     {
@@ -76,17 +78,35 @@ public static class XBigInteger
 
     #endregion Miscellaneous other methods
 
-    #region Methods relating to greatest common divisor
+    #region Methods relating to factors
 
+    /// <summary>
+    /// Find the smallest integer which is a multiple of both arguments.
+    /// Synonyms: lowest common multiple, smallest common multiple.
+    /// For example, the LCM of 4 and 6 is 12.
+    /// When adding fractions, the lowest common denominator is equal to the LCM of the
+    /// denominators.
+    /// </summary>
+    /// <param name="a">First integer.</param>
+    /// <param name="b">Second integer.</param>
+    /// <returns>The least common multiple.</returns>
     public static BigInteger LeastCommonMultiple(BigInteger a, BigInteger b)
     {
-        // Special case.
+        // Optimizations.
         if (a == 0 || b == 0)
         {
             return 0;
         }
+        if (a == b)
+        {
+            return a;
+        }
 
-        return a * (b / GreatestCommonDivisor(a, b));
+        a = BigInteger.Abs(a);
+        b = BigInteger.Abs(b);
+        BigInteger gcd = GreatestCommonDivisor(a, b);
+
+        return a > b ? a / gcd * b : b / gcd * a;
     }
 
     /// <summary>
@@ -99,7 +119,7 @@ public static class XBigInteger
         a = BigInteger.Abs(a);
         b = BigInteger.Abs(b);
 
-        // Make a < b, to reduce the cache size by half and simplify terminating conditions.
+        // Make a < b.
         if (a > b)
         {
             (a, b) = (b, a);
@@ -115,11 +135,9 @@ public static class XBigInteger
             return 1;
         }
 
-        BigInteger gcd;
-
         // Check the cache.
         string key = $"{a}/{b}";
-        if (s_gcdCache.TryGetValue(key, out gcd))
+        if (s_gcdCache.TryGetValue(key, out BigInteger gcd))
         {
             return gcd;
         }
@@ -133,7 +151,7 @@ public static class XBigInteger
         return gcd;
     }
 
-    #endregion Methods relating to greatest common divisor
+    #endregion Methods relating to factors
 
     #region Extension methods for IEnumerable<BigInteger>
 

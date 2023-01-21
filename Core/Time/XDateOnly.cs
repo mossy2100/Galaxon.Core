@@ -119,7 +119,8 @@ public static class XDateOnly
 
     /// <summary>
     /// Determine the date given the number of days from the start of the epoch (0001-01-01).
-    /// <see cref="XDateTime.FromTotalDays" />
+    ///
+    /// See <see cref="XDateTime.FromTotalDays" />
     /// </summary>
     /// <param name="days">The number of days.</param>
     /// <returns>A new DateOnly object.</returns>
@@ -135,10 +136,25 @@ public static class XDateOnly
     /// <returns></returns>
     public static DateOnly FromDayOfYear(int year, int dayOfYear)
     {
+        // Check year is in the valid range.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year), "Must be in the range 1..9999");
+        }
+
+        // Check day of year is in the valid range.
         GregorianCalendar gc = new ();
-        int k = gc.IsLeapYear(year) ? 1 : 2;
+        int daysInYear = gc.GetDaysInYear(year);
+        if (dayOfYear < 1 || dayOfYear > daysInYear)
+        {
+            throw new ArgumentOutOfRangeException(nameof(dayOfYear), $"Must be in the range 1..{daysInYear}");
+        }
+
+        // Calculate.
+        int k = daysInYear - 364;
         int month = (dayOfYear < 32) ? 1 : (int)(9 * (k + dayOfYear) / 275.0 + 0.98);
         int day = dayOfYear - (int)(275 * month / 9.0) + k * (int)((month + 9) / 12.0) + 30;
+
         return new DateOnly(year, month, day);
     }
 

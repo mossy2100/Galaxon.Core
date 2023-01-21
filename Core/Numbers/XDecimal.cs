@@ -376,6 +376,9 @@ public static class XDecimal
 
     #region Miscellaneous methods
 
+    /// <summary>
+    /// Check if a decimal value is an integer.
+    /// </summary>
     public static bool IsInteger(decimal m) =>
         m == decimal.Truncate(m);
 

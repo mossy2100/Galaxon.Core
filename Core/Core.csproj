@@ -9,6 +9,8 @@
         <PackageId>Galaxon.Core</PackageId>
         <Company>Galaxon Games</Company>
         <OutputType>Library</OutputType>
+        <DocumentationFile>docs/index.xml</DocumentationFile>
+        <Authors>Shaun Moss</Authors>
     </PropertyGroup>
 
     <ItemGroup>
@@ -21,14 +23,17 @@
 
     <ItemGroup>
       <Compile Remove="Strings\old\**" />
+      <Compile Remove="Numbers\old\**" />
     </ItemGroup>
 
     <ItemGroup>
       <EmbeddedResource Remove="Strings\old\**" />
+      <EmbeddedResource Remove="Numbers\old\**" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Strings\old\**" />
+      <None Remove="Numbers\old\**" />
     </ItemGroup>
 
 </Project>

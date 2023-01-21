@@ -38,12 +38,6 @@ public static class XString
         decimal.TryParse(str, out decimal m) ? m : null;
 
     /// <summary>
-    /// Checks to see if the string is a palindrome.
-    /// </summary>
-    public static bool IsPalindrome(this string str) =>
-        str == new string(str.Reverse().ToArray());
-
-    /// <summary>
     /// Replace characters in a string with other characters by using a character map.
     /// Example use cases:
     ///   * making a string upper- or lower-case
@@ -79,9 +73,6 @@ public static class XString
         return sb.ToString();
     }
 
-    public static string ToSmallCaps(this string str) =>
-        throw new NotImplementedException();
-
     /// <summary>
     /// Construct a new string by repeating a string multiple times.
     /// </summary>
@@ -100,6 +91,23 @@ public static class XString
         }
         return sb.ToString();
     }
+
+    /// <summary>
+    /// Reverse a string.
+    /// e.g. "You are awesome." becomes ".emosewa era uoY".
+    /// </summary>
+    public static string Reverse(this string str)
+    {
+        char[] chars = str.ToArray();
+        Array.Reverse(chars);
+        return new string(chars);
+    }
+
+    /// <summary>
+    /// Check if a string is a palindrome.
+    /// </summary>
+    public static bool IsPalindrome(this string str) =>
+        str == str.Reverse();
 
     /// <summary>
     /// Remove whitespace from a string.

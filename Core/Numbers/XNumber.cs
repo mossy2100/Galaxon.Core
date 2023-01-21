@@ -21,24 +21,45 @@ public static class XNumber
             x.GetGenericTypeDefinition() == genericInterface);
     }
 
+    /// <summary>
+    /// Check if an object is a signed integer.
+    /// </summary>
     public static bool IsSignedInteger(object? obj) =>
         obj != null && Implements(obj, typeof(IBinaryInteger<>));
 
+    /// <summary>
+    /// Check if an object is an unsigned integer.
+    /// </summary>
     public static bool IsUnsignedInteger(object? obj) =>
         obj is byte or uint or ushort or ulong or UInt128;
 
+    /// <summary>
+    /// Check if an object is a floating point value.
+    /// </summary>
     public static bool IsFloatingPoint(object? obj) =>
         obj is Half or float or double or decimal;
 
+    /// <summary>
+    /// Check if an object is an integer.
+    /// </summary>
     public static bool IsInteger(object? obj) =>
         IsSignedInteger(obj) || IsUnsignedInteger(obj);
 
+    /// <summary>
+    /// Check if an object is a real (non-complex) number.
+    /// </summary>
     public static bool IsReal(object? obj) =>
         IsInteger(obj) || IsFloatingPoint(obj);
 
+    /// <summary>
+    /// Check if an object is a complex number.
+    /// </summary>
     public static bool IsComplex(object? obj) =>
         obj is Complex;
 
+    /// <summary>
+    /// Check if an object is a number.
+    /// </summary>
     public static bool IsNumber(object? obj) =>
         IsReal(obj) || IsComplex(obj);
 
