@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using AnyAscii;
 using Galaxon.Core.Exceptions;
+using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Strings;
 
@@ -191,4 +192,22 @@ public static class XString
         // Trim hyphens from the start and end and lower-case the result.
         return result.Trim('-').ToLower();
     }
+
+    /// <summary>
+    /// Render a string with valid integer characters (i.e. minus sign or digits) converted to their
+    /// Unicode superscript versions.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <returns>The string of superscript characters.</returns>
+    public static string ToSuperscript(this string str) =>
+        str.ReplaceChars(XBinaryInteger.SuperscriptChars);
+
+    /// <summary>
+    /// Render a string with valid integer characters (i.e. minus sign or digits) converted to their
+    /// Unicode subscript versions.
+    /// </summary>
+    /// <param name="str">The string.</param>
+    /// <returns>The string of subscript characters.</returns>
+    public static string ToSubscript(this string str) =>
+        str.ReplaceChars(XBinaryInteger.SubscriptChars);
 }

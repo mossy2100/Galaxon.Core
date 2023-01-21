@@ -305,7 +305,18 @@ public static class XTimeSpan
     /// The Gregorian Calendars repeats on a 400-year cycle called the solar cycle.
     /// There are 97 leap years in that period, giving an average calendar year length of
     /// 365 + (97/400) = 365.2425 days/year
-    /// 1 Gregorian solar cycle = 100 olympiads = 4800 mon = 20,871 w = 146,097 d
+    ///
+    /// 1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
+    /// 5 Gregorian solar cycles = 2 ky
+    ///
+    /// Solar cycles are not ordinarily numbered, nor are they given a specific start date.
+    /// However, within the proleptic Gregorian epoch (the one used by .NET), which began on 1 Jan,
+    /// 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001 (also the
+    /// first day of the 3rd millennium A.D), and will end on Sunday, 31 Dec, 2400.
+    /// This aligns nicely with the ISO standard of beginning weeks on a Monday.
+    ///
+    /// See: <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
+    /// See: <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
     /// </summary>
     public const long YearsPerSolarCycle = 400;
 
@@ -318,6 +329,11 @@ public static class XTimeSpan
     /// The number of leap years in a Gregorian solar cycle.
     /// </summary>
     public const long LeapYearsPerSolarCycle = 97;
+
+    /// <summary>
+    /// The number of common years in a Gregorian solar cycle.
+    /// </summary>
+    public const long CommonYearsPerSolarCycle = YearsPerSolarCycle - LeapYearsPerSolarCycle;
 
     /// <summary>
     /// The number of months in a Gregorian solar cycle.

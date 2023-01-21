@@ -402,52 +402,6 @@
             <param name="radix">The base.</param>
             <returns>The map of digit characters to their values.</returns>
         </member>
-        <member name="T:Galaxon.Core.Numbers.SuperAndSubscript">
-            <summary>
-            Extension methods that enable formatting of integers in superscript or subscript form.
-            </summary>
-            <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
-            <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
-            <see href="https://unicode-table.com/en/" />
-        </member>
-        <member name="F:Galaxon.Core.Numbers.SuperAndSubscript.SuperscriptChars">
-            <summary>
-            Map from normal integer characters to their superscript versions.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Numbers.SuperAndSubscript.SubscriptChars">
-            <summary>
-            Map from normal integer characters to their subscript versions.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.SuperAndSubscript.ToSuperscript(System.String)">
-            <summary>
-            Render a string with valid integer characters converted to superscript.
-            </summary>
-            <param name="str">The string.</param>
-            <returns>The string of superscript characters.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.SuperAndSubscript.ToSubscript(System.String)">
-            <summary>
-            Render a string with valid integer characters converted to subscript.
-            </summary>
-            <param name="str">The string.</param>
-            <returns>The string of subscript characters.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.SuperAndSubscript.ToSuperscript``1(``0)">
-            <summary>
-            Render an integer as a superscript string.
-            </summary>
-            <param name="n">The integer.</param>
-            <returns>The string of superscript characters.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.SuperAndSubscript.ToSubscript``1(``0)">
-            <summary>
-            Render an integer as a subscript string.
-            </summary>
-            <param name="n">The integer.</param>
-            <returns>The string of subscript characters.</returns>
-        </member>
         <member name="T:Galaxon.Core.Numbers.XBigInteger">
             <summary>Extension methods for BigInteger.</summary>
         </member>
@@ -514,6 +468,45 @@
             <summary>
             Get the sum of all values in the collection, transformed by the supplied function.
             </summary>
+        </member>
+        <member name="T:Galaxon.Core.Numbers.XBinaryInteger">
+            <summary>
+            Extension methods for IBinaryInteger{T}.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.XBinaryInteger.SuperscriptChars">
+            <summary>
+            Map from normal integer characters to their superscript versions.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.XBinaryInteger.SubscriptChars">
+            <summary>
+            Map from normal integer characters to their subscript versions.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBinaryInteger.ToSuperscript``1(``0)">
+             <summary>
+             Render an integer as a superscript string.
+            
+             This is useful for formatting exponents, numerators, and other numeric superscripts when
+             HTML is unavailable.
+            
+             See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
+             See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
+             See <see href="https://unicode-table.com/en/" />
+             </summary>
+             <param name="n">The integer.</param>
+             <returns>The string of superscript characters.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBinaryInteger.ToSubscript``1(``0)">
+             <summary>
+             Render an integer as a subscript string.
+            
+             This is useful for formatting denominators, the number of atoms in a molecule, atomic
+             numbers, and other numeric subscripts when HTML is unavailable.
+             </summary>
+             <param name="n">The integer.</param>
+             <returns>The string of subscript characters.</returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.XDecimal">
             <summary>Extension methods for decimal.</summary>
@@ -1325,6 +1318,22 @@
             <param name="str">The string to process.</param>
             <returns>The ASCII slug.</returns>
         </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToSuperscript(System.String)">
+            <summary>
+            Render a string with valid integer characters (i.e. minus sign or digits) converted to their
+            Unicode superscript versions.
+            </summary>
+            <param name="str">The string.</param>
+            <returns>The string of superscript characters.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToSubscript(System.String)">
+            <summary>
+            Render a string with valid integer characters (i.e. minus sign or digits) converted to their
+            Unicode subscript versions.
+            </summary>
+            <param name="str">The string.</param>
+            <returns>The string of subscript characters.</returns>
+        </member>
         <member name="T:Galaxon.Core.Strings.XStringBuilder">
             <summary>
             Extension methods for StringBuilder.
@@ -1970,12 +1979,23 @@
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerSolarCycle">
-            <summary>
-            The Gregorian Calendars repeats on a 400-year cycle called the solar cycle.
-            There are 97 leap years in that period, giving an average calendar year length of
-            365 + (97/400) = 365.2425 days/year
-            1 Gregorian solar cycle = 100 olympiads = 4800 mon = 20,871 w = 146,097 d
-            </summary>
+             <summary>
+             The Gregorian Calendars repeats on a 400-year cycle called the solar cycle.
+             There are 97 leap years in that period, giving an average calendar year length of
+             365 + (97/400) = 365.2425 days/year
+            
+             1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
+             5 Gregorian solar cycles = 2 ky
+            
+             Solar cycles are not ordinarily numbered, nor are they given a specific start date.
+             However, within the proleptic Gregorian epoch (the one used by .NET), which began on 1 Jan,
+             1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001 (also the
+             first day of the 3rd millennium A.D), and will end on Sunday, 31 Dec, 2400.
+             This aligns nicely with the ISO standard of beginning weeks on a Monday.
+            
+             See: <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
+             See: <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
+             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.OlympiadsPerSolarCycle">
             <summary>
@@ -1985,6 +2005,11 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.LeapYearsPerSolarCycle">
             <summary>
             The number of leap years in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.CommonYearsPerSolarCycle">
+            <summary>
+            The number of common years in a Gregorian solar cycle.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.MonthsPerSolarCycle">

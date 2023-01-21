@@ -4,12 +4,9 @@ using Galaxon.Core.Strings;
 namespace Galaxon.Core.Numbers;
 
 /// <summary>
-/// Extension methods that enable formatting of integers in superscript or subscript form.
+/// Extension methods for IBinaryInteger{T}.
 /// </summary>
-/// <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
-/// <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
-/// <see href="https://unicode-table.com/en/" />
-public static class SuperAndSubscript
+public static class XBinaryInteger
 {
     /// <summary>
     /// Map from normal integer characters to their superscript versions.
@@ -48,23 +45,14 @@ public static class SuperAndSubscript
     };
 
     /// <summary>
-    /// Render a string with valid integer characters converted to superscript.
-    /// </summary>
-    /// <param name="str">The string.</param>
-    /// <returns>The string of superscript characters.</returns>
-    public static string ToSuperscript(this string str) =>
-        str.ReplaceChars(SuperscriptChars);
-
-    /// <summary>
-    /// Render a string with valid integer characters converted to subscript.
-    /// </summary>
-    /// <param name="str">The string.</param>
-    /// <returns>The string of subscript characters.</returns>
-    public static string ToSubscript(this string str) =>
-        str.ReplaceChars(SubscriptChars);
-
-    /// <summary>
     /// Render an integer as a superscript string.
+    ///
+    /// This is useful for formatting exponents, numerators, and other numeric superscripts when
+    /// HTML is unavailable.
+    ///
+    /// See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
+    /// See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
+    /// See <see href="https://unicode-table.com/en/" />
     /// </summary>
     /// <param name="n">The integer.</param>
     /// <returns>The string of superscript characters.</returns>
@@ -73,6 +61,9 @@ public static class SuperAndSubscript
 
     /// <summary>
     /// Render an integer as a subscript string.
+    ///
+    /// This is useful for formatting denominators, the number of atoms in a molecule, atomic
+    /// numbers, and other numeric subscripts when HTML is unavailable.
     /// </summary>
     /// <param name="n">The integer.</param>
     /// <returns>The string of subscript characters.</returns>
