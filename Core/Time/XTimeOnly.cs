@@ -5,39 +5,28 @@ namespace Galaxon.Core.Time;
 /// </summary>
 public static class XTimeOnly
 {
-    /// <summary>
-    /// If the time is between midnight and noon.
-    /// </summary>
-    public static bool IsAm(this TimeOnly t) =>
-        t.Hour < 12;
+    #region Methods for converting to a TimeSpan
 
     /// <summary>
-    /// If the time is between noon and midnight.
+    /// Convert a TimeOnly to a TimeSpan.
     /// </summary>
-    public static bool IsPm(this TimeOnly t) =>
-        t.Hour >= 12;
+    /// <param name="time">The TimeOnly instance.</param>
+    /// <returns>The new TimeSpan object</returns>
+    public static TimeSpan ToTimeSpan(this TimeOnly time) =>
+        new (time.Ticks);
+
+    #endregion Methods for converting to a TimeSpan
+
+    #region Methods for addition and subtraction
 
     /// <summary>
-    /// If the time is between midnight and 06:00.
+    /// Subtract a start time from an end time to find the difference.
     /// </summary>
-    public static bool IsSmallHours(this TimeOnly t) =>
-        t.Hour < 6;
+    /// <param name="end">The end time.</param>
+    /// <param name="start">The start time.</param>
+    /// <returns>The time elapsed.</returns>
+    public static TimeSpan Subtract(this TimeOnly end, TimeOnly start) =>
+        new (end.Ticks - start.Ticks);
 
-    /// <summary>
-    /// If the time is between 06:00 and noon.
-    /// </summary>
-    public static bool IsMorning(this TimeOnly t) =>
-        t.Hour is >= 6 and < 12;
-
-    /// <summary>
-    /// If the time is between noon and 18:00.
-    /// </summary>
-    public static bool IsAfternoon(this TimeOnly t) =>
-        t.Hour is >= 12 and < 18;
-
-    /// <summary>
-    /// If the time is between 18:00 and midnight.
-    /// </summary>
-    public static bool IsEvening(this TimeOnly t) =>
-        t.Hour >= 18;
+    #endregion Methods for addition and subtraction
 }

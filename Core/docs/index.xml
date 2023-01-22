@@ -1523,15 +1523,16 @@
             <returns>The new DateTime object</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetTicks(System.DateOnly)">
-            <summary>
-            Get the number of ticks between the start of the epoch (0001-01-01 00:00:00) and the start
-            of the date.
-            If extension properties are added to the language I may change this to a property "Ticks"
-            later, for consistency with DateTime.
-            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
-            </summary>
-            <param name="date">The DateOnly instance.</param>
-            <returns>The number of ticks.</returns>
+             <summary>
+             Get the number of ticks between the start of the epoch (0001-01-01 00:00:00) and the start
+             of the date.
+            
+             If extension properties are added to the language I may change this to a property "Ticks"
+             later, for consistency with DateTime.
+             </summary>
+             <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
+             <param name="date">The DateOnly instance.</param>
+             <returns>The number of ticks.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetTotalSeconds(System.DateOnly)">
             <summary>
@@ -1542,53 +1543,77 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetTotalDays(System.DateOnly)">
             <summary>
-            Get the number of days between the start of the epoch and the start of the date.
+            Get the number of days between the start of the epoch and the given date.
             </summary>
             <param name="date">The DateOnly instance.</param>
             <returns>The number of days since the epoch start.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.Subtract(System.DateOnly,System.DateOnly)">
-            <summary>
-            Returns the difference between two dates (as DateOnly objects) as a TimeSpan.
-            Emulates the DateTime.Subtract(DateTime) method.
-            Because we're subtracting dates without time of day information, the result will contain
-            only a whole number of days; the hours, minutes, and seconds parts of the TimeSpan will
-            be 0.
-            If the DateOnly instance date is later than the parameter date, the result will be
-            positive.
-            If they are the same dates, the result will be zero.
-            Otherwise, the result will be negative.
-            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.subtract?view=net-7.0#system-datetime-subtract(system-datetime)" />
-            </summary>
-            <param name="date">The DateOnly instance.</param>
-            <param name="date2">The DateOnly to be subtracted.</param>
-            <returns>The difference between the two dates as a TimeSpan.</returns>
+        <member name="M:Galaxon.Core.Time.XDateOnly.GetTotalYears(System.DateOnly)">
+             <summary>
+             Get the number of years between the start of the epoch and the start of the date.
+            
+             The result will be greater than or equal to <code>date.Year - 1</code> and less than
+             <code>date.Year</code>.
+             </summary>
+             <param name="date">The DateOnly instance.</param>
+             <returns>The number of years since the epoch start.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.Subtract(System.DateOnly,System.TimeSpan)">
+        <member name="M:Galaxon.Core.Time.XDateOnly.Add(System.DateOnly,System.TimeSpan)">
             <summary>
-            Returns a DateTime with a TimeSpan subtracted.
-            Emulates the DateTime.Subtract(TimeSpan) method.
-            Because time of day information is discarded, the TimeSpan parameter is effectively
-            rounded up to the nearest whole day.
-            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.subtract?view=net-7.0#system-datetime-subtract(system-timespan)" />
+            Add a period of time to a date to find a new DateTime.
             </summary>
-            <param name="date">The DateOnly instance.</param>
-            <param name="span">The TimeSpan to be subtracted.</param>
+            <see cref="M:System.DateTime.Add(System.TimeSpan)" />
+            <param name="date">The date.</param>
+            <param name="period">The time period to add.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateOnly.Add(System.DateOnly,System.TimeOnly)">
+            <summary>
+            Add a time of day to a date to find a new DateTime.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="time">The time of day to add.</param>
+            <returns>The resulting DateTime.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateOnly.AddWeeks(System.DateOnly,System.Int32)">
+            <summary>
+            Add a number of weeks to a date.
+            </summary>
+            <param name="date">The date.</param>
+            <param name="weeks">The number of weeks to add.</param>
             <returns>The resulting date.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)">
+        <member name="M:Galaxon.Core.Time.XDateOnly.Subtract(System.DateOnly,System.DateOnly)">
              <summary>
-             Determine the date given the number of days from the start of the epoch (0001-01-01).
+             Returns the difference between two dates as a number of days.
+             Emulates the <see cref="M:System.DateTime.Subtract(System.DateTime)" /> method.
             
-             See <see cref="M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)" />
+             If the end date is later than the start date, the result will be positive.
+             If they are equal, the result will be zero. Otherwise, the result will be negative.
              </summary>
-             <param name="days">The number of days.</param>
-             <returns>A new DateOnly object.</returns>
+             <param name="end">The end date.</param>
+             <param name="start">The start date.</param>
+             <returns>The number of days difference between the two dates.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)">
+            <summary>
+            Find the date given the number of days from the start of the epoch.
+            </summary>
+            <see cref="M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)" />
+            <param name="days">The number of days.</param>
+            <returns>The resulting date.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateOnly.FromTotalYears(System.Double)">
+            <summary>
+            Find the date given the number of years since the start of the epoch.
+            </summary>
+            <param name="years">The number of years. May include a fractional part.</param>
+            <returns>A new DateOnly object.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32,System.Int32)">
             <summary>
             Construct a new DateOnly instance given a year and the day of the year.
-            Formula from Meeus (Astronomical Algorithms 2 ed., p66).
+            Formula from Meeus (Astronomical Algorithms 2 ed. p66).
             </summary>
             <param name="year">The year (1..9999).</param>
             <param name="dayOfYear">The day of the year (1..366).</param>
@@ -1618,7 +1643,7 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetEaster(System.Int32)">
             <summary>
-            Get the date of Easter Sunday in the given year, in the Gregorian Calendar.
+            Get the date of Easter Sunday in the given year.
             Formula is from Wikipedia.
             This method uses the "Meeus/Jones/Butcher" algorithm from 1876, with the New Scientist
             modifications from 1961.
@@ -1632,8 +1657,45 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetChristmas(System.Int32)">
             <summary>
-            Get the date of Christmas Day in the given year, in the Gregorian Calendar.
+            Get the date of Christmas Day in the given year.
             </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateOnly.GetNthWeekdayInMonth(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
+            <summary>
+            Find the nth weekday in a given month.
+            Example:
+            <code>
+            // Get the 4th Thursday in January, 2023.
+            DateOnly meetup = XDateOnly.GetNthWeekdayInMonth(2023, 1, 4, DayOfWeek.Thursday);
+            </code>
+            A negative value for n means count from the end of the month.
+            n = -1 means the last one in the month. n = -2 means the second-last, etc.
+            Example:
+            <code>
+            // Get the last Monday in November, 2025.
+            DateOnly meetup = XDateOnly.GetNthWeekdayInMonth(2025, 11, -1, DayOfWeek.Monday);
+            </code>
+            </summary>
+            <param name="year">The year.</param>
+            <param name="month">The month.</param>
+            <param name="n">Which occurence of the day of the week within the month.</param>
+            <param name="dayOfWeek">The day of the week.</param>
+            <returns>The requested date.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If Abs(n) not in the range 1..5</exception>
+            <exception cref="T:System.InvalidOperationException">If a valid date could not be found.</exception>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateOnly.GetThanksgiving(System.Int32,System.String)">
+            <summary>
+            Find the date of Thanksgiving for a specified country in a given year.
+            Only years with a holiday called "Thanksgiving" are supported. Default is "US".
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance" />
+            <param name="year">The year.</param>
+            <param name="countryCode">The country.</param>
+            <returns>The date of Thanksgiving.</returns>
+            <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
+            Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
+            </exception>
         </member>
         <member name="T:Galaxon.Core.Time.XDateTime">
             <summary>
@@ -1651,8 +1713,9 @@
             <summary>
             Format the date using ISO format YYYY-MM-DDThh:mm:ss.
             This format is useful for databases.
-            The time zone is not shown. For that, use ToString("u") (UniversalSortableDateTimePattern).
-            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
+            The time zone is not shown. For that, call ToString() with the format specifier "U" or
+            UniversalSortableDateTimePattern.
+            See <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
             </summary>
             <param name="date">The DateTime instance.</param>
             <returns>A string representing the datetime in ISO format.</returns>
@@ -1662,6 +1725,7 @@
             Get the date part of a DateTime as a DateOnly object.
             An alternative to the Date property, which returns a DateTime.
             </summary>
+            <see cref="P:System.DateTime.Date" />
             <param name="dt">The DateTime.</param>
             <returns>The date part of the DateTime.</returns>
         </member>
@@ -1670,29 +1734,9 @@
             Get the time part of a DateTime as a TimeOnly object.
             An alternative to the TimeOfDay property, which returns a TimeSpan.
             </summary>
+            <see cref="P:System.DateTime.TimeOfDay" />
             <param name="dt">The DateTime.</param>
             <returns>The time part of the DateTime.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetTotalNanoseconds(System.DateTime)">
-            <summary>
-            Get the total number of nanoseconds from the start of the epoch to the datetime.
-            </summary>
-            <param name="dt">The DateTime instance.</param>
-            <returns>The number of nanoseconds since the epoch start.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetTotalMicroseconds(System.DateTime)">
-            <summary>
-            Get the total number of microseconds from the start of the epoch to the datetime.
-            </summary>
-            <param name="dt">The DateTime instance.</param>
-            <returns>The number of microseconds since the epoch start.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetTotalMilliseconds(System.DateTime)">
-            <summary>
-            Get the total number of milliseconds from the start of the epoch to the datetime.
-            </summary>
-            <param name="dt">The DateTime instance.</param>
-            <returns>The number of milliseconds since the epoch start.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.GetTotalSeconds(System.DateTime)">
             <summary>
@@ -1701,26 +1745,19 @@
             <param name="dt">The DateTime instance.</param>
             <returns>The number of seconds since the epoch start.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetTotalMinutes(System.DateTime)">
-            <summary>
-            Get the total number of minutes from the start of the epoch to the datetime.
-            </summary>
-            <param name="dt">The DateTime instance.</param>
-            <returns>The number of minutes since the epoch start.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetTotalHours(System.DateTime)">
-            <summary>
-            Get the total number of hours from the start of the epoch to the datetime.
-            </summary>
-            <param name="dt">The DateTime instance.</param>
-            <returns>The number of hours since the epoch start.</returns>
-        </member>
         <member name="M:Galaxon.Core.Time.XDateTime.GetTotalDays(System.DateTime)">
             <summary>
             Get the total number of days from the start of the epoch to the datetime.
             </summary>
             <param name="dt">The DateTime instance.</param>
             <returns>The number of days since the epoch start.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.GetTotalYears(System.DateTime)">
+            <summary>
+            Get the number of years between the start of the epoch and the start of the date.
+            </summary>
+            <param name="dt">The DateTime instance.</param>
+            <returns>The number of years since the epoch start.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)">
             <summary>
@@ -1734,8 +1771,15 @@
             Create a new DateTime given the number of days since the start of the epoch.
             </summary>
             <param name="days">
-            The day count. May include a fractional part indicating the time of day.
+            The number of days. May include a fractional part indicating the time of day.
             </param>
+            <returns>A new DateTime object.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.FromTotalYears(System.Double)">
+            <summary>
+            Create a new DateTime given the number of years since the start of the epoch.
+            </summary>
+            <param name="years">The number of years. May include a fractional part.</param>
             <returns>A new DateTime object.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.ToJulianDay(System.DateTime)">
@@ -1756,47 +1800,40 @@
             </param>
             <returns>A new DateTime object.</returns>
         </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.AddWeeks(System.DateTime,System.Double)">
+            <summary>
+            Add a number of weeks to a DateTime to get a new DateTime.
+            </summary>
+            <param name="dt">A DateTime.</param>
+            <param name="weeks">The number of weeks to add.</param>
+            <returns></returns>
+        </member>
         <member name="T:Galaxon.Core.Time.XTimeOnly">
             <summary>
             Extension methods for TimeOnly.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Time.XTimeOnly.IsAm(System.TimeOnly)">
+        <member name="M:Galaxon.Core.Time.XTimeOnly.ToTimeSpan(System.TimeOnly)">
             <summary>
-            If the time is between midnight and noon.
+            Convert a TimeOnly to a TimeSpan.
             </summary>
+            <param name="time">The TimeOnly instance.</param>
+            <returns>The new TimeSpan object</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XTimeOnly.IsPm(System.TimeOnly)">
+        <member name="M:Galaxon.Core.Time.XTimeOnly.Subtract(System.TimeOnly,System.TimeOnly)">
             <summary>
-            If the time is between noon and midnight.
+            Subtract a start time from an end time to find the difference.
             </summary>
-        </member>
-        <member name="M:Galaxon.Core.Time.XTimeOnly.IsSmallHours(System.TimeOnly)">
-            <summary>
-            If the time is between midnight and 06:00.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Time.XTimeOnly.IsMorning(System.TimeOnly)">
-            <summary>
-            If the time is between 06:00 and noon.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Time.XTimeOnly.IsAfternoon(System.TimeOnly)">
-            <summary>
-            If the time is between noon and 18:00.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Time.XTimeOnly.IsEvening(System.TimeOnly)">
-            <summary>
-            If the time is between 18:00 and midnight.
-            </summary>
+            <param name="end">The end time.</param>
+            <param name="start">The start time.</param>
+            <returns>The time elapsed.</returns>
         </member>
         <member name="T:Galaxon.Core.Time.XTimeSpan">
              <summary>
              Additional members to supplement the TimeSpan class.
             
              Mostly constants.
-             As in TimeSpan, I've used long as the type for any integer constants.
+             For consistency with TimeSpan, I've used long as the type for any integer constants.
              I've used double for non-integer constants.
             
              The following are already provided by the TimeSpan class and not reproduced here:

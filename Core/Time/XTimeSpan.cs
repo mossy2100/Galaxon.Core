@@ -4,10 +4,10 @@ namespace Galaxon.Core.Time;
 /// Additional members to supplement the TimeSpan class.
 ///
 /// Mostly constants.
-/// As in TimeSpan, I've used long as the type for any integer constants.
-/// I've used double for non-integer constants.
+/// For consistency with TimeSpan, I've used `long` as the type for any integer constants.
+/// I've used `double` for non-integer constants.
 ///
-/// The following are already provided by the TimeSpan class and not reproduced here:
+/// The following constants are already provided by the TimeSpan class and not reproduced here:
 ///   - TicksPerMicrosecond
 ///   - TicksPerMillisecond
 ///   - TicksPerSecond
@@ -15,18 +15,18 @@ namespace Galaxon.Core.Time;
 ///   - TicksPerHour
 ///   - TicksPerDay
 ///
-/// <strong>NOTE: Any constants or methods for converting between time units will become obsolete
-/// with the completion of Galaxon.Quantities. So, don't use these for anything permanent.</strong>
+/// **NOTE: Any constants or methods for converting between time units will become obsolete
+/// with the completion of Galaxon.Quantities.**
 ///
 /// The word Month, Year, Decade, Century, or Millennium in a constant name usually refers to the
-/// average length of that time unit in the Gregorian.
+/// average length of that time unit in the Gregorian Calendar.
 /// </summary>
 public static class XTimeSpan
 {
     #region Conversion Methods
 
     /// <summary>
-    /// Convert a  time value from one unit to another.
+    /// Convert a time value from one unit to another.
     /// TODO Replace with Quantity methods.
     /// </summary>
     /// <param name="amount">The amount.</param>
@@ -77,61 +77,81 @@ public static class XTimeSpan
 
     #endregion Conversion Methods
 
-    #region Miscelleanous other conversion factors
+    #region Miscelleanous conversion factors
 
     /// <summary>
     /// The number of minutes in an hour.
     /// </summary>
-    public const long MinutesPerHour = 60;
+    public const long MinutesPerHour = 60L;
 
     /// <summary>
-    /// The number of hours in an ephemeris (or SI) day.
+    /// The number of minutes in a day.
     /// </summary>
-    public const long HoursPerDay = 24;
+    public const long MinutesPerDay = 1440L;
 
     /// <summary>
-    /// The number of calendar months in a Gregorian year.
+    /// The number of hours in an ephemeris day.
     /// </summary>
-    public const long MonthsPerYear = 12;
+    public const long HoursPerDay = 24L;
 
-    #endregion Miscelleanous other conversion factors
+    /// <summary>
+    /// The number of hours in a week.
+    /// </summary>
+    public const long HoursPerWeek = 168L;
+
+    /// <summary>
+    /// The number of weeks in an average Gregorian month.
+    /// </summary>
+    public const double WeeksPerMonth = 4.348_125;
+
+    /// <summary>
+    /// The number of weeks in a Gregorian year.
+    /// </summary>
+    public const double WeeksPerYear = 52.1775;
+
+    /// <summary>
+    /// The number of months in a Gregorian year.
+    /// </summary>
+    public const long MonthsPerYear = 12L;
+
+    #endregion Miscelleanous conversion factors
 
     #region Ticks per unit of time
 
     /// <summary>
     /// The number of ticks in a nanosecond.
     /// </summary>
-    public const double TicksPerNanosecond = 1.0 / TimeSpan.NanosecondsPerTick;
+    public const double TicksPerNanosecond = 0.01;
 
     /// <summary>
     /// The number of ticks in a week.
     /// </summary>
-    public const long TicksPerWeek = TimeSpan.TicksPerDay * DaysPerWeek;
+    public const long TicksPerWeek = 6_048_000_000_000L;
 
     /// <summary>
     /// The number of ticks in a month.
     /// </summary>
-    public const long TicksPerMonth = (long)(TimeSpan.TicksPerDay * DaysPerMonth);
+    public const long TicksPerMonth = 26_297_460_000_000L;
 
     /// <summary>
     /// The number of ticks in a Gregorian year.
     /// </summary>
-    public const long TicksPerYear = (long)(TimeSpan.TicksPerDay * DaysPerYear);
+    public const long TicksPerYear = 315_569_520_000_000L;
 
     /// <summary>
     /// The number of ticks in a Gregorian decade.
     /// </summary>
-    public const long TicksPerDecade = TicksPerYear * YearsPerDecade;
+    public const long TicksPerDecade = 3_155_695_200_000_000L;
 
     /// <summary>
     /// The number of ticks in a Gregorian century.
     /// </summary>
-    public const long TicksPerCentury = TicksPerYear * YearsPerCentury;
+    public const long TicksPerCentury = 31_556_952_000_000_000L;
 
     /// <summary>
     /// The number of ticks in a Gregorian millennium.
     /// </summary>
-    public const long TicksPerMillennium = TicksPerYear * YearsPerMillennium;
+    public const long TicksPerMillennium = 315_569_520_000_000_000L;
 
     #endregion Seconds per unit of time
 
@@ -140,7 +160,7 @@ public static class XTimeSpan
     /// <summary>
     /// The number of seconds in a nanosecond.
     /// </summary>
-    public const double SecondsPerTick = 1.0 / TimeSpan.TicksPerSecond;
+    public const double SecondsPerTick = 1e-07;
 
     /// <summary>
     /// The number of seconds in a microsecond.
@@ -155,119 +175,81 @@ public static class XTimeSpan
     /// <summary>
     /// The number of seconds in a minute.
     /// </summary>
-    public const long SecondsPerMinute = 60;
+    public const long SecondsPerMinute = 60L;
 
     /// <summary>
     /// The number of seconds in an hour.
     /// </summary>
-    public const long SecondsPerHour = SecondsPerMinute * MinutesPerHour;
+    public const long SecondsPerHour = 3600L;
 
     /// <summary>
     /// The number of seconds in an ephemeris day.
     /// </summary>
-    public const long SecondsPerDay = SecondsPerHour * HoursPerDay;
-
-    /// <summary>
-    /// The number of seconds in a solar day (as at 2023).
-    /// It is increasing by about 2 milliseconds per century.
-    /// </summary>
-    public const double SecondsPerSolarDay = 86_400.002;
+    public const long SecondsPerDay = 86_400L;
 
     /// <summary>
     /// The number of seconds in a week.
     /// </summary>
-    public const long SecondsPerWeek = SecondsPerDay * DaysPerWeek;
+    public const long SecondsPerWeek = 604_800L;
 
     /// <summary>
     /// The average number of seconds in a month.
     /// </summary>
-    public const long SecondsPerMonth = (long)(SecondsPerDay * DaysPerMonth);
+    public const long SecondsPerMonth =  2_629_746L;
 
     /// <summary>
     /// The average number of seconds in a Gregorian year.
     /// </summary>
-    public const long SecondsPerYear = (long)(SecondsPerDay * DaysPerYear);
+    public const long SecondsPerYear = 31_556_952L;
 
     /// <summary>
     /// The average number of seconds in a Gregorian decade.
     /// </summary>
-    public const long SecondsPerDecade = SecondsPerYear * YearsPerDecade;
+    public const long SecondsPerDecade = 315_569_520L;
 
     /// <summary>
     /// The average number of seconds in a Gregorian century.
     /// </summary>
-    public const long SecondsPerCentury = SecondsPerYear * YearsPerCentury;
+    public const long SecondsPerCentury = 3_155_695_200L;
 
     /// <summary>
     /// The average number of seconds in a Gregorian millennium.
     /// </summary>
-    public const long SecondsPerMillennium = SecondsPerYear * YearsPerMillennium;
+    public const long SecondsPerMillennium = 31_556_952_000L;
 
     #endregion Seconds per unit of time
 
     #region Days per unit of time
 
     /// <summary>
-    /// The number of solar days in a week.
+    /// The number of days in a week.
     /// </summary>
-    public const long DaysPerWeek = 7;
+    public const long DaysPerWeek = 7L;
 
     /// <summary>
     /// The average number of days in a Gregorian month.
     /// </summary>
-    public const double DaysPerMonth = DaysPerYear / MonthsPerYear;
+    public const double DaysPerMonth = 30.436_875;
 
     /// <summary>
-    /// The average number of solar days in a Gregorian year.
+    /// The average number of days in a Gregorian year.
     /// </summary>
     public const double DaysPerYear = 365.2425;
 
     /// <summary>
-    /// The average number of solar days in a Gregorian decade.
+    /// The average number of days in a Gregorian decade.
     /// </summary>
-    public const double DaysPerDecade = DaysPerYear * YearsPerDecade;
+    public const double DaysPerDecade = 3652.425;
 
     /// <summary>
-    /// The average number of solar days in a Gregorian century.
+    /// The average number of days in a Gregorian century.
     /// </summary>
-    public const double DaysPerCentury = DaysPerYear * YearsPerCentury;
+    public const double DaysPerCentury = 36_524.25;
 
     /// <summary>
-    /// The average number of solar days in a Gregorian millennium.
+    /// The average number of days in a Gregorian millennium.
     /// </summary>
-    public const double DaysPerMillennium = DaysPerYear * YearsPerMillennium;
-
-    /// <summary>
-    /// The number of solar days in a Julian Calendar year.
-    /// </summary>
-    public const double DaysPerJulianYear = 365.25;
-
-    /// <summary>
-    /// The number of solar days in a Julian Calendar decade.
-    /// </summary>
-    public const double DaysPerJulianDecade = DaysPerJulianYear * YearsPerDecade;
-
-    /// <summary>
-    /// The number of solar days in a Julian Calendar century.
-    /// </summary>
-    public const long DaysPerJulianCentury = (long)(DaysPerJulianYear * YearsPerCentury);
-
-    /// <summary>
-    /// The number of solar days in a Julian Calendar millennium.
-    /// </summary>
-    public const long DaysPerJulianMillennium = (long)(DaysPerJulianYear * YearsPerMillennium);
-
-    /// <summary>
-    /// The number of days in the mean tropical year B1900 (days).
-    /// This value is taken from the SOFA (Standards of Fundamental Astronomy) library, which is
-    /// assumed to be authoritative.
-    /// </summary>
-    public const double DaysPerTropicalYear = 365.242198781;
-
-    /// <summary>
-    /// Length of synodic lunar month (a.k.a. "lunation") in days.
-    /// </summary>
-    public const double DaysPerLunation = 29.530588861;
+    public const double DaysPerMillennium = 365_242.5;
 
     #endregion Days per unit of time
 
@@ -276,7 +258,7 @@ public static class XTimeSpan
     /// <summary>
     /// Number of years in an olympiad.
     /// </summary>
-    public const long YearsPerOlympiad = 4;
+    public const long YearsPerOlympiad = 4L;
 
     /// <summary>
     /// The number of years in a decade.
@@ -285,17 +267,17 @@ public static class XTimeSpan
     /// length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
     /// (3652.42198781 d on average).
     /// </summary>
-    public const long YearsPerDecade = 10;
+    public const long YearsPerDecade = 10L;
 
     /// <summary>
     /// The number of years in a century.
     /// </summary>
-    public const long YearsPerCentury = 100;
+    public const long YearsPerCentury = 100L;
 
     /// <summary>
     /// The number of years in a millennium.
     /// </summary>
-    public const long YearsPerMillennium = 1000;
+    public const long YearsPerMillennium = 1000L;
 
     #endregion Years per unit of time
 
@@ -318,37 +300,83 @@ public static class XTimeSpan
     /// See: <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
     /// See: <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
     /// </summary>
-    public const long YearsPerSolarCycle = 400;
+    public const long YearsPerSolarCycle = 400L;
 
     /// <summary>
     /// Number of olympiads in an Gregorian solar cycle.
     /// </summary>
-    public const long OlympiadsPerSolarCycle = 100;
+    public const long OlympiadsPerSolarCycle = 100L;
 
     /// <summary>
     /// The number of leap years in a Gregorian solar cycle.
     /// </summary>
-    public const long LeapYearsPerSolarCycle = 97;
+    public const long LeapYearsPerSolarCycle = 97L;
 
     /// <summary>
     /// The number of common years in a Gregorian solar cycle.
     /// </summary>
-    public const long CommonYearsPerSolarCycle = YearsPerSolarCycle - LeapYearsPerSolarCycle;
+    public const long CommonYearsPerSolarCycle = 303L;
 
     /// <summary>
     /// The number of months in a Gregorian solar cycle.
     /// </summary>
-    public const long MonthsPerSolarCycle = 4800;
+    public const long MonthsPerSolarCycle = 4800L;
 
     /// <summary>
     /// The number of weeks in a Gregorian solar cycle.
     /// </summary>
-    public const long WeeksPerSolarCycle = 20_871;
+    public const long WeeksPerSolarCycle = 20_871L;
 
     /// <summary>
     /// The number of days in a Gregorian solar cycle.
     /// </summary>
-    public const long DaysPerSolarCycle = 146_097;
+    public const long DaysPerSolarCycle = 146_097L;
 
     #endregion Solar cycles
+
+    #region Julian Calendar
+
+    /// <summary>
+    /// The number of days in a Julian Calendar year.
+    /// </summary>
+    public const double DaysPerJulianYear = 365.25;
+
+    /// <summary>
+    /// The number of days in a Julian Calendar decade.
+    /// </summary>
+    public const double DaysPerJulianDecade = 3652.5;
+
+    /// <summary>
+    /// The number of days in a Julian Calendar century.
+    /// </summary>
+    public const long DaysPerJulianCentury = 36_525L;
+
+    /// <summary>
+    /// The number of days in a Julian Calendar millennium.
+    /// </summary>
+    public const long DaysPerJulianMillennium = 365_250L;
+
+    #endregion Julian Calendar
+
+    #region Astronomical
+
+    /// <summary>
+    /// The number of seconds in a solar day (as at 2023).
+    /// It is increasing by about 2 milliseconds per century.
+    /// </summary>
+    public const double SecondsPerSolarDay = 86_400.002;
+
+    /// <summary>
+    /// Number of days in a synodic lunar month (a.k.a. "lunation").
+    /// </summary>
+    public const double DaysPerLunation = 29.530_588_861;
+
+    /// <summary>
+    /// The number of days in the mean tropical year B1900 (days).
+    /// This value is taken from the SOFA (Standards of Fundamental Astronomy) library, which is
+    /// assumed to be authoritative.
+    /// </summary>
+    public const double DaysPerTropicalYear = 365.242_198_781;
+
+    #endregion Astronomical
 }
