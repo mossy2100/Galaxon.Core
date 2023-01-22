@@ -53,27 +53,6 @@ public static class XString
         str1.Equals(str2, StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
-    /// Convert string to int without throwing.
-    /// If the string cannot be parsed into an int, return null.
-    /// </summary>
-    public static int? ToInt(this string str) =>
-        int.TryParse(str, out int i) ? i : null;
-
-    /// <summary>
-    /// Convert string to double without throwing.
-    /// If the string cannot be parsed into a double, return null.
-    /// </summary>
-    public static double? ToDouble(this string str) =>
-        double.TryParse(str, out double d) ? d : null;
-
-    /// <summary>
-    /// Convert string to decimal without throwing.
-    /// If the string cannot be parsed into a decimal, return null.
-    /// </summary>
-    public static decimal? ToDecimal(this string str) =>
-        decimal.TryParse(str, out decimal m) ? m : null;
-
-    /// <summary>
     /// Replace characters in a string with other characters by using a character map.
     /// Example use cases:
     ///   * making a string upper- or lower-case
@@ -229,6 +208,17 @@ public static class XString
     }
 
     /// <summary>
+    /// Convert all lower-case letters in a string to their Unicode small caps variant.
+    /// Only works for English letters, so, if necessary (e.g. if the string is in a different
+    /// language), you may wish to call AnyAscii.Transliterate() on the string first.
+    /// </summary>
+    /// <exception cref="NotImplementedException"></exception>
+    public static string ToSmallCaps(this string str) =>
+        str.ReplaceChars(SmallCapsChars);
+
+    #region Methods for formatting numbers
+
+    /// <summary>
     /// Render a string with valid integer characters (i.e. minus sign or digits) converted to their
     /// Unicode superscript versions.
     /// </summary>
@@ -247,11 +237,57 @@ public static class XString
         str.ReplaceChars(XBinaryInteger.SubscriptChars);
 
     /// <summary>
-    /// Convert all lower-case letters in a string to their Unicode small caps variant.
-    /// Only works for English letters, so, if necessary (e.g. if the string is in a different
-    /// language), you may wish to call AnyAscii.Transliterate() on the string first.
+    /// Pad a string on the left with 0s to make it up to a certain width.
     /// </summary>
-    /// <exception cref="NotImplementedException"></exception>
-    public static string ToSmallCaps(this string str) =>
-        str.ReplaceChars(SmallCapsChars);
+    /// <param name="str">The string.</param>
+    /// <param name="width">The minimum number of characters in the the result.</param>
+    /// <returns>The zero-padded string.</returns>
+    public static string ZeroPad(this string str, int width) =>
+        str.PadLeft(width, '0');
+
+    /// <summary>
+    /// Given a string of digits, format in groups using the specified group separator and group
+    /// size.
+    ///
+    /// This method is designed for formatting numbers but it could be used for other purposes,
+    /// since the method doesn't check if the characters are actually digits. It just assumes they
+    /// are. Apart from saving time, it allows the method to be used for hexadecimal or other bases.
+    ///
+    /// Grouping starts from the right. Here's how you would format an integer:
+    ///     "12345678".GroupDigits(',', 3) => "12,345,678"
+    ///
+    /// You can chain methods if you need to, e.g.
+    ///     "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
+    ///     "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
+    ///     123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
+    /// </summary>
+    /// <param name="str">The string, nominally of digits, but can be whatever.</param>
+    /// <param name="separator">The group separator character.</param>
+    /// <param name="size">The group size.</param>
+    /// <returns>The formatted string.</returns>
+    public static string GroupDigits(this string str, char separator = '_', byte size = 4)
+    {
+        StringBuilder sb = new ();
+        while (true)
+        {
+            if (str == "")
+            {
+                break;
+            }
+            string group = str.Length > size ? str[^size..] : str;
+            if (sb.Length != 0)
+            {
+                sb.Prepend(separator);
+            }
+            sb.Prepend(group);
+            if (str.Length <= size)
+            {
+                break;
+            }
+            str = str[..^size];
+        }
+        return sb.ToString();
+    }
+
+    #endregion Methods for formatting numbers
 }

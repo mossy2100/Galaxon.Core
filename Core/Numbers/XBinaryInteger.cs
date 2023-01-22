@@ -8,6 +8,8 @@ namespace Galaxon.Core.Numbers;
 /// </summary>
 public static class XBinaryInteger
 {
+    #region Superscript and subscript
+
     /// <summary>
     /// Map from normal integer characters to their superscript versions.
     /// </summary>
@@ -69,4 +71,6 @@ public static class XBinaryInteger
     /// <returns>The string of subscript characters.</returns>
     public static string ToSubscript<T>(this T n) where T : IBinaryInteger<T> =>
         $"{n}".ToSubscript();
+
+    #endregion Superscript and subscript
 }

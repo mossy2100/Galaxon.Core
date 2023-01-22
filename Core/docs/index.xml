@@ -358,36 +358,6 @@
             <typeparam name="T">The integer type to create.</typeparam>
             <returns>The integer equivalent of the digits.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.ConvertBase.ZeroPad(System.String,System.Int32)">
-            <summary>
-            Pad a string on the left with 0s to make it up to a certain width.
-            </summary>
-            <param name="str">The string.</param>
-            <param name="width">The minimum number of characters in the the result.</param>
-            <returns>The zero-padded string.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.ConvertBase.GroupDigits(System.String,System.Char,System.Byte)">
-             <summary>
-             Given a string of digits, format in groups using the specified group separator and group
-             size.
-            
-             This method is designed for formatting numbers but it could be used for other purposes,
-             since the method doesn't check if the characters are actually digits. It just assumes they
-             are. Apart from saving time, it allows the method to be used for hexadecimal or other bases.
-            
-             Grouping starts from the right. Here's how you would format an integer:
-                 "12345678".GroupDigits(',', 3) => "12,345,678"
-            
-             You can chain methods if you need to, e.g.
-                 "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
-                 "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
-                 123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
-             </summary>
-             <param name="str">The string, nominally of digits, but can be whatever.</param>
-             <param name="separator">The group separator character.</param>
-             <param name="size">The group size.</param>
-             <returns>The formatted string.</returns>
-        </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.CheckBase(System.Byte)">
             <summary>
             Checks if the provided base is valid for use by this class.
@@ -1232,24 +1202,6 @@
             See if 2 strings are equal, ignoring case.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Strings.XString.ToInt(System.String)">
-            <summary>
-            Convert string to int without throwing.
-            If the string cannot be parsed into an int, return null.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Strings.XString.ToDouble(System.String)">
-            <summary>
-            Convert string to double without throwing.
-            If the string cannot be parsed into a double, return null.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Strings.XString.ToDecimal(System.String)">
-            <summary>
-            Convert string to decimal without throwing.
-            If the string cannot be parsed into a decimal, return null.
-            </summary>
-        </member>
         <member name="M:Galaxon.Core.Strings.XString.ReplaceChars(System.String,System.Collections.Generic.Dictionary{System.Char,System.String},System.Boolean)">
             <summary>
             Replace characters in a string with other characters by using a character map.
@@ -1323,6 +1275,14 @@
             <param name="str">The string to process.</param>
             <returns>The ASCII slug.</returns>
         </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToSmallCaps(System.String)">
+            <summary>
+            Convert all lower-case letters in a string to their Unicode small caps variant.
+            Only works for English letters, so, if necessary (e.g. if the string is in a different
+            language), you may wish to call AnyAscii.Transliterate() on the string first.
+            </summary>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
         <member name="M:Galaxon.Core.Strings.XString.ToSuperscript(System.String)">
             <summary>
             Render a string with valid integer characters (i.e. minus sign or digits) converted to their
@@ -1339,13 +1299,35 @@
             <param name="str">The string.</param>
             <returns>The string of subscript characters.</returns>
         </member>
-        <member name="M:Galaxon.Core.Strings.XString.ToSmallCaps(System.String)">
+        <member name="M:Galaxon.Core.Strings.XString.ZeroPad(System.String,System.Int32)">
             <summary>
-            Convert all lower-case letters in a string to their Unicode small caps variant.
-            Only works for English letters, so, if necessary (e.g. if the string is in a different
-            language), you may wish to call AnyAscii.Transliterate() on the string first.
+            Pad a string on the left with 0s to make it up to a certain width.
             </summary>
-            <exception cref="T:System.NotImplementedException"></exception>
+            <param name="str">The string.</param>
+            <param name="width">The minimum number of characters in the the result.</param>
+            <returns>The zero-padded string.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.GroupDigits(System.String,System.Char,System.Byte)">
+             <summary>
+             Given a string of digits, format in groups using the specified group separator and group
+             size.
+            
+             This method is designed for formatting numbers but it could be used for other purposes,
+             since the method doesn't check if the characters are actually digits. It just assumes they
+             are. Apart from saving time, it allows the method to be used for hexadecimal or other bases.
+            
+             Grouping starts from the right. Here's how you would format an integer:
+                 "12345678".GroupDigits(',', 3) => "12,345,678"
+            
+             You can chain methods if you need to, e.g.
+                 "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
+                 "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
+                 123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
+             </summary>
+             <param name="str">The string, nominally of digits, but can be whatever.</param>
+             <param name="separator">The group separator character.</param>
+             <param name="size">The group size.</param>
+             <returns>The formatted string.</returns>
         </member>
         <member name="T:Galaxon.Core.Strings.XStringBuilder">
             <summary>
@@ -1415,10 +1397,11 @@
             </summary>
         </member>
         <member name="T:Galaxon.Core.Time.ETimeUnit">
-            <summary>
-            The time units supported by the conversion functions.
-            Note: This will be deprecated once Galaxon.Quantities is complete.
-            </summary>
+             <summary>
+             The time units supported by the conversion functions.
+            
+             **Note: This will be deprecated once Galaxon.Quantities is complete.**
+             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.ETimeUnit.Nanosecond">
             <summary>
@@ -1552,8 +1535,7 @@
              <summary>
              Get the number of years between the start of the epoch and the start of the date.
             
-             The result will be greater than or equal to <code>date.Year - 1</code> and less than
-             <code>date.Year</code>.
+             The result will be greater than or equal to `date.Year - 1` and less than `date.Year`.
              </summary>
              <param name="date">The DateOnly instance.</param>
              <returns>The number of years since the epoch start.</returns>
@@ -1597,7 +1579,7 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)">
             <summary>
-            Find the date given the number of days from the start of the epoch.
+            Find a date given the number of days from the start of the epoch.
             </summary>
             <see cref="M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)" />
             <param name="days">The number of days.</param>
@@ -1608,16 +1590,17 @@
             Find the date given the number of years since the start of the epoch.
             </summary>
             <param name="years">The number of years. May include a fractional part.</param>
-            <returns>A new DateOnly object.</returns>
+            <returns>The resulting date.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32,System.Int32)">
-            <summary>
-            Construct a new DateOnly instance given a year and the day of the year.
-            Formula from Meeus (Astronomical Algorithms 2 ed. p66).
-            </summary>
-            <param name="year">The year (1..9999).</param>
-            <param name="dayOfYear">The day of the year (1..366).</param>
-            <returns></returns>
+             <summary>
+             Find a date given a year and the day of the year.
+            
+             Formula from Meeus (Astronomical Algorithms 2 ed. p66).
+             </summary>
+             <param name="year">The year (1..9999).</param>
+             <param name="dayOfYear">The day of the year (1..366).</param>
+             <returns>The resulting date.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.ToJulianDay(System.DateOnly)">
             <summary>
@@ -1632,9 +1615,9 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)">
             <summary>
-            Convert a Julian Day value to a DateOnly object.
-            <see cref="M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)" />
+            Convert a Julian Day value to a date.
             </summary>
+            <see cref="M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)" />
             <param name="jd">
             The Julian Day value. If a fractional part indicating the time of day is included, this
             information will be discarded.
@@ -1659,6 +1642,8 @@
             <summary>
             Get the date of Christmas Day in the given year.
             </summary>
+            <param name="year">The year.</param>
+            <returns>The date of Christmas in the given year.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetNthWeekdayInMonth(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
             <summary>
@@ -1687,11 +1672,11 @@
         <member name="M:Galaxon.Core.Time.XDateOnly.GetThanksgiving(System.Int32,System.String)">
             <summary>
             Find the date of Thanksgiving for a specified country in a given year.
-            Only years with a holiday called "Thanksgiving" are supported. Default is "US".
+            Only years with a holiday called "Thanksgiving" are supported. The default is "US".
             </summary>
             <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance" />
             <param name="year">The year.</param>
-            <param name="countryCode">The country.</param>
+            <param name="countryCode">The ISO 2-letter country code.</param>
             <returns>The date of Thanksgiving.</returns>
             <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
             Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
@@ -1833,27 +1818,27 @@
              Additional members to supplement the TimeSpan class.
             
              Mostly constants.
-             For consistency with TimeSpan, I've used long as the type for any integer constants.
-             I've used double for non-integer constants.
+             For consistency with TimeSpan, I've used `long` as the type for any integer constants.
+             For non-integer constants I've used `double`.
             
-             The following are already provided by the TimeSpan class and not reproduced here:
-               - TicksPerMicrosecond
-               - TicksPerMillisecond
-               - TicksPerSecond
-               - TicksPerMinute
-               - TicksPerHour
-               - TicksPerDay
+             The following constants are already provided by the TimeSpan class and not reproduced here:
+             - TicksPerMicrosecond
+             - TicksPerMillisecond
+             - TicksPerSecond
+             - TicksPerMinute
+             - TicksPerHour
+             - TicksPerDay
             
-             <strong>NOTE: Any constants or methods for converting between time units will become obsolete
-             with the completion of Galaxon.Quantities. So, don't use these for anything permanent.</strong>
+             **NOTE: Any constants or methods for converting between time units will become obsolete
+             with the completion of Galaxon.Quantities.**
             
              The word Month, Year, Decade, Century, or Millennium in a constant name usually refers to the
-             average length of that time unit in the Gregorian.
+             average length of that time unit in the Gregorian Calendar.
              </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XTimeSpan.Convert(System.Double,Galaxon.Core.Time.ETimeUnit,Galaxon.Core.Time.ETimeUnit)">
             <summary>
-            Convert a  time value from one unit to another.
+            Convert a time value from one unit to another.
             TODO Replace with Quantity methods.
             </summary>
             <param name="amount">The amount.</param>
@@ -1866,14 +1851,34 @@
             The number of minutes in an hour.
             </summary>
         </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MinutesPerDay">
+            <summary>
+            The number of minutes in a day.
+            </summary>
+        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.HoursPerDay">
             <summary>
-            The number of hours in an ephemeris (or SI) day.
+            The number of hours in an ephemeris day.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.HoursPerWeek">
+            <summary>
+            The number of hours in a week.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.WeeksPerMonth">
+            <summary>
+            The number of weeks in an average Gregorian month.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.WeeksPerYear">
+            <summary>
+            The number of weeks in a Gregorian year.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.MonthsPerYear">
             <summary>
-            The number of calendar months in a Gregorian year.
+            The number of months in a Gregorian year.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerNanosecond">
@@ -1941,12 +1946,6 @@
             The number of seconds in an ephemeris day.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerSolarDay">
-            <summary>
-            The number of seconds in a solar day (as at 2023).
-            It is increasing by about 2 milliseconds per century.
-            </summary>
-        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerWeek">
             <summary>
             The number of seconds in a week.
@@ -1979,7 +1978,7 @@
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerWeek">
             <summary>
-            The number of solar days in a week.
+            The number of days in a week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerMonth">
@@ -1989,54 +1988,22 @@
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerYear">
             <summary>
-            The average number of solar days in a Gregorian year.
+            The average number of days in a Gregorian year.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerDecade">
             <summary>
-            The average number of solar days in a Gregorian decade.
+            The average number of days in a Gregorian decade.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerCentury">
             <summary>
-            The average number of solar days in a Gregorian century.
+            The average number of days in a Gregorian century.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerMillennium">
             <summary>
-            The average number of solar days in a Gregorian millennium.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianYear">
-            <summary>
-            The number of solar days in a Julian Calendar year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianDecade">
-            <summary>
-            The number of solar days in a Julian Calendar decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianCentury">
-            <summary>
-            The number of solar days in a Julian Calendar century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianMillennium">
-            <summary>
-            The number of solar days in a Julian Calendar millennium.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerTropicalYear">
-            <summary>
-            The number of days in the mean tropical year B1900 (days).
-            This value is taken from the SOFA (Standards of Fundamental Astronomy) library, which is
-            assumed to be authoritative.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerLunation">
-            <summary>
-            Length of synodic lunar month (a.k.a. "lunation") in days.
+            The average number of days in a Gregorian millennium.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerOlympiad">
@@ -2045,13 +2012,14 @@
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerDecade">
-            <summary>
-            The number of years in a decade.
-            The precise length of a decade depends on what year is being used.
-            For a example, a Gregorian decade (3652.425 d on average) will have a different
-            length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
-            (3652.42198781 d on average).
-            </summary>
+             <summary>
+             The number of years in a decade.
+            
+             The precise length of a decade depends on what year is being used.
+             For a example, a Gregorian decade (3652.425 d on average) will have a different
+             length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
+             (3652.42198781 d on average).
+             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerCentury">
             <summary>
@@ -2065,21 +2033,23 @@
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerSolarCycle">
              <summary>
-             The Gregorian Calendars repeats on a 400-year cycle called the solar cycle.
+             The Gregorian Calendars repeats on a 400-year cycle called the *solar cycle*.
+            
              There are 97 leap years in that period, giving an average calendar year length of
-             365 + (97/400) = 365.2425 days/year
+             365 + (97/400) = 365.2425 days/year.
             
              1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
-             5 Gregorian solar cycles = 2 ky
             
-             Solar cycles are not ordinarily numbered, nor are they given a specific start date.
-             However, within the proleptic Gregorian epoch (the one used by .NET), which began on 1 Jan,
-             1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001 (also the
-             first day of the 3rd millennium A.D), and will end on Sunday, 31 Dec, 2400.
-             This aligns nicely with the ISO standard of beginning weeks on a Monday.
+             5 Gregorian solar cycles = 2000 y = 2 ky
             
-             See: <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
-             See: <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
+             Solar cycles are not ordinarily numbered, nor given a specific start date.
+             However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
+             1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
+             was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
+            
+             See:
+             - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
+             - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
              </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.OlympiadsPerSolarCycle">
@@ -2110,6 +2080,44 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerSolarCycle">
             <summary>
             The number of days in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianYear">
+            <summary>
+            The number of days in a Julian Calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianDecade">
+            <summary>
+            The number of days in a Julian Calendar decade.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianCentury">
+            <summary>
+            The number of days in a Julian Calendar century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianMillennium">
+            <summary>
+            The number of days in a Julian Calendar millennium.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerSolarDay">
+            <summary>
+            The number of seconds in a solar day (as at 2023).
+            It is increasing by about 2 milliseconds per century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerLunation">
+            <summary>
+            Number of days in a synodic lunar month (a.k.a. "lunation").
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerTropicalYear">
+            <summary>
+            The number of days in the mean tropical year B1900 (days).
+            This value is taken from the SOFA (Standards of Fundamental Astronomy) library, which is
+            assumed to be authoritative.
             </summary>
         </member>
     </members>
