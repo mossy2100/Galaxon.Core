@@ -183,92 +183,7 @@ public static class XDecimal
 
     #endregion Exponentiation methods
 
-    #region Trigonometry methods
-
-    /// <summary>
-    /// Returns the cotangent of the specified angle.
-    /// </summary>
-    /// <param name="alpha">An angle, measured in radians.</param>
-    public static decimal Cot(decimal alpha)
-    {
-        // Calculating sin(𝛼) first to avoid calculating cos(𝛼) if unnecessary.
-        decimal s = DecimalEx.Sin(alpha);
-        if (s == 0)
-        {
-            throw new NotFiniteNumberException("Cotangent is undefined at this angle.");
-        }
-        return DecimalEx.Cos(alpha) / s;
-    }
-
-    /// <summary>
-    /// Returns the secant of the specified angle.
-    /// </summary>
-    /// <param name="alpha">An angle, measured in radians.</param>
-    public static decimal Sec(decimal alpha)
-    {
-        try
-        {
-            return 1 / DecimalEx.Cos(alpha);
-        }
-        catch (Exception)
-        {
-            throw new NotFiniteNumberException("Secant is undefined at this angle.");
-        }
-    }
-
-    /// <summary>
-    /// Returns the cosecant of the specified angle.
-    /// </summary>
-    /// <param name="alpha">An angle, measured in radians.</param>
-    public static decimal Csc(decimal alpha)
-    {
-        try
-        {
-            return 1 / DecimalEx.Sin(alpha);
-        }
-        catch (Exception)
-        {
-            throw new NotFiniteNumberException("Cosecant is undefined at this angle.");
-        }
-    }
-
-    /// <summary>
-    /// Returns the angle whose cotangent is the specified number.
-    /// </summary>
-    /// <param name="x">A number representing a cotangent.</param>
-    public static decimal Acot(decimal x) =>
-        DecimalEx.PiHalf - DecimalEx.ATan(x);
-
-    /// <summary>
-    /// Returns the angle whose secant is the specified number.
-    /// </summary>
-    /// <param name="x">A number representing a secant.</param>
-    public static decimal Asec(decimal x)
-    {
-        if (Math.Abs(x) < 1)
-        {
-            throw new ArgumentOutOfRangeException(nameof(x),
-                "The absolute value of the argument must be greater than or equal to 1.");
-        }
-
-        // Todo check for division of zero here.
-        return DecimalEx.ACos(1 / x);
-    }
-
-    /// <summary>
-    /// Returns the angle whose cosecant is the specified number.
-    /// </summary>
-    /// <param name="x">A number representing a cosecant.</param>
-    public static decimal Acsc(decimal x)
-    {
-        if (Math.Abs(x) < 1)
-        {
-            throw new ArgumentOutOfRangeException(nameof(x),
-                "The absolute value of the argument must be greater than or equal to 1.");
-        }
-
-        return DecimalEx.ASin(1 / x);
-    }
+    #region Hyperbolic trigonometric methods
 
     /// <summary>
     /// Hyperbolic sine.
@@ -298,33 +213,6 @@ public static class XDecimal
     }
 
     /// <summary>
-    /// Hyperbolic cotangent.
-    /// </summary>
-    /// <param name="x">The hyperbolic angle.</param>
-    /// <returns>The hyperbolic cotangent of the given angle.</returns>
-    public static decimal Coth(decimal x)
-    {
-        decimal f = DecimalEx.Exp(2 * x);
-        return (f + 1) / (f - 1);
-    }
-
-    /// <summary>
-    /// Hyperbolic secant.
-    /// </summary>
-    /// <param name="x">The hyperbolic angle.</param>
-    /// <returns>The hyperbolic secant of the given angle.</returns>
-    public static decimal Sech(decimal x) =>
-        2 / (DecimalEx.Exp(x) + DecimalEx.Exp(-x));
-
-    /// <summary>
-    /// Hyperbolic cosecant.
-    /// </summary>
-    /// <param name="x">The hyperbolic angle.</param>
-    /// <returns>The hyperbolic cosecant of the given angle.</returns>
-    public static decimal Csch(decimal x) =>
-        2 / (DecimalEx.Exp(x) - DecimalEx.Exp(-x));
-
-    /// <summary>
     /// Inverse hyperbolic sine.
     /// </summary>
     /// <param name="x">The hyperbolic sine of an angle.</param>
@@ -348,31 +236,7 @@ public static class XDecimal
     public static decimal Atanh(decimal x) =>
         Log((1 + x) / (1 - x)) / 2;
 
-    /// <summary>
-    /// Inverse hyperbolic cotangent.
-    /// </summary>
-    /// <param name="x">The hyperbolic cotangent of an angle.</param>
-    /// <returns>The angle.</returns>
-    public static decimal Acoth(decimal x) =>
-        Log((x + 1) / (x - 1)) / 2;
-
-    /// <summary>
-    /// Inverse hyperbolic secant.
-    /// </summary>
-    /// <param name="x">The hyperbolic secant of an angle.</param>
-    /// <returns>The angle.</returns>
-    public static decimal Asech(decimal x) =>
-        Log(1 / x + DecimalEx.Sqrt(1 / (x * x) - 1));
-
-    /// <summary>
-    /// Inverse hyperbolic cosecant.
-    /// </summary>
-    /// <param name="x">The hyperbolic cosecant of an angle.</param>
-    /// <returns>The angle.</returns>
-    public static decimal Acsch(decimal x) =>
-        Log(1 / x + DecimalEx.Sqrt(1 / (x * x) + 1));
-
-    #endregion Trigonometry methods
+    #endregion Hyperbolic trigonometric methods
 
     #region Miscellaneous methods
 
