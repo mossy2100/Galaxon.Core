@@ -52,20 +52,4 @@ public static class XLong
 
         return ((long)signBit << 63) | n;
     }
-
-    #region Extension methods for IEnumerable<long>
-
-    /// <summary>
-    /// Get the sum of all values in the collection.
-    /// </summary>
-    public static long Sum(this IEnumerable<long> source) =>
-        source.Aggregate(0L, (sum, value) => sum + value);
-
-    /// <summary>
-    /// Get the sum of all values in the collection, transformed by the supplied function.
-    /// </summary>
-    public static long Sum(this IEnumerable<long> source, Func<long, long> func) =>
-        source.Aggregate(0L, (sum, value) => sum + func(value));
-
-    #endregion Extension methods for IEnumerable<long>
 }

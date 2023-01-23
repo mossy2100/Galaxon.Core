@@ -1024,16 +1024,6 @@
             Get a random long.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XLong.Sum(System.Collections.Generic.IEnumerable{System.Int64})">
-            <summary>
-            Get the sum of all values in the collection.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XLong.Sum(System.Collections.Generic.IEnumerable{System.Int64},System.Func{System.Int64,System.Int64})">
-            <summary>
-            Get the sum of all values in the collection, transformed by the supplied function.
-            </summary>
-        </member>
         <member name="T:Galaxon.Core.Numbers.XNumber">
             <summary>Extension methods for numbers (INumber{T} and INumberBase{T}).</summary>
             <remarks>
