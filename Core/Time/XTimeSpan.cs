@@ -335,6 +335,16 @@ public static class XTimeSpan
     /// </summary>
     public const long DaysPerSolarCycle = 146_097L;
 
+    /// <summary>
+    /// The number of seconds in a Gregorian solar cycle.
+    /// </summary>
+    public const long SecondsPerSolarCycle = 12_622_780_800L;
+
+    /// <summary>
+    /// The number of ticks in a Gregorian solar cycle.
+    /// </summary>
+    public const long TicksPerSolarCycle = 126_227_808_000_000_000L;
+
     #endregion Solar cycles
 
     #region Julian Calendar

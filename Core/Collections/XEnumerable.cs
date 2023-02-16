@@ -22,14 +22,9 @@ public static class XEnumerable
     }
 
     /// <summary>
-    /// Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to zero-based
-    /// index, same as an array or list. This can be useful when the index is meaningful and you
-    /// want to filter on it.
+    /// Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to the index.
+    /// This can be useful when the index is meaningful and you want to filter on it.
     /// </summary>
-    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> enumerable)
-    {
-        int index = 0;
-        return new Dictionary<int, T>(enumerable
-            .Select(item => new KeyValuePair<int, T>(index++, item)));
-    }
+    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> enumerable) =>
+        new (enumerable.Select((item, index) => new KeyValuePair<int, T>(index, item)));
 }

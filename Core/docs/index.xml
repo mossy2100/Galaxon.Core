@@ -46,9 +46,8 @@
         </member>
         <member name="M:Galaxon.Core.Collections.XEnumerable.ToDictionary``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to zero-based
-            index, same as an array or list. This can be useful when the index is meaningful and you
-            want to filter on it.
+            Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to the index.
+            This can be useful when the index is meaningful and you want to filter on it.
             </summary>
         </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentFormatException">
@@ -559,42 +558,6 @@
             <param name="m">A decimal value.</param>
             <returns>2^d</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Cot(System.Decimal)">
-            <summary>
-            Returns the cotangent of the specified angle.
-            </summary>
-            <param name="alpha">An angle, measured in radians.</param>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Sec(System.Decimal)">
-            <summary>
-            Returns the secant of the specified angle.
-            </summary>
-            <param name="alpha">An angle, measured in radians.</param>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Csc(System.Decimal)">
-            <summary>
-            Returns the cosecant of the specified angle.
-            </summary>
-            <param name="alpha">An angle, measured in radians.</param>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Acot(System.Decimal)">
-            <summary>
-            Returns the angle whose cotangent is the specified number.
-            </summary>
-            <param name="x">A number representing a cotangent.</param>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Asec(System.Decimal)">
-            <summary>
-            Returns the angle whose secant is the specified number.
-            </summary>
-            <param name="x">A number representing a secant.</param>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Acsc(System.Decimal)">
-            <summary>
-            Returns the angle whose cosecant is the specified number.
-            </summary>
-            <param name="x">A number representing a cosecant.</param>
-        </member>
         <member name="M:Galaxon.Core.Numbers.XDecimal.Sinh(System.Decimal)">
             <summary>
             Hyperbolic sine.
@@ -616,27 +579,6 @@
             <param name="x">The hyperbolic angle.</param>
             <returns>The hyperbolic tangent of the given angle.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Coth(System.Decimal)">
-            <summary>
-            Hyperbolic cotangent.
-            </summary>
-            <param name="x">The hyperbolic angle.</param>
-            <returns>The hyperbolic cotangent of the given angle.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Sech(System.Decimal)">
-            <summary>
-            Hyperbolic secant.
-            </summary>
-            <param name="x">The hyperbolic angle.</param>
-            <returns>The hyperbolic secant of the given angle.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Csch(System.Decimal)">
-            <summary>
-            Hyperbolic cosecant.
-            </summary>
-            <param name="x">The hyperbolic angle.</param>
-            <returns>The hyperbolic cosecant of the given angle.</returns>
-        </member>
         <member name="M:Galaxon.Core.Numbers.XDecimal.Asinh(System.Decimal)">
             <summary>
             Inverse hyperbolic sine.
@@ -656,27 +598,6 @@
             Inverse hyperbolic tangent.
             </summary>
             <param name="x">The hyperbolic tangent of an angle.</param>
-            <returns>The angle.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Acoth(System.Decimal)">
-            <summary>
-            Inverse hyperbolic cotangent.
-            </summary>
-            <param name="x">The hyperbolic cotangent of an angle.</param>
-            <returns>The angle.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Asech(System.Decimal)">
-            <summary>
-            Inverse hyperbolic secant.
-            </summary>
-            <param name="x">The hyperbolic secant of an angle.</param>
-            <returns>The angle.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.Acsch(System.Decimal)">
-            <summary>
-            Inverse hyperbolic cosecant.
-            </summary>
-            <param name="x">The hyperbolic cosecant of an angle.</param>
             <returns>The angle.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDecimal.IsInteger(System.Decimal)">
@@ -2070,6 +1991,16 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerSolarCycle">
             <summary>
             The number of days in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerSolarCycle">
+            <summary>
+            The number of seconds in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerSolarCycle">
+            <summary>
+            The number of ticks in a Gregorian solar cycle.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianYear">
