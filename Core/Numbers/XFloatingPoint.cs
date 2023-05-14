@@ -9,27 +9,47 @@ public static class XFloatingPoint
     /// Get the number of exponent bits.
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static byte GetNumExpBits<T>() where T : IFloatingPoint<T> =>
-        T.Zero switch
+    public static byte GetNumExpBits<T>() where T : IFloatingPoint<T>
+    {
+        var t = typeof(T);
+        if (t == typeof(Half))
         {
-            Half => XHalf.NumExpBits,
-            float => XFloat.NumExpBits,
-            double => XDouble.NumExpBits,
-            _ => throw new InvalidOperationException("Unsupported type.")
-        };
+            return XHalf.NumExpBits;
+        }
+        if (t == typeof(float))
+        {
+            return XFloat.NumExpBits;
+        }
+        if (t == typeof(double))
+        {
+            return XDouble.NumExpBits;
+        }
+
+        throw new InvalidOperationException("Unsupported type.");
+    }
 
     /// <summary>
     /// Get the number of fraction bits.
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static byte GetNumFracBits<T>() where T : IFloatingPoint<T> =>
-        T.Zero switch
+    public static byte GetNumFracBits<T>() where T : IFloatingPoint<T>
+    {
+        var t = typeof(T);
+        if (t == typeof(Half))
         {
-            Half => XHalf.NumFracBits,
-            float => XFloat.NumFracBits,
-            double => XDouble.NumFracBits,
-            _ => throw new InvalidOperationException("Unsupported type.")
-        };
+            return XHalf.NumFracBits;
+        }
+        if (t == typeof(float))
+        {
+            return XFloat.NumFracBits;
+        }
+        if (t == typeof(double))
+        {
+            return XDouble.NumFracBits;
+        }
+
+        throw new InvalidOperationException("Unsupported type.");
+    }
 
     /// <summary>
     /// Get the minimum exponent for the type.
@@ -49,14 +69,24 @@ public static class XFloatingPoint
     /// Get the minimum positive normal value for the type.
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static T GetMinPosNormalValue<T>() where T : IFloatingPoint<T> =>
-        T.Zero switch
+    public static T GetMinPosNormalValue<T>() where T : IFloatingPoint<T>
+    {
+        var t = typeof(T);
+        if (t == typeof(Half))
         {
-            Half => (T)(object)XHalf.MinPosNormalValue,
-            float => (T)(object)XFloat.MinPosNormalValue,
-            double => (T)(object)XDouble.MinPosNormalValue,
-            _ => throw new InvalidOperationException("Unsupported type.")
-        };
+            return (T)(object)XHalf.MinPosNormalValue;
+        }
+        if (t == typeof(float))
+        {
+            return (T)(object)XFloat.MinPosNormalValue;
+        }
+        if (t == typeof(double))
+        {
+            return (T)(object)XDouble.MinPosNormalValue;
+        }
+
+        throw new InvalidOperationException("Unsupported type.");
+    }
 
     /// <summary>
     /// Disassemble the floating point value into its bitwise components.
@@ -151,16 +181,19 @@ public static class XFloatingPoint
         // Get the bits.
         var bits = (ulong)(signBit << nSignBitShift) | (ulong)(expBits << nFracBits) | fracBits;
 
-        switch (T.Zero)
+        // Return a value of the correct type.
+        var t = typeof(T);
+        if (t == typeof(Half))
         {
-            case Half:
-                return (T)(object)BitConverter.UInt16BitsToHalf((ushort)bits);
-
-            case float:
-                return (T)(object)BitConverter.UInt32BitsToSingle((uint)bits);
-
-            case double:
-                return (T)(object)BitConverter.UInt64BitsToDouble(bits);
+            return (T)(object)BitConverter.UInt16BitsToHalf((ushort)bits);
+        }
+        if (t == typeof(float))
+        {
+            return (T)(object)BitConverter.UInt32BitsToSingle((uint)bits);
+        }
+        if (t == typeof(double))
+        {
+            return (T)(object)BitConverter.UInt64BitsToDouble(bits);
         }
 
         throw new InvalidOperationException("Unsupported type.");

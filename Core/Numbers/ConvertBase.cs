@@ -262,29 +262,60 @@ public static class ConvertBase
         }
 
         // Try to convert the value to the target type.
+        var t = typeof(T);
         try
         {
-            var result = T.Zero;
-            return result switch
+            if (t == typeof(sbyte))
             {
-                sbyte => (T)(object)(sbyte)value,
-                byte => (T)(object)(byte)value,
-                short => (T)(object)(short)value,
-                ushort => (T)(object)(ushort)value,
-                int => (T)(object)(int)value,
-                uint => (T)(object)(uint)value,
-                long => (T)(object)(long)value,
-                ulong => (T)(object)(ulong)value,
-                Int128 => (T)(object)(Int128)value,
-                UInt128 => (T)(object)(UInt128)value,
-                BigInteger => (T)(object)value,
-                _ => throw new InvalidCastException($"The type {typeof(T).Name} is not supported.")
-            };
+                return (T)(object)(sbyte)value;
+            }
+            if (t == typeof(byte))
+            {
+                return (T)(object)(byte)value;
+            }
+            if (t == typeof(short))
+            {
+                return (T)(object)(short)value;
+            }
+            if (t == typeof(ushort))
+            {
+                return (T)(object)(ushort)value;
+            }
+            if (t == typeof(int))
+            {
+                return (T)(object)(int)value;
+            }
+            if (t == typeof(uint))
+            {
+                return (T)(object)(uint)value;
+            }
+            if (t == typeof(long))
+            {
+                return (T)(object)(long)value;
+            }
+            if (t == typeof(ulong))
+            {
+                return (T)(object)(ulong)value;
+            }
+            if (t == typeof(Int128))
+            {
+                return (T)(object)(Int128)value;
+            }
+            if (t == typeof(UInt128))
+            {
+                return (T)(object)(UInt128)value;
+            }
+            if (t == typeof(BigInteger))
+            {
+                return (T)(object)value;
+            }
+
+            throw new InvalidCastException($"The type {t.Name} is unsupported.");
         }
         catch (OverflowException ex)
         {
             throw new OverflowException(
-                $"The provided digit string does not represent a valid {typeof(T).Name}.", ex);
+                $"The provided digit string does not represent a valid {t.Name}.", ex);
         }
     }
 
