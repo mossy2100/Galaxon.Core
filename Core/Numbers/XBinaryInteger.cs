@@ -25,7 +25,7 @@ public static class XBinaryInteger
         { '7', "⁷" },
         { '8', "⁸" },
         { '9', "⁹" },
-        { '-', "⁻" },
+        { '-', "⁻" }
     };
 
     /// <summary>
@@ -43,15 +43,13 @@ public static class XBinaryInteger
         { '7', "₇" },
         { '8', "₈" },
         { '9', "₈" },
-        { '-', "₋" },
+        { '-', "₋" }
     };
 
     /// <summary>
     /// Render an integer as a superscript string.
-    ///
     /// This is useful for formatting exponents, numerators, and other numeric superscripts when
     /// HTML is unavailable.
-    ///
     /// See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
     /// See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
     /// See <see href="https://unicode-table.com/en/" />
@@ -63,7 +61,6 @@ public static class XBinaryInteger
 
     /// <summary>
     /// Render an integer as a subscript string.
-    ///
     /// This is useful for formatting denominators, the number of atoms in a molecule, atomic
     /// numbers, and other numeric subscripts when HTML is unavailable.
     /// </summary>

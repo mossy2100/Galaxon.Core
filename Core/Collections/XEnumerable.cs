@@ -13,8 +13,8 @@ public static class XEnumerable
     /// </summary>
     public static IEnumerable<T> Diff<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
     {
-        List<T> result = list1.ToList();
-        foreach (T item in list2)
+        var result = list1.ToList();
+        foreach (var item in list2)
         {
             result.Remove(item);
         }

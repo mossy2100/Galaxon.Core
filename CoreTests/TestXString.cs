@@ -109,8 +109,8 @@ public class TestXString
     [TestMethod]
     public void TestStringToSmallCaps()
     {
-        string s1 = "A quick brown fox jumps over the lazy dog.";
-        string s2 = s1.ToSmallCaps();
+        var s1 = "A quick brown fox jumps over the lazy dog.";
+        var s2 = s1.ToSmallCaps();
         Assert.AreEqual("A ꞯᴜɪᴄᴋ ʙʀᴏᴡɴ ꜰᴏx ᴊᴜᴍᴘꜱ ᴏᴠᴇʀ ᴛʜᴇ ʟᴀᴢʏ ᴅᴏɢ.", s2);
 
         // Article title. Example with numbers and symbols.

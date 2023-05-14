@@ -8,7 +8,7 @@ public class TestXInt
     [TestMethod]
     public void TestSqrt()
     {
-        for (int i = 1; i <= 10; i++)
+        for (var i = 1; i <= 10; i++)
         {
             Assert.AreEqual(i, XInt.Sqrt(i * i));
         }

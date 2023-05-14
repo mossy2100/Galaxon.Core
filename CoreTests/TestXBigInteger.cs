@@ -11,7 +11,7 @@ public class TestXBigInteger
     {
         BigInteger bi = 0;
         BigInteger expected = 0;
-        BigInteger actual = bi.ToUnsigned();
+        var actual = bi.ToUnsigned();
         Assert.AreEqual(expected, actual);
     }
 

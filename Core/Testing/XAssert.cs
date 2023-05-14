@@ -61,7 +61,7 @@ public static class XAssert
     /// <param name="delta">The max allowable difference.</param>
     public static void AreEqual(double expected, double actual, double delta = XDouble.Delta) =>
         Assert.AreEqual(expected, actual, delta);
-        // Assert.IsTrue(expected.FuzzyEquals(actual, delta));
+    // Assert.IsTrue(expected.FuzzyEquals(actual, delta));
 
     /// <summary>
     /// Helper function to test if a double equals a decimal.
@@ -73,14 +73,14 @@ public static class XAssert
         // Doubles and decimals are only equal to a limited number of significant figures, so scale
         // larger values to the range [0..10) before comparing.
         Console.WriteLine($"Comparing {expected} with {actual}");
-        decimal a = actual;
-        decimal e = (decimal)expected;
+        var a = actual;
+        var e = (decimal)expected;
         if (actual != 0)
         {
-            int m = (int)Math.Floor(Math.Log10(Math.Abs(expected)));
+            var m = (int)Math.Floor(Math.Log10(Math.Abs(expected)));
             if (m > 0)
             {
-                decimal scaleFactor = XDecimal.Exp10(m);
+                var scaleFactor = XDecimal.Exp10(m);
                 a /= scaleFactor;
                 e /= scaleFactor;
             }
@@ -96,7 +96,7 @@ public static class XAssert
     /// </summary>
     public static void AreEqualPercent(double expected, double actual, double percent)
     {
-        double delta = Math.Abs(expected * percent / 100);
+        var delta = Math.Abs(expected * percent / 100);
         Assert.AreEqual(expected, actual, delta);
     }
 }

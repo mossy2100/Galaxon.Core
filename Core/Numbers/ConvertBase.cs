@@ -8,61 +8,51 @@ namespace Galaxon.Core.Numbers;
 /// <summary>
 /// This class supports conversion between integers and strings of digits in a specified base,
 /// which can be in the range 2..64.
-///
 /// All built-in integer types are supported, including Int128, UInt128, and BigInteger.
-///
 /// Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
 /// 26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
 /// ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
 /// to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
 /// and I assume all, or almost all, computer keyboards will support all of them.
-///
 /// This has been done to add support for base 64, mainly for my own amusement, and to provide
 /// an alternative to bog-standard Base64 encoding (see link). The difference here, if it matters,
 /// is that the base 64 digits used here are compatible with hexadecimal digit values, and all other
 /// bases.
-///
 /// ASCII provides 32 symbol (or punctuation) characters. The 4 omitted characters are '.' (period),
 /// ',' (comma), and '_' (underscore) because these can all be used as group separators (in
 /// different contexts), and '"' (double quote) which is the string delimiter in C#.
-///
 /// As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
 /// Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
 /// letters. See the method documentation for ToBase() for how to use this parameter.
-///
 /// The default is to use lower-case for all letters except for L (see the Digits constant).
 /// Upper-case letters are more easily confused with numerals than lower-case. For example:
-///     - 'O' looks like '0'
-///     - 'I' looks like '1'
-///     - 'Z' looks like '2'
-///     - 'S' looks like '5'
-///     - 'G' looks like '6'
-///     - 'B' looks like '8'
+/// - 'O' looks like '0'
+/// - 'I' looks like '1'
+/// - 'Z' looks like '2'
+/// - 'S' looks like '5'
+/// - 'G' looks like '6'
+/// - 'B' looks like '8'
 /// The only similar problem with lower-case letters is that 'l' looks like '1'. To solve this,
 /// upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
 /// long literals in C#, as a rule.)
-///
 /// These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
 /// between letters and numbers, so it's not the issue it once was.
 /// Multiple coding standards for CSS require lower-case hex digits in color literals.
 /// "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
 /// Other than that, I can't find any standards that mandate one over the other. It seems upper-case
 /// is favoured in older languages, lower-case in newer.
-///
 /// The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
-/// the form of "To" and "From" methods for all bases that are a power of 2:
-///
-/// |------------------------|--------|----------------|
-/// |  Numeral system        |  Base  |  Abbreviation  |
-/// |------------------------|--------|----------------|
-/// |  binary                |    2   |  Bin           |
-/// |  quaternary            |    4   |  Quat          |
-/// |  octal                 |    8   |  Oct           |
-/// |  hexadecimal           |   16   |  Hex           |
-/// |  triacontakaidecimal*  |   32   |  Tria          |
-/// |  tetrasexagesimal      |   64   |  Tetra         |
-/// |------------------------|--------|----------------|
-///
+/// the form of "To" and "From" methods for bases that are a power of 2:
+/// |------------------|------------------------|--------|----------------|
+/// |  Bits per digit  |  Numeral system        |  Base  |  Abbreviation  |
+/// |------------------|------------------------|--------|----------------|
+/// |        1         |  binary                |    2   |  Bin           |
+/// |        2         |  quaternary            |    4   |  Quat          |
+/// |        3         |  octal                 |    8   |  Oct           |
+/// |        4         |  hexadecimal           |   16   |  Hex           |
+/// |        5         |  triacontakaidecimal*  |   32   |  Tria          |
+/// |        6         |  tetrasexagesimal      |   64   |  Tetra         |
+/// |------------------|------------------------|--------|----------------|
 /// *Base 32 is more correctly called "duotrigesimal". However, there are multiple methods in use
 /// for encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
 /// also known as "base32hex". It's the same encoding used in Java in JavaScript.
@@ -97,7 +87,6 @@ public static class ConvertBase
 
     /// <summary>
     /// Convert an integer to a string of digits in a given base.
-    ///
     /// Note, a negative value will be converted to a non-negative value with the same underlying
     /// bits. This reflects the behaviour of other base-conversion methods in .NET.
     /// </summary>
@@ -105,9 +94,9 @@ public static class ConvertBase
     /// <param name="toBase">The base to convert to.</param>
     /// <param name="letterCase">
     /// If letters should be lower-case, upper-case, or default.
-    ///     null  = default (all lower-case except for L; see Digits)
-    ///     true  = upper-case
-    ///     false = lower-case
+    /// null  = default (all lower-case except for L; see Digits)
+    /// true  = upper-case
+    /// false = lower-case
     /// </param>
     /// <typeparam name="T">The integer type.</typeparam>
     /// <returns>The string of digits.</returns>
@@ -149,7 +138,7 @@ public static class ConvertBase
         while (true)
         {
             // Get the next digit.
-            BigInteger rem = bi % toBase;
+            var rem = bi % toBase;
             sbDigits.Insert(0, Digits[(int)rem]);
 
             // Check if we're done.
@@ -163,7 +152,7 @@ public static class ConvertBase
             bi /= toBase;
         }
 
-        string result = sbDigits.ToString();
+        var result = sbDigits.ToString();
 
         // Transform the result case if necessary.
         return letterCase switch
@@ -203,7 +192,8 @@ public static class ConvertBase
     /// <param name="n">The integer to convert.</param>
     /// <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
     /// <returns>The value as a string of triacontakaidecimal digits.</returns>
-    public static string ToTria<T>(this T n, bool? letterCase = null) where T : IBinaryInteger<T> =>
+    public static string ToTria<T>(this T n, bool? letterCase = null)
+        where T : IBinaryInteger<T> =>
         ToBase(n, 32, letterCase);
 
     /// <summary>Convert integer to tetrasexagesimal (base 64) digits.</summary>
@@ -228,11 +218,15 @@ public static class ConvertBase
     /// <typeparam name="T">The target type to create an instance of.</typeparam>
     /// <returns>The integer equivalent of the digits.</returns>
     /// <exception cref="ArgumentNullException">If string is null, empty, or whitespace.</exception>
-    /// <exception cref="ArgumentFormatException">If string contains invalid characters for the
-    /// specified base.</exception>
+    /// <exception cref="ArgumentFormatException">
+    /// If string contains invalid characters for the
+    /// specified base.
+    /// </exception>
     /// <exception cref="InvalidCastException">If a cast to the target type failed.</exception>
-    /// <exception cref="OverflowException">If the resulting value is out of range for the target
-    /// type.</exception>
+    /// <exception cref="OverflowException">
+    /// If the resulting value is out of range for the target
+    /// type.
+    /// </exception>
     public static T FromBase<T>(string digits, byte fromBase) where T : IBinaryInteger<T>
     {
         // Check the input string != null, empty, or whitespace.
@@ -248,17 +242,17 @@ public static class ConvertBase
         digits = Regex.Replace(digits, $@"[\s.,_{ThinSpace}]", "");
 
         // Get a map of valid digits to their value.
-        Dictionary<char, byte> digitValues = GetDigitValues(fromBase);
+        var digitValues = GetDigitValues(fromBase);
 
         // Do the conversion.
         BigInteger value = 0;
-        foreach (char c in digits)
+        foreach (var c in digits)
         {
             // Try to get the character value from the map.
-            if (!digitValues.TryGetValue(c, out byte digitValue))
+            if (!digitValues.TryGetValue(c, out var digitValue))
             {
-                char[] digitChars = digitValues.Select(kvp => kvp.Key).ToArray();
-                string digitList = string.Join(", ", digitChars[..^1]) + " and " + digitChars[^1];
+                var digitChars = digitValues.Select(kvp => kvp.Key).ToArray();
+                var digitList = string.Join(", ", digitChars[..^1]) + " and " + digitChars[^1];
                 throw new ArgumentFormatException(nameof(digits),
                     $"A string representing a number in base {fromBase} may only include the digits {digitList}.");
             }
@@ -270,7 +264,7 @@ public static class ConvertBase
         // Try to convert the value to the target type.
         try
         {
-            T result = T.Zero;
+            var result = T.Zero;
             return result switch
             {
                 sbyte => (T)(object)(sbyte)value,
@@ -376,7 +370,7 @@ public static class ConvertBase
         Dictionary<char, byte> digitValues = new ();
         for (byte i = 0; i < radix; i++)
         {
-            char c = Digits[i];
+            var c = Digits[i];
             if (char.IsLetter(c))
             {
                 // Add both the upper- and lower-case variants.

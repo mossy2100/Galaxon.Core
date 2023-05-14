@@ -62,7 +62,7 @@ public static class XDecimal
 
         // Scale the value to the range (0..1) so the Taylor series converges quickly and to avoid
         // overflow.
-        int scale = (int)Math.Floor(Math.Log10((double)m)) + 1;
+        var scale = (int)Math.Floor(Math.Log10((double)m)) + 1;
         decimal x;
 
         // Some cleverness to avoid overflow if scale == 29.
@@ -77,15 +77,15 @@ public static class XDecimal
 
         // Use the Taylor series.
         x--;
-        decimal xx = x;
-        int n = 1;
-        int s = 1;
+        var xx = x;
+        var n = 1;
+        var s = 1;
         decimal oldValue = 0;
         decimal newValue = 0;
         while (true)
         {
             // Calculate the next term in the series.
-            decimal term = s * xx / n;
+            var term = s * xx / n;
 
             // Check if done.
             if (term == 0m)
@@ -208,7 +208,7 @@ public static class XDecimal
     /// <returns>The hyperbolic tangent of the given angle.</returns>
     public static decimal Tanh(decimal x)
     {
-        decimal f = DecimalEx.Exp(2 * x);
+        var f = DecimalEx.Exp(2 * x);
         return (f - 1) / (f + 1);
     }
 
@@ -259,7 +259,7 @@ public static class XDecimal
         {
             return 0;
         }
-        decimal scale = Exp10(Math.Floor(Log10(Math.Abs(m))) + 1);
+        var scale = Exp10(Math.Floor(Log10(Math.Abs(m))) + 1);
         return scale * Math.Round(m / scale, n);
     }
 
@@ -269,11 +269,11 @@ public static class XDecimal
     public static decimal GetRandom()
     {
         Random rnd = new ();
-        int lo = XInt.GetRandom();
-        int mid = XInt.GetRandom();
-        int hi = XInt.GetRandom();
-        bool isNegative = rnd.Next(2) == 1;
-        byte scale = (byte)rnd.Next(29);
+        var lo = XInt.GetRandom();
+        var mid = XInt.GetRandom();
+        var hi = XInt.GetRandom();
+        var isNegative = rnd.Next(2) == 1;
+        var scale = (byte)rnd.Next(29);
         return new decimal(lo, mid, hi, isNegative, scale);
     }
 
@@ -282,14 +282,14 @@ public static class XDecimal
     /// </summary>
     public static (byte signBit, byte scaleBits, UInt128 intBits) Disassemble(this decimal x)
     {
-        int[] parts = decimal.GetBits(x);
-        uint lo = (uint)parts[0];
-        uint mid = (uint)parts[1];
-        uint hi = (uint)parts[2];
-        uint flags = (uint)parts[3];
-        byte signBit = (byte)(flags >> 31);
-        byte scaleBits = (byte)(flags >> 16 & 0xff);
-        UInt128 intBits = (UInt128)hi << 64 | (UInt128)mid << 32 | (UInt128)lo;
+        var parts = decimal.GetBits(x);
+        var lo = (uint)parts[0];
+        var mid = (uint)parts[1];
+        var hi = (uint)parts[2];
+        var flags = (uint)parts[3];
+        var signBit = (byte)(flags >> 31);
+        var scaleBits = (byte)(flags >> 16 & 0xff);
+        var intBits = (UInt128)hi << 64 | (UInt128)mid << 32 | lo;
         return (signBit, scaleBits, intBits);
     }
 
@@ -316,16 +316,16 @@ public static class XDecimal
         }
 
         // Check intBits is within the valid range.
-        UInt128 intBitsMax = ((UInt128)1 << 96) - 1;
+        var intBitsMax = ((UInt128)1 << 96) - 1;
         if (intBits > intBitsMax)
         {
             throw new ArgumentOutOfRangeException(nameof(intBits),
                 $"Must be less than or equal to {intBitsMax}.");
         }
 
-        int lo = (int)(intBits & 0xffffffff);
-        int mid = (int)((intBits >> 32) & 0xffffffff);
-        int hi = (int)((intBits >> 64) & 0xffffffff);
+        var lo = (int)(intBits & 0xffffffff);
+        var mid = (int)(intBits >> 32 & 0xffffffff);
+        var hi = (int)(intBits >> 64 & 0xffffffff);
 
         return new decimal(lo, mid, hi, signBit == 1, scaleBits);
     }

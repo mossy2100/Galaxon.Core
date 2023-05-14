@@ -56,7 +56,7 @@ public static class XDouble
             return d;
         }
 
-        double scale = Math.Pow(10, Math.Floor(Math.Log10(d)) + 1);
+        var scale = Math.Pow(10, Math.Floor(Math.Log10(d)) + 1);
         return scale * Math.Round(d / scale, nSigFigs);
     }
 
@@ -85,8 +85,8 @@ public static class XDouble
         Random rnd = new ();
         while (true)
         {
-            long bits = XLong.GetRandom();
-            double d = BitConverter.Int64BitsToDouble(bits);
+            var bits = XLong.GetRandom();
+            var d = BitConverter.Int64BitsToDouble(bits);
             if (double.IsFinite(d))
             {
                 return d;
@@ -102,13 +102,13 @@ public static class XDouble
     /// Check if a double is a positive integer.
     /// </summary>
     public static bool IsPositiveInteger(double d) =>
-        (d > 0) && double.IsInteger(d);
+        d > 0 && double.IsInteger(d);
 
     /// <summary>
     /// Check if a double is a negative integer.
     /// </summary>
     public static bool IsNegativeInteger(double d) =>
-        (d < 0) && double.IsInteger(d);
+        d < 0 && double.IsInteger(d);
 
     /// <summary>
     /// Check if a value is a perfect square.
@@ -122,15 +122,14 @@ public static class XDouble
 
     /// <summary>
     /// Check if 2 double values are equal for practical purposes.
-    ///
     /// If two double values differ only by the least significant bit, this is more likely
     /// due to inaccuracies in floating point representations than actual inequality.
-    ///
     /// This code is copied/adapted from Google Guava DoubleMath.fuzzyEquals().
-    /// <see href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360" />
-    ///
+    /// <see
+    ///     href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360" />
     /// I initially tried the algorithm from the Microsoft documentation, it didn't work in all cases.
-    /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)" />
+    /// <see
+    ///     href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)" />
     /// </summary>
     /// <param name="a">First number.</param>
     /// <param name="b">Second number.</param>
@@ -148,7 +147,7 @@ public static class XDouble
         // Handle NaN separately so the method behaves the same as double.Equals().
         // The equality operator will return false when comparing 2 NaN values.
         // The equality operator will return true when comparing infinities.
-        return (double.IsNaN(a) && double.IsNaN(b)) || (a == b) || Math.Abs(a - b) <= tolerance;
+        return double.IsNaN(a) && double.IsNaN(b) || a == b || Math.Abs(a - b) <= tolerance;
     }
 
     /// <summary>
@@ -186,13 +185,13 @@ public static class XDouble
     /// Check if a double is a positive integer, with some fuzziness.
     /// </summary>
     public static bool FuzzyIsPositiveInteger(double d, double tolerance = Delta) =>
-        (d > 0) && FuzzyIsInteger(d, tolerance);
+        d > 0 && FuzzyIsInteger(d, tolerance);
 
     /// <summary>
     /// Check if a double is a negative integer, with some fuzziness.
     /// </summary>
     public static bool FuzzyIsNegativeInteger(double d, double tolerance = Delta) =>
-        (d < 0) && FuzzyIsInteger(d, tolerance);
+        d < 0 && FuzzyIsInteger(d, tolerance);
 
     #endregion Methods for fuzzy equals
 }

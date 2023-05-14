@@ -14,12 +14,10 @@ public static class XNumber
     /// Check if a type implements a generic interface.
     /// </summary>
     /// <returns></returns>
-    public static bool Implements(object obj, Type genericInterface)
-    {
-        return obj.GetType().GetInterfaces().Any(x =>
+    public static bool Implements(object obj, Type genericInterface) =>
+        obj.GetType().GetInterfaces().Any(x =>
             x.IsGenericType &&
             x.GetGenericTypeDefinition() == genericInterface);
-    }
 
     /// <summary>
     /// Check if an object is a signed integer.
@@ -70,23 +68,20 @@ public static class XNumber
     /// <summary>
     /// Integer division and modulo operation using floored division.
     /// The modulus will always have the same sign as the divisor.
-    ///
     /// Unlike the truncated division and modulo provided by C#'s operators, floored division
     /// produces a regular cycling pattern through both negative and positive values of the divisor.
-    ///
     /// It permits things like:
-    ///   bool isOdd = Mod(num, 2) == 1;
-    ///
+    /// bool isOdd = Mod(num, 2) == 1;
     /// Trying to do this using the % operator will fail for negative divisors, however. e.g.
-    ///   bool isOdd = num % 2 == 1;
+    /// bool isOdd = num % 2 == 1;
     /// In this case, if num is negative 0, num % 2 == -1
     /// </summary>
     /// <see href="https://en.wikipedia.org/wiki/Modulo_operation" />
     public static (T div, T mod) DivMod<T>(T a, T b) where T : INumberBase<T>,
         IModulusOperators<T, T, T>, IComparisonOperators<T, T, bool>
     {
-        T d = a / b;
-        T m = a % b;
+        var d = a / b;
+        var m = a % b;
         if (m < T.Zero && b > T.Zero || m > T.Zero && b < T.Zero)
         {
             m += b;
@@ -102,7 +97,7 @@ public static class XNumber
     public static T Div<T>(T a, T b) where T : INumberBase<T>, IModulusOperators<T, T, T>,
         IComparisonOperators<T, T, bool>
     {
-        (T d, T m) = DivMod(a, b);
+        (var d, var m) = DivMod(a, b);
         return d;
     }
 
@@ -113,7 +108,7 @@ public static class XNumber
     public static T Mod<T>(T a, T b) where T : INumberBase<T>, IModulusOperators<T, T, T>,
         IComparisonOperators<T, T, bool>
     {
-        (T d, T m) = DivMod(a, b);
+        (var d, var m) = DivMod(a, b);
         return m;
     }
 

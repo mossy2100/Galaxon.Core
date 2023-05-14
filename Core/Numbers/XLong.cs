@@ -45,11 +45,11 @@ public static class XLong
 
         // Get a random value in the range 0..long.MaxValue.
         // It's non-negative, so the most significant bit will always be 0.
-        long n = rnd.NextInt64();
+        var n = rnd.NextInt64();
 
         // Get a random sign bit.
-        byte signBit = (byte)rnd.Next(2);
+        var signBit = (byte)rnd.Next(2);
 
-        return ((long)signBit << 63) | n;
+        return (long)signBit << 63 | n;
     }
 }

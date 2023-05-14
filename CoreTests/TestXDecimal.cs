@@ -1,6 +1,6 @@
+using DecimalMath;
 using Galaxon.Core.Numbers;
 using Galaxon.Core.Testing;
-using DecimalMath;
 
 namespace Galaxon.Core.Tests;
 
@@ -105,11 +105,13 @@ public class TestXDecimal
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LnThrowsIfArgZero() => XDecimal.Log(0);
+    public void LnThrowsIfArgZero() =>
+        XDecimal.Log(0);
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LnThrowsIfArgNegative() => XDecimal.Log(-1);
+    public void LnThrowsIfArgNegative() =>
+        XDecimal.Log(-1);
 
     [TestMethod]
     public void LnTest()
@@ -154,11 +156,13 @@ public class TestXDecimal
     }
 
     [TestMethod]
-    public void Log1Base0Returns0() => XAssert.AreEqual(0, XDecimal.Log(1, 0));
+    public void Log1Base0Returns0() =>
+        XAssert.AreEqual(0, XDecimal.Log(1, 0));
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LogThrowsIfBase1() => XDecimal.Log(1.234m, 1);
+    public void LogThrowsIfBase1() =>
+        XDecimal.Log(1.234m, 1);
 
     [TestMethod]
     public void TestDisassembleAssemble()
@@ -202,11 +206,11 @@ public class TestXDecimal
     public void TestDisassembleAssembleRandom()
     {
         const int n = 100;
-        for (int i = 0; i < n; i++)
+        for (var i = 0; i < n; i++)
         {
-            decimal x = XDecimal.GetRandom();
-            (byte signBit, byte scaleBits, UInt128 intBits) = x.Disassemble();
-            decimal y = XDecimal.Assemble(signBit, scaleBits, intBits);
+            var x = XDecimal.GetRandom();
+            (var signBit, var scaleBits, var intBits) = x.Disassemble();
+            var y = XDecimal.Assemble(signBit, scaleBits, intBits);
             Assert.AreEqual(x, y);
         }
     }

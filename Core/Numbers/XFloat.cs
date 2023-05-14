@@ -50,8 +50,8 @@ public static class XFloat
         Random rnd = new ();
         while (true)
         {
-            int bits = XInt.GetRandom();
-            float f = BitConverter.Int32BitsToSingle(bits);
+            var bits = XInt.GetRandom();
+            var f = BitConverter.Int32BitsToSingle(bits);
             if (float.IsFinite(f))
             {
                 return f;

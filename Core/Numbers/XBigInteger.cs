@@ -15,6 +15,36 @@ public static class XBigInteger
 
     #endregion Fields
 
+    #region Miscellaneous other methods
+
+    /// <summary>
+    /// Get the unsigned, twos-complement version of the value, containing the fewest number of
+    /// bytes.
+    /// </summary>
+    public static BigInteger ToUnsigned(this BigInteger n)
+    {
+        // Check if anything to do.
+        if (n >= 0)
+        {
+            return n;
+        }
+
+        // Get the bytes.
+        var bytes = n.ToByteArray().ToList();
+
+        // Check the most-significant bit, and, if it's 1, add a zero byte to ensure the bytes are
+        // interpreted as a positive value when constructing the result BigInteger.
+        if ((bytes[^1] & 0b10000000) != 0)
+        {
+            bytes.Add(0);
+        }
+
+        // Construct a new unsigned value.
+        return new BigInteger(bytes.ToArray());
+    }
+
+    #endregion Miscellaneous other methods
+
     #region Digit-related methods
 
     /// <summary>
@@ -48,36 +78,6 @@ public static class XBigInteger
 
     #endregion Digit-related methods
 
-    #region Miscellaneous other methods
-
-    /// <summary>
-    /// Get the unsigned, twos-complement version of the value, containing the fewest number of
-    /// bytes.
-    /// </summary>
-    public static BigInteger ToUnsigned(this BigInteger n)
-    {
-        // Check if anything to do.
-        if (n >= 0)
-        {
-            return n;
-        }
-
-        // Get the bytes.
-        List<byte> bytes = n.ToByteArray().ToList();
-
-        // Check the most-significant bit, and, if it's 1, add a zero byte to ensure the bytes are
-        // interpreted as a positive value when constructing the result BigInteger.
-        if ((bytes[^1] & 0b10000000) != 0)
-        {
-            bytes.Add(0);
-        }
-
-        // Construct a new unsigned value.
-        return new BigInteger(bytes.ToArray());
-    }
-
-    #endregion Miscellaneous other methods
-
     #region Methods relating to factors
 
     /// <summary>
@@ -104,7 +104,7 @@ public static class XBigInteger
 
         a = BigInteger.Abs(a);
         b = BigInteger.Abs(b);
-        BigInteger gcd = GreatestCommonDivisor(a, b);
+        var gcd = GreatestCommonDivisor(a, b);
 
         return a > b ? a / gcd * b : b / gcd * a;
     }
@@ -136,8 +136,8 @@ public static class XBigInteger
         }
 
         // Check the cache.
-        string key = $"{a}/{b}";
-        if (s_gcdCache.TryGetValue(key, out BigInteger gcd))
+        var key = $"{a}/{b}";
+        if (s_gcdCache.TryGetValue(key, out var gcd))
         {
             return gcd;
         }

@@ -69,15 +69,15 @@ public static class XFloatingPoint
         ulong fracBits;
 
         // (byte nExpBits, byte nFracBits, ushort expOffset) = x.GetStructure();
-        byte nExpBits = GetNumExpBits<T>();
-        byte nFracBits = GetNumFracBits<T>();
-        byte nSignBitShift = (byte)(nFracBits + nExpBits);
+        var nExpBits = GetNumExpBits<T>();
+        var nFracBits = GetNumFracBits<T>();
+        var nSignBitShift = (byte)(nFracBits + nExpBits);
 
         switch (x)
         {
             case Half h:
             {
-                ushort bits = BitConverter.HalfToUInt16Bits(h);
+                var bits = BitConverter.HalfToUInt16Bits(h);
                 signBit = (byte)((bits & 0b10000000_00000000) >> nSignBitShift);
                 expBits = (ushort)((bits & 0b01111100_00000000) >> nFracBits);
                 fracBits = (ulong)(bits & 0b00000011_11111111);
@@ -86,7 +86,7 @@ public static class XFloatingPoint
 
             case float f:
             {
-                uint bits = BitConverter.SingleToUInt32Bits(f);
+                var bits = BitConverter.SingleToUInt32Bits(f);
                 signBit = (byte)((bits & 0b10000000_00000000_00000000_00000000) >> nSignBitShift);
                 expBits = (ushort)((bits & 0b01111111_10000000_00000000_00000000) >> nFracBits);
                 fracBits = bits & 0b00000000_01111111_11111111_11111111;
@@ -95,12 +95,12 @@ public static class XFloatingPoint
 
             case double d:
             {
-                ulong bits = BitConverter.DoubleToUInt64Bits(d);
+                var bits = BitConverter.DoubleToUInt64Bits(d);
                 signBit = (byte)((bits
-                    & 0b10000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000)
+                        & 0b10000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000)
                     >> nSignBitShift);
                 expBits = (ushort)((bits
-                    & 0b01111111_11110000_00000000_00000000_00000000_00000000_00000000_00000000)
+                        & 0b01111111_11110000_00000000_00000000_00000000_00000000_00000000_00000000)
                     >> nFracBits);
                 fracBits = bits
                     & 0b00000000_00001111_11111111_11111111_11111111_11111111_11111111_11111111;
@@ -126,22 +126,22 @@ public static class XFloatingPoint
     public static T Assemble<T>(byte signBit, ushort expBits, ulong fracBits)
         where T : IFloatingPoint<T>
     {
-        byte nFracBits = GetNumFracBits<T>();
-        byte nExpBits = GetNumExpBits<T>();
-        byte nSignBitShift = (byte)(nFracBits + nExpBits);
+        var nFracBits = GetNumFracBits<T>();
+        var nExpBits = GetNumExpBits<T>();
+        var nSignBitShift = (byte)(nFracBits + nExpBits);
 
         // Check values are within valid ranges for the type.
         if (signBit > 1)
         {
             throw new ArgumentOutOfRangeException(nameof(signBit), "Must be 0 or 1.");
         }
-        ushort expBitsMax = (ushort)((1 << nExpBits) - 1);
+        var expBitsMax = (ushort)((1 << nExpBits) - 1);
         if (expBits > expBitsMax)
         {
             throw new ArgumentOutOfRangeException(nameof(expBits),
                 $"Must be less than or equal to {expBitsMax}.");
         }
-        ulong fracBitsMax = (1ul << nFracBits) - 1;
+        var fracBitsMax = (1ul << nFracBits) - 1;
         if (fracBits > fracBitsMax)
         {
             throw new ArgumentOutOfRangeException(nameof(fracBits),
@@ -149,7 +149,7 @@ public static class XFloatingPoint
         }
 
         // Get the bits.
-        ulong bits = (ulong)(signBit << nSignBitShift) | (ulong)(expBits << nFracBits) | fracBits;
+        var bits = (ulong)(signBit << nSignBitShift) | (ulong)(expBits << nFracBits) | fracBits;
 
         switch (T.Zero)
         {

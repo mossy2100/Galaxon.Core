@@ -25,7 +25,8 @@ public static class XDateTime
     /// This format is useful for databases.
     /// The time zone is not shown. For that, call ToString() with the format specifier "U" or
     /// UniversalSortableDateTimePattern.
-    /// See <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
+    /// See
+    /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
     /// </summary>
     /// <param name="date">The DateTime instance.</param>
     /// <returns>A string representing the datetime in ISO format.</returns>
@@ -36,6 +37,19 @@ public static class XDateTime
     }
 
     #endregion Formatting
+
+    #region Methods for addition and subtraction
+
+    /// <summary>
+    /// Add a number of weeks to a DateTime to get a new DateTime.
+    /// </summary>
+    /// <param name="dt">A DateTime.</param>
+    /// <param name="weeks">The number of weeks to add.</param>
+    /// <returns></returns>
+    public static DateTime AddWeeks(this DateTime dt, double weeks) =>
+        dt.AddDays(weeks * XTimeSpan.DaysPerWeek);
+
+    #endregion Methods for addition and subtraction
 
     #region Extract date and time parts
 
@@ -98,7 +112,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalSeconds(double seconds)
     {
-        long ticks = (long)Math.Round(seconds * TimeSpan.TicksPerSecond);
+        var ticks = (long)Math.Round(seconds * TimeSpan.TicksPerSecond);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
@@ -111,7 +125,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalDays(double days)
     {
-        long ticks = (long)Math.Round(days * TimeSpan.TicksPerDay);
+        var ticks = (long)Math.Round(days * TimeSpan.TicksPerDay);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
@@ -122,7 +136,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalYears(double years)
     {
-        long ticks = (long)Math.Round(years * XTimeSpan.TicksPerYear);
+        var ticks = (long)Math.Round(years * XTimeSpan.TicksPerYear);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
@@ -151,17 +165,4 @@ public static class XDateTime
         FromTotalDays(jd - JulianPeriodOffset);
 
     #endregion Conversion to/from Julian Day
-
-    #region Methods for addition and subtraction
-
-    /// <summary>
-    /// Add a number of weeks to a DateTime to get a new DateTime.
-    /// </summary>
-    /// <param name="dt">A DateTime.</param>
-    /// <param name="weeks">The number of weeks to add.</param>
-    /// <returns></returns>
-    public static DateTime AddWeeks(this DateTime dt, double weeks) =>
-        dt.AddDays(weeks * XTimeSpan.DaysPerWeek);
-
-    #endregion Methods for addition and subtraction
 }

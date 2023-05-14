@@ -10,8 +10,8 @@ public class TestConvertBase
     [TestMethod]
     public void TesIntToBaseZero()
     {
-        int i = 0;
-        string s = i.ToBase(2);
+        var i = 0;
+        var s = i.ToBase(2);
         Assert.AreEqual("0", s);
 
         s = i.ToBase(12);
@@ -24,8 +24,8 @@ public class TestConvertBase
     [TestMethod]
     public void TestIntToBase16Positive()
     {
-        int i = 1;
-        string s = i.ToBase(16);
+        var i = 1;
+        var s = i.ToBase(16);
         Assert.AreEqual("1", s);
 
         i = 10;
@@ -91,19 +91,19 @@ public class TestConvertBase
         ushort ush = 23456;
         Assert.AreEqual("101101110100000", ush.ToBase(2));
 
-        int i = -987_654_321;
+        var i = -987_654_321;
         Assert.AreEqual("-3ade68b1", i.ToBase(16));
 
         uint ui = 123_456_789;
         Assert.AreEqual("75bcd15", ui.ToBase(16));
 
-        long l = -111_222_333_444_555L;
+        var l = -111_222_333_444_555L;
         Assert.AreEqual("-6527f7ad11cb", l.ToBase(16));
 
-        ulong ul = 111_222_333_444_555uL;
+        var ul = 111_222_333_444_555uL;
         Assert.AreEqual("6527f7ad11cb", ul.ToBase(16));
 
-        BigInteger bi = BigInteger.Parse("-98765432109876543210987654321098765432109876543210");
+        var bi = BigInteger.Parse("-98765432109876543210987654321098765432109876543210");
         Assert.AreEqual("-4393fb25a23480e82908ce2957cfb667d751c67eea", bi.ToBase(16));
 
         bi = BigInteger.Parse("12345678901234567890123456789012345678901234567890");
@@ -176,7 +176,7 @@ public class TestConvertBase
     [TestMethod]
     public void TestToBase32WithCase()
     {
-        ulong x = 12345678901234567890;
+        var x = 12345678901234567890;
         Assert.AreEqual("amL59hjLhu2mi", x.ToBase(32));
         Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32, false));
         Assert.AreEqual("AML59HJLHU2MI", x.ToBase(32, true));
@@ -185,7 +185,7 @@ public class TestConvertBase
     [TestMethod]
     public void TestToBaseInvalidBase()
     {
-        int x = 123456;
+        var x = 123456;
         string s;
         Assert.ThrowsException<ArgumentOutOfRangeException>(() => s = x.ToBase(0));
         Assert.ThrowsException<ArgumentOutOfRangeException>(() => s = x.ToBase(1));

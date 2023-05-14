@@ -111,7 +111,7 @@ public class TestXDateOnly
     {
         // From the exercise in AA2 p64.
         DateOnly date1 = new (1991, 7, 11);
-        DateOnly date2 = date1.AddDays(10000);
+        var date2 = date1.AddDays(10000);
         Assert.AreEqual(date2.ToIsoString(), "2018-11-26");
     }
 

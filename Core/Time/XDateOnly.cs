@@ -50,7 +50,6 @@ public static class XDateOnly
     /// <summary>
     /// Get the number of ticks between the start of the epoch (0001-01-01 00:00:00) and the start
     /// of the date.
-    ///
     /// If extension properties are added to the language I may change this to a property "Ticks"
     /// later, for consistency with DateTime.
     /// </summary>
@@ -78,7 +77,6 @@ public static class XDateOnly
 
     /// <summary>
     /// Get the number of years between the start of the epoch and the start of the date.
-    ///
     /// The result will be greater than or equal to `date.Year - 1` and less than `date.Year`.
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
@@ -121,7 +119,6 @@ public static class XDateOnly
     /// <summary>
     /// Returns the difference between two dates as a number of days.
     /// Emulates the <see cref="DateTime.Subtract(DateTime)" /> method.
-    ///
     /// If the end date is later than the start date, the result will be positive.
     /// If they are equal, the result will be zero. Otherwise, the result will be negative.
     /// </summary>
@@ -154,7 +151,6 @@ public static class XDateOnly
 
     /// <summary>
     /// Find a date given a year and the day of the year.
-    ///
     /// Formula from Meeus (Astronomical Algorithms 2 ed. p66).
     /// </summary>
     /// <param name="year">The year (1..9999).</param>
@@ -170,7 +166,7 @@ public static class XDateOnly
 
         // Check day of year is in the valid range.
         GregorianCalendar gc = new ();
-        int daysInYear = gc.GetDaysInYear(year);
+        var daysInYear = gc.GetDaysInYear(year);
         if (dayOfYear < 1 || dayOfYear > daysInYear)
         {
             throw new ArgumentOutOfRangeException(nameof(dayOfYear),
@@ -178,9 +174,9 @@ public static class XDateOnly
         }
 
         // Calculate.
-        int k = gc.IsLeapYear(year) ? 1 : 2;
-        int month = (dayOfYear < 32) ? 1 : (int)(9 * (k + dayOfYear) / 275.0 + 0.98);
-        int day = dayOfYear - (int)(275 * month / 9.0) + k * (int)((month + 9) / 12.0) + 30;
+        var k = gc.IsLeapYear(year) ? 1 : 2;
+        var month = dayOfYear < 32 ? 1 : (int)(9 * (k + dayOfYear) / 275.0 + 0.98);
+        var day = dayOfYear - (int)(275 * month / 9.0) + k * (int)((month + 9) / 12.0) + 30;
 
         return new DateOnly(year, month, day);
     }
@@ -231,20 +227,20 @@ public static class XDateOnly
     /// <returns>The date of Easter Sunday for the given year.</returns>
     public static DateOnly GetEaster(int year)
     {
-        int a = year % 19;
-        int b = year / 100;
-        int c = year % 100;
-        int d = b / 4;
-        int e = b % 4;
-        int g = (8 * b + 13) / 25;
-        int h = (19 * a + b - d - g + 15) % 30;
-        int i = c / 4;
-        int k = c % 4;
-        int l = (32 + 2 * e + 2 * i - h - k) % 7;
-        int m = (a + 11 * h + 19 * l) / 433;
-        int q = h + l - 7 * m;
-        int month = (q + 90) / 25;
-        int day = (q + 33 * month + 19) % 32;
+        var a = year % 19;
+        var b = year / 100;
+        var c = year % 100;
+        var d = b / 4;
+        var e = b % 4;
+        var g = (8 * b + 13) / 25;
+        var h = (19 * a + b - d - g + 15) % 30;
+        var i = c / 4;
+        var k = c % 4;
+        var l = (32 + 2 * e + 2 * i - h - k) % 7;
+        var m = (a + 11 * h + 19 * l) / 433;
+        var q = h + l - 7 * m;
+        var month = (q + 90) / 25;
+        var day = (q + 33 * month + 19) % 32;
         return new DateOnly(year, month, day);
     }
 
@@ -288,15 +284,15 @@ public static class XDateOnly
 
         // Get the number of days in the month.
         GregorianCalendar gc = new ();
-        int daysInMonth = gc.GetDaysInMonth(year, month);
-        int daysPerWeek = (int)XTimeSpan.DaysPerWeek;
+        var daysInMonth = gc.GetDaysInMonth(year, month);
+        var daysPerWeek = (int)XTimeSpan.DaysPerWeek;
         int day;
 
         if (n > 0)
         {
             // Get the number of days difference between the start of the month and the result.
             DateOnly firstOfMonth = new (year, month, 1);
-            int diffDays = dayOfWeek - firstOfMonth.DayOfWeek;
+            var diffDays = dayOfWeek - firstOfMonth.DayOfWeek;
             if (diffDays < 0)
             {
                 diffDays += daysPerWeek;
@@ -307,7 +303,7 @@ public static class XDateOnly
         {
             // Get the number of days difference between the end of the month and the result.
             DateOnly lastOfMonth = new (year, month, daysInMonth);
-            int diffDays = lastOfMonth.DayOfWeek - dayOfWeek;
+            var diffDays = lastOfMonth.DayOfWeek - dayOfWeek;
             if (diffDays < 0)
             {
                 diffDays += daysPerWeek;

@@ -36,11 +36,11 @@ public static class XInt
 
         // Get a random value in the range 0..int.MaxValue.
         // It's non-negative, so the most significant bit will always be 0.
-        int i = rnd.Next();
+        var i = rnd.Next();
 
         // Get a random sign bit.
-        byte signBit = (byte)rnd.Next(2);
+        var signBit = (byte)rnd.Next(2);
 
-        return (signBit << 31) | i;
+        return signBit << 31 | i;
     }
 }

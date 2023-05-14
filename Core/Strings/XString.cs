@@ -43,7 +43,7 @@ public static class XString
         // map is so any 'x's will be kept even if "keepCharsNotInMap" is false.
         { 'x', "x" },
         { 'y', "ʏ" },
-        { 'z', "ᴢ" },
+        { 'z', "ᴢ" }
     };
 
     /// <summary>
@@ -55,25 +55,27 @@ public static class XString
     /// <summary>
     /// Replace characters in a string with other characters by using a character map.
     /// Example use cases:
-    ///   * making a string upper- or lower-case
-    ///   * converting lowercase characters to small caps
-    ///   * making a string superscript or subscript
-    ///   * transliteration/removal of diacritics
+    /// * making a string upper- or lower-case
+    /// * converting lowercase characters to small caps
+    /// * making a string superscript or subscript
+    /// * transliteration/removal of diacritics
     /// </summary>
     /// <param name="str">The original string.</param>
     /// <param name="charMap">The character map.</param>
-    /// <param name="keepCharsNotInMap">If a character is encountered that is not in the character
-    /// map, either keep it (true) or skip it (false).</param>
+    /// <param name="keepCharsNotInMap">
+    /// If a character is encountered that is not in the character
+    /// map, either keep it (true) or skip it (false).
+    /// </param>
     /// <returns>The transformed string.</returns>
     public static string ReplaceChars(this string str, Dictionary<char, string> charMap,
-        bool keepCharsNotInMap = true )
+        bool keepCharsNotInMap = true)
     {
         StringBuilder sb = new ();
 
-        foreach (char original in str)
+        foreach (var original in str)
         {
             // Get the replacement character if it's there.
-            if (charMap.TryGetValue(original, out string? replacement))
+            if (charMap.TryGetValue(original, out var replacement))
             {
                 // Append the replacement character.
                 sb.Append(replacement);
@@ -100,7 +102,7 @@ public static class XString
         }
 
         StringBuilder sb = new ();
-        for (int i = 0; i < n; i++)
+        for (var i = 0; i < n; i++)
         {
             sb.Append(s);
         }
@@ -113,7 +115,7 @@ public static class XString
     /// </summary>
     public static string Reverse(this string str)
     {
-        char[] chars = str.ToArray();
+        var chars = str.ToArray();
         Array.Reverse(chars);
         return new string(chars);
     }
@@ -173,7 +175,7 @@ public static class XString
     /// <param name="str">The string to process.</param>
     /// <returns>The string with HTML tags removed.</returns>
     public static string StripTags(this string str) =>
-        str.StripBrackets(false, false, false, true);
+        str.StripBrackets(false, false, false);
 
     /// <summary>
     /// Check if a string contains only ASCII characters.
@@ -195,7 +197,7 @@ public static class XString
     public static string MakeSlug(this string str)
     {
         // Convert to ASCII.
-        string result = str.Transliterate();
+        var result = str.Transliterate();
 
         // Remove apostrophes.
         result = result.Replace("'", "");
@@ -248,18 +250,15 @@ public static class XString
     /// <summary>
     /// Given a string of digits, format in groups using the specified group separator and group
     /// size.
-    ///
     /// This method is designed for formatting numbers but it could be used for other purposes,
     /// since the method doesn't check if the characters are actually digits. It just assumes they
     /// are. Apart from saving time, it allows the method to be used for hexadecimal or other bases.
-    ///
     /// Grouping starts from the right. Here's how you would format an integer:
-    ///     "12345678".GroupDigits(',', 3) => "12,345,678"
-    ///
+    /// "12345678".GroupDigits(',', 3) => "12,345,678"
     /// You can chain methods if you need to, e.g.
-    ///     "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
-    ///     "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
-    ///     123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
+    /// "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
+    /// "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
+    /// 123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
     /// </summary>
     /// <param name="str">The string, nominally of digits, but can be whatever.</param>
     /// <param name="separator">The group separator character.</param>
@@ -274,7 +273,7 @@ public static class XString
             {
                 break;
             }
-            string group = str.Length > size ? str[^size..] : str;
+            var group = str.Length > size ? str[^size..] : str;
             if (sb.Length != 0)
             {
                 sb.Prepend(separator);
@@ -290,4 +289,31 @@ public static class XString
     }
 
     #endregion Methods for formatting numbers
+
+    #region Methods for converting strings to numbers
+
+    /// <summary>
+    /// Convert nullable string to nullable int without throwing.
+    /// If the string cannot be parsed into an int, return null.
+    /// Of course, TryParse() can be used, but this method is a bit more concise, and saves time
+    /// thinking about nulls.
+    /// </summary>
+    public static int? ToInt(this string? str) =>
+        int.TryParse(str, out var i) ? i : null;
+
+    /// <summary>
+    /// Convert nullable string to nullable double without throwing.
+    /// If the string cannot be parsed into a double, return null.
+    /// </summary>
+    public static double? ToDouble(this string? str) =>
+        double.TryParse(str, out var d) ? d : null;
+
+    /// <summary>
+    /// Convert nullable string to nullable decimal without throwing.
+    /// If the string cannot be parsed into a decimal, return null.
+    /// </summary>
+    public static decimal? ToDecimal(this string? str) =>
+        decimal.TryParse(str, out var m) ? m : null;
+
+    #endregion Methods for converting strings to numbers
 }

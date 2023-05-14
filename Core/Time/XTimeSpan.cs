@@ -2,11 +2,9 @@ namespace Galaxon.Core.Time;
 
 /// <summary>
 /// Additional members to supplement the TimeSpan class.
-///
 /// Mostly constants.
 /// For consistency with TimeSpan, I've used `long` as the type for any integer constants.
 /// For non-integer constants I've used `double`.
-///
 /// The following constants are already provided by the TimeSpan class and not reproduced here:
 /// - TicksPerMicrosecond
 /// - TicksPerMillisecond
@@ -14,10 +12,8 @@ namespace Galaxon.Core.Time;
 /// - TicksPerMinute
 /// - TicksPerHour
 /// - TicksPerDay
-///
 /// **NOTE: Any constants or methods for converting between time units will become obsolete
 /// with the completion of Galaxon.Quantities.**
-///
 /// The word Month, Year, Decade, Century, or Millennium in a constant name usually refers to the
 /// average length of that time unit in the Gregorian Calendar.
 /// </summary>
@@ -36,7 +32,7 @@ public static class XTimeSpan
     public static double Convert(double amount, ETimeUnit fromUnit,
         ETimeUnit toUnit = ETimeUnit.Tick)
     {
-        double ticks = fromUnit switch
+        var ticks = fromUnit switch
         {
             ETimeUnit.Nanosecond => amount * TicksPerNanosecond,
             ETimeUnit.Tick => amount,
@@ -195,7 +191,7 @@ public static class XTimeSpan
     /// <summary>
     /// The average number of seconds in a month.
     /// </summary>
-    public const long SecondsPerMonth =  2_629_746L;
+    public const long SecondsPerMonth = 2_629_746L;
 
     /// <summary>
     /// The average number of seconds in a Gregorian year.
@@ -262,7 +258,6 @@ public static class XTimeSpan
 
     /// <summary>
     /// The number of years in a decade.
-    ///
     /// The precise length of a decade depends on what year is being used.
     /// For a example, a Gregorian decade (3652.425 d on average) will have a different
     /// length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
@@ -286,19 +281,14 @@ public static class XTimeSpan
 
     /// <summary>
     /// The Gregorian Calendars repeats on a 400-year cycle called the *solar cycle*.
-    ///
     /// There are 97 leap years in that period, giving an average calendar year length of
     /// 365 + (97/400) = 365.2425 days/year.
-    ///
     /// 1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
-    ///
     /// 5 Gregorian solar cycles = 2000 y = 2 ky
-    ///
     /// Solar cycles are not ordinarily numbered, nor given a specific start date.
     /// However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
     /// 1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
     /// was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
-    ///
     /// See:
     /// - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
     /// - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />

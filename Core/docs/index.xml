@@ -51,27 +51,24 @@
             </summary>
         </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentFormatException">
-             <summary>
-             This exception type is useful for an ArgumentException that is also a FormatException.
-             The usual FormatException is probably best reserved for situations not involving method
-             parameters, e.g. parsing a file.
-            
-             I'm using the same parameter order here as used by ArgumentNullException and
-             ArgumentOutOfRangeException.
-             i.e. (paramName, message), for consistency. The base class, ArgumentException,
-             has the parameters in a different order, i.e. (message, paramName), which can be confusing.
-            
-             For this reason, I've resolved not to use ArgumentException anymore but to treat it as an
-             abstract base class.
-             This will avoid the issue with the arguments being out of order, and the lack of specificity.
-            
-             Normally for any ArgumentException we want to identify the argument causing the exception (which
-             should be done using nameof()), unless there are several, in which case the offending arguments
-             can be identified in the message.
-             </summary>
-             <see cref="T:System.ArgumentException" />
-             <see cref="T:System.ArgumentNullException" />
-             <see cref="T:System.ArgumentOutOfRangeException" />
+            <summary>
+            This exception type is useful for an ArgumentException that is also a FormatException.
+            The usual FormatException is probably best reserved for situations not involving method
+            parameters, e.g. parsing a file.
+            I'm using the same parameter order here as used by ArgumentNullException and
+            ArgumentOutOfRangeException.
+            i.e. (paramName, message), for consistency. The base class, ArgumentException,
+            has the parameters in a different order, i.e. (message, paramName), which can be confusing.
+            For this reason, I've resolved not to use ArgumentException anymore but to treat it as an
+            abstract base class.
+            This will avoid the issue with the arguments being out of order, and the lack of specificity.
+            Normally for any ArgumentException we want to identify the argument causing the exception (which
+            should be done using nameof()), unless there are several, in which case the offending arguments
+            can be identified in the message.
+            </summary>
+            <see cref="T:System.ArgumentException" />
+            <see cref="T:System.ArgumentNullException" />
+            <see cref="T:System.ArgumentOutOfRangeException" />
         </member>
         <member name="M:Galaxon.Core.Exceptions.ArgumentFormatException.#ctor">
             <summary>
@@ -97,25 +94,22 @@
             <param name="innerException">The inner exception.</param>
         </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
-             <summary>
-             This exception type is useful for an ArgumentException when the argument is invalid for a
-             reason other than being null, out of range, or having an invalid format.
-            
-             I'm using the same parameter order here as used by ArgumentNullException and
-             ArgumentOutOfRangeException, i.e. (paramName, message), for consistency. The base class,
-             ArgumentException, has the parameters in a different order, i.e. (message, paramName), which can
-             be confusing.
-            
-             I've resolved not to use ArgumentException anymore but to treat it as an abstract base class.
-             This will avoid the issue with the arguments being out of order, and the lack of specificity.
-            
-             Normally for any ArgumentException we want to identify the argument causing the exception (which
-             should be done using nameof()), unless there are several, in which case the offending arguments
-             can be identified in the message.
-             </summary>
-             <see cref="T:System.ArgumentException" />
-             <see cref="T:System.ArgumentNullException" />
-             <see cref="T:System.ArgumentOutOfRangeException" />
+            <summary>
+            This exception type is useful for an ArgumentException when the argument is invalid for a
+            reason other than being null, out of range, or having an invalid format.
+            I'm using the same parameter order here as used by ArgumentNullException and
+            ArgumentOutOfRangeException, i.e. (paramName, message), for consistency. The base class,
+            ArgumentException, has the parameters in a different order, i.e. (message, paramName), which can
+            be confusing.
+            I've resolved not to use ArgumentException anymore but to treat it as an abstract base class.
+            This will avoid the issue with the arguments being out of order, and the lack of specificity.
+            Normally for any ArgumentException we want to identify the argument causing the exception (which
+            should be done using nameof()), unless there are several, in which case the offending arguments
+            can be identified in the message.
+            </summary>
+            <see cref="T:System.ArgumentException" />
+            <see cref="T:System.ArgumentNullException" />
+            <see cref="T:System.ArgumentOutOfRangeException" />
         </member>
         <member name="M:Galaxon.Core.Exceptions.ArgumentInvalidException.#ctor">
             <summary>
@@ -157,75 +151,65 @@
             <param name="innerException"></param>
         </member>
         <member name="T:Galaxon.Core.Numbers.ConvertBase">
-             <summary>
-             This class supports conversion between integers and strings of digits in a specified base,
-             which can be in the range 2..64.
-            
-             All built-in integer types are supported, including Int128, UInt128, and BigInteger.
-            
-             Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
-             26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
-             ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
-             to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
-             and I assume all, or almost all, computer keyboards will support all of them.
-            
-             This has been done to add support for base 64, mainly for my own amusement, and to provide
-             an alternative to bog-standard Base64 encoding (see link). The difference here, if it matters,
-             is that the base 64 digits used here are compatible with hexadecimal digit values, and all other
-             bases.
-            
-             ASCII provides 32 symbol (or punctuation) characters. The 4 omitted characters are '.' (period),
-             ',' (comma), and '_' (underscore) because these can all be used as group separators (in
-             different contexts), and '"' (double quote) which is the string delimiter in C#.
-            
-             As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
-             Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
-             letters. See the method documentation for ToBase() for how to use this parameter.
-            
-             The default is to use lower-case for all letters except for L (see the Digits constant).
-             Upper-case letters are more easily confused with numerals than lower-case. For example:
-                 - 'O' looks like '0'
-                 - 'I' looks like '1'
-                 - 'Z' looks like '2'
-                 - 'S' looks like '5'
-                 - 'G' looks like '6'
-                 - 'B' looks like '8'
-             The only similar problem with lower-case letters is that 'l' looks like '1'. To solve this,
-             upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
-             long literals in C#, as a rule.)
-            
-             These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
-             between letters and numbers, so it's not the issue it once was.
-             Multiple coding standards for CSS require lower-case hex digits in color literals.
-             "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
-             Other than that, I can't find any standards that mandate one over the other. It seems upper-case
-             is favoured in older languages, lower-case in newer.
-            
-             The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
-             the form of "To" and "From" methods for all bases that are a power of 2:
-            
-             |------------------------|--------|----------------|
-             |  Numeral system        |  Base  |  Abbreviation  |
-             |------------------------|--------|----------------|
-             |  binary                |    2   |  Bin           |
-             |  quaternary            |    4   |  Quat          |
-             |  octal                 |    8   |  Oct           |
-             |  hexadecimal           |   16   |  Hex           |
-             |  triacontakaidecimal*  |   32   |  Tria          |
-             |  tetrasexagesimal      |   64   |  Tetra         |
-             |------------------------|--------|----------------|
-            
-             *Base 32 is more correctly called "duotrigesimal". However, there are multiple methods in use
-             for encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
-             also known as "base32hex". It's the same encoding used in Java in JavaScript.
-             </summary>
-             <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems" />
-             <see href="https://en.wikipedia.org/wiki/Binary_number" />
-             <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system" />
-             <see href="https://en.wikipedia.org/wiki/Octal" />
-             <see href="https://en.wikipedia.org/wiki/Hexadecimal" />
-             <see href="https://en.wikipedia.org/wiki/Base32" />
-             <see href="https://en.wikipedia.org/wiki/Base64" />
+            <summary>
+            This class supports conversion between integers and strings of digits in a specified base,
+            which can be in the range 2..64.
+            All built-in integer types are supported, including Int128, UInt128, and BigInteger.
+            Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
+            26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
+            ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
+            to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
+            and I assume all, or almost all, computer keyboards will support all of them.
+            This has been done to add support for base 64, mainly for my own amusement, and to provide
+            an alternative to bog-standard Base64 encoding (see link). The difference here, if it matters,
+            is that the base 64 digits used here are compatible with hexadecimal digit values, and all other
+            bases.
+            ASCII provides 32 symbol (or punctuation) characters. The 4 omitted characters are '.' (period),
+            ',' (comma), and '_' (underscore) because these can all be used as group separators (in
+            different contexts), and '"' (double quote) which is the string delimiter in C#.
+            As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
+            Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
+            letters. See the method documentation for ToBase() for how to use this parameter.
+            The default is to use lower-case for all letters except for L (see the Digits constant).
+            Upper-case letters are more easily confused with numerals than lower-case. For example:
+            - 'O' looks like '0'
+            - 'I' looks like '1'
+            - 'Z' looks like '2'
+            - 'S' looks like '5'
+            - 'G' looks like '6'
+            - 'B' looks like '8'
+            The only similar problem with lower-case letters is that 'l' looks like '1'. To solve this,
+            upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
+            long literals in C#, as a rule.)
+            These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
+            between letters and numbers, so it's not the issue it once was.
+            Multiple coding standards for CSS require lower-case hex digits in color literals.
+            "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
+            Other than that, I can't find any standards that mandate one over the other. It seems upper-case
+            is favoured in older languages, lower-case in newer.
+            The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
+            the form of "To" and "From" methods for bases that are a power of 2:
+            |------------------|------------------------|--------|----------------|
+            |  Bits per digit  |  Numeral system        |  Base  |  Abbreviation  |
+            |------------------|------------------------|--------|----------------|
+            |        1         |  binary                |    2   |  Bin           |
+            |        2         |  quaternary            |    4   |  Quat          |
+            |        3         |  octal                 |    8   |  Oct           |
+            |        4         |  hexadecimal           |   16   |  Hex           |
+            |        5         |  triacontakaidecimal*  |   32   |  Tria          |
+            |        6         |  tetrasexagesimal      |   64   |  Tetra         |
+            |------------------|------------------------|--------|----------------|
+            *Base 32 is more correctly called "duotrigesimal". However, there are multiple methods in use
+            for encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
+            also known as "base32hex". It's the same encoding used in Java in JavaScript.
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems" />
+            <see href="https://en.wikipedia.org/wiki/Binary_number" />
+            <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system" />
+            <see href="https://en.wikipedia.org/wiki/Octal" />
+            <see href="https://en.wikipedia.org/wiki/Hexadecimal" />
+            <see href="https://en.wikipedia.org/wiki/Base32" />
+            <see href="https://en.wikipedia.org/wiki/Base64" />
         </member>
         <member name="F:Galaxon.Core.Numbers.ConvertBase.MinBase">
             <summary>The minimum base supported by the type.</summary>
@@ -240,24 +224,23 @@
             <summary>Unicode thin space character. Can be useful for formatting numbers.</summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToBase``1(``0,System.Byte,System.Nullable{System.Boolean})">
-             <summary>
-             Convert an integer to a string of digits in a given base.
-            
-             Note, a negative value will be converted to a non-negative value with the same underlying
-             bits. This reflects the behaviour of other base-conversion methods in .NET.
-             </summary>
-             <param name="n">The instance value.</param>
-             <param name="toBase">The base to convert to.</param>
-             <param name="letterCase">
-             If letters should be lower-case, upper-case, or default.
-                 null  = default (all lower-case except for L; see Digits)
-                 true  = upper-case
-                 false = lower-case
-             </param>
-             <typeparam name="T">The integer type.</typeparam>
-             <returns>The string of digits.</returns>
-             <exception cref="T:System.ArgumentOutOfRangeException">If the base is out of range.</exception>
-             <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException"> If T is an unsupported type.</exception>
+            <summary>
+            Convert an integer to a string of digits in a given base.
+            Note, a negative value will be converted to a non-negative value with the same underlying
+            bits. This reflects the behaviour of other base-conversion methods in .NET.
+            </summary>
+            <param name="n">The instance value.</param>
+            <param name="toBase">The base to convert to.</param>
+            <param name="letterCase">
+            If letters should be lower-case, upper-case, or default.
+            null  = default (all lower-case except for L; see Digits)
+            true  = upper-case
+            false = lower-case
+            </param>
+            <typeparam name="T">The integer type.</typeparam>
+            <returns>The string of digits.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If the base is out of range.</exception>
+            <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException"> If T is an unsupported type.</exception>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToBin``1(``0)">
             <summary>Convert an integer to binary digits.</summary>
@@ -303,11 +286,15 @@
             <typeparam name="T">The target type to create an instance of.</typeparam>
             <returns>The integer equivalent of the digits.</returns>
             <exception cref="T:System.ArgumentNullException">If string is null, empty, or whitespace.</exception>
-            <exception cref="T:Galaxon.Core.Exceptions.ArgumentFormatException">If string contains invalid characters for the
-            specified base.</exception>
+            <exception cref="T:Galaxon.Core.Exceptions.ArgumentFormatException">
+            If string contains invalid characters for the
+            specified base.
+            </exception>
             <exception cref="T:System.InvalidCastException">If a cast to the target type failed.</exception>
-            <exception cref="T:System.OverflowException">If the resulting value is out of range for the target
-            type.</exception>
+            <exception cref="T:System.OverflowException">
+            If the resulting value is out of range for the target
+            type.
+            </exception>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromBin``1(System.String)">
             <summary>
@@ -379,6 +366,12 @@
             Cache for GreatestCommonDivisor().
             </summary>
         </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.ToUnsigned(System.Numerics.BigInteger)">
+            <summary>
+            Get the unsigned, twos-complement version of the value, containing the fewest number of
+            bytes.
+            </summary>
+        </member>
         <member name="M:Galaxon.Core.Numbers.XBigInteger.Reverse(System.Numerics.BigInteger)">
             <summary>
             Reverse a BigInteger.
@@ -402,12 +395,6 @@
             The result will be the same for a positive or negative value.
             I tried doing this with double.Log() but because double is imprecise it gives wrong results
             for values close to but less than powers of 10.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XBigInteger.ToUnsigned(System.Numerics.BigInteger)">
-            <summary>
-            Get the unsigned, twos-complement version of the value, containing the fewest number of
-            bytes.
             </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XBigInteger.LeastCommonMultiple(System.Numerics.BigInteger,System.Numerics.BigInteger)">
@@ -454,28 +441,25 @@
             </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XBinaryInteger.ToSuperscript``1(``0)">
-             <summary>
-             Render an integer as a superscript string.
-            
-             This is useful for formatting exponents, numerators, and other numeric superscripts when
-             HTML is unavailable.
-            
-             See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
-             See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
-             See <see href="https://unicode-table.com/en/" />
-             </summary>
-             <param name="n">The integer.</param>
-             <returns>The string of superscript characters.</returns>
+            <summary>
+            Render an integer as a superscript string.
+            This is useful for formatting exponents, numerators, and other numeric superscripts when
+            HTML is unavailable.
+            See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
+            See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
+            See <see href="https://unicode-table.com/en/" />
+            </summary>
+            <param name="n">The integer.</param>
+            <returns>The string of superscript characters.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.XBinaryInteger.ToSubscript``1(``0)">
-             <summary>
-             Render an integer as a subscript string.
-            
-             This is useful for formatting denominators, the number of atoms in a molecule, atomic
-             numbers, and other numeric subscripts when HTML is unavailable.
-             </summary>
-             <param name="n">The integer.</param>
-             <returns>The string of subscript characters.</returns>
+            <summary>
+            Render an integer as a subscript string.
+            This is useful for formatting denominators, the number of atoms in a molecule, atomic
+            numbers, and other numeric subscripts when HTML is unavailable.
+            </summary>
+            <param name="n">The integer.</param>
+            <returns>The string of subscript characters.</returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.XDecimal">
             <summary>Extension methods for decimal.</summary>
@@ -707,22 +691,21 @@
             </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Double,System.Double,System.Double)">
-             <summary>
-             Check if 2 double values are equal for practical purposes.
-            
-             If two double values differ only by the least significant bit, this is more likely
-             due to inaccuracies in floating point representations than actual inequality.
-            
-             This code is copied/adapted from Google Guava DoubleMath.fuzzyEquals().
-             <see href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360" />
-            
-             I initially tried the algorithm from the Microsoft documentation, it didn't work in all cases.
-             <see href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)" />
-             </summary>
-             <param name="a">First number.</param>
-             <param name="b">Second number.</param>
-             <param name="tolerance">The maximum allowable difference between them.</param>
-             <returns>If close enough to equal.</returns>
+            <summary>
+            Check if 2 double values are equal for practical purposes.
+            If two double values differ only by the least significant bit, this is more likely
+            due to inaccuracies in floating point representations than actual inequality.
+            This code is copied/adapted from Google Guava DoubleMath.fuzzyEquals().
+            <see
+                href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360" />
+            I initially tried the algorithm from the Microsoft documentation, it didn't work in all cases.
+            <see
+                href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)" />
+            </summary>
+            <param name="a">First number.</param>
+            <param name="b">Second number.</param>
+            <param name="tolerance">The maximum allowable difference between them.</param>
+            <returns>If close enough to equal.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDouble.FuzzyEquals(System.Nullable{System.Double},System.Nullable{System.Double},System.Double)">
             <summary>
@@ -993,21 +976,18 @@
             </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)">
-             <summary>
-             Integer division and modulo operation using floored division.
-             The modulus will always have the same sign as the divisor.
-            
-             Unlike the truncated division and modulo provided by C#'s operators, floored division
-             produces a regular cycling pattern through both negative and positive values of the divisor.
-            
-             It permits things like:
-               bool isOdd = Mod(num, 2) == 1;
-            
-             Trying to do this using the % operator will fail for negative divisors, however. e.g.
-               bool isOdd = num % 2 == 1;
-             In this case, if num is negative 0, num % 2 == -1
-             </summary>
-             <see href="https://en.wikipedia.org/wiki/Modulo_operation" />
+            <summary>
+            Integer division and modulo operation using floored division.
+            The modulus will always have the same sign as the divisor.
+            Unlike the truncated division and modulo provided by C#'s operators, floored division
+            produces a regular cycling pattern through both negative and positive values of the divisor.
+            It permits things like:
+            bool isOdd = Mod(num, 2) == 1;
+            Trying to do this using the % operator will fail for negative divisors, however. e.g.
+            bool isOdd = num % 2 == 1;
+            In this case, if num is negative 0, num % 2 == -1
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/Modulo_operation" />
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.Div``1(``0,``0)">
             <summary>
@@ -1117,15 +1097,17 @@
             <summary>
             Replace characters in a string with other characters by using a character map.
             Example use cases:
-              * making a string upper- or lower-case
-              * converting lowercase characters to small caps
-              * making a string superscript or subscript
-              * transliteration/removal of diacritics
+            * making a string upper- or lower-case
+            * converting lowercase characters to small caps
+            * making a string superscript or subscript
+            * transliteration/removal of diacritics
             </summary>
             <param name="str">The original string.</param>
             <param name="charMap">The character map.</param>
-            <param name="keepCharsNotInMap">If a character is encountered that is not in the character
-            map, either keep it (true) or skip it (false).</param>
+            <param name="keepCharsNotInMap">
+            If a character is encountered that is not in the character
+            map, either keep it (true) or skip it (false).
+            </param>
             <returns>The transformed string.</returns>
         </member>
         <member name="M:Galaxon.Core.Strings.XString.Repeat(System.String,System.Int32)">
@@ -1219,26 +1201,43 @@
             <returns>The zero-padded string.</returns>
         </member>
         <member name="M:Galaxon.Core.Strings.XString.GroupDigits(System.String,System.Char,System.Byte)">
-             <summary>
-             Given a string of digits, format in groups using the specified group separator and group
-             size.
-            
-             This method is designed for formatting numbers but it could be used for other purposes,
-             since the method doesn't check if the characters are actually digits. It just assumes they
-             are. Apart from saving time, it allows the method to be used for hexadecimal or other bases.
-            
-             Grouping starts from the right. Here's how you would format an integer:
-                 "12345678".GroupDigits(',', 3) => "12,345,678"
-            
-             You can chain methods if you need to, e.g.
-                 "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
-                 "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
-                 123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
-             </summary>
-             <param name="str">The string, nominally of digits, but can be whatever.</param>
-             <param name="separator">The group separator character.</param>
-             <param name="size">The group size.</param>
-             <returns>The formatted string.</returns>
+            <summary>
+            Given a string of digits, format in groups using the specified group separator and group
+            size.
+            This method is designed for formatting numbers but it could be used for other purposes,
+            since the method doesn't check if the characters are actually digits. It just assumes they
+            are. Apart from saving time, it allows the method to be used for hexadecimal or other bases.
+            Grouping starts from the right. Here's how you would format an integer:
+            "12345678".GroupDigits(',', 3) => "12,345,678"
+            You can chain methods if you need to, e.g.
+            "11111000000001010101".GroupDigits('_', 8) => "1111_10000000_01010101"
+            "11111000000001010101".ZeroPad(24).GroupDigits('_', 8) => "00001111_10000000_01010101"
+            123456789.ToHex().ZeroPad(8).GroupDigits(' ') => "075b cd15"
+            </summary>
+            <param name="str">The string, nominally of digits, but can be whatever.</param>
+            <param name="separator">The group separator character.</param>
+            <param name="size">The group size.</param>
+            <returns>The formatted string.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToInt(System.String)">
+            <summary>
+            Convert nullable string to nullable int without throwing.
+            If the string cannot be parsed into an int, return null.
+            Of course, TryParse() can be used, but this method is a bit more concise, and saves time
+            thinking about nulls.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToDouble(System.String)">
+            <summary>
+            Convert nullable string to nullable double without throwing.
+            If the string cannot be parsed into a double, return null.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToDecimal(System.String)">
+            <summary>
+            Convert nullable string to nullable decimal without throwing.
+            If the string cannot be parsed into a decimal, return null.
+            </summary>
         </member>
         <member name="T:Galaxon.Core.Strings.XStringBuilder">
             <summary>
@@ -1308,11 +1307,10 @@
             </summary>
         </member>
         <member name="T:Galaxon.Core.Time.ETimeUnit">
-             <summary>
-             The time units supported by the conversion functions.
-            
-             **Note: This will be deprecated once Galaxon.Quantities is complete.**
-             </summary>
+            <summary>
+            The time units supported by the conversion functions.
+            **Note: This will be deprecated once Galaxon.Quantities is complete.**
+            </summary>
         </member>
         <member name="F:Galaxon.Core.Time.ETimeUnit.Nanosecond">
             <summary>
@@ -1417,16 +1415,15 @@
             <returns>The new DateTime object</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetTicks(System.DateOnly)">
-             <summary>
-             Get the number of ticks between the start of the epoch (0001-01-01 00:00:00) and the start
-             of the date.
-            
-             If extension properties are added to the language I may change this to a property "Ticks"
-             later, for consistency with DateTime.
-             </summary>
-             <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
-             <param name="date">The DateOnly instance.</param>
-             <returns>The number of ticks.</returns>
+            <summary>
+            Get the number of ticks between the start of the epoch (0001-01-01 00:00:00) and the start
+            of the date.
+            If extension properties are added to the language I may change this to a property "Ticks"
+            later, for consistency with DateTime.
+            </summary>
+            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
+            <param name="date">The DateOnly instance.</param>
+            <returns>The number of ticks.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetTotalSeconds(System.DateOnly)">
             <summary>
@@ -1443,13 +1440,12 @@
             <returns>The number of days since the epoch start.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.GetTotalYears(System.DateOnly)">
-             <summary>
-             Get the number of years between the start of the epoch and the start of the date.
-            
-             The result will be greater than or equal to `date.Year - 1` and less than `date.Year`.
-             </summary>
-             <param name="date">The DateOnly instance.</param>
-             <returns>The number of years since the epoch start.</returns>
+            <summary>
+            Get the number of years between the start of the epoch and the start of the date.
+            The result will be greater than or equal to `date.Year - 1` and less than `date.Year`.
+            </summary>
+            <param name="date">The DateOnly instance.</param>
+            <returns>The number of years since the epoch start.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.Add(System.DateOnly,System.TimeSpan)">
             <summary>
@@ -1477,16 +1473,15 @@
             <returns>The resulting date.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.Subtract(System.DateOnly,System.DateOnly)">
-             <summary>
-             Returns the difference between two dates as a number of days.
-             Emulates the <see cref="M:System.DateTime.Subtract(System.DateTime)" /> method.
-            
-             If the end date is later than the start date, the result will be positive.
-             If they are equal, the result will be zero. Otherwise, the result will be negative.
-             </summary>
-             <param name="end">The end date.</param>
-             <param name="start">The start date.</param>
-             <returns>The number of days difference between the two dates.</returns>
+            <summary>
+            Returns the difference between two dates as a number of days.
+            Emulates the <see cref="M:System.DateTime.Subtract(System.DateTime)" /> method.
+            If the end date is later than the start date, the result will be positive.
+            If they are equal, the result will be zero. Otherwise, the result will be negative.
+            </summary>
+            <param name="end">The end date.</param>
+            <param name="start">The start date.</param>
+            <returns>The number of days difference between the two dates.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromTotalDays(System.Int64)">
             <summary>
@@ -1504,14 +1499,13 @@
             <returns>The resulting date.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromDayOfYear(System.Int32,System.Int32)">
-             <summary>
-             Find a date given a year and the day of the year.
-            
-             Formula from Meeus (Astronomical Algorithms 2 ed. p66).
-             </summary>
-             <param name="year">The year (1..9999).</param>
-             <param name="dayOfYear">The day of the year (1..366).</param>
-             <returns>The resulting date.</returns>
+            <summary>
+            Find a date given a year and the day of the year.
+            Formula from Meeus (Astronomical Algorithms 2 ed. p66).
+            </summary>
+            <param name="year">The year (1..9999).</param>
+            <param name="dayOfYear">The day of the year (1..366).</param>
+            <returns>The resulting date.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.ToJulianDay(System.DateOnly)">
             <summary>
@@ -1611,10 +1605,19 @@
             This format is useful for databases.
             The time zone is not shown. For that, call ToString() with the format specifier "U" or
             UniversalSortableDateTimePattern.
-            See <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
+            See
+            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
             </summary>
             <param name="date">The DateTime instance.</param>
             <returns>A string representing the datetime in ISO format.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.AddWeeks(System.DateTime,System.Double)">
+            <summary>
+            Add a number of weeks to a DateTime to get a new DateTime.
+            </summary>
+            <param name="dt">A DateTime.</param>
+            <param name="weeks">The number of weeks to add.</param>
+            <returns></returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.GetDateOnly(System.DateTime)">
             <summary>
@@ -1696,14 +1699,6 @@
             </param>
             <returns>A new DateTime object.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.AddWeeks(System.DateTime,System.Double)">
-            <summary>
-            Add a number of weeks to a DateTime to get a new DateTime.
-            </summary>
-            <param name="dt">A DateTime.</param>
-            <param name="weeks">The number of weeks to add.</param>
-            <returns></returns>
-        </member>
         <member name="T:Galaxon.Core.Time.XTimeOnly">
             <summary>
             Extension methods for TimeOnly.
@@ -1725,27 +1720,23 @@
             <returns>The time elapsed.</returns>
         </member>
         <member name="T:Galaxon.Core.Time.XTimeSpan">
-             <summary>
-             Additional members to supplement the TimeSpan class.
-            
-             Mostly constants.
-             For consistency with TimeSpan, I've used `long` as the type for any integer constants.
-             For non-integer constants I've used `double`.
-            
-             The following constants are already provided by the TimeSpan class and not reproduced here:
-             - TicksPerMicrosecond
-             - TicksPerMillisecond
-             - TicksPerSecond
-             - TicksPerMinute
-             - TicksPerHour
-             - TicksPerDay
-            
-             **NOTE: Any constants or methods for converting between time units will become obsolete
-             with the completion of Galaxon.Quantities.**
-            
-             The word Month, Year, Decade, Century, or Millennium in a constant name usually refers to the
-             average length of that time unit in the Gregorian Calendar.
-             </summary>
+            <summary>
+            Additional members to supplement the TimeSpan class.
+            Mostly constants.
+            For consistency with TimeSpan, I've used `long` as the type for any integer constants.
+            For non-integer constants I've used `double`.
+            The following constants are already provided by the TimeSpan class and not reproduced here:
+            - TicksPerMicrosecond
+            - TicksPerMillisecond
+            - TicksPerSecond
+            - TicksPerMinute
+            - TicksPerHour
+            - TicksPerDay
+            **NOTE: Any constants or methods for converting between time units will become obsolete
+            with the completion of Galaxon.Quantities.**
+            The word Month, Year, Decade, Century, or Millennium in a constant name usually refers to the
+            average length of that time unit in the Gregorian Calendar.
+            </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XTimeSpan.Convert(System.Double,Galaxon.Core.Time.ETimeUnit,Galaxon.Core.Time.ETimeUnit)">
             <summary>
@@ -1923,14 +1914,13 @@
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerDecade">
-             <summary>
-             The number of years in a decade.
-            
-             The precise length of a decade depends on what year is being used.
-             For a example, a Gregorian decade (3652.425 d on average) will have a different
-             length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
-             (3652.42198781 d on average).
-             </summary>
+            <summary>
+            The number of years in a decade.
+            The precise length of a decade depends on what year is being used.
+            For a example, a Gregorian decade (3652.425 d on average) will have a different
+            length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
+            (3652.42198781 d on average).
+            </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerCentury">
             <summary>
@@ -1943,25 +1933,20 @@
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerSolarCycle">
-             <summary>
-             The Gregorian Calendars repeats on a 400-year cycle called the *solar cycle*.
-            
-             There are 97 leap years in that period, giving an average calendar year length of
-             365 + (97/400) = 365.2425 days/year.
-            
-             1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
-            
-             5 Gregorian solar cycles = 2000 y = 2 ky
-            
-             Solar cycles are not ordinarily numbered, nor given a specific start date.
-             However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
-             1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
-             was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
-            
-             See:
-             - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
-             - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
-             </summary>
+            <summary>
+            The Gregorian Calendars repeats on a 400-year cycle called the *solar cycle*.
+            There are 97 leap years in that period, giving an average calendar year length of
+            365 + (97/400) = 365.2425 days/year.
+            1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
+            5 Gregorian solar cycles = 2000 y = 2 ky
+            Solar cycles are not ordinarily numbered, nor given a specific start date.
+            However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
+            1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
+            was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
+            See:
+            - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
+            - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
+            </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.OlympiadsPerSolarCycle">
             <summary>

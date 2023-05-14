@@ -2,7 +2,6 @@ namespace Galaxon.Core.Time;
 
 /// <summary>
 /// The time units supported by the conversion functions.
-///
 /// **Note: This will be deprecated once Galaxon.Quantities is complete.**
 /// </summary>
 public enum ETimeUnit
