@@ -55,16 +55,6 @@ public static class XAssert
     }
 
     /// <summary>
-    /// Compares 2 doubles to see if they are close enough to be considered equal.
-    /// </summary>
-    /// <param name="expected">The expected value.</param>
-    /// <param name="actual">The actual value.</param>
-    /// <param name="delta">The max allowable difference.</param>
-    // public static void AreEqual(double expected, double actual, double delta = XDouble.Delta) =>
-    //     Assert.AreEqual(expected, actual, delta);
-    // Assert.IsTrue(expected.FuzzyEquals(actual, delta));
-
-    /// <summary>
     /// Helper function to test if a double equals a decimal.
     /// </summary>
     /// <param name="expected">Expected double value</param>
