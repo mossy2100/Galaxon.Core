@@ -60,8 +60,7 @@ public static class XDateTime
     /// <see cref="DateTime.Date" />
     /// <param name="dt">The DateTime.</param>
     /// <returns>The date part of the DateTime.</returns>
-    public static DateOnly GetDateOnly(this DateTime dt) =>
-        DateOnly.FromDateTime(dt);
+    public static DateOnly GetDateOnly(this DateTime dt) => DateOnly.FromDateTime(dt);
 
     /// <summary>
     /// Get the time part of a DateTime as a TimeOnly object.
@@ -70,8 +69,7 @@ public static class XDateTime
     /// <see cref="DateTime.TimeOfDay" />
     /// <param name="dt">The DateTime.</param>
     /// <returns>The time part of the DateTime.</returns>
-    public static TimeOnly GetTimeOnly(this DateTime dt) =>
-        TimeOnly.FromTimeSpan(dt.TimeOfDay);
+    public static TimeOnly GetTimeOnly(this DateTime dt) => TimeOnly.FromTimeSpan(dt.TimeOfDay);
 
     #endregion Extract date and time parts
 
@@ -90,8 +88,7 @@ public static class XDateTime
     /// </summary>
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The number of days since the epoch start.</returns>
-    public static double GetTotalDays(this DateTime dt) =>
-        (double)dt.Ticks / TimeSpan.TicksPerDay;
+    public static double GetTotalDays(this DateTime dt) => (double)dt.Ticks / TimeSpan.TicksPerDay;
 
     /// <summary>
     /// Get the number of years between the start of the epoch and the start of the date.
@@ -151,8 +148,7 @@ public static class XDateTime
     /// </summary>
     /// <param name="dt">The DateTime instance.</param>
     /// <returns>The Julian Day value</returns>
-    public static double ToJulianDay(this DateTime dt) =>
-        JulianPeriodOffset + GetTotalDays(dt);
+    public static double ToJulianDay(this DateTime dt) => JulianPeriodOffset + GetTotalDays(dt);
 
     /// <summary>
     /// Convert a Julian Day value to a DateTime object.
@@ -161,8 +157,7 @@ public static class XDateTime
     /// The Julian Day value. May include a fractional part indicating the time of day.
     /// </param>
     /// <returns>A new DateTime object.</returns>
-    public static DateTime FromJulianDay(double jd) =>
-        FromTotalDays(jd - JulianPeriodOffset);
+    public static DateTime FromJulianDay(double jd) => FromTotalDays(jd - JulianPeriodOffset);
 
     #endregion Conversion to/from Julian Day
 }

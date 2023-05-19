@@ -55,8 +55,7 @@ public static class XFloatingPoint
     /// Get the minimum exponent for the type.
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static short GetMinExp<T>() where T : IFloatingPoint<T> =>
-        (short)(1 - GetMaxExp<T>());
+    public static short GetMinExp<T>() where T : IFloatingPoint<T> => (short)(1 - GetMaxExp<T>());
 
     /// <summary>
     /// Get the maximum exponent for the type.

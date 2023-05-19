@@ -101,14 +101,12 @@ public static class XDouble
     /// <summary>
     /// Check if a double is a positive integer.
     /// </summary>
-    public static bool IsPositiveInteger(double d) =>
-        d > 0 && double.IsInteger(d);
+    public static bool IsPositiveInteger(double d) => d > 0 && double.IsInteger(d);
 
     /// <summary>
     /// Check if a double is a negative integer.
     /// </summary>
-    public static bool IsNegativeInteger(double d) =>
-        d < 0 && double.IsInteger(d);
+    public static bool IsNegativeInteger(double d) => d < 0 && double.IsInteger(d);
 
     /// <summary>
     /// Check if a value is a perfect square.

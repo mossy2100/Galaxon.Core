@@ -166,20 +166,17 @@ public static class ConvertBase
     /// <summary>Convert an integer to binary digits.</summary>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of binary digits.</returns>
-    public static string ToBin<T>(this T n) where T : IBinaryInteger<T> =>
-        ToBase(n, 2);
+    public static string ToBin<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 2);
 
     /// <summary>Convert integer to quaternary digits.</summary>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of quaternary digits.</returns>
-    public static string ToQuat<T>(this T n) where T : IBinaryInteger<T> =>
-        ToBase(n, 4);
+    public static string ToQuat<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 4);
 
     /// <summary>Convert integer to octal digits.</summary>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of octal digits.</returns>
-    public static string ToOct<T>(this T n) where T : IBinaryInteger<T> =>
-        ToBase(n, 8);
+    public static string ToOct<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 8);
 
     /// <summary>Convert integer to hexadecimal digits.</summary>
     /// <param name="n">The integer to convert.</param>
@@ -325,8 +322,7 @@ public static class ConvertBase
     /// <param name="digits">The string of digits to parse.</param>
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromBin<T>(string digits) where T : IBinaryInteger<T> =>
-        FromBase<T>(digits, 2);
+    public static T FromBin<T>(string digits) where T : IBinaryInteger<T> => FromBase<T>(digits, 2);
 
     /// <summary>
     /// Convert a string of quaternary digits into an integer.
@@ -343,8 +339,7 @@ public static class ConvertBase
     /// <param name="digits">The string of digits to parse.</param>
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromOct<T>(string digits) where T : IBinaryInteger<T> =>
-        FromBase<T>(digits, 8);
+    public static T FromOct<T>(string digits) where T : IBinaryInteger<T> => FromBase<T>(digits, 8);
 
     /// <summary>
     /// Convert a string of hexadecimal digits into an integer.

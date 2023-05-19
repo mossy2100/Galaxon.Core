@@ -16,8 +16,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>A string representing the date in ISO format.</returns>
-    public static string ToIsoString(this DateOnly date) =>
-        date.ToString("yyyy-MM-dd");
+    public static string ToIsoString(this DateOnly date) => date.ToString("yyyy-MM-dd");
 
     #endregion Formatting
 
@@ -28,8 +27,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The new DateTime object</returns>
-    public static DateTime ToDateTime(this DateOnly date) =>
-        date.ToDateTime(new TimeOnly(0));
+    public static DateTime ToDateTime(this DateOnly date) => date.ToDateTime(new TimeOnly(0));
 
     /// <summary>
     /// Convert a DateOnly to a DateTime, with default time 00:00:00 and specified DateTimeKind.
@@ -56,8 +54,7 @@ public static class XDateOnly
     /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The number of ticks.</returns>
-    public static long GetTicks(this DateOnly date) =>
-        date.ToDateTime().Ticks;
+    public static long GetTicks(this DateOnly date) => date.ToDateTime().Ticks;
 
     /// <summary>
     /// Get the number of seconds between the start of the epoch and the start of the date.
@@ -72,8 +69,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The number of days since the epoch start.</returns>
-    public static long GetTotalDays(this DateOnly date) =>
-        date.GetTicks() / TimeSpan.TicksPerDay;
+    public static long GetTotalDays(this DateOnly date) => date.GetTicks() / TimeSpan.TicksPerDay;
 
     /// <summary>
     /// Get the number of years between the start of the epoch and the start of the date.
@@ -104,8 +100,7 @@ public static class XDateOnly
     /// <param name="date">The date.</param>
     /// <param name="time">The time of day to add.</param>
     /// <returns>The resulting DateTime.</returns>
-    public static DateTime Add(this DateOnly date, TimeOnly time) =>
-        date.ToDateTime(time);
+    public static DateTime Add(this DateOnly date, TimeOnly time) => date.ToDateTime(time);
 
     /// <summary>
     /// Add a number of weeks to a date.
@@ -194,8 +189,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The Julian Day value.</returns>
-    public static double ToJulianDay(this DateOnly date) =>
-        date.ToDateTime().ToJulianDay();
+    public static double ToJulianDay(this DateOnly date) => date.ToDateTime().ToJulianDay();
 
     /// <summary>
     /// Convert a Julian Day value to a date.
@@ -249,8 +243,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="year">The year.</param>
     /// <returns>The date of Christmas in the given year.</returns>
-    public static DateOnly GetChristmas(int year) =>
-        new (year, 12, 31);
+    public static DateOnly GetChristmas(int year) => new (year, 12, 31);
 
     /// <summary>
     /// Find the nth weekday in a given month.

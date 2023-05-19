@@ -123,8 +123,7 @@ public static class XString
     /// <summary>
     /// Check if a string is a palindrome.
     /// </summary>
-    public static bool IsPalindrome(this string str) =>
-        str == str.Reverse();
+    public static bool IsPalindrome(this string str) => str == str.Reverse();
 
     /// <summary>
     /// Remove whitespace from a string.
@@ -174,16 +173,14 @@ public static class XString
     /// <summary>Strip HTML tags from a string.</summary>
     /// <param name="str">The string to process.</param>
     /// <returns>The string with HTML tags removed.</returns>
-    public static string StripTags(this string str) =>
-        str.StripBrackets(false, false, false);
+    public static string StripTags(this string str) => str.StripBrackets(false, false, false);
 
     /// <summary>
     /// Check if a string contains only ASCII characters.
     /// </summary>
     /// <param name="str">The string to check.</param>
     /// <returns></returns>
-    public static bool IsAscii(this string str) =>
-        str.All(char.IsAscii);
+    public static bool IsAscii(this string str) => str.All(char.IsAscii);
 
     /// <summary>
     /// Convert a Unicode string (for example, a page title) to a user-, browser-, and search
@@ -215,8 +212,7 @@ public static class XString
     /// language), you may wish to call AnyAscii.Transliterate() on the string first.
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
-    public static string ToSmallCaps(this string str) =>
-        str.ReplaceChars(SmallCapsChars);
+    public static string ToSmallCaps(this string str) => str.ReplaceChars(SmallCapsChars);
 
     #region Methods for formatting numbers
 
@@ -244,8 +240,7 @@ public static class XString
     /// <param name="str">The string.</param>
     /// <param name="width">The minimum number of characters in the the result.</param>
     /// <returns>The zero-padded string.</returns>
-    public static string ZeroPad(this string str, int width) =>
-        str.PadLeft(width, '0');
+    public static string ZeroPad(this string str, int width) => str.PadLeft(width, '0');
 
     /// <summary>
     /// Given a string of digits, format in groups using the specified group separator and group
@@ -298,15 +293,13 @@ public static class XString
     /// Of course, TryParse() can be used, but this method is a bit more concise, and saves time
     /// thinking about nulls.
     /// </summary>
-    public static int? ToInt(this string? str) =>
-        int.TryParse(str, out var i) ? i : null;
+    public static int? ToInt(this string? str) => int.TryParse(str, out var i) ? i : null;
 
     /// <summary>
     /// Convert nullable string to nullable double without throwing.
     /// If the string cannot be parsed into a double, return null.
     /// </summary>
-    public static double? ToDouble(this string? str) =>
-        double.TryParse(str, out var d) ? d : null;
+    public static double? ToDouble(this string? str) => double.TryParse(str, out var d) ? d : null;
 
     /// <summary>
     /// Convert nullable string to nullable decimal without throwing.

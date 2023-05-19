@@ -6,6 +6,5 @@ public static class XUint
     /// <summary>
     /// Get a random uint.
     /// </summary>
-    public static uint GetRandom() =>
-        (uint)XInt.GetRandom();
+    public static uint GetRandom() => (uint)XInt.GetRandom();
 }

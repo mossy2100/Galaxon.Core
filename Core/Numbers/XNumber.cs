@@ -34,32 +34,27 @@ public static class XNumber
     /// <summary>
     /// Check if an object is a floating point value.
     /// </summary>
-    public static bool IsFloatingPoint(object? obj) =>
-        obj is Half or float or double or decimal;
+    public static bool IsFloatingPoint(object? obj) => obj is Half or float or double or decimal;
 
     /// <summary>
     /// Check if an object is an integer.
     /// </summary>
-    public static bool IsInteger(object? obj) =>
-        IsSignedInteger(obj) || IsUnsignedInteger(obj);
+    public static bool IsInteger(object? obj) => IsSignedInteger(obj) || IsUnsignedInteger(obj);
 
     /// <summary>
     /// Check if an object is a real (non-complex) number.
     /// </summary>
-    public static bool IsReal(object? obj) =>
-        IsInteger(obj) || IsFloatingPoint(obj);
+    public static bool IsReal(object? obj) => IsInteger(obj) || IsFloatingPoint(obj);
 
     /// <summary>
     /// Check if an object is a complex number.
     /// </summary>
-    public static bool IsComplex(object? obj) =>
-        obj is Complex;
+    public static bool IsComplex(object? obj) => obj is Complex;
 
     /// <summary>
     /// Check if an object is a number.
     /// </summary>
-    public static bool IsNumber(object? obj) =>
-        IsReal(obj) || IsComplex(obj);
+    public static bool IsNumber(object? obj) => IsReal(obj) || IsComplex(obj);
 
     #endregion Inspection methods
 
@@ -97,7 +92,7 @@ public static class XNumber
     public static T Div<T>(T a, T b) where T : INumberBase<T>, IModulusOperators<T, T, T>,
         IComparisonOperators<T, T, bool>
     {
-        (var d, var m) = DivMod(a, b);
+        var (d, m) = DivMod(a, b);
         return d;
     }
 
@@ -108,7 +103,7 @@ public static class XNumber
     public static T Mod<T>(T a, T b) where T : INumberBase<T>, IModulusOperators<T, T, T>,
         IComparisonOperators<T, T, bool>
     {
-        (var d, var m) = DivMod(a, b);
+        var (d, m) = DivMod(a, b);
         return m;
     }
 

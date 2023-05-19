@@ -12,8 +12,7 @@ public static class XTimeOnly
     /// </summary>
     /// <param name="time">The TimeOnly instance.</param>
     /// <returns>The new TimeSpan object</returns>
-    public static TimeSpan ToTimeSpan(this TimeOnly time) =>
-        new (time.Ticks);
+    public static TimeSpan ToTimeSpan(this TimeOnly time) => new (time.Ticks);
 
     #endregion Methods for converting to a TimeSpan
 

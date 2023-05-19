@@ -51,14 +51,12 @@ public static class XBigInteger
     /// Reverse a BigInteger.
     /// e.g. 123 becomes 321.
     /// </summary>
-    public static BigInteger Reverse(this BigInteger n) =>
-        BigInteger.Parse(n.ToString().Reverse());
+    public static BigInteger Reverse(this BigInteger n) => BigInteger.Parse(n.ToString().Reverse());
 
     /// <summary>
     /// Check if a BigInteger is palindromic.
     /// </summary>
-    public static bool IsPalindromic(this BigInteger n) =>
-        n == n.Reverse();
+    public static bool IsPalindromic(this BigInteger n) => n == n.Reverse();
 
     /// <summary>
     /// Sum of the digits in a BigInteger.
@@ -73,8 +71,7 @@ public static class XBigInteger
     /// I tried doing this with double.Log() but because double is imprecise it gives wrong results
     /// for values close to but less than powers of 10.
     /// </summary>
-    public static int NumDigits(this BigInteger n) =>
-        BigInteger.Abs(n).ToString().Length;
+    public static int NumDigits(this BigInteger n) => BigInteger.Abs(n).ToString().Length;
 
     #endregion Digit-related methods
 

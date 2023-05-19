@@ -9,21 +9,22 @@ namespace Galaxon.Core.Testing;
 public static class XAssert
 {
     /// <summary>
-    /// Helper function to compare DMS (degrees, minutes, seconds) tuples for
-    /// equality.
-    /// I may need to rethink the delta parameter (e.g. make it also a tuple so
-    /// I can set different deltas for degrees, minutes, and seconds) but for
-    /// now it's fine.
+    /// Helper function to compare DMS (degrees, minutes, seconds) tuples for equality.
     /// </summary>
-    /// <param name="A">Angle 1</param>
-    /// <param name="B">Angle 2</param>
-    /// <param name="delta">Maximum acceptable difference between value pairs.</param>
-    public static void AreEqual((double d, double m, double s) A,
-        (double d, double m, double s) B, double delta = 0)
+    /// <param name="a">Angle 1</param>
+    /// <param name="b">Angle 2</param>
+    /// <param name="delta">Maximum acceptable difference between the two angles.</param>
+    public static void AreEqual((double d, double m, double s) a, (double d, double m, double s) b,
+        (double d, double m, double s) delta)
     {
-        Assert.AreEqual(A.d, B.d, delta);
-        Assert.AreEqual(A.m, B.m, delta);
-        Assert.AreEqual(A.s, B.s, delta);
+        double DmsToDeg((double d, double m, double s) angle) =>
+            angle.d + 60 * angle.m + 3600 * angle.s;
+
+        var aDeg = DmsToDeg(a);
+        var bDeg = DmsToDeg(b);
+        var deltaDeg = DmsToDeg(delta);
+
+        Assert.AreEqual(aDeg, bDeg, deltaDeg);
     }
 
     /// <summary>
@@ -59,8 +60,8 @@ public static class XAssert
     /// <param name="expected">The expected value.</param>
     /// <param name="actual">The actual value.</param>
     /// <param name="delta">The max allowable difference.</param>
-    public static void AreEqual(double expected, double actual, double delta = XDouble.Delta) =>
-        Assert.AreEqual(expected, actual, delta);
+    // public static void AreEqual(double expected, double actual, double delta = XDouble.Delta) =>
+    //     Assert.AreEqual(expected, actual, delta);
     // Assert.IsTrue(expected.FuzzyEquals(actual, delta));
 
     /// <summary>
