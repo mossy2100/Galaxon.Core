@@ -34,7 +34,7 @@ public static class XNumber
     /// </summary>
     public static bool IsUnsignedInteger(object? obj)
     {
-        return obj is byte or uint or ushort or ulong or uint128;
+        return obj is byte or uint or ushort or ulong or UInt128;
     }
 
     /// <summary>
@@ -42,7 +42,7 @@ public static class XNumber
     /// </summary>
     public static bool IsFloatingPoint(object? obj)
     {
-        return obj is half or float or double or decimal;
+        return obj is Half or float or double or decimal;
     }
 
     /// <summary>

@@ -12,7 +12,7 @@ public static class XFloatingPoint
     public static byte GetNumExpBits<T>() where T : IFloatingPoint<T>
     {
         var t = typeof(T);
-        if (t == typeof(half))
+        if (t == typeof(Half))
         {
             return XHalf.NumExpBits;
         }
@@ -35,7 +35,7 @@ public static class XFloatingPoint
     public static byte GetNumFracBits<T>() where T : IFloatingPoint<T>
     {
         var t = typeof(T);
-        if (t == typeof(half))
+        if (t == typeof(Half))
         {
             return XHalf.NumFracBits;
         }
@@ -76,7 +76,7 @@ public static class XFloatingPoint
     public static T GetMinPosNormalValue<T>() where T : IFloatingPoint<T>
     {
         var t = typeof(T);
-        if (t == typeof(half))
+        if (t == typeof(Half))
         {
             return (T)(object)XHalf.MinPosNormalValue;
         }
@@ -109,7 +109,7 @@ public static class XFloatingPoint
 
         switch (x)
         {
-            case half h:
+            case Half h:
             {
                 var bits = BitConverter.HalfToUInt16Bits(h);
                 signBit = (byte)((bits & 0b10000000_00000000) >> nSignBitShift);
@@ -187,7 +187,7 @@ public static class XFloatingPoint
 
         // Return a value of the correct type.
         var t = typeof(T);
-        if (t == typeof(half))
+        if (t == typeof(Half))
         {
             return (T)(object)BitConverter.UInt16BitsToHalf((ushort)bits);
         }

@@ -132,14 +132,14 @@ public static class ConvertBase
 
         // Convert value to BigInteger. It's much easier to work with BigInteger than T, and any
         // integer type can be converted to BigInteger.
-        if (n is not big bi)
+        if (n is not BigInteger bi)
         {
             // We can't cast from T to BigInteger but we can do it with strings (decimal digits).
             if (n.ToString() is not { } strN)
             {
                 throw new ArgumentInvalidException(typeof(T).Name, "Unsupported type.");
             }
-            bi = big.Parse(strN);
+            bi = BigInteger.Parse(strN);
         }
 
         // Check for negative value.
@@ -284,7 +284,7 @@ public static class ConvertBase
         var digitValues = GetDigitValues(fromBase);
 
         // Do the conversion.
-        big value = 0;
+        BigInteger value = 0;
         foreach (var c in digits)
         {
             // Try to get the character value from the map.
@@ -336,15 +336,15 @@ public static class ConvertBase
             {
                 return (T)(object)(ulong)value;
             }
-            if (t == typeof(int128))
+            if (t == typeof(Int128))
             {
-                return (T)(object)(int128)value;
+                return (T)(object)(Int128)value;
             }
-            if (t == typeof(uint128))
+            if (t == typeof(UInt128))
             {
-                return (T)(object)(uint128)value;
+                return (T)(object)(UInt128)value;
             }
-            if (t == typeof(big))
+            if (t == typeof(BigInteger))
             {
                 return (T)(object)value;
             }

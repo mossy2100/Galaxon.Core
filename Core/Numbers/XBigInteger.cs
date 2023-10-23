@@ -1,3 +1,4 @@
+using System.Numerics;
 using Galaxon.Core.Strings;
 
 namespace Galaxon.Core.Numbers;
@@ -10,7 +11,7 @@ public static class XBigInteger
     /// <summary>
     /// Cache for GreatestCommonDivisor().
     /// </summary>
-    private static readonly Dictionary<string, big> s_gcdCache = new ();
+    private static readonly Dictionary<string, BigInteger> s_gcdCache = new ();
 
     #endregion Fields
 
@@ -20,7 +21,7 @@ public static class XBigInteger
     /// Get the unsigned, twos-complement version of the value, containing the fewest number of
     /// bytes.
     /// </summary>
-    public static big ToUnsigned(this big n)
+    public static BigInteger ToUnsigned(this BigInteger n)
     {
         // Check if anything to do.
         if (n >= 0)
@@ -39,7 +40,7 @@ public static class XBigInteger
         }
 
         // Construct a new unsigned value.
-        return new big(bytes.ToArray());
+        return new BigInteger(bytes.ToArray());
     }
 
     #endregion Miscellaneous other methods
@@ -50,15 +51,15 @@ public static class XBigInteger
     /// Reverse a BigInteger.
     /// e.g. 123 becomes 321.
     /// </summary>
-    public static big Reverse(this big n)
+    public static BigInteger Reverse(this BigInteger n)
     {
-        return big.Parse(n.ToString().Reverse());
+        return BigInteger.Parse(n.ToString().Reverse());
     }
 
     /// <summary>
     /// Check if a BigInteger is palindromic.
     /// </summary>
-    public static bool IsPalindromic(this big n)
+    public static bool IsPalindromic(this BigInteger n)
     {
         return n == n.Reverse();
     }
@@ -67,9 +68,9 @@ public static class XBigInteger
     /// Sum of the digits in a BigInteger.
     /// If present, a negative sign is ignored.
     /// </summary>
-    public static big DigitSum(this big n)
+    public static BigInteger DigitSum(this BigInteger n)
     {
-        return big.Abs(n).ToString().Sum(c => c - '0');
+        return BigInteger.Abs(n).ToString().Sum(c => c - '0');
     }
 
     /// <summary>
@@ -78,9 +79,9 @@ public static class XBigInteger
     /// I tried doing this with double.Log() but because double is imprecise it gives wrong results
     /// for values close to but less than powers of 10.
     /// </summary>
-    public static int NumDigits(this big n)
+    public static int NumDigits(this BigInteger n)
     {
-        return big.Abs(n).ToString().Length;
+        return BigInteger.Abs(n).ToString().Length;
     }
 
     #endregion Digit-related methods
@@ -97,7 +98,7 @@ public static class XBigInteger
     /// <param name="a">First integer.</param>
     /// <param name="b">Second integer.</param>
     /// <returns>The least common multiple.</returns>
-    public static big LeastCommonMultiple(big a, big b)
+    public static BigInteger LeastCommonMultiple(BigInteger a, BigInteger b)
     {
         // Optimizations.
         if (a == 0 || b == 0)
@@ -109,8 +110,8 @@ public static class XBigInteger
             return a;
         }
 
-        a = big.Abs(a);
-        b = big.Abs(b);
+        a = BigInteger.Abs(a);
+        b = BigInteger.Abs(b);
         var gcd = GreatestCommonDivisor(a, b);
 
         return a > b ? a / gcd * b : b / gcd * a;
@@ -120,11 +121,11 @@ public static class XBigInteger
     /// Determine the greatest common divisor of two integers.
     /// Synonyms: greatest common factor, highest common factor.
     /// </summary>
-    public static big GreatestCommonDivisor(big a, big b)
+    public static BigInteger GreatestCommonDivisor(BigInteger a, BigInteger b)
     {
         // Make a and b non-negative, since the result will be the same for negative values.
-        a = big.Abs(a);
-        b = big.Abs(b);
+        a = BigInteger.Abs(a);
+        b = BigInteger.Abs(b);
 
         // Make a < b.
         if (a > b)
@@ -160,24 +161,24 @@ public static class XBigInteger
 
     #endregion Methods relating to factors
 
-    #region Extension methods for IEnumerable<big>
+    #region Extension methods for IEnumerable<BigInteger>
 
     /// <summary>
     /// Get the sum of all values in the collection.
     /// </summary>
-    public static big Sum(this IEnumerable<big> nums)
+    public static BigInteger Sum(this IEnumerable<BigInteger> nums)
     {
-        return nums.Aggregate((big)0, (sum, num) => sum + num);
+        return nums.Aggregate((BigInteger)0, (sum, num) => sum + num);
     }
 
     /// <summary>
     /// Get the sum of all values in the collection, transformed by the supplied function.
     /// </summary>
-    public static big Sum(this IEnumerable<big> source,
-        Func<big, big> func)
+    public static BigInteger Sum(this IEnumerable<BigInteger> source,
+        Func<BigInteger, BigInteger> func)
     {
-        return source.Aggregate((big)0, (sum, value) => sum + func(value));
+        return source.Aggregate((BigInteger)0, (sum, value) => sum + func(value));
     }
 
-    #endregion Extension methods for IEnumerable<big>
+    #endregion Extension methods for IEnumerable<BigInteger>
 }

@@ -18,20 +18,20 @@ public static class XHalf
     /// <summary>
     /// The maximum positive subnormal value.
     /// </summary>
-    public static half MaxPosSubnormalValue => Assemble(0, 0, 0x3ff);
+    public static Half MaxPosSubnormalValue => Assemble(0, 0, 0x3ff);
 
     /// <summary>
     /// The minimum positive normal value.
     /// </summary>
-    public static half MinPosNormalValue => Assemble(0, 1, 0);
+    public static Half MinPosNormalValue => Assemble(0, 1, 0);
 
     /// <summary>
     /// Disassemble the Half into its bitwise components.
     /// </summary>
     /// <see href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format" />
-    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this half x)
+    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this Half x)
     {
-        return x.Disassemble<half>();
+        return x.Disassemble<Half>();
     }
 
     /// <summary>
@@ -41,22 +41,22 @@ public static class XHalf
     /// <param name="expBits">The exponent bits.</param>
     /// <param name="fracBits">The fraction bits.</param>
     /// <returns>The new Half.</returns>
-    public static half Assemble(byte signBit, ushort expBits, ulong fracBits)
+    public static Half Assemble(byte signBit, ushort expBits, ulong fracBits)
     {
-        return XFloatingPoint.Assemble<half>(signBit, expBits, fracBits);
+        return XFloatingPoint.Assemble<Half>(signBit, expBits, fracBits);
     }
 
     /// <summary>
     /// Get a random Half.
     /// </summary>
-    public static half GetRandom()
+    public static Half GetRandom()
     {
         Random rnd = new ();
         while (true)
         {
             var bits = XShort.GetRandom();
             var d = BitConverter.Int16BitsToHalf(bits);
-            if (half.IsFinite(d))
+            if (Half.IsFinite(d))
             {
                 return d;
             }

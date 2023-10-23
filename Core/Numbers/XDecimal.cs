@@ -300,7 +300,7 @@ public static class XDecimal
     /// <summary>
     /// Disassemble the decimal into bitwise parts.
     /// </summary>
-    public static (byte signBit, byte scaleBits, uint128 intBits) Disassemble(this decimal x)
+    public static (byte signBit, byte scaleBits, UInt128 intBits) Disassemble(this decimal x)
     {
         var parts = decimal.GetBits(x);
         var lo = (uint)parts[0];
@@ -309,7 +309,7 @@ public static class XDecimal
         var flags = (uint)parts[3];
         var signBit = (byte)(flags >> 31);
         var scaleBits = (byte)(flags >> 16 & 0xff);
-        var intBits = (uint128)hi << 64 | (uint128)mid << 32 | lo;
+        var intBits = (UInt128)hi << 64 | (UInt128)mid << 32 | lo;
         return (signBit, scaleBits, intBits);
     }
 
@@ -320,7 +320,7 @@ public static class XDecimal
     /// <param name="scaleBits">The scale bits.</param>
     /// <param name="intBits">The integer bits.</param>
     /// <returns>The new decimal.</returns>
-    public static decimal Assemble(byte signBit, byte scaleBits, uint128 intBits)
+    public static decimal Assemble(byte signBit, byte scaleBits, UInt128 intBits)
     {
         // Check signBit has a valid value.
         if (signBit > 1)
@@ -336,7 +336,7 @@ public static class XDecimal
         }
 
         // Check intBits is within the valid range.
-        var intBitsMax = ((uint128)1 << 96) - 1;
+        var intBitsMax = ((UInt128)1 << 96) - 1;
         if (intBits > intBitsMax)
         {
             throw new ArgumentOutOfRangeException(nameof(intBits),
