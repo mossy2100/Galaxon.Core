@@ -5,14 +5,6 @@ namespace Galaxon.Core.Tests;
 [TestClass]
 public class TextXEnum
 {
-    private enum Animal
-    {
-        Cat,
-
-        [System.ComponentModel.Description("canine")]
-        Dog,
-    }
-
     [TestMethod]
     public void TestToString()
     {
@@ -30,5 +22,13 @@ public class TextXEnum
     public void TestDescriptionAttribute()
     {
         Assert.AreEqual("canine", Animal.Dog.GetDescription());
+    }
+
+    private enum Animal
+    {
+        Cat,
+
+        [System.ComponentModel.Description("canine")]
+        Dog,
     }
 }

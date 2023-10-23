@@ -261,11 +261,13 @@ public static class ConvertBase
     /// <param name="fromBase">The base that the digits in the string are in.</param>
     /// <returns>The integer equivalent of the digits.</returns>
     /// <exception cref="ArgumentNullException">If string is null, empty, or whitespace.</exception>
-    /// <exception cref="ArgumentFormatException">If string contains invalid characters for the
-    /// specified base.</exception>
+    /// <exception cref="ArgumentFormatException">
+    /// If string contains invalid characters for the specified base.
+    /// </exception>
     /// <exception cref="InvalidCastException">If a cast to the target type failed.</exception>
-    /// <exception cref="OverflowException">If the resulting value is out of range for the target
-    /// type.</exception>
+    /// <exception cref="OverflowException">
+    /// If the resulting value is out of range for the target type.
+    /// </exception>
     public static T FromBase<T>(string digits, byte fromBase) where T : IBinaryInteger<T>
     {
         // Check the input string != null, empty, or whitespace.

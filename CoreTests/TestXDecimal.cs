@@ -105,11 +105,17 @@ public class TestXDecimal
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LnThrowsIfArgZero() => XDecimal.Log(0);
+    public void LnThrowsIfArgZero()
+    {
+        XDecimal.Log(0);
+    }
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LnThrowsIfArgNegative() => XDecimal.Log(-1);
+    public void LnThrowsIfArgNegative()
+    {
+        XDecimal.Log(-1);
+    }
 
     [TestMethod]
     public void LnTest()
@@ -154,11 +160,17 @@ public class TestXDecimal
     }
 
     [TestMethod]
-    public void Log1Base0Returns0() => XAssert.AreEqual(0, XDecimal.Log(1, 0));
+    public void Log1Base0Returns0()
+    {
+        XAssert.AreEqual(0, XDecimal.Log(1, 0));
+    }
 
     [TestMethod]
     [ExpectedException(typeof(ArgumentOutOfRangeException))]
-    public void LogThrowsIfBase1() => XDecimal.Log(1.234m, 1);
+    public void LogThrowsIfBase1()
+    {
+        XDecimal.Log(1.234m, 1);
+    }
 
     [TestMethod]
     public void TestDisassembleAssemble()
