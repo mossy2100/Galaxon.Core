@@ -50,6 +50,15 @@
             This can be useful when the index is meaningful and you want to filter on it.
             </summary>
         </member>
+        <member name="M:Galaxon.Core.Enums.XEnum.GetDescription(System.Enum)">
+            <summary>
+            Get the value of the Description attribute for the enum value, or, if not provided,
+            the name of the value (same as ToString()).
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentFormatException">
             <summary>
             This exception type is useful for an ArgumentException that is also a FormatException.
@@ -95,6 +104,8 @@
         </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
             <summary>
+            TODO Rethink the need for this. It essentially replicates the purpose of
+            ArgumentOutOfRangeException.
             This exception type is useful for an ArgumentException when the argument is invalid for a
             reason other than being null, out of range, or having an invalid format.
             I'm using the same parameter order here as used by ArgumentNullException and
@@ -150,66 +161,101 @@
             <param name="message"></param>
             <param name="innerException"></param>
         </member>
-        <member name="T:Galaxon.Core.Numbers.ConvertBase">
+        <member name="T:Galaxon.Core.Exceptions.NoMatchingCaseException">
             <summary>
-            This class supports conversion between integers and strings of digits in a specified base,
-            which can be in the range 2..64.
-            All built-in integer types are supported, including Int128, UInt128, and BigInteger.
-            Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
-            26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
-            ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
-            to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
-            and I assume all, or almost all, computer keyboards will support all of them.
-            This has been done to add support for base 64, mainly for my own amusement, and to provide
-            an alternative to bog-standard Base64 encoding (see link). The difference here, if it matters,
-            is that the base 64 digits used here are compatible with hexadecimal digit values, and all other
-            bases.
-            ASCII provides 32 symbol (or punctuation) characters. The 4 omitted characters are '.' (period),
-            ',' (comma), and '_' (underscore) because these can all be used as group separators (in
-            different contexts), and '"' (double quote) which is the string delimiter in C#.
-            As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
-            Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
-            letters. See the method documentation for ToBase() for how to use this parameter.
-            The default is to use lower-case for all letters except for L (see the Digits constant).
-            Upper-case letters are more easily confused with numerals than lower-case. For example:
-            - 'O' looks like '0'
-            - 'I' looks like '1'
-            - 'Z' looks like '2'
-            - 'S' looks like '5'
-            - 'G' looks like '6'
-            - 'B' looks like '8'
-            The only similar problem with lower-case letters is that 'l' looks like '1'. To solve this,
-            upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
-            long literals in C#, as a rule.)
-            These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
-            between letters and numbers, so it's not the issue it once was.
-            Multiple coding standards for CSS require lower-case hex digits in color literals.
-            "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
-            Other than that, I can't find any standards that mandate one over the other. It seems upper-case
-            is favoured in older languages, lower-case in newer.
-            The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
-            the form of "To" and "From" methods for bases that are a power of 2:
-            |------------------|------------------------|--------|----------------|
-            |  Bits per digit  |  Numeral system        |  Base  |  Abbreviation  |
-            |------------------|------------------------|--------|----------------|
-            |        1         |  binary                |    2   |  Bin           |
-            |        2         |  quaternary            |    4   |  Quat          |
-            |        3         |  octal                 |    8   |  Oct           |
-            |        4         |  hexadecimal           |   16   |  Hex           |
-            |        5         |  triacontakaidecimal*  |   32   |  Tria          |
-            |        6         |  tetrasexagesimal      |   64   |  Tetra         |
-            |------------------|------------------------|--------|----------------|
-            *Base 32 is more correctly called "duotrigesimal". However, there are multiple methods in use
-            for encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
-            also known as "base32hex". It's the same encoding used in Java in JavaScript.
+            This exception type is similar to ArgumentOutOfRangeException, except intended for use in switch
+            statements and expressions, when the value being tested matches none of the case patterns.
             </summary>
-            <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems" />
-            <see href="https://en.wikipedia.org/wiki/Binary_number" />
-            <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system" />
-            <see href="https://en.wikipedia.org/wiki/Octal" />
-            <see href="https://en.wikipedia.org/wiki/Hexadecimal" />
-            <see href="https://en.wikipedia.org/wiki/Base32" />
-            <see href="https://en.wikipedia.org/wiki/Base64" />
+        </member>
+        <member name="M:Galaxon.Core.Exceptions.NoMatchingCaseException.#ctor">
+            <summary>
+            Initializes a new instance.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Exceptions.NoMatchingCaseException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance with an error message, and (optionally) a reference to the inner
+            exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message.</param>
+            <param name="innerException">The inner exception.</param>
+        </member>
+        <member name="T:Galaxon.Core.Numbers.ConvertBase">
+             <summary>
+             This class supports conversion between integers and strings of digits in a specified base,
+             which can be in the range 2..64.
+            
+             All built-in integer types are supported, including Int128, UInt128, and BigInteger.
+            
+             Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
+             26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
+             ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
+             to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
+             and I assume all, or almost all, computer keyboards will support all of them.
+             This has been done to add support for base 64, mainly for my own amusement, and to provide
+             an alternative to bog-standard Base64 encoding (see link).
+            
+             The most important difference is that this encoding uses 8 bits per base-64 digit, whereas
+             standard base64 encoding uses 5 bits per digit, which is more compressed.
+             Another difference is that the base 64 digits used here are compatible with the digits used by
+             hexadecimal and all other bases.
+            
+             ASCII provides 32 symbol (or punctuation) characters. The 4 unused characters are '.' (period),
+             ',' (comma), and '_' (underscore), which can be used as group separators (in
+             different contexts), and '"' (double quote) which is the string delimiter in C#.
+            
+             As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
+             Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
+             letters. See the method documentation for ToBase() for how to use this parameter.
+             The default is to use lower-case for all letters except for L (see the Digits constant).
+             Upper-case letters are more easily confused with numerals than lower-case. For example:
+             - 'O' can look like '0'
+             - 'I' can look like '1'
+             - 'Z' can look like '2'
+             - 'S' can look like '5'
+             - 'G' can look like '6'
+             - 'B' can look like '8'
+             The only similar problem with lower-case letters is that 'l' can look like '1'. To solve this,
+             upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
+             long literals in C#, as a rule.)
+             These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
+             between letters and numbers, so it's not the issue it once was.
+             Multiple coding standards for CSS require lower-case hex digits in color literals.
+             "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
+             Other than that, I can't find any standards that mandate one over the other. It seems upper-case
+             is favoured in older languages, lower-case in newer.
+            
+             The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
+             the form of "To" and "From" methods for all bases that are a power of 2, and base 10 (decimal),
+             which are the most commonly used:
+             |------------------|------------------------|--------|--------------------------|
+             |  Bits per digit  |  Numeral system        |  Base  |  Methods                 |
+             |------------------|------------------------|--------|--------------------------|
+             |        1         |  binary                |    2   |  ToBin()    FromBin()    |
+             |        2         |  quaternary            |    4   |  ToQuat()   FromQuat()   |
+             |        3         |  octal                 |    8   |  ToOct()    FromOct()    |
+             |                  |  decimal               |   10   |  ToDec()    FromDec()    |
+             |        4         |  hexadecimal           |   16   |  ToHex()    FromHex()    |
+             |        5         |  triacontakaidecimal * |   32   |  ToTria()   FromTria()   |
+             |        6         |  tetrasexagesimal **   |   64   |  ToTetra()  FromTetra()  |
+             |------------------|------------------------|--------|--------------------------|
+            
+             * The term for base 32 is "duotrigesimal". However, there are multiple methods in use for
+             encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
+             also known as "base32hex". It's the same encoding used in Java in JavaScript. The term is
+             abbreviated here as "Tria" in the names of the conversion methods.
+            
+             ** The term for Base 64 is "tetrasexagesimal". The term is abbreviated here as "Tetra" in the
+             names of the conversion methods.
+            
+             </summary>
+             <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems" />
+             <see href="https://en.wikipedia.org/wiki/Binary_number" />
+             <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system" />
+             <see href="https://en.wikipedia.org/wiki/Octal" />
+             <see href="https://en.wikipedia.org/wiki/Hexadecimal" />
+             <see href="https://en.wikipedia.org/wiki/Base32" />
+             <see href="https://en.wikipedia.org/wiki/Base64" />
         </member>
         <member name="F:Galaxon.Core.Numbers.ConvertBase.MinBase">
             <summary>The minimum base supported by the type.</summary>
@@ -229,6 +275,7 @@
             Note, a negative value will be converted to a non-negative value with the same underlying
             bits. This reflects the behaviour of other base-conversion methods in .NET.
             </summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The instance value.</param>
             <param name="toBase">The base to convert to.</param>
             <param name="letterCase">
@@ -237,40 +284,51 @@
             true  = upper-case
             false = lower-case
             </param>
-            <typeparam name="T">The integer type.</typeparam>
             <returns>The string of digits.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">If the base is out of range.</exception>
             <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException"> If T is an unsupported type.</exception>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToBin``1(``0)">
             <summary>Convert an integer to binary digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <returns>The value as a string of binary digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToQuat``1(``0)">
             <summary>Convert integer to quaternary digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <returns>The value as a string of quaternary digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToOct``1(``0)">
             <summary>Convert integer to octal digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <returns>The value as a string of octal digits.</returns>
         </member>
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.ToDec``1(``0)">
+            <summary>Convert an integer to decimal digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
+            <param name="n">The integer to convert.</param>
+            <returns>The value as a string of decimal digits.</returns>
+        </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToHex``1(``0,System.Nullable{System.Boolean})">
             <summary>Convert integer to hexadecimal digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
             <returns>The value as a string of hexadecimal digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToTria``1(``0,System.Nullable{System.Boolean})">
             <summary>Convert integer to triacontakaidecimal (base 32) digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
             <returns>The value as a string of triacontakaidecimal digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToTetra``1(``0,System.Nullable{System.Boolean})">
             <summary>Convert integer to tetrasexagesimal (base 64) digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
             <returns>The value as a string of tetrasexagesimal digits.</returns>
@@ -281,67 +339,71 @@
             Group separator characters, including spaces, newlines, thin spaces, periods, commas, and
             underscores, will be ignored.
             </summary>
+            <typeparam name="T">The integer type to create.</typeparam>
             <param name="digits">A string of digits in the specified base.</param>
             <param name="fromBase">The base that the digits in the string are in.</param>
-            <typeparam name="T">The target type to create an instance of.</typeparam>
             <returns>The integer equivalent of the digits.</returns>
             <exception cref="T:System.ArgumentNullException">If string is null, empty, or whitespace.</exception>
-            <exception cref="T:Galaxon.Core.Exceptions.ArgumentFormatException">
-            If string contains invalid characters for the
-            specified base.
-            </exception>
+            <exception cref="T:Galaxon.Core.Exceptions.ArgumentFormatException">If string contains invalid characters for the
+            specified base.</exception>
             <exception cref="T:System.InvalidCastException">If a cast to the target type failed.</exception>
-            <exception cref="T:System.OverflowException">
-            If the resulting value is out of range for the target
-            type.
-            </exception>
+            <exception cref="T:System.OverflowException">If the resulting value is out of range for the target
+            type.</exception>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromBin``1(System.String)">
             <summary>
             Convert a string of binary digits into an integer.
             </summary>
-            <param name="digits">The string of digits to parse.</param>
             <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromQuat``1(System.String)">
             <summary>
             Convert a string of quaternary digits into an integer.
             </summary>
-            <param name="digits">The string of digits to parse.</param>
             <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromOct``1(System.String)">
             <summary>
             Convert a string of octal digits into an integer.
             </summary>
-            <param name="digits">The string of digits to parse.</param>
             <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
+            <returns>The integer equivalent of the digits.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.FromDec``1(System.String)">
+            <summary>
+            Convert a string of decimal digits into an integer.
+            </summary>
+            <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromHex``1(System.String)">
             <summary>
             Convert a string of hexadecimal digits into an integer.
             </summary>
-            <param name="digits">The string of digits to parse.</param>
             <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromTria``1(System.String)">
             <summary>
             Convert a string of triacontakaidecimal digits into an integer.
             </summary>
-            <param name="digits">The string of digits to parse.</param>
             <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromTetra``1(System.String)">
             <summary>
             Convert a string of tetrasexagesimal digits into an integer.
             </summary>
-            <param name="digits">The string of digits to parse.</param>
             <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.CheckBase(System.Byte)">
@@ -478,7 +540,7 @@
             Calculate the natural logarithm of a decimal.
             The algorithm is from:
             <see href="https://en.wikipedia.org/wiki/Natural_logarithm" />
-            I found that DecimalEx.Log() hangs for very small values so I made this version.
+            DecimalEx.Log() hangs for very small values, so I made this version, which doesn't.
             It's tested, fast, and doesn't break with the largest or smallest decimal values.
             <see cref="M:System.Math.Log(System.Double)" />
             </summary>
@@ -1157,17 +1219,6 @@
             <param name="str">The string to check.</param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Strings.XString.MakeSlug(System.String)">
-            <summary>
-            Convert a Unicode string (for example, a page title) to a user-, browser-, and search
-            engine-friendly URL slug containing only lower-case alphanumeric ASCII characters and
-            hyphens.
-            This method does not remove short words like "a", "the", "of", etc., like some algorithms
-            do. I don't perceive this as necessary - please let me know if you disagree.
-            </summary>
-            <param name="str">The string to process.</param>
-            <returns>The ASCII slug.</returns>
-        </member>
         <member name="M:Galaxon.Core.Strings.XString.ToSmallCaps(System.String)">
             <summary>
             Convert all lower-case letters in a string to their Unicode small caps variant.
@@ -1305,6 +1356,11 @@
             Nanosecond (ns). 1 ns = 10<sup>-9</sup> s = 0.01 ticks
             </summary>
         </member>
+        <member name="F:Galaxon.Core.Time.ETimeUnit.Shake">
+            <summary>
+            Shake. 1 shake = 10<sup>-8</sup> s = 10 ns = 0.1 ticks
+            </summary>
+        </member>
         <member name="F:Galaxon.Core.Time.ETimeUnit.Tick">
             <summary>
             The core time unit used by .NET. 1 tick = 100 ns = 0.1 µs = 10<sup>-7</sup> s
@@ -1377,6 +1433,11 @@
         <member name="T:Galaxon.Core.Time.XDateOnly">
             <summary>
             Extension methods for the DateOnly class.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XDateOnly.SortableDatePattern">
+            <summary>
+            Same as DateTimeFormatInfo.SortableDateTimePattern, but without the time.
             </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.ToIsoString(System.DateOnly)">

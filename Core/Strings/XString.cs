@@ -1,6 +1,5 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
-using AnyAscii;
 using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Strings;
@@ -39,18 +38,19 @@ public static class XString
         { 'v', "ᴠ" },
         { 'w', "ᴡ" },
         // Note: there is no Unicode small caps variant for 'x'. The character used here is the
-        // lower-case 'x' (i.e. same as the original character). The reason for including it in the
-        // map is so any 'x's will be kept even if "keepCharsNotInMap" is false.
+        // lower-case 'x' (i.e. same as the original character).
         { 'x', "x" },
         { 'y', "ʏ" },
-        { 'z', "ᴢ" }
+        { 'z', "ᴢ" },
     };
 
     /// <summary>
     /// See if 2 strings are equal, ignoring case.
     /// </summary>
-    public static bool EqualsIgnoreCase(this string str1, string? str2) =>
-        str1.Equals(str2, StringComparison.OrdinalIgnoreCase);
+    public static bool EqualsIgnoreCase(this string str1, string? str2)
+    {
+        return str1.Equals(str2, StringComparison.OrdinalIgnoreCase);
+    }
 
     /// <summary>
     /// Replace characters in a string with other characters by using a character map.
@@ -123,7 +123,10 @@ public static class XString
     /// <summary>
     /// Check if a string is a palindrome.
     /// </summary>
-    public static bool IsPalindrome(this string str) => str == str.Reverse();
+    public static bool IsPalindrome(this string str)
+    {
+        return str == str.Reverse();
+    }
 
     /// <summary>
     /// Remove whitespace from a string.
@@ -131,9 +134,12 @@ public static class XString
     /// <see href="https://www.compart.com/en/unicode/category/Zs" />
     /// <param name="str">The string to process.</param>
     /// <returns>The string with whitespace characters removed.</returns>
-    public static string StripWhitespace(this string str) =>
-        Regex.Replace(str, @"[\s\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008"
+    public static string StripWhitespace(this string str)
+    {
+        return Regex.Replace(str,
+            @"[\s\u00A0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008"
             + @"\u2009\u200A\u202F\u205F\u3000]", "");
+    }
 
     /// <summary>
     /// Remove brackets (and whatever's between them) from a string.
@@ -173,37 +179,19 @@ public static class XString
     /// <summary>Strip HTML tags from a string.</summary>
     /// <param name="str">The string to process.</param>
     /// <returns>The string with HTML tags removed.</returns>
-    public static string StripTags(this string str) => str.StripBrackets(false, false, false);
+    public static string StripTags(this string str)
+    {
+        return str.StripBrackets(false, false, false);
+    }
 
     /// <summary>
     /// Check if a string contains only ASCII characters.
     /// </summary>
     /// <param name="str">The string to check.</param>
     /// <returns></returns>
-    public static bool IsAscii(this string str) => str.All(char.IsAscii);
-
-    /// <summary>
-    /// Convert a Unicode string (for example, a page title) to a user-, browser-, and search
-    /// engine-friendly URL slug containing only lower-case alphanumeric ASCII characters and
-    /// hyphens.
-    /// This method does not remove short words like "a", "the", "of", etc., like some algorithms
-    /// do. I don't perceive this as necessary - please let me know if you disagree.
-    /// </summary>
-    /// <param name="str">The string to process.</param>
-    /// <returns>The ASCII slug.</returns>
-    public static string MakeSlug(this string str)
+    public static bool IsAscii(this string str)
     {
-        // Convert to ASCII.
-        var result = str.Transliterate();
-
-        // Remove apostrophes.
-        result = result.Replace("'", "");
-
-        // Replace non-alphanumeric characters with hyphens.
-        result = Regex.Replace(result, @"[^0-9a-z]+", "-", RegexOptions.IgnoreCase);
-
-        // Trim hyphens from the start and end and lower-case the result.
-        return result.Trim('-').ToLower();
+        return str.All(char.IsAscii);
     }
 
     /// <summary>
@@ -212,7 +200,10 @@ public static class XString
     /// language), you may wish to call AnyAscii.Transliterate() on the string first.
     /// </summary>
     /// <exception cref="NotImplementedException"></exception>
-    public static string ToSmallCaps(this string str) => str.ReplaceChars(SmallCapsChars);
+    public static string ToSmallCaps(this string str)
+    {
+        return str.ReplaceChars(SmallCapsChars);
+    }
 
     #region Methods for formatting numbers
 
@@ -222,8 +213,10 @@ public static class XString
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>The string of superscript characters.</returns>
-    public static string ToSuperscript(this string str) =>
-        str.ReplaceChars(XBinaryInteger.SuperscriptChars);
+    public static string ToSuperscript(this string str)
+    {
+        return str.ReplaceChars(XBinaryInteger.SuperscriptChars);
+    }
 
     /// <summary>
     /// Render a string with valid integer characters (i.e. minus sign or digits) converted to their
@@ -231,8 +224,10 @@ public static class XString
     /// </summary>
     /// <param name="str">The string.</param>
     /// <returns>The string of subscript characters.</returns>
-    public static string ToSubscript(this string str) =>
-        str.ReplaceChars(XBinaryInteger.SubscriptChars);
+    public static string ToSubscript(this string str)
+    {
+        return str.ReplaceChars(XBinaryInteger.SubscriptChars);
+    }
 
     /// <summary>
     /// Pad a string on the left with 0s to make it up to a certain width.
@@ -240,7 +235,10 @@ public static class XString
     /// <param name="str">The string.</param>
     /// <param name="width">The minimum number of characters in the the result.</param>
     /// <returns>The zero-padded string.</returns>
-    public static string ZeroPad(this string str, int width) => str.PadLeft(width, '0');
+    public static string ZeroPad(this string str, int width)
+    {
+        return str.PadLeft(width, '0');
+    }
 
     /// <summary>
     /// Given a string of digits, format in groups using the specified group separator and group
@@ -293,20 +291,28 @@ public static class XString
     /// Of course, TryParse() can be used, but this method is a bit more concise, and saves time
     /// thinking about nulls.
     /// </summary>
-    public static int? ToInt(this string? str) => int.TryParse(str, out var i) ? i : null;
+    public static int? ToInt(this string? str)
+    {
+        return int.TryParse(str, out var i) ? i : null;
+    }
 
     /// <summary>
     /// Convert nullable string to nullable double without throwing.
     /// If the string cannot be parsed into a double, return null.
     /// </summary>
-    public static double? ToDouble(this string? str) => double.TryParse(str, out var d) ? d : null;
+    public static double? ToDouble(this string? str)
+    {
+        return double.TryParse(str, out var d) ? d : null;
+    }
 
     /// <summary>
     /// Convert nullable string to nullable decimal without throwing.
     /// If the string cannot be parsed into a decimal, return null.
     /// </summary>
-    public static decimal? ToDecimal(this string? str) =>
-        decimal.TryParse(str, out var m) ? m : null;
+    public static decimal? ToDecimal(this string? str)
+    {
+        return decimal.TryParse(str, out var m) ? m : null;
+    }
 
     #endregion Methods for converting strings to numbers
 }

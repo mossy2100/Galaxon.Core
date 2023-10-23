@@ -12,6 +12,11 @@ public enum ETimeUnit
     Nanosecond,
 
     /// <summary>
+    /// Shake. 1 shake = 10<sup>-8</sup> s = 10 ns = 0.1 ticks
+    /// </summary>
+    Shake,
+
+    /// <summary>
     /// The core time unit used by .NET. 1 tick = 100 ns = 0.1 µs = 10<sup>-7</sup> s
     /// </summary>
     Tick,
@@ -78,5 +83,5 @@ public enum ETimeUnit
     /// <summary>
     /// Millennium (ky). 1 ky = 10 c = 100 dec = 1000 y
     /// </summary>
-    Millennium
+    Millennium,
 }

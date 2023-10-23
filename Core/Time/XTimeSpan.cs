@@ -48,7 +48,7 @@ public static class XTimeSpan
             ETimeUnit.Decade => amount * TicksPerDecade,
             ETimeUnit.Century => amount * TicksPerCentury,
             ETimeUnit.Millennium => amount * TicksPerMillennium,
-            _ => throw new ArgumentOutOfRangeException(nameof(fromUnit), "Invalid time unit.")
+            _ => throw new ArgumentOutOfRangeException(nameof(fromUnit), "Invalid time unit."),
         };
 
         return toUnit switch
@@ -67,7 +67,7 @@ public static class XTimeSpan
             ETimeUnit.Decade => ticks / TicksPerDecade,
             ETimeUnit.Century => ticks / TicksPerCentury,
             ETimeUnit.Millennium => ticks / TicksPerMillennium,
-            _ => throw new ArgumentOutOfRangeException(nameof(toUnit), "Invalid time unit.")
+            _ => throw new ArgumentOutOfRangeException(nameof(toUnit), "Invalid time unit."),
         };
     }
 

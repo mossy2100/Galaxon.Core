@@ -64,8 +64,10 @@ public static class XDouble
     /// Disassemble the double into its bitwise components.
     /// </summary>
     /// <see href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format" />
-    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this double x) =>
-        x.Disassemble<double>();
+    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this double x)
+    {
+        return x.Disassemble<double>();
+    }
 
     /// <summary>
     /// Assemble a new double from parts.
@@ -74,8 +76,10 @@ public static class XDouble
     /// <param name="expBits">The exponent bits.</param>
     /// <param name="fracBits">The fraction bits.</param>
     /// <returns>The new double.</returns>
-    public static double Assemble(byte signBit, ushort expBits, ulong fracBits) =>
-        XFloatingPoint.Assemble<double>(signBit, expBits, fracBits);
+    public static double Assemble(byte signBit, ushort expBits, ulong fracBits)
+    {
+        return XFloatingPoint.Assemble<double>(signBit, expBits, fracBits);
+    }
 
     /// <summary>
     /// Get a random double.
@@ -101,18 +105,26 @@ public static class XDouble
     /// <summary>
     /// Check if a double is a positive integer.
     /// </summary>
-    public static bool IsPositiveInteger(double d) => d > 0 && double.IsInteger(d);
+    public static bool IsPositiveInteger(double d)
+    {
+        return d > 0 && double.IsInteger(d);
+    }
 
     /// <summary>
     /// Check if a double is a negative integer.
     /// </summary>
-    public static bool IsNegativeInteger(double d) => d < 0 && double.IsInteger(d);
+    public static bool IsNegativeInteger(double d)
+    {
+        return d < 0 && double.IsInteger(d);
+    }
 
     /// <summary>
     /// Check if a value is a perfect square.
     /// </summary>
-    public static bool IsPerfectSquare(double d) =>
-        double.IsPositive(d) && double.IsInteger(Math.Sqrt(d));
+    public static bool IsPerfectSquare(double d)
+    {
+        return double.IsPositive(d) && double.IsInteger(Math.Sqrt(d));
+    }
 
     #endregion Methods for checking doubles as integers
 
@@ -176,20 +188,26 @@ public static class XDouble
     /// <summary>
     /// IsInteger() can be a bit strict. This method allows for some fuzziness.
     /// </summary>
-    public static bool FuzzyIsInteger(double d, double tolerance = Delta) =>
-        d.FuzzyEquals(Math.Round(d), tolerance);
+    public static bool FuzzyIsInteger(double d, double tolerance = Delta)
+    {
+        return d.FuzzyEquals(Math.Round(d), tolerance);
+    }
 
     /// <summary>
     /// Check if a double is a positive integer, with some fuzziness.
     /// </summary>
-    public static bool FuzzyIsPositiveInteger(double d, double tolerance = Delta) =>
-        d > 0 && FuzzyIsInteger(d, tolerance);
+    public static bool FuzzyIsPositiveInteger(double d, double tolerance = Delta)
+    {
+        return d > 0 && FuzzyIsInteger(d, tolerance);
+    }
 
     /// <summary>
     /// Check if a double is a negative integer, with some fuzziness.
     /// </summary>
-    public static bool FuzzyIsNegativeInteger(double d, double tolerance = Delta) =>
-        d < 0 && FuzzyIsInteger(d, tolerance);
+    public static bool FuzzyIsNegativeInteger(double d, double tolerance = Delta)
+    {
+        return d < 0 && FuzzyIsInteger(d, tolerance);
+    }
 
     #endregion Methods for fuzzy equals
 }

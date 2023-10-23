@@ -14,47 +14,68 @@ public static class XNumber
     /// Check if a type implements a generic interface.
     /// </summary>
     /// <returns></returns>
-    public static bool Implements(object obj, Type genericInterface) =>
-        obj.GetType().GetInterfaces().Any(x =>
+    public static bool Implements(object obj, Type genericInterface)
+    {
+        return obj.GetType().GetInterfaces().Any(x =>
             x.IsGenericType &&
             x.GetGenericTypeDefinition() == genericInterface);
+    }
 
     /// <summary>
     /// Check if an object is a signed integer.
     /// </summary>
-    public static bool IsSignedInteger(object? obj) =>
-        obj != null && Implements(obj, typeof(IBinaryInteger<>));
+    public static bool IsSignedInteger(object? obj)
+    {
+        return obj != null && Implements(obj, typeof(IBinaryInteger<>));
+    }
 
     /// <summary>
     /// Check if an object is an unsigned integer.
     /// </summary>
-    public static bool IsUnsignedInteger(object? obj) =>
-        obj is byte or uint or ushort or ulong or UInt128;
+    public static bool IsUnsignedInteger(object? obj)
+    {
+        return obj is byte or uint or ushort or ulong or uint128;
+    }
 
     /// <summary>
     /// Check if an object is a floating point value.
     /// </summary>
-    public static bool IsFloatingPoint(object? obj) => obj is Half or float or double or decimal;
+    public static bool IsFloatingPoint(object? obj)
+    {
+        return obj is half or float or double or decimal;
+    }
 
     /// <summary>
     /// Check if an object is an integer.
     /// </summary>
-    public static bool IsInteger(object? obj) => IsSignedInteger(obj) || IsUnsignedInteger(obj);
+    public static bool IsInteger(object? obj)
+    {
+        return IsSignedInteger(obj) || IsUnsignedInteger(obj);
+    }
 
     /// <summary>
     /// Check if an object is a real (non-complex) number.
     /// </summary>
-    public static bool IsReal(object? obj) => IsInteger(obj) || IsFloatingPoint(obj);
+    public static bool IsReal(object? obj)
+    {
+        return IsInteger(obj) || IsFloatingPoint(obj);
+    }
 
     /// <summary>
     /// Check if an object is a complex number.
     /// </summary>
-    public static bool IsComplex(object? obj) => obj is Complex;
+    public static bool IsComplex(object? obj)
+    {
+        return obj is Complex;
+    }
 
     /// <summary>
     /// Check if an object is a number.
     /// </summary>
-    public static bool IsNumber(object? obj) => IsReal(obj) || IsComplex(obj);
+    public static bool IsNumber(object? obj)
+    {
+        return IsReal(obj) || IsComplex(obj);
+    }
 
     #endregion Inspection methods
 
@@ -115,16 +136,20 @@ public static class XNumber
     /// Similar to Sum(), this extension method generates the product of all values in a collection
     /// of numbers.
     /// </summary>
-    public static T Product<T>(this IEnumerable<T> source) where T : INumberBase<T> =>
-        source.Aggregate(T.One, (prod, value) => prod * value);
+    public static T Product<T>(this IEnumerable<T> source) where T : INumberBase<T>
+    {
+        return source.Aggregate(T.One, (prod, value) => prod * value);
+    }
 
     /// <summary>
     /// Similar to Sum(), get a product of all values in the collection, transformed by the supplied
     /// function.
     /// </summary>
     public static T Product<T>(this IEnumerable<T> source, Func<T, T> func)
-        where T : INumberBase<T> =>
-        source.Aggregate(T.One, (prod, value) => prod * func(value));
+        where T : INumberBase<T>
+    {
+        return source.Aggregate(T.One, (prod, value) => prod * func(value));
+    }
 
     #endregion Methods for IEnumerable<INumberBase<T>>
 }

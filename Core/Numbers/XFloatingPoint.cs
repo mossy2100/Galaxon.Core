@@ -12,7 +12,7 @@ public static class XFloatingPoint
     public static byte GetNumExpBits<T>() where T : IFloatingPoint<T>
     {
         var t = typeof(T);
-        if (t == typeof(Half))
+        if (t == typeof(half))
         {
             return XHalf.NumExpBits;
         }
@@ -35,7 +35,7 @@ public static class XFloatingPoint
     public static byte GetNumFracBits<T>() where T : IFloatingPoint<T>
     {
         var t = typeof(T);
-        if (t == typeof(Half))
+        if (t == typeof(half))
         {
             return XHalf.NumFracBits;
         }
@@ -55,14 +55,19 @@ public static class XFloatingPoint
     /// Get the minimum exponent for the type.
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static short GetMinExp<T>() where T : IFloatingPoint<T> => (short)(1 - GetMaxExp<T>());
+    public static short GetMinExp<T>() where T : IFloatingPoint<T>
+    {
+        return (short)(1 - GetMaxExp<T>());
+    }
 
     /// <summary>
     /// Get the maximum exponent for the type.
     /// </summary>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static short GetMaxExp<T>() where T : IFloatingPoint<T> =>
-        (short)(Math.Pow(2, GetNumExpBits<T>() - 1) - 1);
+    public static short GetMaxExp<T>() where T : IFloatingPoint<T>
+    {
+        return (short)(Math.Pow(2, GetNumExpBits<T>() - 1) - 1);
+    }
 
     /// <summary>
     /// Get the minimum positive normal value for the type.
@@ -71,7 +76,7 @@ public static class XFloatingPoint
     public static T GetMinPosNormalValue<T>() where T : IFloatingPoint<T>
     {
         var t = typeof(T);
-        if (t == typeof(Half))
+        if (t == typeof(half))
         {
             return (T)(object)XHalf.MinPosNormalValue;
         }
@@ -104,7 +109,7 @@ public static class XFloatingPoint
 
         switch (x)
         {
-            case Half h:
+            case half h:
             {
                 var bits = BitConverter.HalfToUInt16Bits(h);
                 signBit = (byte)((bits & 0b10000000_00000000) >> nSignBitShift);
@@ -182,7 +187,7 @@ public static class XFloatingPoint
 
         // Return a value of the correct type.
         var t = typeof(T);
-        if (t == typeof(Half))
+        if (t == typeof(half))
         {
             return (T)(object)BitConverter.UInt16BitsToHalf((ushort)bits);
         }
