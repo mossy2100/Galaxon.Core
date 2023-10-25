@@ -74,4 +74,40 @@ public static class XBinaryInteger
     }
 
     #endregion Superscript and subscript
+
+    #region Check for interface
+
+    /// <summary>
+    /// Check if a type implements IBinaryInteger{TSelf}.
+    /// </summary>
+    /// <param name="type">The type</param>
+    /// <returns>True if the specified type implements IBinaryInteger{TSelf}.</returns>
+    public static bool ImplementsBinaryInteger(Type type)
+    {
+        return type.GetInterfaces().Any(i => i.IsGenericType
+            && i.GetGenericTypeDefinition() == typeof(IBinaryInteger<>)
+            && i.GenericTypeArguments[0] == type);
+    }
+
+    /// <summary>
+    /// Check if a type implements IBinaryInteger{TSelf}.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns>True if the specified type implements IBinaryInteger{TSelf}.</returns>
+    public static bool ImplementsBinaryInteger<T>()
+    {
+        return ImplementsBinaryInteger(typeof(T));
+    }
+
+    /// <summary>
+    /// Check if a value is an IBinaryInteger{TSelf}.
+    /// </summary>
+    /// <param name="value">Some value.</param>
+    /// <returns>True if the value is a IBinaryInteger{TSelf}.</returns>
+    public static bool IsBinaryInteger(object value)
+    {
+        return ImplementsBinaryInteger(value.GetType());
+    }
+
+    #endregion Check for interface
 }

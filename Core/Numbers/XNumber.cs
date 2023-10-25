@@ -1,4 +1,5 @@
 using System.Numerics;
+using Galaxon.Core.Types;
 
 namespace Galaxon.Core.Numbers;
 
@@ -152,4 +153,70 @@ public static class XNumber
     }
 
     #endregion Methods for IEnumerable<INumberBase<T>>
+
+    #region Methods related to static properties
+
+    /// <summary>
+    /// Get the min value for a specified number type, if specified.
+    /// </summary>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <returns>The value of the MinValue property, or null if unspecified.</returns>
+    public static T? GetMinValue<T>() where T : INumberBase<T>
+    {
+        return (T?)XReflection.GetStaticPropertyValue<T>("MinValue");
+    }
+
+    /// <summary>
+    /// Get the max value for a specified number type, if specified.
+    /// </summary>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <returns>The value of the MaxValue property, or null if unspecified.</returns>
+    public static T? GetMaxValue<T>() where T : INumberBase<T>
+    {
+        return (T?)XReflection.GetStaticPropertyValue<T>("MaxValue");
+    }
+
+    /// <summary>
+    /// Get the min and max values for a specified number type, if specified.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns>The value of the MinValue and MaxValue properties, or two nulls if
+    /// unspecified.</returns>
+    public static (T? min, T? max) GetRange<T>() where T : INumberBase<T>
+    {
+        return (GetMinValue<T>(), GetMaxValue<T>());
+    }
+
+    /// <summary>
+    /// Get the positive infinity value for a specified number type, if specified.
+    /// </summary>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <returns>The value of the PositiveInfinity property, or null if unspecified.</returns>
+    public static T? GetPositiveInfinity<T>() where T : INumberBase<T>
+    {
+        return (T?)XReflection.GetStaticPropertyValue<T>("PositiveInfinity");
+    }
+
+    /// <summary>
+    /// Get the negative infinity value for a specified number type, if specified.
+    /// </summary>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <returns>The value of the NegativeInfinity property, or null if unspecified.</returns>
+    public static T? GetNegativeInfinity<T>() where T : INumberBase<T>
+    {
+        return (T?)XReflection.GetStaticPropertyValue<T>("NegativeInfinity");
+    }
+
+    /// <summary>
+    /// Get the positive and negative infinity values for a specified number type, if specified.
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <returns>The value of the PositiveInfinity and NegativeInfinity properties, or two nulls if
+    /// unspecified.</returns>
+    public static (T? min, T? max) GetInfinities<T>() where T : INumberBase<T>
+    {
+        return (GetPositiveInfinity<T>(), GetNegativeInfinity<T>());
+    }
+
+    #endregion Methods related to static properties
 }

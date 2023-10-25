@@ -1,6 +1,6 @@
 using System.ComponentModel;
 
-namespace Galaxon.Core.Enums;
+namespace Galaxon.Core.Types;
 
 public static class XEnum
 {

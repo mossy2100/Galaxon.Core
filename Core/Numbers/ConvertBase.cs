@@ -24,9 +24,9 @@ namespace Galaxon.Core.Numbers;
 /// Another difference is that the base 64 digits used here are compatible with the digits used by
 /// hexadecimal and all other bases.
 ///
-/// ASCII provides 32 symbol (or punctuation) characters. The 4 unused characters are '.' (period),
-/// ',' (comma), and '_' (underscore), which can be used as group separators (in
-/// different contexts), and '"' (double quote) which is the string delimiter in C#.
+/// ASCII provides 32 symbol (or punctuation) characters, and we only need 28. The 4 unused
+/// characters are '.' (period), ',' (comma), and '_' (underscore), which can be used as group
+/// separators (in different contexts), and '"' (double quote) which is the string delimiter in C#.
 ///
 /// As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
 /// Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
