@@ -216,7 +216,7 @@ public static class XNumber
     /// <returns>The value of the MinValue property, or null if unspecified.</returns>
     public static T? GetMinValue<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticPropertyValue<T>("MinValue");
+        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("MinValue");
     }
 
     /// <summary>
@@ -226,7 +226,7 @@ public static class XNumber
     /// <returns>The value of the MaxValue property, or null if unspecified.</returns>
     public static T? GetMaxValue<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticPropertyValue<T>("MaxValue");
+        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("MaxValue");
     }
 
     /// <summary>
@@ -247,7 +247,7 @@ public static class XNumber
     /// <returns>The value of the PositiveInfinity property, or null if unspecified.</returns>
     public static T? GetPositiveInfinity<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticPropertyValue<T>("PositiveInfinity");
+        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("PositiveInfinity");
     }
 
     /// <summary>
@@ -257,7 +257,7 @@ public static class XNumber
     /// <returns>The value of the NegativeInfinity property, or null if unspecified.</returns>
     public static T? GetNegativeInfinity<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticPropertyValue<T>("NegativeInfinity");
+        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("NegativeInfinity");
     }
 
     /// <summary>

@@ -7,24 +7,79 @@ namespace Galaxon.Core.Types;
 /// </summary>
 public static class XReflection
 {
+    #region Methods for accessing static members of a type
+
+    /// <summary>
+    /// Get the value of a static field or property.
+    /// </summary>
+    /// <param name="name">The name of the field or property.</param>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <returns>The value of the static field or property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the static field or property doesn't exist.
+    /// </exception>
+    public static object? GetStaticFieldOrPropertyValue<T>(string name)
+    {
+        var t = typeof(T);
+
+        // Look for field.
+        var fieldInfo = t.GetField(name);
+        if (fieldInfo != null)
+        {
+            return fieldInfo.GetValue(null);
+        }
+
+        // Look for property.
+        var propertyInfo = t.GetProperty(name);
+        if (propertyInfo != null)
+        {
+            return propertyInfo.GetValue(null);
+        }
+
+        throw new MissingMemberException(
+            $"Type '{t.Name}' does not have a static field or property '{name}'.");
+    }
+
+    /// <summary>
+    /// Get the value of a static field.
+    /// </summary>
+    /// <param name="name">The name of the field.</param>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <returns>The value of the static field.</returns>
+    /// <exception cref="MissingMemberException">If the static field doesn't exist.</exception>
+    public static object? GetStaticFieldValue<T>(string name)
+    {
+        var t = typeof(T);
+        var fieldInfo = t.GetField(name);
+        if (fieldInfo != null)
+        {
+            return fieldInfo.GetValue(null);
+        }
+
+        throw new MissingMemberException($"Type '{t.Name}' does not have a static field '{name}'.");
+    }
+
     /// <summary>
     /// Get the value of a static property.
     /// </summary>
-    /// <param name="propertyName">The name of the property.</param>
+    /// <param name="name">The name of the property.</param>
     /// <typeparam name="T">The type.</typeparam>
     /// <returns>The value of the static property.</returns>
     /// <exception cref="MissingMemberException">If the static property doesn't exist.</exception>
-    public static object? GetStaticPropertyValue<T>(string propertyName)
+    public static object? GetStaticPropertyValue<T>(string name)
     {
         var t = typeof(T);
-        var propInfo = t.GetProperty(propertyName);
-        if (propInfo != null)
+        var propertyInfo = t.GetProperty(name);
+        if (propertyInfo != null)
         {
-            return propInfo.GetValue(null);
+            return propertyInfo.GetValue(null);
         }
 
-        throw new MissingMemberException($"Static property '{propertyName}' not found in type '{t.Name}'");
+        throw new MissingMemberException(
+            $"Type '{t.Name}' does not have a static property '{name}'.");
     }
+
+    #endregion Methods for accessing static members of a type
 
     #region Check for cast operators
 
@@ -36,12 +91,48 @@ public static class XReflection
     /// <returns>If a cast operator exists.</returns>
     public static bool CanCast(Type sourceType, Type targetType)
     {
-        // Search for explicit and implicit cast operators
+        // Search for explicit and implicit cast operators.
         return targetType.GetMethods(BindingFlags.Public | BindingFlags.Static)
-            .Any(m => (m.Name == "op_Implicit" || m.Name == "op_Explicit")
-                && m.ReturnType == targetType
-                && m.GetParameters().Length == 1
-                && m.GetParameters()[0].ParameterType == sourceType);
+            .Any(m =>
+            {
+                var parameters = m.GetParameters();
+                return m.Name is "op_Implicit" or "op_Explicit"
+                    && m.ReturnType == targetType
+                    && parameters.Length == 1
+                    && parameters[0].ParameterType == sourceType;
+            });
+    }
+
+    /// <summary>
+    /// Get the info for a method that casts one type to another.
+    /// </summary>
+    /// <param name="sourceType">The source type.</param>
+    /// <param name="targetType">The target type.</param>
+    /// <returns>The method info.</returns>
+    public static MethodInfo? GetCastMethod(Type sourceType, Type targetType)
+    {
+        // Check the target type.
+        var targetTypeMethod = targetType.GetMethods(BindingFlags.Public | BindingFlags.Static)
+            .FirstOrDefault(m =>
+            {
+                var parameters = m.GetParameters();
+                return m.Name is "op_Implicit" or "op_Explicit"
+                    && m.ReturnType == targetType
+                    && parameters.Length == 1
+                    && parameters[0].ParameterType == sourceType;
+            });
+        if (targetTypeMethod != null) return targetTypeMethod;
+
+        // Check the source type.
+        return sourceType.GetMethods(BindingFlags.Public | BindingFlags.Static)
+            .FirstOrDefault(m =>
+            {
+                var parameters = m.GetParameters();
+                return m.Name is "op_Implicit" or "op_Explicit"
+                    && m.ReturnType == sourceType
+                    && parameters.Length == 1
+                    && parameters[0].ParameterType == targetType;
+            });
     }
 
     /// <summary>
@@ -53,6 +144,28 @@ public static class XReflection
     public static bool CanCast<TSource, TTarget>()
     {
         return CanCast(typeof(TSource), typeof(TTarget));
+    }
+
+    public static TTarget Cast<TSource, TTarget>(TSource src)
+    {
+        Type typeSource = typeof(TSource);
+        Type typeTarget = typeof(TTarget);
+
+        var methodInfo = GetCastMethod(typeSource, typeTarget);
+        if (methodInfo == null)
+        {
+            throw new InvalidCastException(
+                $"No operator exists for casting from {typeSource.Name} to {typeTarget.Name}.");
+        }
+
+        var tmp = methodInfo.Invoke(null, new object?[] { src });
+        if (tmp == null)
+        {
+            throw new InvalidCastException(
+                $"Cast from {typeSource.Name} to {typeTarget.Name} failed.");
+        }
+
+        return (TTarget)tmp;
     }
 
     #endregion Check for cast operators

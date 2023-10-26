@@ -2155,11 +2155,31 @@
             Handy reflection-related methods.
             </summary>
         </member>
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldOrPropertyValue``1(System.String)">
+            <summary>
+            Get the value of a static field or property.
+            </summary>
+            <param name="name">The name of the field or property.</param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>The value of the static field or property.</returns>
+            <exception cref="T:System.MissingMemberException">
+            If the static field or property doesn't exist.
+            </exception>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldValue``1(System.String)">
+            <summary>
+            Get the value of a static field.
+            </summary>
+            <param name="name">The name of the field.</param>
+            <typeparam name="T">The type.</typeparam>
+            <returns>The value of the static field.</returns>
+            <exception cref="T:System.MissingMemberException">If the static field doesn't exist.</exception>
+        </member>
         <member name="M:Galaxon.Core.Types.XReflection.GetStaticPropertyValue``1(System.String)">
             <summary>
             Get the value of a static property.
             </summary>
-            <param name="propertyName">The name of the property.</param>
+            <param name="name">The name of the property.</param>
             <typeparam name="T">The type.</typeparam>
             <returns>The value of the static property.</returns>
             <exception cref="T:System.MissingMemberException">If the static property doesn't exist.</exception>
@@ -2171,6 +2191,14 @@
             <param name="sourceType">The source type.</param>
             <param name="targetType">The target type.</param>
             <returns>If a cast operator exists.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.GetCastMethod(System.Type,System.Type)">
+            <summary>
+            Get the info for a method that casts one type to another.
+            </summary>
+            <param name="sourceType">The source type.</param>
+            <param name="targetType">The target type.</param>
+            <returns>The method info.</returns>
         </member>
         <member name="M:Galaxon.Core.Types.XReflection.CanCast``2">
             <summary>
