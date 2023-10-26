@@ -95,8 +95,6 @@
         </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
             <summary>
-            TODO Rethink the need for this. It essentially replicates the purpose of
-            ArgumentOutOfRangeException.
             This exception type is useful for an ArgumentException when the argument is invalid for a
             reason other than being null, out of range, or having an invalid format.
             I'm using the same parameter order here as used by ArgumentNullException and
@@ -515,27 +513,6 @@
             </summary>
             <param name="n">The integer.</param>
             <returns>The string of subscript characters.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XBinaryInteger.ImplementsBinaryInteger(System.Type)">
-            <summary>
-            Check if a type implements IBinaryInteger{TSelf}.
-            </summary>
-            <param name="type">The type</param>
-            <returns>True if the specified type implements IBinaryInteger{TSelf}.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XBinaryInteger.ImplementsBinaryInteger``1">
-            <summary>
-            Check if a type implements IBinaryInteger{TSelf}.
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns>True if the specified type implements IBinaryInteger{TSelf}.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XBinaryInteger.IsBinaryInteger(System.Object)">
-            <summary>
-            Check if a value is an IBinaryInteger{TSelf}.
-            </summary>
-            <param name="value">Some value.</param>
-            <returns>True if the value is a IBinaryInteger{TSelf}.</returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.XDecimal">
             <summary>Extension methods for decimal.</summary>
@@ -1010,46 +987,77 @@
             TODO: Sort out methods to check for implementation of generic interfaces.
             </remarks>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.Implements(System.Object,System.Type)">
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsStandardNumberType(System.Type)">
             <summary>
-            Check if a type implements a generic interface.
+            Check if a type is a standard numerical type in .NET.
+            Excludes char, vector, and matrix types.
             </summary>
+            <param name="type">The type to check.</param>
+            <returns>True if the type is a standard numerical type.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsNumberType(System.Type)">
+            <summary>
+            Check if a type is a number type.
+            </summary>
+            <param name="type">Some type.</param>
+            <returns>If the type implements INumberBase{TSelf}.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsSignedNumberType(System.Type)">
+            <summary>
+            Check if a type is a signed number type.
+            </summary>
+            <param name="type">Some type.</param>
+            <returns>If the type implements ISignedNumber{TSelf}.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsUnsignedNumberType(System.Type)">
+            <summary>
+            Check if a type is an unsigned number type.
+            </summary>
+            <param name="type">Some type.</param>
+            <returns>If the type implements IUnsignedNumber{TSelf}.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsIntegerType(System.Type)">
+            <summary>
+            Check if a type is an integer type.
+            </summary>
+            <param name="type">Some type.</param>
+            <returns>If the type implements IBinaryInteger{TSelf}.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsFloatingPointType(System.Type)">
+            <summary>
+            Check if a type is a floating point type.
+            </summary>
+            <param name="type">Some type.</param>
+            <returns>If the type implements IFloatingPoint{TSelf}.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsSignedIntegerType(System.Type)">
+            <summary>
+            Check if a type is a signed integer type.
+            </summary>
+            <param name="type">Some type.</param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsSignedInteger(System.Object)">
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsUnsignedIntegerType(System.Type)">
             <summary>
-            Check if an object is a signed integer.
+            Check if a type is an unsigned integer type.
             </summary>
+            <param name="type">Some type.</param>
+            <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsUnsignedInteger(System.Object)">
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsRealNumberType(System.Type)">
             <summary>
-            Check if an object is an unsigned integer.
+            Check if a type is a real (non-complex) number type.
             </summary>
+            <param name="type">Some type.</param>
+            <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsFloatingPoint(System.Object)">
+        <member name="M:Galaxon.Core.Numbers.XNumber.IsComplexNumberType(System.Type)">
             <summary>
-            Check if an object is a floating point value.
+            Check if a type is a complex number type.
+            TODO Make it support BigComplex without actually referencing it.
             </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsInteger(System.Object)">
-            <summary>
-            Check if an object is an integer.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsReal(System.Object)">
-            <summary>
-            Check if an object is a real (non-complex) number.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsComplex(System.Object)">
-            <summary>
-            Check if an object is a complex number.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.IsNumber(System.Object)">
-            <summary>
-            Check if an object is a number.
-            </summary>
+            <param name="type">Some type.</param>
+            <returns></returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)">
             <summary>
@@ -2171,6 +2179,56 @@
             <typeparam name="TSource">The source type.</typeparam>
             <typeparam name="TTarget">The target type.</typeparam>
             <returns>If a cast operator exists.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.ImplementsInterface(System.Type,System.Type)">
+            <summary>
+            Check if a type implements an interface.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="interfaceType">The interface type.</param>
+            <returns>True if the specified type implements the specified interface.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.ImplementsInterface``2">
+            <summary>
+            Check if a type implements an interface.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <typeparam name="TInterface">The interface type.</typeparam>
+            <returns>True if the specified type implements the specified interface.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.ImplementsGenericInterface(System.Type,System.Type)">
+            <summary>
+            Check if a type implements a generic interface.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="interfaceType">The generic interface type.</param>
+            <returns>True if the specified type implements the specified interface.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.ImplementsGenericInterface``2">
+            <summary>
+            Check if a type implements an generic interface.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <typeparam name="TInterface">The generic interface type.</typeparam>
+            <returns>True if the specified type implements the specified interface.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.ImplementsSelfReferencingGenericInterface(System.Type,System.Type)">
+            <summary>
+            Check if a type implements a self-referencing generic interface
+            (e.g. IBinaryInteger{TSelf}).
+            Only works if the self-referenced type is the first type parameter.
+            </summary>
+            <param name="type">The type.</param>
+            <param name="interfaceType">The self-referencing generic interface.</param>
+            <returns>True if the specified type implements the specified interface.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.ImplementsSelfReferencingGenericInterface``2">
+            <summary>
+            Check if a type implements an self-referencing generic interface.
+            </summary>
+            <typeparam name="T">The type.</typeparam>
+            <typeparam name="TInterface">The self-referencing generic interface type.</typeparam>
+            <returns>True if the specified type implements the specified interface.</returns>
         </member>
     </members>
 </doc>

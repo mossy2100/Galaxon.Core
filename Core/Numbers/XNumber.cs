@@ -9,73 +9,126 @@ namespace Galaxon.Core.Numbers;
 /// </remarks>
 public static class XNumber
 {
-    #region Inspection methods
+    #region Methods for inspecting the number type
 
     /// <summary>
-    /// Check if a type implements a generic interface.
+    /// Check if a type is a standard numerical type in .NET.
+    /// Excludes char, vector, and matrix types.
     /// </summary>
+    /// <param name="type">The type to check.</param>
+    /// <returns>True if the type is a standard numerical type.</returns>
+    public static bool IsStandardNumberType(Type type)
+    {
+        return type == typeof(sbyte)
+            || type == typeof(byte)
+            || type == typeof(short)
+            || type == typeof(ushort)
+            || type == typeof(int)
+            || type == typeof(uint)
+            || type == typeof(long)
+            || type == typeof(ulong)
+            || type == typeof(Int128)
+            || type == typeof(UInt128)
+            || type == typeof(Half)
+            || type == typeof(float)
+            || type == typeof(double)
+            || type == typeof(decimal)
+            || type == typeof(BigInteger)
+            || type == typeof(Complex);
+    }
+
+    /// <summary>
+    /// Check if a type is a number type.
+    /// </summary>
+    /// <param name="type">Some type.</param>
+    /// <returns>If the type implements INumberBase{TSelf}.</returns>
+    public static bool IsNumberType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type, typeof(INumberBase<>));
+    }
+
+    /// <summary>
+    /// Check if a type is a signed number type.
+    /// </summary>
+    /// <param name="type">Some type.</param>
+    /// <returns>If the type implements ISignedNumber{TSelf}.</returns>
+    public static bool IsSignedNumberType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type, typeof(ISignedNumber<>));
+    }
+
+    /// <summary>
+    /// Check if a type is an unsigned number type.
+    /// </summary>
+    /// <param name="type">Some type.</param>
+    /// <returns>If the type implements IUnsignedNumber{TSelf}.</returns>
+    public static bool IsUnsignedNumberType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type,
+            typeof(IUnsignedNumber<>));
+    }
+
+    /// <summary>
+    /// Check if a type is an integer type.
+    /// </summary>
+    /// <param name="type">Some type.</param>
+    /// <returns>If the type implements IBinaryInteger{TSelf}.</returns>
+    public static bool IsIntegerType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type,
+            typeof(IBinaryInteger<>));
+    }
+
+    /// <summary>
+    /// Check if a type is a floating point type.
+    /// </summary>
+    /// <param name="type">Some type.</param>
+    /// <returns>If the type implements IFloatingPoint{TSelf}.</returns>
+    public static bool IsFloatingPointType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type,
+            typeof(IFloatingPoint<>));
+    }
+
+    /// <summary>
+    /// Check if a type is a signed integer type.
+    /// </summary>
+    /// <param name="type">Some type.</param>
     /// <returns></returns>
-    public static bool Implements(object obj, Type genericInterface)
+    public static bool IsSignedIntegerType(Type type)
     {
-        return obj.GetType().GetInterfaces().Any(x =>
-            x.IsGenericType &&
-            x.GetGenericTypeDefinition() == genericInterface);
+        return IsSignedNumberType(type) && IsIntegerType(type);
     }
 
     /// <summary>
-    /// Check if an object is a signed integer.
+    /// Check if a type is an unsigned integer type.
     /// </summary>
-    public static bool IsSignedInteger(object? obj)
+    /// <param name="type">Some type.</param>
+    /// <returns></returns>
+    public static bool IsUnsignedIntegerType(Type type)
     {
-        return obj != null && Implements(obj, typeof(IBinaryInteger<>));
+        return IsUnsignedNumberType(type) && IsIntegerType(type);
     }
 
     /// <summary>
-    /// Check if an object is an unsigned integer.
+    /// Check if a type is a real (non-complex) number type.
     /// </summary>
-    public static bool IsUnsignedInteger(object? obj)
+    /// <param name="type">Some type.</param>
+    /// <returns></returns>
+    public static bool IsRealNumberType(Type type)
     {
-        return obj is byte or uint or ushort or ulong or UInt128;
+        return IsIntegerType(type) || IsFloatingPointType(type);
     }
 
     /// <summary>
-    /// Check if an object is a floating point value.
+    /// Check if a type is a complex number type.
+    /// TODO Make it support BigComplex without actually referencing it.
     /// </summary>
-    public static bool IsFloatingPoint(object? obj)
+    /// <param name="type">Some type.</param>
+    /// <returns></returns>
+    public static bool IsComplexNumberType(Type type)
     {
-        return obj is Half or float or double or decimal;
-    }
-
-    /// <summary>
-    /// Check if an object is an integer.
-    /// </summary>
-    public static bool IsInteger(object? obj)
-    {
-        return IsSignedInteger(obj) || IsUnsignedInteger(obj);
-    }
-
-    /// <summary>
-    /// Check if an object is a real (non-complex) number.
-    /// </summary>
-    public static bool IsReal(object? obj)
-    {
-        return IsInteger(obj) || IsFloatingPoint(obj);
-    }
-
-    /// <summary>
-    /// Check if an object is a complex number.
-    /// </summary>
-    public static bool IsComplex(object? obj)
-    {
-        return obj is Complex;
-    }
-
-    /// <summary>
-    /// Check if an object is a number.
-    /// </summary>
-    public static bool IsNumber(object? obj)
-    {
-        return IsReal(obj) || IsComplex(obj);
+        return type == typeof(Complex);
     }
 
     #endregion Inspection methods

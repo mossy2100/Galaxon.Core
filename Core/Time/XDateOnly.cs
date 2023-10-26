@@ -394,7 +394,7 @@ public static class XDateOnly
             // US, etc.: 4th Thursday in November.
             "US" or "NL" or "PH" or "BR" => GetNthWeekdayInMonth(year, 11, 4, DayOfWeek.Thursday),
 
-            _ => throw new ArgumentInvalidException(nameof(countryCode),
+            _ => throw new ArgumentOutOfRangeException(nameof(countryCode),
                 "A date for Thanksgiving could not be determined for the specified country."),
         };
     }

@@ -137,7 +137,7 @@ public static class ConvertBase
             // We can't cast from T to BigInteger but we can do it with strings (decimal digits).
             if (n.ToString() is not { } strN)
             {
-                throw new ArgumentInvalidException(typeof(T).Name, "Unsupported type.");
+                throw new ArgumentOutOfRangeException(typeof(T).Name, "Unsupported type.");
             }
             bi = BigInteger.Parse(strN);
         }

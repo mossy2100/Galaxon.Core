@@ -26,6 +26,8 @@ public static class XReflection
         throw new MissingMemberException($"Static property '{propertyName}' not found in type '{t.Name}'");
     }
 
+    #region Check for cast operators
+
     /// <summary>
     /// See if a cast operator exists from one type to another.
     /// </summary>
@@ -52,4 +54,81 @@ public static class XReflection
     {
         return CanCast(typeof(TSource), typeof(TTarget));
     }
+
+    #endregion Check for cast operators
+
+    #region Check for interface implementation
+
+    /// <summary>
+    /// Check if a type implements an interface.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <param name="interfaceType">The interface type.</param>
+    /// <returns>True if the specified type implements the specified interface.</returns>
+    public static bool ImplementsInterface(Type type, Type interfaceType)
+    {
+        return type.GetInterfaces().Any(i => i == interfaceType);
+    }
+
+    /// <summary>
+    /// Check if a type implements an interface.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <typeparam name="TInterface">The interface type.</typeparam>
+    /// <returns>True if the specified type implements the specified interface.</returns>
+    public static bool ImplementsInterface<T, TInterface>()
+    {
+        return ImplementsInterface(typeof(T), typeof(TInterface));
+    }
+
+    /// <summary>
+    /// Check if a type implements a generic interface.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <param name="interfaceType">The generic interface type.</param>
+    /// <returns>True if the specified type implements the specified interface.</returns>
+    public static bool ImplementsGenericInterface(Type type, Type interfaceType)
+    {
+        return type.GetInterfaces().Any(i => i.IsGenericType
+            && i.GetGenericTypeDefinition() == interfaceType);
+    }
+
+    /// <summary>
+    /// Check if a type implements an generic interface.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <typeparam name="TInterface">The generic interface type.</typeparam>
+    /// <returns>True if the specified type implements the specified interface.</returns>
+    public static bool ImplementsGenericInterface<T, TInterface>()
+    {
+        return ImplementsGenericInterface(typeof(T), typeof(TInterface));
+    }
+
+    /// <summary>
+    /// Check if a type implements a self-referencing generic interface
+    /// (e.g. IBinaryInteger{TSelf}).
+    /// Only works if the self-referenced type is the first type parameter.
+    /// </summary>
+    /// <param name="type">The type.</param>
+    /// <param name="interfaceType">The self-referencing generic interface.</param>
+    /// <returns>True if the specified type implements the specified interface.</returns>
+    public static bool ImplementsSelfReferencingGenericInterface(Type type, Type interfaceType)
+    {
+        return type.GetInterfaces().Any(i => i.IsGenericType
+            && i.GetGenericTypeDefinition() == interfaceType
+            && i.GenericTypeArguments[0] == type);
+    }
+
+    /// <summary>
+    /// Check if a type implements an self-referencing generic interface.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <typeparam name="TInterface">The self-referencing generic interface type.</typeparam>
+    /// <returns>True if the specified type implements the specified interface.</returns>
+    public static bool ImplementsSelfReferencingGenericInterface<T, TInterface>()
+    {
+        return ImplementsSelfReferencingGenericInterface(typeof(T), typeof(TInterface));
+    }
+
+    #endregion Check for interface implementation
 }

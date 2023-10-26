@@ -1,8 +1,6 @@
 namespace Galaxon.Core.Exceptions;
 
 /// <summary>
-/// TODO Rethink the need for this. It essentially replicates the purpose of
-/// ArgumentOutOfRangeException.
 /// This exception type is useful for an ArgumentException when the argument is invalid for a
 /// reason other than being null, out of range, or having an invalid format.
 /// I'm using the same parameter order here as used by ArgumentNullException and
