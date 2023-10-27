@@ -3,27 +3,11 @@ namespace Galaxon.Core.Numbers;
 /// <summary>Extension methods and other bonus stuff for float.</summary>
 public static class XFloat
 {
-    /// <summary>The number of bits in the exponent.</summary>
-    public const byte NumExpBits = 8;
+    /// <summary>The total number of bits in the value.</summary>
+    public const byte TotalNumBits = 32;
 
     /// <summary>The number of bits in the fraction.</summary>
     public const byte NumFracBits = 23;
-
-    /// <summary>The minimum binary exponent supported by the type.</summary>
-    public const short MinExp = -126;
-
-    /// <summary>The maximum binary exponent supported by the type.</summary>
-    public const short MaxExp = 127;
-
-    /// <summary>
-    /// The maximum positive subnormal value.
-    /// </summary>
-    public static float MaxPosSubnormalValue => Assemble(0, 0, 0x7f_ffff);
-
-    /// <summary>
-    /// The minimum positive normal value.
-    /// </summary>
-    public static float MinPosNormalValue => Assemble(0, 1, 0);
 
     /// <summary>
     /// Disassemble the float into its bitwise components.

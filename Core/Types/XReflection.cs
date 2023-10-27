@@ -12,71 +12,113 @@ public static class XReflection
     /// <summary>
     /// Get the value of a static field or property.
     /// </summary>
+    /// <param name="type">The type.</param>
     /// <param name="name">The name of the field or property.</param>
-    /// <typeparam name="T">The type.</typeparam>
     /// <returns>The value of the static field or property.</returns>
     /// <exception cref="MissingMemberException">
-    /// If the static field or property doesn't exist.
+    /// If the static field or property doesn't exist on the specified type.
     /// </exception>
-    public static object? GetStaticFieldOrPropertyValue<T>(string name)
+    public static object? GetStaticFieldOrPropertyValue(Type type, string name)
     {
-        var t = typeof(T);
-
         // Look for field.
-        var fieldInfo = t.GetField(name);
+        var fieldInfo = type.GetField(name);
         if (fieldInfo != null)
         {
             return fieldInfo.GetValue(null);
         }
 
         // Look for property.
-        var propertyInfo = t.GetProperty(name);
+        var propertyInfo = type.GetProperty(name);
         if (propertyInfo != null)
         {
             return propertyInfo.GetValue(null);
         }
 
         throw new MissingMemberException(
-            $"Type '{t.Name}' does not have a static field or property '{name}'.");
+            $"Type '{type.Name}' does not have a static field or property '{name}'.");
+    }
+
+    /// <summary>
+    /// Get the value of a static field or property.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <param name="name">The name of the field or property.</param>
+    /// <returns>The value of the static field or property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the static field or property doesn't exist on the specified type.
+    /// </exception>
+    public static object? GetStaticFieldOrPropertyValue<T>(string name)
+    {
+        return GetStaticFieldOrPropertyValue(typeof(T), name);
     }
 
     /// <summary>
     /// Get the value of a static field.
     /// </summary>
+    /// <param name="type">The type.</param>
     /// <param name="name">The name of the field.</param>
-    /// <typeparam name="T">The type.</typeparam>
     /// <returns>The value of the static field.</returns>
-    /// <exception cref="MissingMemberException">If the static field doesn't exist.</exception>
-    public static object? GetStaticFieldValue<T>(string name)
+    /// <exception cref="MissingMemberException">
+    /// If the static field doesn't exist on the specified type.
+    /// </exception>
+    public static object? GetStaticFieldValue(Type type, string name)
     {
-        var t = typeof(T);
-        var fieldInfo = t.GetField(name);
+        var fieldInfo = type.GetField(name);
         if (fieldInfo != null)
         {
             return fieldInfo.GetValue(null);
         }
 
-        throw new MissingMemberException($"Type '{t.Name}' does not have a static field '{name}'.");
+        throw new MissingMemberException($"Type '{type.Name}' does not have a static field '{name}'.");
+    }
+
+    /// <summary>
+    /// Get the value of a static field.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <param name="name">The name of the field.</param>
+    /// <returns>The value of the static field.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the static field doesn't exist on the specified type.
+    /// </exception>
+    public static object? GetStaticFieldValue<T>(string name)
+    {
+        return GetStaticFieldValue(typeof(T), name);
     }
 
     /// <summary>
     /// Get the value of a static property.
     /// </summary>
+    /// <param name="type">The type.</param>
     /// <param name="name">The name of the property.</param>
-    /// <typeparam name="T">The type.</typeparam>
     /// <returns>The value of the static property.</returns>
-    /// <exception cref="MissingMemberException">If the static property doesn't exist.</exception>
-    public static object? GetStaticPropertyValue<T>(string name)
+    /// <exception cref="MissingMemberException">
+    /// If the static property doesn't exist on the specified type.
+    /// </exception>
+    public static object? GetStaticPropertyValue(Type type, string name)
     {
-        var t = typeof(T);
-        var propertyInfo = t.GetProperty(name);
+        var propertyInfo = type.GetProperty(name);
         if (propertyInfo != null)
         {
             return propertyInfo.GetValue(null);
         }
 
         throw new MissingMemberException(
-            $"Type '{t.Name}' does not have a static property '{name}'.");
+            $"Type '{type.Name}' does not have a static property '{name}'.");
+    }
+
+    /// <summary>
+    /// Get the value of a static property.
+    /// </summary>
+    /// <typeparam name="T">The type.</typeparam>
+    /// <param name="name">The name of the property.</param>
+    /// <returns>The value of the static property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the static property doesn't exist on the specified type.
+    /// </exception>
+    public static object? GetStaticPropertyValue<T>(string name)
+    {
+        return GetStaticPropertyValue(typeof(T), name);
     }
 
     #endregion Methods for accessing static members of a type
@@ -146,6 +188,14 @@ public static class XReflection
         return CanCast(typeof(TSource), typeof(TTarget));
     }
 
+    /// <summary>
+    /// Case a value from a source type to a target type.
+    /// </summary>
+    /// <typeparam name="TSource">The source type.</typeparam>
+    /// <typeparam name="TTarget">The target type.</typeparam>
+    /// <param name="src">The source value.</param>
+    /// <returns>The target value.</returns>
+    /// <exception cref="InvalidCastException">If the cast failed.</exception>
     public static TTarget Cast<TSource, TTarget>(TSource src)
     {
         Type typeSource = typeof(TSource);

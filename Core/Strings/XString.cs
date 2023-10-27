@@ -205,6 +205,20 @@ public static class XString
         return str.ReplaceChars(SmallCapsChars);
     }
 
+    /// <summary>
+    /// Return the string with the first letter converted to upper-case.
+    /// </summary>
+    /// <param name="str">The original string.</param>
+    /// <returns>The string with the first letter upper-cased.</returns>
+    public static string UpperCaseFirstLetter(this string str)
+    {
+        // Check for empty string.
+        if (str == "") return "";
+
+        // Return char and concat substring.
+        return char.ToUpper(str[0]) + str[1..];
+    }
+
     #region Methods for formatting numbers
 
     /// <summary>

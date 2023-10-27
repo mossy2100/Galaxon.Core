@@ -210,65 +210,103 @@ public static class XNumber
     #region Methods related to static properties
 
     /// <summary>
+    /// Get the value of the static field or property for a specified number type.
+    /// </summary>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <param name="name">The name of the static field or property.</param>
+    /// <returns>The value of the specified field or property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property with the given name.
+    /// </exception>
+    public static T GetStaticValue<T>(string name) where T : INumberBase<T>
+    {
+        var value = XReflection.GetStaticFieldOrPropertyValue<T>(name);
+        if (value == null)
+        {
+            throw new MissingMemberException(typeof(T).Name, name);
+        }
+        return (T)value;
+    }
+
+    /// <summary>
     /// Get the min value for a specified number type, if specified.
     /// </summary>
     /// <typeparam name="T">The number type.</typeparam>
-    /// <returns>The value of the MinValue property, or null if unspecified.</returns>
-    public static T? GetMinValue<T>() where T : INumberBase<T>
+    /// <returns>The value of the MinValue property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property names "MinValue".
+    /// </exception>
+    public static T GetMinValue<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("MinValue");
+        return GetStaticValue<T>("MinValue");
     }
 
     /// <summary>
-    /// Get the max value for a specified number type, if specified.
+    /// Get the maximum value for a specified number type, if specified.
     /// </summary>
     /// <typeparam name="T">The number type.</typeparam>
-    /// <returns>The value of the MaxValue property, or null if unspecified.</returns>
-    public static T? GetMaxValue<T>() where T : INumberBase<T>
+    /// <returns>The value of the MaxValue property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property names "MaxValue".
+    /// </exception>
+    public static T GetMaxValue<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("MaxValue");
+        return GetStaticValue<T>("MaxValue");
     }
 
     /// <summary>
-    /// Get the min and max values for a specified number type, if specified.
+    /// Get the minimum and maximum values for a specified number type.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <returns>The value of the MinValue and MaxValue properties, or two nulls if
-    /// unspecified.</returns>
-    public static (T? min, T? max) GetRange<T>() where T : INumberBase<T>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <returns>The value of the MinValue and MaxValue fields ot properties.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have static fields or properties called "MinValue" and "MaxValue".
+    /// </exception>
+    public static (T min, T max) GetRange<T>() where T : INumberBase<T>
     {
         return (GetMinValue<T>(), GetMaxValue<T>());
     }
 
     /// <summary>
-    /// Get the positive infinity value for a specified number type, if specified.
+    /// Get the negative infinity value for a specified number type.
     /// </summary>
     /// <typeparam name="T">The number type.</typeparam>
-    /// <returns>The value of the PositiveInfinity property, or null if unspecified.</returns>
-    public static T? GetPositiveInfinity<T>() where T : INumberBase<T>
+    /// <returns>The value of the NegativeInfinity property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property names "NegativeInfinity".
+    /// </exception>
+    public static T GetNegativeInfinity<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("PositiveInfinity");
+        return GetStaticValue<T>("NegativeInfinity");
     }
 
     /// <summary>
-    /// Get the negative infinity value for a specified number type, if specified.
+    /// Get the positive infinity value for a specified number type.
     /// </summary>
     /// <typeparam name="T">The number type.</typeparam>
-    /// <returns>The value of the NegativeInfinity property, or null if unspecified.</returns>
-    public static T? GetNegativeInfinity<T>() where T : INumberBase<T>
+    /// <returns>The value of the PositiveInfinity property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property names "PositiveInfinity".
+    /// </exception>
+    public static T GetPositiveInfinity<T>() where T : INumberBase<T>
     {
-        return (T?)XReflection.GetStaticFieldOrPropertyValue<T>("NegativeInfinity");
+        return GetStaticValue<T>("PositiveInfinity");
     }
 
     /// <summary>
-    /// Get the positive and negative infinity values for a specified number type, if specified.
+    /// Get the positive and negative infinity values for a specified number type.
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    /// <returns>The value of the PositiveInfinity and NegativeInfinity properties, or two nulls if
-    /// unspecified.</returns>
+    /// <typeparam name="T">The number type.</typeparam>
+    /// <returns>
+    /// The value of the NegativeInfinity and PositiveInfinity field or properties.
+    /// </returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have static fields or properties called "NegativeInfinity" and
+    /// "PositiveInfinity".
+    /// </exception>
     public static (T? min, T? max) GetInfinities<T>() where T : INumberBase<T>
     {
-        return (GetPositiveInfinity<T>(), GetNegativeInfinity<T>());
+        return (GetNegativeInfinity<T>(), GetPositiveInfinity<T>());
     }
 
     #endregion Methods related to static properties

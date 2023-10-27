@@ -10,27 +10,11 @@ public static class XDouble
     /// </summary>
     public const double Delta = 1e-9;
 
-    /// <summary>The number of bits in the exponent.</summary>
-    public const byte NumExpBits = 11;
+    /// <summary>The total number of bits in the value.</summary>
+    public const byte TotalNumBits = 64;
 
     /// <summary>The number of bits in the fraction.</summary>
     public const byte NumFracBits = 52;
-
-    /// <summary>The minimum binary exponent supported by the type.</summary>
-    public const short MinExp = -1022;
-
-    /// <summary>The maximum binary exponent supported by the type.</summary>
-    public const short MaxExp = 1023;
-
-    /// <summary>
-    /// The maximum positive subnormal value.
-    /// </summary>
-    public static double MaxPosSubnormalValue => Assemble(0, 0, 0x3f_ffff_ffff_ffff);
-
-    /// <summary>
-    /// The minimum positive normal value.
-    /// </summary>
-    public static double MinPosNormalValue => Assemble(0, 1, 0);
 
     #endregion Constants
 

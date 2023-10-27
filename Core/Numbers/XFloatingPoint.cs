@@ -1,4 +1,5 @@
 using System.Numerics;
+using Galaxon.Core.Types;
 
 namespace Galaxon.Core.Numbers;
 
@@ -6,144 +7,183 @@ namespace Galaxon.Core.Numbers;
 public static class XFloatingPoint
 {
     /// <summary>
-    /// Get the number of exponent bits.
+    /// Get the Galaxon extension type for this floating point type.
     /// </summary>
-    /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static byte GetNumExpBits<T>() where T : IFloatingPoint<T>
+    /// <typeparam name="T">The standard floating point type.</typeparam>
+    /// <returns>The corresponding extension type.</returns>
+    public static Type? GetExtensionType<T>() where T : IFloatingPointIeee754<T>
     {
-        var t = typeof(T);
-        if (t == typeof(Half))
+        var xtypeName = "";
+        var type = typeof(T);
+        if (type == typeof(Half))
         {
-            return XHalf.NumExpBits;
+            xtypeName = "XHalf";
         }
-        if (t == typeof(float))
+        else if (type == typeof(float))
         {
-            return XFloat.NumExpBits;
+            xtypeName = "XFloat";
         }
-        if (t == typeof(double))
+        else if (type == typeof(double))
         {
-            return XDouble.NumExpBits;
+            xtypeName = "XDouble";
+        }
+        return Type.GetType($"Galaxon.Core.Numbers.{xtypeName}");
+    }
+
+    /// <summary>
+    /// Get the total number of bits in values of this type.
+    /// </summary>
+    public static byte GetTotalNumBits<T>() where T : IFloatingPointIeee754<T>
+    {
+        if (GetExtensionType<T>() is Type xtype
+            && XReflection.GetStaticFieldValue(xtype, "TotalNumBits") is byte b)
+        {
+            return b;
         }
 
         throw new InvalidOperationException("Unsupported type.");
     }
 
     /// <summary>
-    /// Get the number of fraction bits.
+    /// Get the number of bits in the fraction part of values of this type.
     /// </summary>
-    /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static byte GetNumFracBits<T>() where T : IFloatingPoint<T>
+    public static byte GetNumFracBits<T>() where T : IFloatingPointIeee754<T>
     {
-        var t = typeof(T);
-        if (t == typeof(Half))
+        if (GetExtensionType<T>() is Type xtype
+            && XReflection.GetStaticFieldValue(xtype, "NumFracBits") is byte b)
         {
-            return XHalf.NumFracBits;
-        }
-        if (t == typeof(float))
-        {
-            return XFloat.NumFracBits;
-        }
-        if (t == typeof(double))
-        {
-            return XDouble.NumFracBits;
+            return b;
         }
 
         throw new InvalidOperationException("Unsupported type.");
     }
 
     /// <summary>
-    /// Get the minimum exponent for the type.
+    /// Get the number of bits in the exponent part of values of this type.
     /// </summary>
-    /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static short GetMinExp<T>() where T : IFloatingPoint<T>
+    public static byte GetNumExpBits<T>() where T : IFloatingPointIeee754<T>
     {
-        return (short)(1 - GetMaxExp<T>());
+        return (byte)(GetTotalNumBits<T>() - GetNumFracBits<T>() - 1);
     }
 
     /// <summary>
-    /// Get the maximum exponent for the type.
+    /// Get the exponent bias for this type.
     /// </summary>
-    /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static short GetMaxExp<T>() where T : IFloatingPoint<T>
+    public static short GetExpBias<T>() where T : IFloatingPointIeee754<T>
     {
-        return (short)(Math.Pow(2, GetNumExpBits<T>() - 1) - 1);
+        return (short)(1 << (GetNumExpBits<T>() - 1) - 1);
     }
 
     /// <summary>
-    /// Get the minimum positive normal value for the type.
+    /// Get the minimum binary exponent supported by the type.
     /// </summary>
-    /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
-    public static T GetMinPosNormalValue<T>() where T : IFloatingPoint<T>
+    public static short GetMinExp<T>() where T : IFloatingPointIeee754<T>
     {
-        var t = typeof(T);
-        if (t == typeof(Half))
+        return (short)(1 - GetExpBias<T>());
+    }
+
+    /// <summary>
+    /// Get the maximum binary exponent supported by the type.
+    /// </summary>
+    public static short GetMaxExp<T>() where T : IFloatingPointIeee754<T>
+    {
+        return GetExpBias<T>();
+    }
+
+    /// <summary>
+    /// Get the sign bit mask for this type.
+    /// </summary>
+    public static ulong GetSignBitMask<T>() where T : IFloatingPointIeee754<T>
+    {
+        return 1ul << (GetTotalNumBits<T>() - 1);
+    }
+
+    /// <summary>
+    /// Get the exponent bit mask for this type.
+    /// </summary>
+    public static ulong GetExpBitMask<T>() where T : IFloatingPointIeee754<T>
+    {
+        return (1ul << GetNumExpBits<T>()) - 1 << GetNumFracBits<T>();
+    }
+
+    /// <summary>
+    /// Get the fraction bit mask for this type.
+    /// </summary>
+    public static ulong GetFracBitMask<T>() where T : IFloatingPointIeee754<T>
+    {
+        return (1ul << GetNumFracBits<T>()) - 1;
+    }
+
+    /// <summary>
+    /// Get the minimum positive subnormal value for this type.
+    /// </summary>
+    public static T GetMinPosSubnormalValue<T>() where T : IFloatingPointIeee754<T>
+    {
+        if (XReflection.GetStaticFieldOrPropertyValue<T>("Epsilon") is T result)
         {
-            return (T)(object)XHalf.MinPosNormalValue;
-        }
-        if (t == typeof(float))
-        {
-            return (T)(object)XFloat.MinPosNormalValue;
-        }
-        if (t == typeof(double))
-        {
-            return (T)(object)XDouble.MinPosNormalValue;
+            return result;
         }
 
-        throw new InvalidOperationException("Unsupported type.");
+        throw new InvalidOperationException(
+            $"Could not find MinPosSubnormalValue for {typeof(T).Name}.");
+    }
+
+    /// <summary>
+    /// Get the maximum positive subnormal value for this type.
+    /// </summary>
+    public static T GetMaxPosSubnormalValue<T>() where T : IFloatingPointIeee754<T>
+    {
+        return Assemble<T>(0, 0, GetFracBitMask<T>());
+    }
+
+    /// <summary>
+    /// Get the minimum positive normal value for this type.
+    /// </summary>
+    public static T GetMinPosNormalValue<T>() where T : IFloatingPointIeee754<T>
+    {
+        return Assemble<T>(0, 1, 0);
+    }
+
+    /// <summary>
+    /// Get the minimum positive subnormal value for this type.
+    /// </summary>
+    public static T GetMaxPosNormalValue<T>() where T : IFloatingPointIeee754<T>
+    {
+        if (XReflection.GetStaticFieldOrPropertyValue<T>("MaxValue") is T result)
+        {
+            return result;
+        }
+
+        throw new InvalidOperationException(
+            $"Could not find MaxPosNormalValue for {typeof(T).Name}.");
     }
 
     /// <summary>
     /// Disassemble the floating point value into its bitwise components.
     /// </summary>
     public static (byte signBit, ushort expBits, ulong fracBits) Disassemble<T>(this T x)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
-        byte signBit;
-        ushort expBits;
-        ulong fracBits;
-
-        // (byte nExpBits, byte nFracBits, ushort expOffset) = x.GetStructure();
-        var nExpBits = GetNumExpBits<T>();
-        var nFracBits = GetNumFracBits<T>();
-        var nSignBitShift = (byte)(nFracBits + nExpBits);
-
-        switch (x)
+        // Get the bits.
+        ulong bits = x switch
         {
-            case Half h:
-            {
-                var bits = BitConverter.HalfToUInt16Bits(h);
-                signBit = (byte)((bits & 0b10000000_00000000) >> nSignBitShift);
-                expBits = (ushort)((bits & 0b01111100_00000000) >> nFracBits);
-                fracBits = (ulong)(bits & 0b00000011_11111111);
-                break;
-            }
+            Half h => BitConverter.HalfToUInt16Bits(h),
+            float f => BitConverter.SingleToUInt32Bits(f),
+            double d => BitConverter.DoubleToUInt64Bits(d),
+            _ => throw new InvalidOperationException("Unsupported type."),
+        };
 
-            case float f:
-            {
-                var bits = BitConverter.SingleToUInt32Bits(f);
-                signBit = (byte)((bits & 0b10000000_00000000_00000000_00000000) >> nSignBitShift);
-                expBits = (ushort)((bits & 0b01111111_10000000_00000000_00000000) >> nFracBits);
-                fracBits = bits & 0b00000000_01111111_11111111_11111111;
-                break;
-            }
+        // Get some info about the type.
+        var nTotalBits = GetTotalNumBits<T>();
+        var nFracBits = GetNumFracBits<T>();
+        var signBitMask = GetSignBitMask<T>();
+        var expBitMask = GetExpBitMask<T>();
+        var fracBitMask = GetFracBitMask<T>();
 
-            case double d:
-            {
-                var bits = BitConverter.DoubleToUInt64Bits(d);
-                signBit = (byte)((bits
-                        & 0b10000000_00000000_00000000_00000000_00000000_00000000_00000000_00000000)
-                    >> nSignBitShift);
-                expBits = (ushort)((bits
-                        & 0b01111111_11110000_00000000_00000000_00000000_00000000_00000000_00000000)
-                    >> nFracBits);
-                fracBits = bits
-                    & 0b00000000_00001111_11111111_11111111_11111111_11111111_11111111_11111111;
-                break;
-            }
-
-            default:
-                throw new InvalidOperationException("Unsupported type.");
-        }
+        // Extract the parts.
+        var signBit = (byte)(bits & signBitMask >> (nTotalBits - 1));
+        var expBits = (ushort)(bits & expBitMask >> nFracBits);
+        var fracBits = bits & fracBitMask;
 
         return (signBit, expBits, fracBits);
     }
@@ -158,7 +198,7 @@ public static class XFloatingPoint
     /// <returns>The new floating point value.</returns>
     /// <exception cref="InvalidOperationException">If the type is unsupported.</exception>
     public static T Assemble<T>(byte signBit, ushort expBits, ulong fracBits)
-        where T : IFloatingPoint<T>
+        where T : IFloatingPointIeee754<T>
     {
         var nFracBits = GetNumFracBits<T>();
         var nExpBits = GetNumExpBits<T>();
@@ -175,15 +215,15 @@ public static class XFloatingPoint
             throw new ArgumentOutOfRangeException(nameof(expBits),
                 $"Must be less than or equal to {expBitsMax}.");
         }
-        var fracBitsMax = (1ul << nFracBits) - 1;
+        var fracBitsMax = GetFracBitMask<T>();
         if (fracBits > fracBitsMax)
         {
             throw new ArgumentOutOfRangeException(nameof(fracBits),
                 $"Must be less than or equal to {fracBitsMax}.");
         }
 
-        // Get the bits.
-        var bits = (ulong)(signBit << nSignBitShift) | (ulong)(expBits << nFracBits) | fracBits;
+        // Construct the sequence of bits.
+        var bits = ((ulong)signBit << nSignBitShift) | ((ulong)expBits << nFracBits) | fracBits;
 
         // Return a value of the correct type.
         var t = typeof(T);

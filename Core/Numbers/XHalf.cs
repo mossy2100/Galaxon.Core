@@ -3,27 +3,11 @@ namespace Galaxon.Core.Numbers;
 /// <summary>Extension methods and other bonus stuff for Half.</summary>
 public static class XHalf
 {
-    /// <summary>The number of bits in the exponent.</summary>
-    public const byte NumExpBits = 5;
+    /// <summary>The total number of bits in the value.</summary>
+    public const byte TotalNumBits = 16;
 
     /// <summary>The number of bits in the fraction.</summary>
     public const byte NumFracBits = 10;
-
-    /// <summary>The minimum binary exponent supported by the type.</summary>
-    public const short MinExp = -14;
-
-    /// <summary>The maximum binary exponent supported by the type.</summary>
-    public const short MaxExp = 15;
-
-    /// <summary>
-    /// The maximum positive subnormal value.
-    /// </summary>
-    public static Half MaxPosSubnormalValue => Assemble(0, 0, 0x3ff);
-
-    /// <summary>
-    /// The minimum positive normal value.
-    /// </summary>
-    public static Half MinPosNormalValue => Assemble(0, 1, 0);
 
     /// <summary>
     /// Disassemble the Half into its bitwise components.
