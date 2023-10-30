@@ -161,6 +161,58 @@ public static class XBigInteger
 
     #endregion Methods relating to factors
 
+    #region Methods relating to exponentation
+
+    /// <summary>Calculate the value of x^y where x and y are BigIntegers.</summary>
+    /// <remarks>
+    /// BigInteger provides a Pow() method, but it only permits an int as the exponent.
+    /// Uses exponentiation by squaring.
+    /// </remarks>
+    /// <param name="x">The base (BigRational).</param>
+    /// <param name="y">The exponent (BigInteger).</param>
+    /// <returns>The result of the calculation.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">If y is negative.</exception>
+    /// <see cref="BigInteger.Pow"/>
+    public static BigInteger Pow(BigInteger x, BigInteger y)
+    {
+        // Guard.
+        if (y < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(y), "Cannot be negative.");
+        }
+
+        // Optimizations.
+        if (y == 0) return 1;
+        if (y == 1) return x;
+
+        // Defer to the BigInteger method if possible, which I'm guessing is faster.
+        if (y >= int.MinValue && y <= int.MaxValue) return BigInteger.Pow(x, (int)y);
+
+        // Even integer powers. x^y = (x^2)^(y/2)
+        if (BigInteger.IsEvenInteger(y)) return Pow(x * x, y / 2);
+
+        // Odd integer powers. x^y = x * x^(y-1)
+        return x * Pow(x, y - 1);
+    }
+
+    /// <summary>Compute 2 raised to a given power.</summary>
+    /// <param name="y">The power to which 2 is raised.</param>
+    /// <returns>2 raised to the given BigInteger value.</returns>
+    public static BigInteger Exp2(BigInteger y)
+    {
+        return Pow(2, y);
+    }
+
+    /// <summary>Compute 10 raised to a given power.</summary>
+    /// <param name="y">The power to which 10 is raised.</param>
+    /// <returns>10 raised to the given BigInteger value.</returns>
+    public static BigInteger Exp10(BigInteger y)
+    {
+        return Pow(10, y);
+    }
+
+    #endregion Power methods
+
     #region Extension methods for IEnumerable<BigInteger>
 
     /// <summary>

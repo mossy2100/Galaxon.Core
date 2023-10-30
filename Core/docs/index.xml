@@ -468,6 +468,28 @@
             Synonyms: greatest common factor, highest common factor.
             </summary>
         </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Pow(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>Calculate the value of x^y where x and y are BigIntegers.</summary>
+            <remarks>
+            BigInteger provides a Pow() method, but it only permits an int as the exponent.
+            Uses exponentiation by squaring.
+            </remarks>
+            <param name="x">The base (BigRational).</param>
+            <param name="y">The exponent (BigInteger).</param>
+            <returns>The result of the calculation.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If y is negative.</exception>
+            <see cref="M:System.Numerics.BigInteger.Pow(System.Numerics.BigInteger,System.Int32)"/>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Exp2(System.Numerics.BigInteger)">
+            <summary>Compute 2 raised to a given power.</summary>
+            <param name="y">The power to which 2 is raised.</param>
+            <returns>2 raised to the given BigInteger value.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Exp10(System.Numerics.BigInteger)">
+            <summary>Compute 10 raised to a given power.</summary>
+            <param name="y">The power to which 10 is raised.</param>
+            <returns>10 raised to the given BigInteger value.</returns>
+        </member>
         <member name="M:Galaxon.Core.Numbers.XBigInteger.Sum(System.Collections.Generic.IEnumerable{System.Numerics.BigInteger})">
             <summary>
             Get the sum of all values in the collection.
@@ -872,6 +894,39 @@
             Get the minimum positive subnormal value for this type.
             </summary>
         </member>
+        <member name="M:Galaxon.Core.Numbers.XFloatingPoint.GetNegativeInfinity``1">
+            <summary>
+            Get the negative infinity value for a standard binary floating point type.
+            </summary>
+            <typeparam name="T">The standard binary floating point type.</typeparam>
+            <returns>The value of the NegativeInfinity property.</returns>
+            <exception cref="T:System.MissingMemberException">
+            If the class doesn't have a static field or property names "NegativeInfinity".
+            </exception>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XFloatingPoint.GetPositiveInfinity``1">
+            <summary>
+            Get the positive infinity value for a standard binary floating point type.
+            </summary>
+            <typeparam name="T">The standard binary floating point type.</typeparam>
+            <returns>The value of the PositiveInfinity property.</returns>
+            <exception cref="T:System.MissingMemberException">
+            If the class doesn't have a static field or property names "PositiveInfinity".
+            </exception>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XFloatingPoint.GetInfinities``1">
+            <summary>
+            Get the positive and negative infinity values for a standard binary floating point type.
+            </summary>
+            <typeparam name="T">The standard binary floating point type.</typeparam>
+            <returns>
+            The value of the NegativeInfinity and PositiveInfinity fields or properties.
+            </returns>
+            <exception cref="T:System.MissingMemberException">
+            If the class doesn't have static fields or properties called "NegativeInfinity" and
+            "PositiveInfinity".
+            </exception>
+        </member>
         <member name="M:Galaxon.Core.Numbers.XFloatingPoint.Disassemble``1(``0)">
             <summary>
             Disassemble the floating point value into its bitwise components.
@@ -1130,39 +1185,6 @@
             <returns>The value of the MinValue and MaxValue fields ot properties.</returns>
             <exception cref="T:System.MissingMemberException">
             If the class doesn't have static fields or properties called "MinValue" and "MaxValue".
-            </exception>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.GetNegativeInfinity``1">
-            <summary>
-            Get the negative infinity value for a specified number type.
-            </summary>
-            <typeparam name="T">The number type.</typeparam>
-            <returns>The value of the NegativeInfinity property.</returns>
-            <exception cref="T:System.MissingMemberException">
-            If the class doesn't have a static field or property names "NegativeInfinity".
-            </exception>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.GetPositiveInfinity``1">
-            <summary>
-            Get the positive infinity value for a specified number type.
-            </summary>
-            <typeparam name="T">The number type.</typeparam>
-            <returns>The value of the PositiveInfinity property.</returns>
-            <exception cref="T:System.MissingMemberException">
-            If the class doesn't have a static field or property names "PositiveInfinity".
-            </exception>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.GetInfinities``1">
-            <summary>
-            Get the positive and negative infinity values for a specified number type.
-            </summary>
-            <typeparam name="T">The number type.</typeparam>
-            <returns>
-            The value of the NegativeInfinity and PositiveInfinity field or properties.
-            </returns>
-            <exception cref="T:System.MissingMemberException">
-            If the class doesn't have static fields or properties called "NegativeInfinity" and
-            "PositiveInfinity".
             </exception>
         </member>
         <member name="T:Galaxon.Core.Numbers.XSbyte">

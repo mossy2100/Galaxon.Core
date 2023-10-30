@@ -6,6 +6,8 @@ namespace Galaxon.Core.Numbers;
 /// <summary>Extension methods for IFloatingPoint{T}.</summary>
 public static class XFloatingPoint
 {
+    #region Methods for getting information about a standard floating point type.
+
     /// <summary>
     /// Get the Galaxon extension type for this floating point type.
     /// </summary>
@@ -71,7 +73,7 @@ public static class XFloatingPoint
     /// </summary>
     public static short GetExpBias<T>() where T : IFloatingPointIeee754<T>
     {
-        return (short)(1 << (GetNumExpBits<T>() - 1) - 1);
+        return (short)((1 << (GetNumExpBits<T>() - 1)) - 1);
     }
 
     /// <summary>
@@ -159,6 +161,62 @@ public static class XFloatingPoint
     }
 
     /// <summary>
+    /// Get the negative infinity value for a standard binary floating point type.
+    /// </summary>
+    /// <typeparam name="T">The standard binary floating point type.</typeparam>
+    /// <returns>The value of the NegativeInfinity property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property names "NegativeInfinity".
+    /// </exception>
+    public static T GetNegativeInfinity<T>() where T : IFloatingPointIeee754<T>
+    {
+        if (XReflection.GetStaticFieldOrPropertyValue<T>("NegativeInfinity") is T negInf)
+        {
+            return negInf;
+        }
+
+        throw new MissingMemberException(typeof(T).Name, "NegativeInfinity");
+    }
+
+    /// <summary>
+    /// Get the positive infinity value for a standard binary floating point type.
+    /// </summary>
+    /// <typeparam name="T">The standard binary floating point type.</typeparam>
+    /// <returns>The value of the PositiveInfinity property.</returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have a static field or property names "PositiveInfinity".
+    /// </exception>
+    public static T GetPositiveInfinity<T>() where T : IFloatingPointIeee754<T>
+    {
+        if (XReflection.GetStaticFieldOrPropertyValue<T>("PositiveInfinity") is T posInf)
+        {
+            return posInf;
+        }
+
+        throw new MissingMemberException(typeof(T).Name, "PositiveInfinity");
+    }
+
+    /// <summary>
+    /// Get the positive and negative infinity values for a standard binary floating point type.
+    /// </summary>
+    /// <typeparam name="T">The standard binary floating point type.</typeparam>
+    /// <returns>
+    /// The value of the NegativeInfinity and PositiveInfinity fields or properties.
+    /// </returns>
+    /// <exception cref="MissingMemberException">
+    /// If the class doesn't have static fields or properties called "NegativeInfinity" and
+    /// "PositiveInfinity".
+    /// </exception>
+    public static (T min, T max) GetInfinities<T>() where T : IFloatingPointIeee754<T>
+    {
+        return (GetNegativeInfinity<T>(), GetPositiveInfinity<T>());
+    }
+
+    #endregion Methods for getting information about a standard floating point type.
+
+    #region Methods for assembling and disassembling floating point values.
+
+    /// <summary>
     /// Disassemble the floating point value into its bitwise components.
     /// </summary>
     public static (byte signBit, ushort expBits, ulong fracBits) Disassemble<T>(this T x)
@@ -181,8 +239,8 @@ public static class XFloatingPoint
         var fracBitMask = GetFracBitMask<T>();
 
         // Extract the parts.
-        var signBit = (byte)(bits & signBitMask >> (nTotalBits - 1));
-        var expBits = (ushort)(bits & expBitMask >> nFracBits);
+        var signBit = (byte)((bits & signBitMask) >>> (nTotalBits - 1));
+        var expBits = (ushort)((bits & expBitMask) >>> nFracBits);
         var fracBits = bits & fracBitMask;
 
         return (signBit, expBits, fracBits);
@@ -242,4 +300,6 @@ public static class XFloatingPoint
 
         throw new InvalidOperationException("Unsupported type.");
     }
+
+    #endregion Methods for assembling and disassembling floating point values.
 }

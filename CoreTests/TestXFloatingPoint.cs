@@ -44,4 +44,28 @@ public class TestXFloatingPoint
         var maxPosNormal = XFloatingPoint.GetMaxPosNormalValue<double>();
         Trace.WriteLine($"XDouble.MaxPosNormalValue = {maxPosNormal:E10}");
     }
+
+    [TestMethod]
+    public void TestMinMaxExpForHalf()
+    {
+        Assert.AreEqual(-14, XFloatingPoint.GetMinExp<Half>());
+        Assert.AreEqual(15, XFloatingPoint.GetMaxExp<Half>());
+        Assert.AreEqual(15, XFloatingPoint.GetExpBias<Half>());
+    }
+
+    [TestMethod]
+    public void TestMinMaxExpForFloat()
+    {
+        Assert.AreEqual(-126, XFloatingPoint.GetMinExp<float>());
+        Assert.AreEqual(127, XFloatingPoint.GetMaxExp<float>());
+        Assert.AreEqual(127, XFloatingPoint.GetExpBias<float>());
+    }
+
+    [TestMethod]
+    public void TestMinMaxExpForDouble()
+    {
+        Assert.AreEqual(-1022, XFloatingPoint.GetMinExp<double>());
+        Assert.AreEqual(1023, XFloatingPoint.GetMaxExp<double>());
+        Assert.AreEqual(1023, XFloatingPoint.GetExpBias<double>());
+    }
 }
