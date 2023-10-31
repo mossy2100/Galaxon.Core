@@ -2,6 +2,9 @@ using System.ComponentModel;
 
 namespace Galaxon.Core.Types;
 
+/// <summary>
+/// Extension methods for enum types.
+/// </summary>
 public static class XEnum
 {
     /// <summary>
