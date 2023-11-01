@@ -184,29 +184,6 @@ public static class XNumber
 
     #endregion Division-related methods
 
-    #region Methods for IEnumerable<INumberBase<T>>
-
-    /// <summary>
-    /// Similar to Sum(), this extension method generates the product of all values in a collection
-    /// of numbers.
-    /// </summary>
-    public static T Product<T>(this IEnumerable<T> source) where T : INumberBase<T>
-    {
-        return source.Aggregate(T.One, (prod, value) => prod * value);
-    }
-
-    /// <summary>
-    /// Similar to Sum(), get a product of all values in the collection, transformed by the supplied
-    /// function.
-    /// </summary>
-    public static T Product<T>(this IEnumerable<T> source, Func<T, T> func)
-        where T : INumberBase<T>
-    {
-        return source.Aggregate(T.One, (prod, value) => prod * func(value));
-    }
-
-    #endregion Methods for IEnumerable<INumberBase<T>>
-
     #region Methods related to static properties
 
     /// <summary>

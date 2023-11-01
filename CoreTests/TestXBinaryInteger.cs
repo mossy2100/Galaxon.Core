@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using System.Numerics;
+using Galaxon.BigNumbers;
 using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Tests;
@@ -41,5 +44,32 @@ public class TestXBinaryInteger
         n = -12345;
         s = n.ToSubscript();
         Assert.AreEqual("₋₁₂₃₄₅", s);
+    }
+
+    [TestMethod]
+    public void TestSqrt()
+    {
+        for (var i = 0; i < 100; i++)
+        {
+            var expected = (int)double.Sqrt(i);
+            var actual = (int)XBigInteger.Sqrt(i);
+            Trace.WriteLine($"The truncated square root of {i} is {actual}");
+            Assert.AreEqual(expected, actual);
+        }
+    }
+
+    [TestMethod]
+    public void TestSqrtRandom()
+    {
+        var rnd = new Random();
+        for (var i = 0; i < 100; i++)
+        {
+            var n = rnd.Next();
+            var sqrt = double.Sqrt(n);
+            var expected = (int)sqrt;
+            var actual = (int)XBigInteger.Sqrt(n);
+            Trace.WriteLine($"The square root of {n} is {sqrt}. XBigInteger.Sqrt() = {actual}");
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

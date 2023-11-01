@@ -169,6 +169,26 @@
             <param name="message">The message.</param>
             <param name="innerException">The inner exception.</param>
         </member>
+        <member name="T:Galaxon.Core.Functional.Memoization">
+            <summary>Enables memoization of pure functions.</summary>
+        </member>
+        <member name="M:Galaxon.Core.Functional.Memoization.Memoize``2(System.Func{``0,``1})">
+            <summary>Enables caching of the results of pure functions.</summary>
+            <param name="f">The pure function.</param>
+            <typeparam name="T">The input type.</typeparam>
+            <typeparam name="TResult">The result type.</typeparam>
+            <returns>The memoized version of the pure function.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Functional.Memoization.Memoize2``3(System.Func{``0,``1,``2})">
+            <summary>
+            Enables caching of the results of pure functions with 2 inputs and 1 output.
+            </summary>
+            <param name="f">The pure function.</param>
+            <typeparam name="T1">First argument type.</typeparam>
+            <typeparam name="T2">Second argument type.</typeparam>
+            <typeparam name="TResult">Result type.</typeparam>
+            <returns>The memoized version of the pure function.</returns>
+        </member>
         <member name="T:Galaxon.Core.Numbers.ConvertBase">
              <summary>
              This class supports conversion between integers and strings of digits in a specified base,
@@ -1067,18 +1087,6 @@
             Corrected modulo operation.
             </summary>
             <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)" />
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.Product``1(System.Collections.Generic.IEnumerable{``0})">
-            <summary>
-            Similar to Sum(), this extension method generates the product of all values in a collection
-            of numbers.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.Product``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,``0})">
-            <summary>
-            Similar to Sum(), get a product of all values in the collection, transformed by the supplied
-            function.
-            </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.GetStaticValue``1(System.String)">
             <summary>
@@ -2311,6 +2319,12 @@
             bytes.
             </summary>
         </member>
+        <member name="M:Galaxon.BigNumbers.XBigInteger.BinomialCoefficient(System.Int32,System.Int32)">
+            <summary>Find a binomial coefficient.</summary>
+            <param name="n">Set size/upper index.</param>
+            <param name="k">Subset size/lower index.</param>
+            <returns>The binomial coefficient.</returns>
+        </member>
         <member name="M:Galaxon.BigNumbers.XBigInteger.Reverse(System.Numerics.BigInteger)">
             <summary>
             Reverse a BigInteger.
@@ -2375,6 +2389,27 @@
             <summary>Compute 10 raised to a given power.</summary>
             <param name="y">The power to which 10 is raised.</param>
             <returns>10 raised to the given BigInteger value.</returns>
+        </member>
+        <member name="M:Galaxon.BigNumbers.XBigInteger.Sqrt(System.Numerics.BigInteger)">
+            <summary>
+            Calculated the truncated square root of a BigInteger value.
+            Uses Newton's method.
+            </summary>
+            <param name="n">The BigInteger value.</param>
+            <returns>The truncated square root.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Galaxon.BigNumbers.XBigInteger._Factorial(System.Numerics.BigInteger)">
+            <summary>
+            Factorial of n, n >= 0.
+            Private, uncached version.
+            </summary>
+            <param name="n"></param>
+            <returns>The factorial of the parameter.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="F:Galaxon.BigNumbers.XBigInteger.Factorial">
+            <summary>Public memoized version of the Factorial method.</summary>
         </member>
     </members>
 </doc>

@@ -1,4 +1,5 @@
 using System.Numerics;
+using Galaxon.Core.Functional;
 using Galaxon.Core.Strings;
 
 namespace Galaxon.BigNumbers;
@@ -41,6 +42,28 @@ public static class XBigInteger
 
         // Construct a new unsigned value.
         return new BigInteger(bytes.ToArray());
+    }
+
+    /// <summary>Find a binomial coefficient.</summary>
+    /// <param name="n">Set size/upper index.</param>
+    /// <param name="k">Subset size/lower index.</param>
+    /// <returns>The binomial coefficient.</returns>
+    public static BigInteger BinomialCoefficient(int n, int k)
+    {
+        // Optimizations.
+        if (k < 0 || k > n) return 0;
+        if (k == 0 || k == n) return 1;
+
+        // Take advantage of symmetry.
+        k = int.Min(k, n - k);
+
+        // Multiplicative formula.
+        BigInteger c = 1;
+        for (var i = 0; i < k; i++)
+        {
+            c = c * (n - i) / (i + 1);
+        }
+        return c;
     }
 
     #endregion Miscellaneous other methods
@@ -211,5 +234,61 @@ public static class XBigInteger
         return Pow(10, y);
     }
 
+    /// <summary>
+    /// Calculated the truncated square root of a BigInteger value.
+    /// Uses Newton's method.
+    /// </summary>
+    /// <param name="n">The BigInteger value.</param>
+    /// <returns>The truncated square root.</returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    public static BigInteger Sqrt(BigInteger n)
+    {
+        // Guard.
+        if (n < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(n), "Cannot be negative.");
+        }
+
+        // Optimizations.
+        if (n == 0) return 0;
+        if (n == 1) return 1;
+
+        // Compute using Newton's method.
+        var x = n;
+        var y = (x + 1) / 2;
+        while (y < x)
+        {
+            x = y;
+            y = (x + (n / x)) / 2;
+        }
+        return x;
+    }
+
     #endregion Power methods
+
+    #region Factorial
+
+    /// <summary>
+    /// Factorial of n, n >= 0.
+    /// Private, uncached version.
+    /// </summary>
+    /// <param name="n"></param>
+    /// <returns>The factorial of the parameter.</returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    private static BigInteger _Factorial(BigInteger n)
+    {
+        // Guard.
+        if (n < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(n), "Cannot be negative.");
+        }
+
+        return n <= 1 ? 1 : n * Factorial(n - 1);
+    }
+
+    /// <summary>Public memoized version of the Factorial method.</summary>
+    public static readonly Func<BigInteger, BigInteger> Factorial =
+        Memoization.Memoize<BigInteger, BigInteger>(_Factorial);
+
+    #endregion Factorial
 }
