@@ -44,28 +44,6 @@ public static class XBigInteger
         return new BigInteger(bytes.ToArray());
     }
 
-    /// <summary>Find a binomial coefficient.</summary>
-    /// <param name="n">Set size/upper index.</param>
-    /// <param name="k">Subset size/lower index.</param>
-    /// <returns>The binomial coefficient.</returns>
-    public static BigInteger BinomialCoefficient(int n, int k)
-    {
-        // Optimizations.
-        if (k < 0 || k > n) return 0;
-        if (k == 0 || k == n) return 1;
-
-        // Take advantage of symmetry.
-        k = int.Min(k, n - k);
-
-        // Multiplicative formula.
-        BigInteger c = 1;
-        for (var i = 0; i < k; i++)
-        {
-            c = c * (n - i) / (i + 1);
-        }
-        return c;
-    }
-
     #endregion Miscellaneous other methods
 
     #region Digit-related methods

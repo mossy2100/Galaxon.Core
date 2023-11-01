@@ -445,12 +445,6 @@
             bytes.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XBigInteger.BinomialCoefficient(System.Int32,System.Int32)">
-            <summary>Find a binomial coefficient.</summary>
-            <param name="n">Set size/upper index.</param>
-            <param name="k">Subset size/lower index.</param>
-            <returns>The binomial coefficient.</returns>
-        </member>
         <member name="M:Galaxon.Core.Numbers.XBigInteger.Reverse(System.Numerics.BigInteger)">
             <summary>
             Reverse a BigInteger.
