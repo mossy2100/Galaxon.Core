@@ -47,10 +47,8 @@ public static class XReflection
     /// <exception cref="MissingMemberException">
     /// If the static field or property doesn't exist on the specified type.
     /// </exception>
-    public static object? GetStaticFieldOrPropertyValue<T>(string name)
-    {
-        return GetStaticFieldOrPropertyValue(typeof(T), name);
-    }
+    public static object? GetStaticFieldOrPropertyValue<T>(string name) =>
+        GetStaticFieldOrPropertyValue(typeof(T), name);
 
     /// <summary>
     /// Get the value of a static field.
@@ -69,7 +67,8 @@ public static class XReflection
             return fieldInfo.GetValue(null);
         }
 
-        throw new MissingMemberException($"Type '{type.Name}' does not have a static field '{name}'.");
+        throw new MissingMemberException(
+            $"Type '{type.Name}' does not have a static field '{name}'.");
     }
 
     /// <summary>
@@ -81,10 +80,8 @@ public static class XReflection
     /// <exception cref="MissingMemberException">
     /// If the static field doesn't exist on the specified type.
     /// </exception>
-    public static object? GetStaticFieldValue<T>(string name)
-    {
-        return GetStaticFieldValue(typeof(T), name);
-    }
+    public static object? GetStaticFieldValue<T>(string name) =>
+        GetStaticFieldValue(typeof(T), name);
 
     /// <summary>
     /// Get the value of a static property.
@@ -116,10 +113,8 @@ public static class XReflection
     /// <exception cref="MissingMemberException">
     /// If the static property doesn't exist on the specified type.
     /// </exception>
-    public static object? GetStaticPropertyValue<T>(string name)
-    {
-        return GetStaticPropertyValue(typeof(T), name);
-    }
+    public static object? GetStaticPropertyValue<T>(string name) =>
+        GetStaticPropertyValue(typeof(T), name);
 
     #endregion Methods for accessing static members of a type
 
@@ -131,10 +126,9 @@ public static class XReflection
     /// <param name="sourceType">The source type.</param>
     /// <param name="targetType">The target type.</param>
     /// <returns>If a cast operator exists.</returns>
-    public static bool CanCast(Type sourceType, Type targetType)
-    {
+    public static bool CanCast(Type sourceType, Type targetType) =>
         // Search for explicit and implicit cast operators.
-        return targetType.GetMethods(BindingFlags.Public | BindingFlags.Static)
+        targetType.GetMethods(BindingFlags.Public | BindingFlags.Static)
             .Any(m =>
             {
                 var parameters = m.GetParameters();
@@ -143,7 +137,6 @@ public static class XReflection
                     && parameters.Length == 1
                     && parameters[0].ParameterType == sourceType;
             });
-    }
 
     /// <summary>
     /// Get the info for a method that casts one type to another.
@@ -183,10 +176,7 @@ public static class XReflection
     /// <typeparam name="TSource">The source type.</typeparam>
     /// <typeparam name="TTarget">The target type.</typeparam>
     /// <returns>If a cast operator exists.</returns>
-    public static bool CanCast<TSource, TTarget>()
-    {
-        return CanCast(typeof(TSource), typeof(TTarget));
-    }
+    public static bool CanCast<TSource, TTarget>() => CanCast(typeof(TSource), typeof(TTarget));
 
     /// <summary>
     /// Case a value from a source type to a target type.
@@ -198,8 +188,8 @@ public static class XReflection
     /// <exception cref="InvalidCastException">If the cast failed.</exception>
     public static TTarget Cast<TSource, TTarget>(TSource src)
     {
-        Type typeSource = typeof(TSource);
-        Type typeTarget = typeof(TTarget);
+        var typeSource = typeof(TSource);
+        var typeTarget = typeof(TTarget);
 
         var methodInfo = GetCastMethod(typeSource, typeTarget);
         if (methodInfo == null)
@@ -228,10 +218,8 @@ public static class XReflection
     /// <param name="type">The type.</param>
     /// <param name="interfaceType">The interface type.</param>
     /// <returns>True if the specified type implements the specified interface.</returns>
-    public static bool ImplementsInterface(Type type, Type interfaceType)
-    {
-        return type.GetInterfaces().Any(i => i == interfaceType);
-    }
+    public static bool ImplementsInterface(Type type, Type interfaceType) =>
+        type.GetInterfaces().Any(i => i == interfaceType);
 
     /// <summary>
     /// Check if a type implements an interface.
@@ -239,10 +227,8 @@ public static class XReflection
     /// <typeparam name="T">The type.</typeparam>
     /// <typeparam name="TInterface">The interface type.</typeparam>
     /// <returns>True if the specified type implements the specified interface.</returns>
-    public static bool ImplementsInterface<T, TInterface>()
-    {
-        return ImplementsInterface(typeof(T), typeof(TInterface));
-    }
+    public static bool ImplementsInterface<T, TInterface>() =>
+        ImplementsInterface(typeof(T), typeof(TInterface));
 
     /// <summary>
     /// Check if a type implements a generic interface.
@@ -250,11 +236,9 @@ public static class XReflection
     /// <param name="type">The type.</param>
     /// <param name="interfaceType">The generic interface type.</param>
     /// <returns>True if the specified type implements the specified interface.</returns>
-    public static bool ImplementsGenericInterface(Type type, Type interfaceType)
-    {
-        return type.GetInterfaces().Any(i => i.IsGenericType
+    public static bool ImplementsGenericInterface(Type type, Type interfaceType) =>
+        type.GetInterfaces().Any(i => i.IsGenericType
             && i.GetGenericTypeDefinition() == interfaceType);
-    }
 
     /// <summary>
     /// Check if a type implements an generic interface.
@@ -262,10 +246,8 @@ public static class XReflection
     /// <typeparam name="T">The type.</typeparam>
     /// <typeparam name="TInterface">The generic interface type.</typeparam>
     /// <returns>True if the specified type implements the specified interface.</returns>
-    public static bool ImplementsGenericInterface<T, TInterface>()
-    {
-        return ImplementsGenericInterface(typeof(T), typeof(TInterface));
-    }
+    public static bool ImplementsGenericInterface<T, TInterface>() =>
+        ImplementsGenericInterface(typeof(T), typeof(TInterface));
 
     /// <summary>
     /// Check if a type implements a self-referencing generic interface
@@ -275,12 +257,10 @@ public static class XReflection
     /// <param name="type">The type.</param>
     /// <param name="interfaceType">The self-referencing generic interface.</param>
     /// <returns>True if the specified type implements the specified interface.</returns>
-    public static bool ImplementsSelfReferencingGenericInterface(Type type, Type interfaceType)
-    {
-        return type.GetInterfaces().Any(i => i.IsGenericType
+    public static bool ImplementsSelfReferencingGenericInterface(Type type, Type interfaceType) =>
+        type.GetInterfaces().Any(i => i.IsGenericType
             && i.GetGenericTypeDefinition() == interfaceType
             && i.GenericTypeArguments[0] == type);
-    }
 
     /// <summary>
     /// Check if a type implements an self-referencing generic interface.
@@ -288,10 +268,8 @@ public static class XReflection
     /// <typeparam name="T">The type.</typeparam>
     /// <typeparam name="TInterface">The self-referencing generic interface type.</typeparam>
     /// <returns>True if the specified type implements the specified interface.</returns>
-    public static bool ImplementsSelfReferencingGenericInterface<T, TInterface>()
-    {
-        return ImplementsSelfReferencingGenericInterface(typeof(T), typeof(TInterface));
-    }
+    public static bool ImplementsSelfReferencingGenericInterface<T, TInterface>() =>
+        ImplementsSelfReferencingGenericInterface(typeof(T), typeof(TInterface));
 
     #endregion Check for interface implementation
 }

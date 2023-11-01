@@ -10,8 +10,6 @@ public static class XCollection
     /// <summary>
     /// Check if an ICollection (array, list, etc.) is null or empty.
     /// </summary>
-    public static bool IsEmpty(this ICollection? collection)
-    {
-        return collection is null || collection.Count == 0;
-    }
+    public static bool IsEmpty(this ICollection? collection) =>
+        collection is null || collection.Count == 0;
 }

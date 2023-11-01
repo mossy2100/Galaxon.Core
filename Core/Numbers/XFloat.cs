@@ -12,11 +12,9 @@ public static class XFloat
     /// <summary>
     /// Disassemble the float into its bitwise components.
     /// </summary>
-    /// <see href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format" />
-    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this float x)
-    {
-        return x.Disassemble<float>();
-    }
+    /// <see href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"/>
+    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this float x) =>
+        x.Disassemble<float>();
 
     /// <summary>
     /// Assemble a new float from parts.
@@ -25,10 +23,8 @@ public static class XFloat
     /// <param name="expBits">The exponent bits.</param>
     /// <param name="fracBits">The fraction bits.</param>
     /// <returns>The new float.</returns>
-    public static float Assemble(byte signBit, ushort expBits, ulong fracBits)
-    {
-        return XFloatingPoint.Assemble<float>(signBit, expBits, fracBits);
-    }
+    public static float Assemble(byte signBit, ushort expBits, ulong fracBits) =>
+        XFloatingPoint.Assemble<float>(signBit, expBits, fracBits);
 
     /// <summary>
     /// Get a random float.

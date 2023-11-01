@@ -13,22 +13,17 @@ public class TextXEnum
     }
 
     [TestMethod]
-    public void TestNoDescriptionAttribute()
-    {
-        Assert.AreEqual("Cat", Animal.Cat.GetDescription());
-    }
+    public void TestNoDescriptionAttribute() => Assert.AreEqual("Cat", Animal.Cat.GetDescription());
 
     [TestMethod]
-    public void TestDescriptionAttribute()
-    {
+    public void TestDescriptionAttribute() =>
         Assert.AreEqual("canine", Animal.Dog.GetDescription());
-    }
 
     private enum Animal
     {
         Cat,
 
         [System.ComponentModel.Description("canine")]
-        Dog,
+        Dog
     }
 }

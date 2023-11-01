@@ -63,58 +63,43 @@ public static class XFloatingPoint
     /// <summary>
     /// Get the number of bits in the exponent part of values of this type.
     /// </summary>
-    public static byte GetNumExpBits<T>() where T : IFloatingPointIeee754<T>
-    {
-        return (byte)(GetTotalNumBits<T>() - GetNumFracBits<T>() - 1);
-    }
+    public static byte GetNumExpBits<T>() where T : IFloatingPointIeee754<T> =>
+        (byte)(GetTotalNumBits<T>() - GetNumFracBits<T>() - 1);
 
     /// <summary>
     /// Get the exponent bias for this type.
     /// </summary>
-    public static short GetExpBias<T>() where T : IFloatingPointIeee754<T>
-    {
-        return (short)((1 << (GetNumExpBits<T>() - 1)) - 1);
-    }
+    public static short GetExpBias<T>() where T : IFloatingPointIeee754<T> =>
+        (short)((1 << (GetNumExpBits<T>() - 1)) - 1);
 
     /// <summary>
     /// Get the minimum binary exponent supported by the type.
     /// </summary>
-    public static short GetMinExp<T>() where T : IFloatingPointIeee754<T>
-    {
-        return (short)(1 - GetExpBias<T>());
-    }
+    public static short GetMinExp<T>() where T : IFloatingPointIeee754<T> =>
+        (short)(1 - GetExpBias<T>());
 
     /// <summary>
     /// Get the maximum binary exponent supported by the type.
     /// </summary>
-    public static short GetMaxExp<T>() where T : IFloatingPointIeee754<T>
-    {
-        return GetExpBias<T>();
-    }
+    public static short GetMaxExp<T>() where T : IFloatingPointIeee754<T> => GetExpBias<T>();
 
     /// <summary>
     /// Get the sign bit mask for this type.
     /// </summary>
-    public static ulong GetSignBitMask<T>() where T : IFloatingPointIeee754<T>
-    {
-        return 1ul << (GetTotalNumBits<T>() - 1);
-    }
+    public static ulong GetSignBitMask<T>() where T : IFloatingPointIeee754<T> =>
+        1ul << (GetTotalNumBits<T>() - 1);
 
     /// <summary>
     /// Get the exponent bit mask for this type.
     /// </summary>
-    public static ulong GetExpBitMask<T>() where T : IFloatingPointIeee754<T>
-    {
-        return (1ul << GetNumExpBits<T>()) - 1 << GetNumFracBits<T>();
-    }
+    public static ulong GetExpBitMask<T>() where T : IFloatingPointIeee754<T> =>
+        ((1ul << GetNumExpBits<T>()) - 1) << GetNumFracBits<T>();
 
     /// <summary>
     /// Get the fraction bit mask for this type.
     /// </summary>
-    public static ulong GetFracBitMask<T>() where T : IFloatingPointIeee754<T>
-    {
-        return (1ul << GetNumFracBits<T>()) - 1;
-    }
+    public static ulong GetFracBitMask<T>() where T : IFloatingPointIeee754<T> =>
+        (1ul << GetNumFracBits<T>()) - 1;
 
     /// <summary>
     /// Get the minimum positive subnormal value for this type.
@@ -133,18 +118,14 @@ public static class XFloatingPoint
     /// <summary>
     /// Get the maximum positive subnormal value for this type.
     /// </summary>
-    public static T GetMaxPosSubnormalValue<T>() where T : IFloatingPointIeee754<T>
-    {
-        return Assemble<T>(0, 0, GetFracBitMask<T>());
-    }
+    public static T GetMaxPosSubnormalValue<T>() where T : IFloatingPointIeee754<T> =>
+        Assemble<T>(0, 0, GetFracBitMask<T>());
 
     /// <summary>
     /// Get the minimum positive normal value for this type.
     /// </summary>
-    public static T GetMinPosNormalValue<T>() where T : IFloatingPointIeee754<T>
-    {
-        return Assemble<T>(0, 1, 0);
-    }
+    public static T GetMinPosNormalValue<T>() where T : IFloatingPointIeee754<T> =>
+        Assemble<T>(0, 1, 0);
 
     /// <summary>
     /// Get the minimum positive subnormal value for this type.
@@ -207,10 +188,8 @@ public static class XFloatingPoint
     /// If the class doesn't have static fields or properties called "NegativeInfinity" and
     /// "PositiveInfinity".
     /// </exception>
-    public static (T min, T max) GetInfinities<T>() where T : IFloatingPointIeee754<T>
-    {
-        return (GetNegativeInfinity<T>(), GetPositiveInfinity<T>());
-    }
+    public static (T min, T max) GetInfinities<T>() where T : IFloatingPointIeee754<T> =>
+        (GetNegativeInfinity<T>(), GetPositiveInfinity<T>());
 
     #endregion Methods for getting information about a standard floating point type.
 
@@ -223,12 +202,12 @@ public static class XFloatingPoint
         where T : IFloatingPointIeee754<T>
     {
         // Get the bits.
-        ulong bits = x switch
+        var bits = x switch
         {
             Half h => BitConverter.HalfToUInt16Bits(h),
             float f => BitConverter.SingleToUInt32Bits(f),
             double d => BitConverter.DoubleToUInt64Bits(d),
-            _ => throw new InvalidOperationException("Unsupported type."),
+            _ => throw new InvalidOperationException("Unsupported type.")
         };
 
         // Get some info about the type.

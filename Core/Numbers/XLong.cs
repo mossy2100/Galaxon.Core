@@ -9,20 +9,14 @@ public static class XLong
     /// <param name="x"></param>
     /// <param name="y"></param>
     /// <returns></returns>
-    public static long Pow(long x, long y)
-    {
-        return (long)Math.Round(Math.Pow(x, y));
-    }
+    public static long Pow(long x, long y) => (long)Math.Round(Math.Pow(x, y));
 
     /// <summary>
     /// Get the long value closest to √x.
     /// </summary>
     /// <param name="x"></param>
     /// <returns></returns>
-    public static long Sqrt(long x)
-    {
-        return (long)Math.Round(Math.Sqrt(x));
-    }
+    public static long Sqrt(long x) => (long)Math.Round(Math.Sqrt(x));
 
     /// <summary>
     /// Return the absolute value of a long as a ulong.
@@ -32,15 +26,13 @@ public static class XLong
     /// </summary>
     /// <param name="n">A long value.</param>
     /// <returns>The absolute value as a ulong.</returns>
-    public static ulong Abs(long n)
-    {
-        return n switch
+    public static ulong Abs(long n) =>
+        n switch
         {
             long.MinValue => long.MaxValue + 1ul,
             >= 0 => (ulong)n,
-            _ => (ulong)-n,
+            _ => (ulong)-n
         };
-    }
 
     /// <summary>
     /// Get a random long.
@@ -56,6 +48,6 @@ public static class XLong
         // Get a random sign bit.
         var signBit = (byte)rnd.Next(2);
 
-        return (long)signBit << 63 | n;
+        return ((long)signBit << 63) | n;
     }
 }

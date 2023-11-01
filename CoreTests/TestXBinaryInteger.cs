@@ -1,6 +1,4 @@
 using System.Diagnostics;
-using System.Numerics;
-using Galaxon.BigNumbers;
 using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Tests;

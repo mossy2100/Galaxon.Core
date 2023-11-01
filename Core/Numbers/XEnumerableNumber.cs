@@ -14,7 +14,7 @@ public static class XEnumerableNumber
     /// </summary>
     public static T Sum<T>(this IEnumerable<T> source, Func<T, T>? map = null)
         where T : INumberBase<T> =>
-        source.Aggregate<T, T>(T.AdditiveIdentity,
+        source.Aggregate(T.AdditiveIdentity,
             (sum, num) => sum + (map == null ? num : map(num)));
 
     /// <summary>
@@ -23,7 +23,7 @@ public static class XEnumerableNumber
     /// </summary>
     public static T Product<T>(this IEnumerable<T> source, Func<T, T>? map = null)
         where T : INumberBase<T> =>
-        source.Aggregate<T, T>(T.MultiplicativeIdentity,
+        source.Aggregate(T.MultiplicativeIdentity,
             (prod, num) => prod * (map == null ? num : map(num)));
 
     /// <summary>
@@ -47,7 +47,7 @@ public static class XEnumerableNumber
         var count = XReflection.Cast<int, T>(nums.Count);
 
         // Calculate the average.
-        return nums.Sum<T>() / count;
+        return nums.Sum() / count;
     }
 
     // /// <summary>

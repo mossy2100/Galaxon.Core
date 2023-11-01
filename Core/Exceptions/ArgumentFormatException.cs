@@ -15,17 +15,15 @@
 /// should be done using nameof()), unless there are several, in which case the offending arguments
 /// can be identified in the message.
 /// </summary>
-/// <see cref="ArgumentException" />
-/// <see cref="ArgumentNullException" />
-/// <see cref="ArgumentOutOfRangeException" />
+/// <see cref="ArgumentException"/>
+/// <see cref="ArgumentNullException"/>
+/// <see cref="ArgumentOutOfRangeException"/>
 public class ArgumentFormatException : ArgumentException
 {
     /// <summary>
     /// Initializes a new instance of the ArgumentFormatException class.
     /// </summary>
-    public ArgumentFormatException()
-    {
-    }
+    public ArgumentFormatException() { }
 
     /// <summary>
     /// Initializes a new instance of the ArgumentFormatException class with an error message, and
@@ -34,9 +32,7 @@ public class ArgumentFormatException : ArgumentException
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
     public ArgumentFormatException(string? message, Exception? innerException = null)
-        : base(message, innerException)
-    {
-    }
+        : base(message, innerException) { }
 
     /// <summary>
     /// Initializes a new instance of the ArgumentFormatException class with the parameter name, an
@@ -47,7 +43,5 @@ public class ArgumentFormatException : ArgumentException
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
     public ArgumentFormatException(string? paramName, string? message,
-        Exception? innerException = null) : base(message, paramName, innerException)
-    {
-    }
+        Exception? innerException = null) : base(message, paramName, innerException) { }
 }

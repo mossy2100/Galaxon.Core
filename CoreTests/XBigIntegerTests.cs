@@ -1,7 +1,7 @@
 using System.Numerics;
 using Galaxon.Core.Numbers;
 
-namespace Galaxon.BigNumbers.Tests;
+namespace Galaxon.Core.Tests;
 
 [TestClass]
 public class XBigIntegerTests

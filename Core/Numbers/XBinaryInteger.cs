@@ -1,6 +1,5 @@
 using System.Numerics;
 using Galaxon.Core.Strings;
-using Galaxon.Core.Types;
 
 namespace Galaxon.Core.Numbers;
 
@@ -26,7 +25,7 @@ public static class XBinaryInteger
         { '7', "⁷" },
         { '8', "⁸" },
         { '9', "⁹" },
-        { '-', "⁻" },
+        { '-', "⁻" }
     };
 
     /// <summary>
@@ -44,23 +43,21 @@ public static class XBinaryInteger
         { '7', "₇" },
         { '8', "₈" },
         { '9', "₈" },
-        { '-', "₋" },
+        { '-', "₋" }
     };
 
     /// <summary>
     /// Render an integer as a superscript string.
     /// This is useful for formatting exponents, numerators, and other numeric superscripts when
     /// HTML is unavailable.
-    /// See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
-    /// See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
-    /// See <see href="https://unicode-table.com/en/" />
+    /// See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts"/>
+    /// See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode"/>
+    /// See <see href="https://unicode-table.com/en/"/>
     /// </summary>
     /// <param name="n">The integer.</param>
     /// <returns>The string of superscript characters.</returns>
-    public static string ToSuperscript<T>(this T n) where T : IBinaryInteger<T>
-    {
-        return $"{n}".ToSuperscript();
-    }
+    public static string ToSuperscript<T>(this T n) where T : IBinaryInteger<T> =>
+        $"{n}".ToSuperscript();
 
     /// <summary>
     /// Render an integer as a subscript string.
@@ -69,10 +66,8 @@ public static class XBinaryInteger
     /// </summary>
     /// <param name="n">The integer.</param>
     /// <returns>The string of subscript characters.</returns>
-    public static string ToSubscript<T>(this T n) where T : IBinaryInteger<T>
-    {
-        return $"{n}".ToSubscript();
-    }
+    public static string ToSubscript<T>(this T n) where T : IBinaryInteger<T> =>
+        $"{n}".ToSubscript();
 
     #endregion Superscript and subscript
 }

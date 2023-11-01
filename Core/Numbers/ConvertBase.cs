@@ -8,9 +8,9 @@ namespace Galaxon.Core.Numbers;
 /// <summary>
 /// This class supports conversion between integers and strings of digits in a specified base,
 /// which can be in the range 2..64.
-///
+/// 
 /// All built-in integer types are supported, including Int128, UInt128, and BigInteger.
-///
+/// 
 /// Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
 /// 26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
 /// ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
@@ -18,16 +18,16 @@ namespace Galaxon.Core.Numbers;
 /// and I assume all, or almost all, computer keyboards will support all of them.
 /// This has been done to add support for base 64, mainly for my own amusement, and to provide
 /// an alternative to bog-standard Base64 encoding (see link).
-///
+/// 
 /// The most important difference is that this encoding uses 8 bits per base-64 digit, whereas
 /// standard base64 encoding uses 5 bits per digit, which is more compressed.
 /// Another difference is that the base 64 digits used here are compatible with the digits used by
 /// hexadecimal and all other bases.
-///
+/// 
 /// ASCII provides 32 symbol (or punctuation) characters, and we only need 28. The 4 unused
 /// characters are '.' (period), ',' (comma), and '_' (underscore), which can be used as group
 /// separators (in different contexts), and '"' (double quote) which is the string delimiter in C#.
-///
+/// 
 /// As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
 /// Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
 /// letters. See the method documentation for ToBase() for how to use this parameter.
@@ -48,7 +48,7 @@ namespace Galaxon.Core.Numbers;
 /// "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
 /// Other than that, I can't find any standards that mandate one over the other. It seems upper-case
 /// is favoured in older languages, lower-case in newer.
-///
+/// 
 /// The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
 /// the form of "To" and "From" methods for all bases that are a power of 2, and base 10 (decimal),
 /// which are the most commonly used:
@@ -63,23 +63,23 @@ namespace Galaxon.Core.Numbers;
 /// |        5         |  triacontakaidecimal * |   32   |  ToTria()   FromTria()   |
 /// |        6         |  tetrasexagesimal **   |   64   |  ToTetra()  FromTetra()  |
 /// |------------------|------------------------|--------|--------------------------|
-///
+/// 
 /// * The term for base 32 is "duotrigesimal". However, there are multiple methods in use for
 /// encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
 /// also known as "base32hex". It's the same encoding used in Java in JavaScript. The term is
 /// abbreviated here as "Tria" in the names of the conversion methods.
-///
+/// 
 /// ** The term for Base 64 is "tetrasexagesimal". The term is abbreviated here as "Tetra" in the
 /// names of the conversion methods.
-///
+/// 
 /// </summary>
-/// <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems" />
-/// <see href="https://en.wikipedia.org/wiki/Binary_number" />
-/// <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system" />
-/// <see href="https://en.wikipedia.org/wiki/Octal" />
-/// <see href="https://en.wikipedia.org/wiki/Hexadecimal" />
-/// <see href="https://en.wikipedia.org/wiki/Base32" />
-/// <see href="https://en.wikipedia.org/wiki/Base64" />
+/// <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems"/>
+/// <see href="https://en.wikipedia.org/wiki/Binary_number"/>
+/// <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system"/>
+/// <see href="https://en.wikipedia.org/wiki/Octal"/>
+/// <see href="https://en.wikipedia.org/wiki/Hexadecimal"/>
+/// <see href="https://en.wikipedia.org/wiki/Base32"/>
+/// <see href="https://en.wikipedia.org/wiki/Base64"/>
 public static class ConvertBase
 {
     #region Constants
@@ -175,7 +175,7 @@ public static class ConvertBase
         {
             true => result.ToUpper(),
             false => result.ToLower(),
-            null => result,
+            null => result
         };
     }
 
@@ -183,47 +183,33 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type.</typeparam>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of binary digits.</returns>
-    public static string ToBin<T>(this T n) where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 2);
-    }
+    public static string ToBin<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 2);
 
     /// <summary>Convert integer to quaternary digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of quaternary digits.</returns>
-    public static string ToQuat<T>(this T n) where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 4);
-    }
+    public static string ToQuat<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 4);
 
     /// <summary>Convert integer to octal digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of octal digits.</returns>
-    public static string ToOct<T>(this T n) where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 8);
-    }
+    public static string ToOct<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 8);
 
     /// <summary>Convert an integer to decimal digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
     /// <param name="n">The integer to convert.</param>
     /// <returns>The value as a string of decimal digits.</returns>
-    public static string ToDec<T>(this T n) where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 10);
-    }
+    public static string ToDec<T>(this T n) where T : IBinaryInteger<T> => ToBase(n, 10);
 
     /// <summary>Convert integer to hexadecimal digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
     /// <param name="n">The integer to convert.</param>
     /// <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
     /// <returns>The value as a string of hexadecimal digits.</returns>
-    public static string ToHex<T>(this T n, bool? letterCase = null) where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 16, letterCase);
-    }
+    public static string ToHex<T>(this T n, bool? letterCase = null) where T : IBinaryInteger<T> =>
+        ToBase(n, 16, letterCase);
 
     /// <summary>Convert integer to triacontakaidecimal (base 32) digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
@@ -231,10 +217,8 @@ public static class ConvertBase
     /// <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
     /// <returns>The value as a string of triacontakaidecimal digits.</returns>
     public static string ToTria<T>(this T n, bool? letterCase = null)
-        where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 32, letterCase);
-    }
+        where T : IBinaryInteger<T> =>
+        ToBase(n, 32, letterCase);
 
     /// <summary>Convert integer to tetrasexagesimal (base 64) digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
@@ -242,10 +226,8 @@ public static class ConvertBase
     /// <param name="letterCase">If letters should be lower-case, upper-case, or default.</param>
     /// <returns>The value as a string of tetrasexagesimal digits.</returns>
     public static string ToTetra<T>(this T n, bool? letterCase = null)
-        where T : IBinaryInteger<T>
-    {
-        return ToBase(n, 64, letterCase);
-    }
+        where T : IBinaryInteger<T> =>
+        ToBase(n, 64, letterCase);
 
     #endregion Extension methods
 
@@ -366,10 +348,7 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromBin<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 2);
-    }
+    public static T FromBin<T>(string digits) where T : IBinaryInteger<T> => FromBase<T>(digits, 2);
 
     /// <summary>
     /// Convert a string of quaternary digits into an integer.
@@ -377,10 +356,8 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromQuat<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 4);
-    }
+    public static T FromQuat<T>(string digits) where T : IBinaryInteger<T> =>
+        FromBase<T>(digits, 4);
 
     /// <summary>
     /// Convert a string of octal digits into an integer.
@@ -388,10 +365,7 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromOct<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 8);
-    }
+    public static T FromOct<T>(string digits) where T : IBinaryInteger<T> => FromBase<T>(digits, 8);
 
     /// <summary>
     /// Convert a string of decimal digits into an integer.
@@ -399,10 +373,8 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromDec<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 10);
-    }
+    public static T FromDec<T>(string digits) where T : IBinaryInteger<T> =>
+        FromBase<T>(digits, 10);
 
     /// <summary>
     /// Convert a string of hexadecimal digits into an integer.
@@ -410,10 +382,8 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromHex<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 16);
-    }
+    public static T FromHex<T>(string digits) where T : IBinaryInteger<T> =>
+        FromBase<T>(digits, 16);
 
     /// <summary>
     /// Convert a string of triacontakaidecimal digits into an integer.
@@ -421,10 +391,8 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromTria<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 32);
-    }
+    public static T FromTria<T>(string digits) where T : IBinaryInteger<T> =>
+        FromBase<T>(digits, 32);
 
     /// <summary>
     /// Convert a string of tetrasexagesimal digits into an integer.
@@ -432,10 +400,8 @@ public static class ConvertBase
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromTetra<T>(string digits) where T : IBinaryInteger<T>
-    {
-        return FromBase<T>(digits, 64);
-    }
+    public static T FromTetra<T>(string digits) where T : IBinaryInteger<T> =>
+        FromBase<T>(digits, 64);
 
     #endregion Static conversion methods
 

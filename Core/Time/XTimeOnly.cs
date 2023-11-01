@@ -12,10 +12,7 @@ public static class XTimeOnly
     /// </summary>
     /// <param name="time">The TimeOnly instance.</param>
     /// <returns>The new TimeSpan object</returns>
-    public static TimeSpan ToTimeSpan(this TimeOnly time)
-    {
-        return new TimeSpan(time.Ticks);
-    }
+    public static TimeSpan ToTimeSpan(this TimeOnly time) => new (time.Ticks);
 
     #endregion Methods for converting to a TimeSpan
 
@@ -27,10 +24,8 @@ public static class XTimeOnly
     /// <param name="end">The end time.</param>
     /// <param name="start">The start time.</param>
     /// <returns>The time elapsed.</returns>
-    public static TimeSpan Subtract(this TimeOnly end, TimeOnly start)
-    {
-        return new TimeSpan(end.Ticks - start.Ticks);
-    }
+    public static TimeSpan Subtract(this TimeOnly end, TimeOnly start) =>
+        new (end.Ticks - start.Ticks);
 
     #endregion Methods for addition and subtraction
 }

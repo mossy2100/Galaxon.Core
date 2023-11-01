@@ -14,7 +14,7 @@ public class XDictionaryTests
         {
             { 1, "one" },
             { 2, "two" },
-            { 3, "three" },
+            { 3, "three" }
         };
 
         // Act
@@ -34,7 +34,7 @@ public class XDictionaryTests
         {
             { 1, "one" },
             { 2, "two" },
-            { 3, "one" },
+            { 3, "one" }
         };
 
         // Act & Assert

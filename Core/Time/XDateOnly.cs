@@ -17,14 +17,11 @@ public static class XDateOnly
 
     /// <summary>
     /// Format the date using ISO 8601 format YYYY-MM-DD.
-    /// <see href="https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates" />
+    /// <see href="https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates"/>
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>A string representing the date in ISO format.</returns>
-    public static string ToIsoString(this DateOnly date)
-    {
-        return date.ToString(SortableDatePattern);
-    }
+    public static string ToIsoString(this DateOnly date) => date.ToString(SortableDatePattern);
 
     #endregion Formatting
 
@@ -35,10 +32,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The new DateTime object</returns>
-    public static DateTime ToDateTime(this DateOnly date)
-    {
-        return date.ToDateTime(new TimeOnly(0));
-    }
+    public static DateTime ToDateTime(this DateOnly date) => date.ToDateTime(new TimeOnly(0));
 
     /// <summary>
     /// Convert a DateOnly to a DateTime, with default time 00:00:00 and specified DateTimeKind.
@@ -46,10 +40,8 @@ public static class XDateOnly
     /// <param name="date">The DateOnly instance.</param>
     /// <param name="kind">The DateTimeKind.</param>
     /// <returns>The new DateTime object</returns>
-    public static DateTime ToDateTime(this DateOnly date, DateTimeKind kind)
-    {
-        return date.ToDateTime(new TimeOnly(0), kind);
-    }
+    public static DateTime ToDateTime(this DateOnly date, DateTimeKind kind) =>
+        date.ToDateTime(new TimeOnly(0), kind);
 
     #endregion Methods for converting to a DateTime
 
@@ -64,33 +56,25 @@ public static class XDateOnly
     /// If extension properties are added to the language I may change this to a property "Ticks"
     /// later, for consistency with DateTime.
     /// </summary>
-    /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
+    /// <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0"/>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The number of ticks.</returns>
-    public static long GetTicks(this DateOnly date)
-    {
-        return date.ToDateTime().Ticks;
-    }
+    public static long GetTicks(this DateOnly date) => date.ToDateTime().Ticks;
 
     /// <summary>
     /// Get the number of seconds between the start of the epoch and the start of the date.
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The number of seconds since the epoch start.</returns>
-    public static long GetTotalSeconds(this DateOnly date)
-    {
-        return date.GetTicks() / TimeSpan.TicksPerSecond;
-    }
+    public static long GetTotalSeconds(this DateOnly date) =>
+        date.GetTicks() / TimeSpan.TicksPerSecond;
 
     /// <summary>
     /// Get the number of days between the start of the epoch and the given date.
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The number of days since the epoch start.</returns>
-    public static long GetTotalDays(this DateOnly date)
-    {
-        return date.GetTicks() / TimeSpan.TicksPerDay;
-    }
+    public static long GetTotalDays(this DateOnly date) => date.GetTicks() / TimeSpan.TicksPerDay;
 
     /// <summary>
     /// Get the number of years between the start of the epoch and the start of the date.
@@ -98,10 +82,8 @@ public static class XDateOnly
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The number of years since the epoch start.</returns>
-    public static double GetTotalYears(this DateOnly date)
-    {
-        return (double)date.GetTicks() / XTimeSpan.TicksPerYear;
-    }
+    public static double GetTotalYears(this DateOnly date) =>
+        (double)date.GetTicks() / XTimeSpan.TicksPerYear;
 
     #endregion Methods for getting the instant as a count of time units
 
@@ -110,14 +92,12 @@ public static class XDateOnly
     /// <summary>
     /// Add a period of time to a date to find a new DateTime.
     /// </summary>
-    /// <see cref="DateTime.Add(TimeSpan)" />
+    /// <see cref="DateTime.Add(TimeSpan)"/>
     /// <param name="date">The date.</param>
     /// <param name="period">The time period to add.</param>
     /// <returns>The resulting DateTime.</returns>
-    public static DateTime Add(this DateOnly date, TimeSpan period)
-    {
-        return date.ToDateTime().Add(period);
-    }
+    public static DateTime Add(this DateOnly date, TimeSpan period) =>
+        date.ToDateTime().Add(period);
 
     /// <summary>
     /// Add a time of day to a date to find a new DateTime.
@@ -125,10 +105,7 @@ public static class XDateOnly
     /// <param name="date">The date.</param>
     /// <param name="time">The time of day to add.</param>
     /// <returns>The resulting DateTime.</returns>
-    public static DateTime Add(this DateOnly date, TimeOnly time)
-    {
-        return date.ToDateTime(time);
-    }
+    public static DateTime Add(this DateOnly date, TimeOnly time) => date.ToDateTime(time);
 
     /// <summary>
     /// Add a number of weeks to a date.
@@ -136,24 +113,20 @@ public static class XDateOnly
     /// <param name="date">The date.</param>
     /// <param name="weeks">The number of weeks to add.</param>
     /// <returns>The resulting date.</returns>
-    public static DateOnly AddWeeks(this DateOnly date, int weeks)
-    {
-        return date.AddDays(weeks * (int)XTimeSpan.DaysPerWeek);
-    }
+    public static DateOnly AddWeeks(this DateOnly date, int weeks) =>
+        date.AddDays(weeks * (int)XTimeSpan.DaysPerWeek);
 
     /// <summary>
     /// Returns the difference between two dates as a number of days.
-    /// Emulates the <see cref="DateTime.Subtract(DateTime)" /> method.
+    /// Emulates the <see cref="DateTime.Subtract(DateTime)"/> method.
     /// If the end date is later than the start date, the result will be positive.
     /// If they are equal, the result will be zero. Otherwise, the result will be negative.
     /// </summary>
     /// <param name="end">The end date.</param>
     /// <param name="start">The start date.</param>
     /// <returns>The number of days difference between the two dates.</returns>
-    public static long Subtract(this DateOnly end, DateOnly start)
-    {
-        return end.GetTotalDays() - start.GetTotalDays();
-    }
+    public static long Subtract(this DateOnly end, DateOnly start) =>
+        end.GetTotalDays() - start.GetTotalDays();
 
     #endregion Methods for addition and subtraction
 
@@ -162,23 +135,19 @@ public static class XDateOnly
     /// <summary>
     /// Find a date given the number of days from the start of the epoch.
     /// </summary>
-    /// <see cref="XDateTime.FromTotalDays(double)" />
+    /// <see cref="XDateTime.FromTotalDays(double)"/>
     /// <param name="days">The number of days.</param>
     /// <returns>The resulting date.</returns>
-    public static DateOnly FromTotalDays(long days)
-    {
-        return DateOnly.FromDateTime(XDateTime.FromTotalDays(days));
-    }
+    public static DateOnly FromTotalDays(long days) =>
+        DateOnly.FromDateTime(XDateTime.FromTotalDays(days));
 
     /// <summary>
     /// Find the date given the number of years since the start of the epoch.
     /// </summary>
     /// <param name="years">The number of years. May include a fractional part.</param>
     /// <returns>The resulting date.</returns>
-    public static DateOnly FromTotalYears(double years)
-    {
-        return DateOnly.FromDateTime(XDateTime.FromTotalYears(years));
-    }
+    public static DateOnly FromTotalYears(double years) =>
+        DateOnly.FromDateTime(XDateTime.FromTotalYears(years));
 
     /// <summary>
     /// Find a date given a year and the day of the year.
@@ -221,28 +190,23 @@ public static class XDateOnly
     /// The result gives the Julian Day at the start of the given date
     /// (00:00:00, i.e. midnight), which will always have a fraction of 0.5, since a Julian Day
     /// starts at 12:00:00 (noon).
-    /// <see cref="XDateTime.ToJulianDay" />
+    /// <see cref="XDateTime.ToJulianDay"/>
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
     /// <returns>The Julian Day value.</returns>
-    public static double ToJulianDay(this DateOnly date)
-    {
-        return date.ToDateTime().ToJulianDay();
-    }
+    public static double ToJulianDay(this DateOnly date) => date.ToDateTime().ToJulianDay();
 
     /// <summary>
     /// Convert a Julian Day value to a date.
     /// </summary>
-    /// <see cref="XDateTime.FromJulianDay(double)" />
+    /// <see cref="XDateTime.FromJulianDay(double)"/>
     /// <param name="jd">
     /// The Julian Day value. If a fractional part indicating the time of day is included, this
     /// information will be discarded.
     /// </param>
     /// <returns>A new DateOnly object.</returns>
-    public static DateOnly FromJulianDay(double jd)
-    {
-        return DateOnly.FromDateTime(XDateTime.FromJulianDay(jd));
-    }
+    public static DateOnly FromJulianDay(double jd) =>
+        DateOnly.FromDateTime(XDateTime.FromJulianDay(jd));
 
     #endregion Conversion to/from Julian Day
 
@@ -255,9 +219,9 @@ public static class XDateOnly
     /// modifications from 1961.
     /// Tested for years 1600..2299.
     /// </summary>
-    /// <see href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm" />
-    /// <see href="https://www.census.gov/data/software/x13as/genhol/easter-dates.html" />
-    /// <see href="https://www.assa.org.au/edm" />
+    /// <see href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm"/>
+    /// <see href="https://www.census.gov/data/software/x13as/genhol/easter-dates.html"/>
+    /// <see href="https://www.assa.org.au/edm"/>
     /// <param name="year">The Gregorian year number.</param>
     /// <returns>The date of Easter Sunday for the given year.</returns>
     public static DateOnly GetEaster(int year)
@@ -284,10 +248,7 @@ public static class XDateOnly
     /// </summary>
     /// <param name="year">The year.</param>
     /// <returns>The date of Christmas in the given year.</returns>
-    public static DateOnly GetChristmas(int year)
-    {
-        return new DateOnly(year, 12, 31);
-    }
+    public static DateOnly GetChristmas(int year) => new (year, 12, 31);
 
     /// <summary>
     /// Find the nth weekday in a given month.
@@ -362,16 +323,15 @@ public static class XDateOnly
     /// Find the date of Thanksgiving for a specified country in a given year.
     /// Only years with a holiday called "Thanksgiving" are supported. The default is "US".
     /// </summary>
-    /// <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance" />
+    /// <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance"/>
     /// <param name="year">The year.</param>
     /// <param name="countryCode">The ISO 2-letter country code.</param>
     /// <returns>The date of Thanksgiving.</returns>
     /// <exception cref="ArgumentInvalidException">
     /// Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
     /// </exception>
-    public static DateOnly GetThanksgiving(int year, string countryCode = "US")
-    {
-        return countryCode switch
+    public static DateOnly GetThanksgiving(int year, string countryCode = "US") =>
+        countryCode switch
         {
             // Norfolk Island: Last Wednesday in November.
             "NF" => GetNthWeekdayInMonth(year, 11, -1, DayOfWeek.Wednesday),
@@ -395,9 +355,8 @@ public static class XDateOnly
             "US" or "NL" or "PH" or "BR" => GetNthWeekdayInMonth(year, 11, 4, DayOfWeek.Thursday),
 
             _ => throw new ArgumentOutOfRangeException(nameof(countryCode),
-                "A date for Thanksgiving could not be determined for the specified country."),
+                "A date for Thanksgiving could not be determined for the specified country.")
         };
-    }
 
     #endregion Find special dates
 }

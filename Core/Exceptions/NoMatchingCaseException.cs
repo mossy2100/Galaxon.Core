@@ -9,9 +9,7 @@ public class NoMatchingCaseException : Exception
     /// <summary>
     /// Initializes a new instance.
     /// </summary>
-    public NoMatchingCaseException()
-    {
-    }
+    public NoMatchingCaseException() { }
 
     /// <summary>
     /// Initializes a new instance with an error message, and (optionally) a reference to the inner
@@ -20,7 +18,5 @@ public class NoMatchingCaseException : Exception
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
     public NoMatchingCaseException(string? message, Exception? innerException = null)
-        : base(message, innerException)
-    {
-    }
+        : base(message, innerException) { }
 }

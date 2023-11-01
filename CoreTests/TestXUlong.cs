@@ -1,6 +1,4 @@
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXUlong
-{
-}
+public class TestXUlong { }

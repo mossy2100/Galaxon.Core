@@ -66,9 +66,9 @@
             should be done using nameof()), unless there are several, in which case the offending arguments
             can be identified in the message.
             </summary>
-            <see cref="T:System.ArgumentException" />
-            <see cref="T:System.ArgumentNullException" />
-            <see cref="T:System.ArgumentOutOfRangeException" />
+            <see cref="T:System.ArgumentException"/>
+            <see cref="T:System.ArgumentNullException"/>
+            <see cref="T:System.ArgumentOutOfRangeException"/>
         </member>
         <member name="M:Galaxon.Core.Exceptions.ArgumentFormatException.#ctor">
             <summary>
@@ -107,9 +107,9 @@
             should be done using nameof()), unless there are several, in which case the offending arguments
             can be identified in the message.
             </summary>
-            <see cref="T:System.ArgumentException" />
-            <see cref="T:System.ArgumentNullException" />
-            <see cref="T:System.ArgumentOutOfRangeException" />
+            <see cref="T:System.ArgumentException"/>
+            <see cref="T:System.ArgumentNullException"/>
+            <see cref="T:System.ArgumentOutOfRangeException"/>
         </member>
         <member name="M:Galaxon.Core.Exceptions.ArgumentInvalidException.#ctor">
             <summary>
@@ -190,81 +190,81 @@
             <returns>The memoized version of the pure function.</returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.ConvertBase">
-             <summary>
-             This class supports conversion between integers and strings of digits in a specified base,
-             which can be in the range 2..64.
+            <summary>
+            This class supports conversion between integers and strings of digits in a specified base,
+            which can be in the range 2..64.
             
-             All built-in integer types are supported, including Int128, UInt128, and BigInteger.
+            All built-in integer types are supported, including Int128, UInt128, and BigInteger.
             
-             Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
-             26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
-             ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
-             to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
-             and I assume all, or almost all, computer keyboards will support all of them.
-             This has been done to add support for base 64, mainly for my own amusement, and to provide
-             an alternative to bog-standard Base64 encoding (see link).
+            Most languages support conversion to and from base 2 to 36, formed from the 10 digits plus the
+            26 letters in the English alphabet. To this sequence I've appended 28 non-alphanumeric (symbol)
+            ASCII characters in order to extend the range of supported bases to 64. The symbols are appended
+            to the standard 36 digits in ASCII value order. These characters only require 1 byte in UTF-8
+            and I assume all, or almost all, computer keyboards will support all of them.
+            This has been done to add support for base 64, mainly for my own amusement, and to provide
+            an alternative to bog-standard Base64 encoding (see link).
             
-             The most important difference is that this encoding uses 8 bits per base-64 digit, whereas
-             standard base64 encoding uses 5 bits per digit, which is more compressed.
-             Another difference is that the base 64 digits used here are compatible with the digits used by
-             hexadecimal and all other bases.
+            The most important difference is that this encoding uses 8 bits per base-64 digit, whereas
+            standard base64 encoding uses 5 bits per digit, which is more compressed.
+            Another difference is that the base 64 digits used here are compatible with the digits used by
+            hexadecimal and all other bases.
             
-             ASCII provides 32 symbol (or punctuation) characters, and we only need 28. The 4 unused
-             characters are '.' (period), ',' (comma), and '_' (underscore), which can be used as group
-             separators (in different contexts), and '"' (double quote) which is the string delimiter in C#.
+            ASCII provides 32 symbol (or punctuation) characters, and we only need 28. The 4 unused
+            characters are '.' (period), ',' (comma), and '_' (underscore), which can be used as group
+            separators (in different contexts), and '"' (double quote) which is the string delimiter in C#.
             
-             As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
-             Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
-             letters. See the method documentation for ToBase() for how to use this parameter.
-             The default is to use lower-case for all letters except for L (see the Digits constant).
-             Upper-case letters are more easily confused with numerals than lower-case. For example:
-             - 'O' can look like '0'
-             - 'I' can look like '1'
-             - 'Z' can look like '2'
-             - 'S' can look like '5'
-             - 'G' can look like '6'
-             - 'B' can look like '8'
-             The only similar problem with lower-case letters is that 'l' can look like '1'. To solve this,
-             upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
-             long literals in C#, as a rule.)
-             These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
-             between letters and numbers, so it's not the issue it once was.
-             Multiple coding standards for CSS require lower-case hex digits in color literals.
-             "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
-             Other than that, I can't find any standards that mandate one over the other. It seems upper-case
-             is favoured in older languages, lower-case in newer.
+            As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
+            Use the parameter "letterCase" to specify for the result to use all lower- or all upper-case
+            letters. See the method documentation for ToBase() for how to use this parameter.
+            The default is to use lower-case for all letters except for L (see the Digits constant).
+            Upper-case letters are more easily confused with numerals than lower-case. For example:
+            - 'O' can look like '0'
+            - 'I' can look like '1'
+            - 'Z' can look like '2'
+            - 'S' can look like '5'
+            - 'G' can look like '6'
+            - 'B' can look like '8'
+            The only similar problem with lower-case letters is that 'l' can look like '1'. To solve this,
+            upper-case is used for this letter only. (This is the same reason why we use "L" as a suffix for
+            long literals in C#, as a rule.)
+            These days, most fonts, especially those used by IDEs, make it easy enough to distinguish
+            between letters and numbers, so it's not the issue it once was.
+            Multiple coding standards for CSS require lower-case hex digits in color literals.
+            "L" is not a hexadecimal digit, so this behaviour doesn't violate that standard.
+            Other than that, I can't find any standards that mandate one over the other. It seems upper-case
+            is favoured in older languages, lower-case in newer.
             
-             The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
-             the form of "To" and "From" methods for all bases that are a power of 2, and base 10 (decimal),
-             which are the most commonly used:
-             |------------------|------------------------|--------|--------------------------|
-             |  Bits per digit  |  Numeral system        |  Base  |  Methods                 |
-             |------------------|------------------------|--------|--------------------------|
-             |        1         |  binary                |    2   |  ToBin()    FromBin()    |
-             |        2         |  quaternary            |    4   |  ToQuat()   FromQuat()   |
-             |        3         |  octal                 |    8   |  ToOct()    FromOct()    |
-             |                  |  decimal               |   10   |  ToDec()    FromDec()    |
-             |        4         |  hexadecimal           |   16   |  ToHex()    FromHex()    |
-             |        5         |  triacontakaidecimal * |   32   |  ToTria()   FromTria()   |
-             |        6         |  tetrasexagesimal **   |   64   |  ToTetra()  FromTetra()  |
-             |------------------|------------------------|--------|--------------------------|
+            The core methods are ToBase() and FromBase(). In addition, convenience methods are provided in
+            the form of "To" and "From" methods for all bases that are a power of 2, and base 10 (decimal),
+            which are the most commonly used:
+            |------------------|------------------------|--------|--------------------------|
+            |  Bits per digit  |  Numeral system        |  Base  |  Methods                 |
+            |------------------|------------------------|--------|--------------------------|
+            |        1         |  binary                |    2   |  ToBin()    FromBin()    |
+            |        2         |  quaternary            |    4   |  ToQuat()   FromQuat()   |
+            |        3         |  octal                 |    8   |  ToOct()    FromOct()    |
+            |                  |  decimal               |   10   |  ToDec()    FromDec()    |
+            |        4         |  hexadecimal           |   16   |  ToHex()    FromHex()    |
+            |        5         |  triacontakaidecimal * |   32   |  ToTria()   FromTria()   |
+            |        6         |  tetrasexagesimal **   |   64   |  ToTetra()  FromTetra()  |
+            |------------------|------------------------|--------|--------------------------|
             
-             * The term for base 32 is "duotrigesimal". However, there are multiple methods in use for
-             encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
-             also known as "base32hex". It's the same encoding used in Java in JavaScript. The term is
-             abbreviated here as "Tria" in the names of the conversion methods.
+            * The term for base 32 is "duotrigesimal". However, there are multiple methods in use for
+            encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
+            also known as "base32hex". It's the same encoding used in Java in JavaScript. The term is
+            abbreviated here as "Tria" in the names of the conversion methods.
             
-             ** The term for Base 64 is "tetrasexagesimal". The term is abbreviated here as "Tetra" in the
-             names of the conversion methods.
+            ** The term for Base 64 is "tetrasexagesimal". The term is abbreviated here as "Tetra" in the
+            names of the conversion methods.
             
-             </summary>
-             <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems" />
-             <see href="https://en.wikipedia.org/wiki/Binary_number" />
-             <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system" />
-             <see href="https://en.wikipedia.org/wiki/Octal" />
-             <see href="https://en.wikipedia.org/wiki/Hexadecimal" />
-             <see href="https://en.wikipedia.org/wiki/Base32" />
-             <see href="https://en.wikipedia.org/wiki/Base64" />
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems"/>
+            <see href="https://en.wikipedia.org/wiki/Binary_number"/>
+            <see href="https://en.wikipedia.org/wiki/Quaternary_numeral_system"/>
+            <see href="https://en.wikipedia.org/wiki/Octal"/>
+            <see href="https://en.wikipedia.org/wiki/Hexadecimal"/>
+            <see href="https://en.wikipedia.org/wiki/Base32"/>
+            <see href="https://en.wikipedia.org/wiki/Base64"/>
         </member>
         <member name="F:Galaxon.Core.Numbers.ConvertBase.MinBase">
             <summary>The minimum base supported by the type.</summary>
@@ -431,6 +431,112 @@
             <param name="radix">The base.</param>
             <returns>The map of digit characters to their values.</returns>
         </member>
+        <member name="T:Galaxon.Core.Numbers.XBigInteger">
+            <summary>Extension methods for BigInteger.</summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.XBigInteger.s_gcdCache">
+            <summary>
+            Cache for GreatestCommonDivisor().
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.ToUnsigned(System.Numerics.BigInteger)">
+            <summary>
+            Get the unsigned, twos-complement version of the value, containing the fewest number of
+            bytes.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.BinomialCoefficient(System.Int32,System.Int32)">
+            <summary>Find a binomial coefficient.</summary>
+            <param name="n">Set size/upper index.</param>
+            <param name="k">Subset size/lower index.</param>
+            <returns>The binomial coefficient.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Reverse(System.Numerics.BigInteger)">
+            <summary>
+            Reverse a BigInteger.
+            e.g. 123 becomes 321.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.IsPalindromic(System.Numerics.BigInteger)">
+            <summary>
+            Check if a BigInteger is palindromic.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.DigitSum(System.Numerics.BigInteger)">
+            <summary>
+            Sum of the digits in a BigInteger.
+            If present, a negative sign is ignored.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.NumDigits(System.Numerics.BigInteger)">
+            <summary>
+            Get the number of digits in the BigInteger.
+            The result will be the same for a positive or negative value.
+            I tried doing this with double.Log() but because double is imprecise it gives wrong results
+            for values close to but less than powers of 10.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.LeastCommonMultiple(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Find the smallest integer which is a multiple of both arguments.
+            Synonyms: lowest common multiple, smallest common multiple.
+            For example, the LCM of 4 and 6 is 12.
+            When adding fractions, the lowest common denominator is equal to the LCM of the
+            denominators.
+            </summary>
+            <param name="a">First integer.</param>
+            <param name="b">Second integer.</param>
+            <returns>The least common multiple.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.GreatestCommonDivisor(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Determine the greatest common divisor of two integers.
+            Synonyms: greatest common factor, highest common factor.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Pow(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>Calculate the value of x^y where x and y are BigIntegers.</summary>
+            <remarks>
+            BigInteger provides a Pow() method, but it only permits an int as the exponent.
+            Uses exponentiation by squaring.
+            </remarks>
+            <param name="x">The base (BigRational).</param>
+            <param name="y">The exponent (BigInteger).</param>
+            <returns>The result of the calculation.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If y is negative.</exception>
+            <see cref="M:System.Numerics.BigInteger.Pow(System.Numerics.BigInteger,System.Int32)"/>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Exp2(System.Numerics.BigInteger)">
+            <summary>Compute 2 raised to a given power.</summary>
+            <param name="y">The power to which 2 is raised.</param>
+            <returns>2 raised to the given BigInteger value.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Exp10(System.Numerics.BigInteger)">
+            <summary>Compute 10 raised to a given power.</summary>
+            <param name="y">The power to which 10 is raised.</param>
+            <returns>10 raised to the given BigInteger value.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.Sqrt(System.Numerics.BigInteger)">
+            <summary>
+            Calculated the truncated square root of a BigInteger value.
+            Uses Newton's method.
+            </summary>
+            <param name="n">The BigInteger value.</param>
+            <returns>The truncated square root.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger._Factorial(System.Numerics.BigInteger)">
+            <summary>
+            Factorial of n, n >= 0.
+            Private, uncached version.
+            </summary>
+            <param name="n"></param>
+            <returns>The factorial of the parameter.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.XBigInteger.Factorial">
+            <summary>Public memoized version of the Factorial method.</summary>
+        </member>
         <member name="T:Galaxon.Core.Numbers.XBinaryInteger">
             <summary>
             Extension methods for IBinaryInteger{T}.
@@ -451,9 +557,9 @@
             Render an integer as a superscript string.
             This is useful for formatting exponents, numerators, and other numeric superscripts when
             HTML is unavailable.
-            See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts" />
-            See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode" />
-            See <see href="https://unicode-table.com/en/" />
+            See <see href="https://en.wikipedia.org/wiki/Unicode_subscripts_and_superscripts"/>
+            See <see href="https://rupertshepherd.info/resource_pages/superscript-letters-in-unicode"/>
+            See <see href="https://unicode-table.com/en/"/>
             </summary>
             <param name="n">The integer.</param>
             <returns>The string of superscript characters.</returns>
@@ -483,10 +589,10 @@
             <summary>
             Calculate the natural logarithm of a decimal.
             The algorithm is from:
-            <see href="https://en.wikipedia.org/wiki/Natural_logarithm" />
+            <see href="https://en.wikipedia.org/wiki/Natural_logarithm"/>
             DecimalEx.Log() hangs for very small values, so I made this version, which doesn't.
             It's tested, fast, and doesn't break with the largest or smallest decimal values.
-            <see cref="M:System.Math.Log(System.Double)" />
+            <see cref="M:System.Math.Log(System.Double)"/>
             </summary>
             <param name="m">A decimal value.</param>
             <returns>The natural logarithm of the given value.</returns>
@@ -497,8 +603,8 @@
         <member name="M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)">
             <summary>
             Logarithm of a decimal in a specified base.
-            <see cref="M:System.Math.Log(System.Double,System.Double)" />
-            <see cref="M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)" />
+            <see cref="M:System.Math.Log(System.Double,System.Double)"/>
+            <see cref="M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal,System.Decimal)"/>
             </summary>
             <param name="m">The decimal value.</param>
             <param name="b">The base.</param>
@@ -515,8 +621,8 @@
         <member name="M:Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)">
             <summary>
             Logarithm of a decimal in base 10.
-            <see cref="M:System.Math.Log10(System.Double)" />
-            <see cref="M:Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)" />
+            <see cref="M:System.Math.Log10(System.Double)"/>
+            <see cref="M:Galaxon.Core.Numbers.XDecimal.Log10(System.Decimal)"/>
             </summary>
             <param name="m">The decimal value.</param>
             <returns>The logarithm of the number in base 10.</returns>
@@ -649,7 +755,7 @@
             <summary>
             Disassemble the double into its bitwise components.
             </summary>
-            <see href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format" />
+            <see href="https://en.wikipedia.org/wiki/Double-precision_floating-point_format"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDouble.Assemble(System.Byte,System.UInt16,System.UInt64)">
             <summary>
@@ -687,10 +793,10 @@
             due to inaccuracies in floating point representations than actual inequality.
             This code is copied/adapted from Google Guava DoubleMath.fuzzyEquals().
             <see
-                href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360" />
+                href="https://github.com/google/guava/blob/master/guava/src/com/google/common/math/DoubleMath.java#L360"/>
             I initially tried the algorithm from the Microsoft documentation, it didn't work in all cases.
             <see
-                href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)" />
+                href="https://learn.microsoft.com/en-us/dotnet/api/system.double.equals?view=net-7.0#system-double-equals(system-double)"/>
             </summary>
             <param name="a">First number.</param>
             <param name="b">Second number.</param>
@@ -757,7 +863,7 @@
             <summary>
             Disassemble the float into its bitwise components.
             </summary>
-            <see href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format" />
+            <see href="https://en.wikipedia.org/wiki/Single-precision_floating-point_format"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XFloat.Assemble(System.Byte,System.UInt16,System.UInt64)">
             <summary>
@@ -910,7 +1016,7 @@
             <summary>
             Disassemble the Half into its bitwise components.
             </summary>
-            <see href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format" />
+            <see href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XHalf.Assemble(System.Byte,System.UInt16,System.UInt64)">
             <summary>
@@ -1074,19 +1180,19 @@
             bool isOdd = num % 2 == 1;
             In this case, if num is negative 0, num % 2 == -1
             </summary>
-            <see href="https://en.wikipedia.org/wiki/Modulo_operation" />
+            <see href="https://en.wikipedia.org/wiki/Modulo_operation"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.Div``1(``0,``0)">
             <summary>
             Corrected integer division operation.
             </summary>
-            <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)" />
+            <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.Mod``1(``0,``0)">
             <summary>
             Corrected modulo operation.
             </summary>
-            <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)" />
+            <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.GetStaticValue``1(System.String)">
             <summary>
@@ -1246,7 +1352,7 @@
             <summary>
             Remove whitespace from a string.
             </summary>
-            <see href="https://www.compart.com/en/unicode/category/Zs" />
+            <see href="https://www.compart.com/en/unicode/category/Zs"/>
             <param name="str">The string to process.</param>
             <returns>The string with whitespace characters removed.</returns>
         </member>
@@ -1504,7 +1610,7 @@
         <member name="M:Galaxon.Core.Time.XDateOnly.ToIsoString(System.DateOnly)">
             <summary>
             Format the date using ISO 8601 format YYYY-MM-DD.
-            <see href="https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates" />
+            <see href="https://en.wikipedia.org/wiki/ISO_8601#Calendar_dates"/>
             </summary>
             <param name="date">The DateOnly instance.</param>
             <returns>A string representing the date in ISO format.</returns>
@@ -1531,7 +1637,7 @@
             If extension properties are added to the language I may change this to a property "Ticks"
             later, for consistency with DateTime.
             </summary>
-            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0" />
+            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.ticks?view=net-7.0"/>
             <param name="date">The DateOnly instance.</param>
             <returns>The number of ticks.</returns>
         </member>
@@ -1561,7 +1667,7 @@
             <summary>
             Add a period of time to a date to find a new DateTime.
             </summary>
-            <see cref="M:System.DateTime.Add(System.TimeSpan)" />
+            <see cref="M:System.DateTime.Add(System.TimeSpan)"/>
             <param name="date">The date.</param>
             <param name="period">The time period to add.</param>
             <returns>The resulting DateTime.</returns>
@@ -1585,7 +1691,7 @@
         <member name="M:Galaxon.Core.Time.XDateOnly.Subtract(System.DateOnly,System.DateOnly)">
             <summary>
             Returns the difference between two dates as a number of days.
-            Emulates the <see cref="M:System.DateTime.Subtract(System.DateTime)" /> method.
+            Emulates the <see cref="M:System.DateTime.Subtract(System.DateTime)"/> method.
             If the end date is later than the start date, the result will be positive.
             If they are equal, the result will be zero. Otherwise, the result will be negative.
             </summary>
@@ -1597,7 +1703,7 @@
             <summary>
             Find a date given the number of days from the start of the epoch.
             </summary>
-            <see cref="M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)" />
+            <see cref="M:Galaxon.Core.Time.XDateTime.FromTotalDays(System.Double)"/>
             <param name="days">The number of days.</param>
             <returns>The resulting date.</returns>
         </member>
@@ -1623,7 +1729,7 @@
             The result gives the Julian Day at the start of the given date
             (00:00:00, i.e. midnight), which will always have a fraction of 0.5, since a Julian Day
             starts at 12:00:00 (noon).
-            <see cref="M:Galaxon.Core.Time.XDateTime.ToJulianDay(System.DateTime)" />
+            <see cref="M:Galaxon.Core.Time.XDateTime.ToJulianDay(System.DateTime)"/>
             </summary>
             <param name="date">The DateOnly instance.</param>
             <returns>The Julian Day value.</returns>
@@ -1632,7 +1738,7 @@
             <summary>
             Convert a Julian Day value to a date.
             </summary>
-            <see cref="M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)" />
+            <see cref="M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)"/>
             <param name="jd">
             The Julian Day value. If a fractional part indicating the time of day is included, this
             information will be discarded.
@@ -1647,9 +1753,9 @@
             modifications from 1961.
             Tested for years 1600..2299.
             </summary>
-            <see href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm" />
-            <see href="https://www.census.gov/data/software/x13as/genhol/easter-dates.html" />
-            <see href="https://www.assa.org.au/edm" />
+            <see href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm"/>
+            <see href="https://www.census.gov/data/software/x13as/genhol/easter-dates.html"/>
+            <see href="https://www.assa.org.au/edm"/>
             <param name="year">The Gregorian year number.</param>
             <returns>The date of Easter Sunday for the given year.</returns>
         </member>
@@ -1689,7 +1795,7 @@
             Find the date of Thanksgiving for a specified country in a given year.
             Only years with a holiday called "Thanksgiving" are supported. The default is "US".
             </summary>
-            <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance" />
+            <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance"/>
             <param name="year">The year.</param>
             <param name="countryCode">The ISO 2-letter country code.</param>
             <returns>The date of Thanksgiving.</returns>
@@ -1706,7 +1812,7 @@
             <summary>
             The number of days from the start of the Julian period to the start of the epoch used by
             .NET (0001-01-01 00:00:00 UTC).
-            <see cref="M:Galaxon.Core.Time.XDateTime.GetTotalDays(System.DateTime)" />
+            <see cref="M:Galaxon.Core.Time.XDateTime.GetTotalDays(System.DateTime)"/>
             </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.ToIsoString(System.DateTime)">
@@ -1716,7 +1822,7 @@
             The time zone is not shown. For that, call ToString() with the format specifier "U" or
             UniversalSortableDateTimePattern.
             See
-            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0" />
+            <see href="https://learn.microsoft.com/en-us/dotnet/api/system.datetime.tostring?view=net-7.0"/>
             </summary>
             <param name="date">The DateTime instance.</param>
             <returns>A string representing the datetime in ISO format.</returns>
@@ -1734,7 +1840,7 @@
             Get the date part of a DateTime as a DateOnly object.
             An alternative to the Date property, which returns a DateTime.
             </summary>
-            <see cref="P:System.DateTime.Date" />
+            <see cref="P:System.DateTime.Date"/>
             <param name="dt">The DateTime.</param>
             <returns>The date part of the DateTime.</returns>
         </member>
@@ -1743,7 +1849,7 @@
             Get the time part of a DateTime as a TimeOnly object.
             An alternative to the TimeOfDay property, which returns a TimeSpan.
             </summary>
-            <see cref="P:System.DateTime.TimeOfDay" />
+            <see cref="P:System.DateTime.TimeOfDay"/>
             <param name="dt">The DateTime.</param>
             <returns>The time part of the DateTime.</returns>
         </member>
@@ -2054,8 +2160,8 @@
             1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
             was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
             See:
-            - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
-            - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
+            - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)"/>
+            - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.OlympiadsPerSolarCycle">
@@ -2304,112 +2410,6 @@
             <typeparam name="T">The type.</typeparam>
             <typeparam name="TInterface">The self-referencing generic interface type.</typeparam>
             <returns>True if the specified type implements the specified interface.</returns>
-        </member>
-        <member name="T:Galaxon.BigNumbers.XBigInteger">
-            <summary>Extension methods for BigInteger.</summary>
-        </member>
-        <member name="F:Galaxon.BigNumbers.XBigInteger.s_gcdCache">
-            <summary>
-            Cache for GreatestCommonDivisor().
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.ToUnsigned(System.Numerics.BigInteger)">
-            <summary>
-            Get the unsigned, twos-complement version of the value, containing the fewest number of
-            bytes.
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.BinomialCoefficient(System.Int32,System.Int32)">
-            <summary>Find a binomial coefficient.</summary>
-            <param name="n">Set size/upper index.</param>
-            <param name="k">Subset size/lower index.</param>
-            <returns>The binomial coefficient.</returns>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.Reverse(System.Numerics.BigInteger)">
-            <summary>
-            Reverse a BigInteger.
-            e.g. 123 becomes 321.
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.IsPalindromic(System.Numerics.BigInteger)">
-            <summary>
-            Check if a BigInteger is palindromic.
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.DigitSum(System.Numerics.BigInteger)">
-            <summary>
-            Sum of the digits in a BigInteger.
-            If present, a negative sign is ignored.
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.NumDigits(System.Numerics.BigInteger)">
-            <summary>
-            Get the number of digits in the BigInteger.
-            The result will be the same for a positive or negative value.
-            I tried doing this with double.Log() but because double is imprecise it gives wrong results
-            for values close to but less than powers of 10.
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.LeastCommonMultiple(System.Numerics.BigInteger,System.Numerics.BigInteger)">
-            <summary>
-            Find the smallest integer which is a multiple of both arguments.
-            Synonyms: lowest common multiple, smallest common multiple.
-            For example, the LCM of 4 and 6 is 12.
-            When adding fractions, the lowest common denominator is equal to the LCM of the
-            denominators.
-            </summary>
-            <param name="a">First integer.</param>
-            <param name="b">Second integer.</param>
-            <returns>The least common multiple.</returns>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.GreatestCommonDivisor(System.Numerics.BigInteger,System.Numerics.BigInteger)">
-            <summary>
-            Determine the greatest common divisor of two integers.
-            Synonyms: greatest common factor, highest common factor.
-            </summary>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.Pow(System.Numerics.BigInteger,System.Numerics.BigInteger)">
-            <summary>Calculate the value of x^y where x and y are BigIntegers.</summary>
-            <remarks>
-            BigInteger provides a Pow() method, but it only permits an int as the exponent.
-            Uses exponentiation by squaring.
-            </remarks>
-            <param name="x">The base (BigRational).</param>
-            <param name="y">The exponent (BigInteger).</param>
-            <returns>The result of the calculation.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">If y is negative.</exception>
-            <see cref="M:System.Numerics.BigInteger.Pow(System.Numerics.BigInteger,System.Int32)"/>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.Exp2(System.Numerics.BigInteger)">
-            <summary>Compute 2 raised to a given power.</summary>
-            <param name="y">The power to which 2 is raised.</param>
-            <returns>2 raised to the given BigInteger value.</returns>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.Exp10(System.Numerics.BigInteger)">
-            <summary>Compute 10 raised to a given power.</summary>
-            <param name="y">The power to which 10 is raised.</param>
-            <returns>10 raised to the given BigInteger value.</returns>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger.Sqrt(System.Numerics.BigInteger)">
-            <summary>
-            Calculated the truncated square root of a BigInteger value.
-            Uses Newton's method.
-            </summary>
-            <param name="n">The BigInteger value.</param>
-            <returns>The truncated square root.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="M:Galaxon.BigNumbers.XBigInteger._Factorial(System.Numerics.BigInteger)">
-            <summary>
-            Factorial of n, n >= 0.
-            Private, uncached version.
-            </summary>
-            <param name="n"></param>
-            <returns>The factorial of the parameter.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException"></exception>
-        </member>
-        <member name="F:Galaxon.BigNumbers.XBigInteger.Factorial">
-            <summary>Public memoized version of the Factorial method.</summary>
         </member>
     </members>
 </doc>

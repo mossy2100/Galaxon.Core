@@ -75,7 +75,7 @@ public class TestConvertBase
     /// <remarks>
     /// Useful converter:
     /// </remarks>
-    /// <see href="https://www.rapidtables.com/convert/number/decimal-to-hex.html" />
+    /// <see href="https://www.rapidtables.com/convert/number/decimal-to-hex.html"/>
     [TestMethod]
     public void TestToBaseDifferentTypes()
     {

@@ -48,7 +48,7 @@ public static class XTimeSpan
             ETimeUnit.Decade => amount * TicksPerDecade,
             ETimeUnit.Century => amount * TicksPerCentury,
             ETimeUnit.Millennium => amount * TicksPerMillennium,
-            _ => throw new ArgumentOutOfRangeException(nameof(fromUnit), "Invalid time unit."),
+            _ => throw new ArgumentOutOfRangeException(nameof(fromUnit), "Invalid time unit.")
         };
 
         return toUnit switch
@@ -67,7 +67,7 @@ public static class XTimeSpan
             ETimeUnit.Decade => ticks / TicksPerDecade,
             ETimeUnit.Century => ticks / TicksPerCentury,
             ETimeUnit.Millennium => ticks / TicksPerMillennium,
-            _ => throw new ArgumentOutOfRangeException(nameof(toUnit), "Invalid time unit."),
+            _ => throw new ArgumentOutOfRangeException(nameof(toUnit), "Invalid time unit.")
         };
     }
 
@@ -290,8 +290,8 @@ public static class XTimeSpan
     /// 1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
     /// was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
     /// See:
-    /// - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)" />
-    /// - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar" />
+    /// - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)"/>
+    /// - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
     /// </summary>
     public const long YearsPerSolarCycle = 400L;
 

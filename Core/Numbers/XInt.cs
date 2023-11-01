@@ -8,10 +8,7 @@ public static class XInt
     /// </summary>
     /// <param name="n"></param>
     /// <returns></returns>
-    public static int Sqrt(int n)
-    {
-        return (int)Math.Round(Math.Sqrt(n));
-    }
+    public static int Sqrt(int n) => (int)Math.Round(Math.Sqrt(n));
 
     /// <summary>
     /// Return the absolute value of an int as a uint.
@@ -21,15 +18,13 @@ public static class XInt
     /// </summary>
     /// <param name="n">A int value.</param>
     /// <returns>The absolute value as a uint.</returns>
-    public static uint Abs(int n)
-    {
-        return n switch
+    public static uint Abs(int n) =>
+        n switch
         {
             int.MinValue => int.MaxValue + 1u,
             >= 0 => (uint)n,
-            _ => (uint)-n,
+            _ => (uint)-n
         };
-    }
 
     /// <summary>
     /// Get a random int.
@@ -45,6 +40,6 @@ public static class XInt
         // Get a random sign bit.
         var signBit = (byte)rnd.Next(2);
 
-        return signBit << 31 | i;
+        return (signBit << 31) | i;
     }
 }

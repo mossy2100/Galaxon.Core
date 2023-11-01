@@ -13,17 +13,15 @@ namespace Galaxon.Core.Exceptions;
 /// should be done using nameof()), unless there are several, in which case the offending arguments
 /// can be identified in the message.
 /// </summary>
-/// <see cref="ArgumentException" />
-/// <see cref="ArgumentNullException" />
-/// <see cref="ArgumentOutOfRangeException" />
+/// <see cref="ArgumentException"/>
+/// <see cref="ArgumentNullException"/>
+/// <see cref="ArgumentOutOfRangeException"/>
 public class ArgumentInvalidException : ArgumentException
 {
     /// <summary>
     /// Initializes a new instance of the ArgumentInvalidException class.
     /// </summary>
-    public ArgumentInvalidException()
-    {
-    }
+    public ArgumentInvalidException() { }
 
     /// <summary>
     /// Initializes a new instance of the ArgumentInvalidException class with an error message, and
@@ -32,9 +30,7 @@ public class ArgumentInvalidException : ArgumentException
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
     public ArgumentInvalidException(string? message, Exception? innerException = null)
-        : base(message, innerException)
-    {
-    }
+        : base(message, innerException) { }
 
     /// <summary>
     /// Initializes a new instance of the ArgumentInvalidException class with the parameter name, an
@@ -45,7 +41,5 @@ public class ArgumentInvalidException : ArgumentException
     /// <param name="message">The message.</param>
     /// <param name="innerException">The inner exception.</param>
     public ArgumentInvalidException(string? paramName, string? message,
-        Exception? innerException = null) : base(message, paramName, innerException)
-    {
-    }
+        Exception? innerException = null) : base(message, paramName, innerException) { }
 }

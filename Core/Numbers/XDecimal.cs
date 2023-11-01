@@ -23,10 +23,10 @@ public static class XDecimal
     /// <summary>
     /// Calculate the natural logarithm of a decimal.
     /// The algorithm is from:
-    /// <see href="https://en.wikipedia.org/wiki/Natural_logarithm" />
+    /// <see href="https://en.wikipedia.org/wiki/Natural_logarithm"/>
     /// DecimalEx.Log() hangs for very small values, so I made this version, which doesn't.
     /// It's tested, fast, and doesn't break with the largest or smallest decimal values.
-    /// <see cref="Math.Log(double)" />
+    /// <see cref="Math.Log(double)"/>
     /// </summary>
     /// <param name="m">A decimal value.</param>
     /// <returns>The natural logarithm of the given value.</returns>
@@ -109,8 +109,8 @@ public static class XDecimal
 
     /// <summary>
     /// Logarithm of a decimal in a specified base.
-    /// <see cref="Math.Log(double, double)" />
-    /// <see cref="Log(decimal, decimal)" />
+    /// <see cref="Math.Log(double, double)"/>
+    /// <see cref="Log(decimal, decimal)"/>
     /// </summary>
     /// <param name="m">The decimal value.</param>
     /// <param name="b">The base.</param>
@@ -143,28 +143,22 @@ public static class XDecimal
 
     /// <summary>
     /// Logarithm of a decimal in base 10.
-    /// <see cref="Math.Log10" />
-    /// <see cref="Log10" />
+    /// <see cref="Math.Log10"/>
+    /// <see cref="Log10"/>
     /// </summary>
     /// <param name="m">The decimal value.</param>
     /// <returns>The logarithm of the number in base 10.</returns>
     /// <exception cref="ArgumentOutOfRangeException">
     /// If the number is less than or equal to 0.
     /// </exception>
-    public static decimal Log10(decimal m)
-    {
-        return Log(m, 10);
-    }
+    public static decimal Log10(decimal m) => Log(m, 10);
 
     /// <summary>
     /// Calculate 10 raised to a decimal power.
     /// </summary>
     /// <param name="m">A decimal value.</param>
     /// <returns>10^d</returns>
-    public static decimal Exp10(decimal m)
-    {
-        return DecimalEx.Pow(10, m);
-    }
+    public static decimal Exp10(decimal m) => DecimalEx.Pow(10, m);
 
     /// <summary>
     /// Logarithm of a decimal in base 2.
@@ -174,20 +168,14 @@ public static class XDecimal
     /// <exception cref="ArgumentOutOfRangeException">
     /// If the number is less than or equal to 0.
     /// </exception>
-    public static decimal Log2(decimal m)
-    {
-        return Log(m, 2);
-    }
+    public static decimal Log2(decimal m) => Log(m, 2);
 
     /// <summary>
     /// Calculate 2 raised to a decimal power.
     /// </summary>
     /// <param name="m">A decimal value.</param>
     /// <returns>2^d</returns>
-    public static decimal Exp2(decimal m)
-    {
-        return DecimalEx.Pow(2, m);
-    }
+    public static decimal Exp2(decimal m) => DecimalEx.Pow(2, m);
 
     #endregion Exponentiation methods
 
@@ -198,20 +186,14 @@ public static class XDecimal
     /// </summary>
     /// <param name="x">The hyperbolic angle.</param>
     /// <returns>The hyperbolic sine of the given angle.</returns>
-    public static decimal Sinh(decimal x)
-    {
-        return (DecimalEx.Exp(x) - DecimalEx.Exp(-x)) / 2;
-    }
+    public static decimal Sinh(decimal x) => (DecimalEx.Exp(x) - DecimalEx.Exp(-x)) / 2;
 
     /// <summary>
     /// Hyperbolic cosine.
     /// </summary>
     /// <param name="x">The hyperbolic angle.</param>
     /// <returns>The hyperbolic cosine of the given angle.</returns>
-    public static decimal Cosh(decimal x)
-    {
-        return (DecimalEx.Exp(x) + DecimalEx.Exp(-x)) / 2;
-    }
+    public static decimal Cosh(decimal x) => (DecimalEx.Exp(x) + DecimalEx.Exp(-x)) / 2;
 
     /// <summary>
     /// Hyperbolic tangent.
@@ -229,30 +211,21 @@ public static class XDecimal
     /// </summary>
     /// <param name="x">The hyperbolic sine of an angle.</param>
     /// <returns>The angle.</returns>
-    public static decimal Asinh(decimal x)
-    {
-        return Log(x + DecimalEx.Sqrt(x * x + 1));
-    }
+    public static decimal Asinh(decimal x) => Log(x + DecimalEx.Sqrt(x * x + 1));
 
     /// <summary>
     /// Inverse hyperbolic cosine.
     /// </summary>
     /// <param name="x">The hyperbolic cosine of an angle.</param>
     /// <returns>The angle.</returns>
-    public static decimal Acosh(decimal x)
-    {
-        return Log(x + DecimalEx.Sqrt(x * x - 1));
-    }
+    public static decimal Acosh(decimal x) => Log(x + DecimalEx.Sqrt(x * x - 1));
 
     /// <summary>
     /// Inverse hyperbolic tangent.
     /// </summary>
     /// <param name="x">The hyperbolic tangent of an angle.</param>
     /// <returns>The angle.</returns>
-    public static decimal Atanh(decimal x)
-    {
-        return Log((1 + x) / (1 - x)) / 2;
-    }
+    public static decimal Atanh(decimal x) => Log((1 + x) / (1 - x)) / 2;
 
     #endregion Hyperbolic trigonometric methods
 
@@ -261,10 +234,7 @@ public static class XDecimal
     /// <summary>
     /// Check if a decimal value is an integer.
     /// </summary>
-    public static bool IsInteger(decimal m)
-    {
-        return m == decimal.Truncate(m);
-    }
+    public static bool IsInteger(decimal m) => m == decimal.Truncate(m);
 
     /// <summary>
     /// Round off a value to a given number of significant figures.
@@ -308,8 +278,8 @@ public static class XDecimal
         var hi = (uint)parts[2];
         var flags = (uint)parts[3];
         var signBit = (byte)(flags >> 31);
-        var scaleBits = (byte)(flags >> 16 & 0xff);
-        var intBits = (UInt128)hi << 64 | (UInt128)mid << 32 | lo;
+        var scaleBits = (byte)((flags >> 16) & 0xff);
+        var intBits = ((UInt128)hi << 64) | ((UInt128)mid << 32) | lo;
         return (signBit, scaleBits, intBits);
     }
 
@@ -344,8 +314,8 @@ public static class XDecimal
         }
 
         var lo = (int)(intBits & 0xffffffff);
-        var mid = (int)(intBits >> 32 & 0xffffffff);
-        var hi = (int)(intBits >> 64 & 0xffffffff);
+        var mid = (int)((intBits >> 32) & 0xffffffff);
+        var hi = (int)((intBits >> 64) & 0xffffffff);
 
         return new decimal(lo, mid, hi, signBit == 1, scaleBits);
     }

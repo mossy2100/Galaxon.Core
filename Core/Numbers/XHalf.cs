@@ -12,11 +12,9 @@ public static class XHalf
     /// <summary>
     /// Disassemble the Half into its bitwise components.
     /// </summary>
-    /// <see href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format" />
-    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this Half x)
-    {
-        return x.Disassemble<Half>();
-    }
+    /// <see href="https://en.wikipedia.org/wiki/Half-precision_floating-point_format"/>
+    public static (byte signBit, ushort expBits, ulong fracBits) Disassemble(this Half x) =>
+        x.Disassemble<Half>();
 
     /// <summary>
     /// Assemble a new Half from parts.
@@ -25,10 +23,8 @@ public static class XHalf
     /// <param name="expBits">The exponent bits.</param>
     /// <param name="fracBits">The fraction bits.</param>
     /// <returns>The new Half.</returns>
-    public static Half Assemble(byte signBit, ushort expBits, ulong fracBits)
-    {
-        return XFloatingPoint.Assemble<Half>(signBit, expBits, fracBits);
-    }
+    public static Half Assemble(byte signBit, ushort expBits, ulong fracBits) =>
+        XFloatingPoint.Assemble<Half>(signBit, expBits, fracBits);
 
     /// <summary>
     /// Get a random Half.

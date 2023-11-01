@@ -166,7 +166,7 @@ public class TestXDateOnly
     /// <summary>
     /// These examples are from Meeus AA2 p67.
     /// I've also verified the dates at:
-    /// <see href="https://www.assa.org.au/edm" />
+    /// <see href="https://www.assa.org.au/edm"/>
     /// </summary>
     [TestMethod]
     public void TestEaster()

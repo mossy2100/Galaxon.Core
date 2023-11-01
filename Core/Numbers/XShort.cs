@@ -11,15 +11,13 @@ public static class XShort
     /// </summary>
     /// <param name="n">A short value.</param>
     /// <returns>The absolute value as a ushort.</returns>
-    public static ushort Abs(short n)
-    {
-        return n switch
+    public static ushort Abs(short n) =>
+        n switch
         {
             short.MinValue => short.MaxValue + 1,
             >= 0 => (ushort)n,
-            _ => (ushort)-n,
+            _ => (ushort)-n
         };
-    }
 
     /// <summary>
     /// Get a random short.

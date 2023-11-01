@@ -17,10 +17,8 @@ public static class XAssert
     public static void AreEqual((double d, double m, double s) a, (double d, double m, double s) b,
         (double d, double m, double s) delta)
     {
-        double DmsToDeg((double d, double m, double s) angle)
-        {
-            return angle.d + 60 * angle.m + 3600 * angle.s;
-        }
+        double DmsToDeg((double d, double m, double s) angle) =>
+            angle.d + 60 * angle.m + 3600 * angle.s;
 
         var aDeg = DmsToDeg(a);
         var bDeg = DmsToDeg(b);

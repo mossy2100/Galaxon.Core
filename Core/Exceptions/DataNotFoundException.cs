@@ -17,7 +17,5 @@ public class DataNotFoundException : DataException
     /// <param name="message"></param>
     /// <param name="innerException"></param>
     public DataNotFoundException(string? message = null, Exception? innerException = null)
-        : base(message, innerException)
-    {
-    }
+        : base(message, innerException) { }
 }

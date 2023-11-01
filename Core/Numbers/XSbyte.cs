@@ -11,13 +11,11 @@ public static class XSbyte
     /// </summary>
     /// <param name="n">A sbyte value.</param>
     /// <returns>The absolute value as a byte.</returns>
-    public static byte Abs(sbyte n)
-    {
-        return n switch
+    public static byte Abs(sbyte n) =>
+        n switch
         {
             sbyte.MinValue => sbyte.MaxValue + 1,
             >= 0 => (byte)n,
-            _ => (byte)-n,
+            _ => (byte)-n
         };
-    }
 }

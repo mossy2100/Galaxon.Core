@@ -83,5 +83,5 @@ public enum ETimeUnit
     /// <summary>
     /// Millennium (ky). 1 ky = 10 c = 100 dec = 1000 y
     /// </summary>
-    Millennium,
+    Millennium
 }

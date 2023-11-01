@@ -11,8 +11,6 @@ public static class XStringBuilder
     /// Prepends a StringBuilder with a string.
     /// Reflects Append().
     /// </summary>
-    public static StringBuilder Prepend(this StringBuilder sb, object? value)
-    {
-        return value == null ? sb : sb.Insert(0, value.ToString());
-    }
+    public static StringBuilder Prepend(this StringBuilder sb, object? value) =>
+        value == null ? sb : sb.Insert(0, value.ToString());
 }
