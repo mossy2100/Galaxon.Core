@@ -52,19 +52,27 @@ public static class XBigInteger
     /// Reverse a BigInteger.
     /// e.g. 123 becomes 321.
     /// </summary>
-    public static BigInteger Reverse(this BigInteger n) => BigInteger.Parse(n.ToString().Reverse());
+    public static BigInteger Reverse(this BigInteger n)
+    {
+        return BigInteger.Parse(n.ToString().Reverse());
+    }
 
     /// <summary>
     /// Check if a BigInteger is palindromic.
     /// </summary>
-    public static bool IsPalindromic(this BigInteger n) => n == n.Reverse();
+    public static bool IsPalindromic(this BigInteger n)
+    {
+        return n == n.Reverse();
+    }
 
     /// <summary>
     /// Sum of the digits in a BigInteger.
     /// If present, a negative sign is ignored.
     /// </summary>
-    public static BigInteger DigitSum(this BigInteger n) =>
-        BigInteger.Abs(n).ToString().Sum(c => c - '0');
+    public static BigInteger DigitSum(this BigInteger n)
+    {
+        return BigInteger.Abs(n).ToString().Sum(c => c - '0');
+    }
 
     /// <summary>
     /// Get the number of digits in the BigInteger.
@@ -72,7 +80,10 @@ public static class XBigInteger
     /// I tried doing this with double.Log() but because double is imprecise it gives wrong results
     /// for values close to but less than powers of 10.
     /// </summary>
-    public static int NumDigits(this BigInteger n) => BigInteger.Abs(n).ToString().Length;
+    public static int NumDigits(this BigInteger n)
+    {
+        return BigInteger.Abs(n).ToString().Length;
+    }
 
     #endregion Digit-related methods
 
@@ -188,12 +199,18 @@ public static class XBigInteger
     /// <summary>Compute 2 raised to a given power.</summary>
     /// <param name="y">The power to which 2 is raised.</param>
     /// <returns>2 raised to the given BigInteger value.</returns>
-    public static BigInteger Exp2(BigInteger y) => Pow(2, y);
+    public static BigInteger Exp2(BigInteger y)
+    {
+        return Pow(2, y);
+    }
 
     /// <summary>Compute 10 raised to a given power.</summary>
     /// <param name="y">The power to which 10 is raised.</param>
     /// <returns>10 raised to the given BigInteger value.</returns>
-    public static BigInteger Exp10(BigInteger y) => Pow(10, y);
+    public static BigInteger Exp10(BigInteger y)
+    {
+        return Pow(10, y);
+    }
 
     /// <summary>
     /// Calculated the truncated square root of a BigInteger value.

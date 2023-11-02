@@ -151,14 +151,20 @@ public static class XDecimal
     /// <exception cref="ArgumentOutOfRangeException">
     /// If the number is less than or equal to 0.
     /// </exception>
-    public static decimal Log10(decimal m) => Log(m, 10);
+    public static decimal Log10(decimal m)
+    {
+        return Log(m, 10);
+    }
 
     /// <summary>
     /// Calculate 10 raised to a decimal power.
     /// </summary>
     /// <param name="m">A decimal value.</param>
     /// <returns>10^d</returns>
-    public static decimal Exp10(decimal m) => DecimalEx.Pow(10, m);
+    public static decimal Exp10(decimal m)
+    {
+        return DecimalEx.Pow(10, m);
+    }
 
     /// <summary>
     /// Logarithm of a decimal in base 2.
@@ -168,14 +174,20 @@ public static class XDecimal
     /// <exception cref="ArgumentOutOfRangeException">
     /// If the number is less than or equal to 0.
     /// </exception>
-    public static decimal Log2(decimal m) => Log(m, 2);
+    public static decimal Log2(decimal m)
+    {
+        return Log(m, 2);
+    }
 
     /// <summary>
     /// Calculate 2 raised to a decimal power.
     /// </summary>
     /// <param name="m">A decimal value.</param>
     /// <returns>2^d</returns>
-    public static decimal Exp2(decimal m) => DecimalEx.Pow(2, m);
+    public static decimal Exp2(decimal m)
+    {
+        return DecimalEx.Pow(2, m);
+    }
 
     #endregion Exponentiation methods
 
@@ -186,14 +198,20 @@ public static class XDecimal
     /// </summary>
     /// <param name="x">The hyperbolic angle.</param>
     /// <returns>The hyperbolic sine of the given angle.</returns>
-    public static decimal Sinh(decimal x) => (DecimalEx.Exp(x) - DecimalEx.Exp(-x)) / 2;
+    public static decimal Sinh(decimal x)
+    {
+        return (DecimalEx.Exp(x) - DecimalEx.Exp(-x)) / 2;
+    }
 
     /// <summary>
     /// Hyperbolic cosine.
     /// </summary>
     /// <param name="x">The hyperbolic angle.</param>
     /// <returns>The hyperbolic cosine of the given angle.</returns>
-    public static decimal Cosh(decimal x) => (DecimalEx.Exp(x) + DecimalEx.Exp(-x)) / 2;
+    public static decimal Cosh(decimal x)
+    {
+        return (DecimalEx.Exp(x) + DecimalEx.Exp(-x)) / 2;
+    }
 
     /// <summary>
     /// Hyperbolic tangent.
@@ -211,21 +229,30 @@ public static class XDecimal
     /// </summary>
     /// <param name="x">The hyperbolic sine of an angle.</param>
     /// <returns>The angle.</returns>
-    public static decimal Asinh(decimal x) => Log(x + DecimalEx.Sqrt(x * x + 1));
+    public static decimal Asinh(decimal x)
+    {
+        return Log(x + DecimalEx.Sqrt(x * x + 1));
+    }
 
     /// <summary>
     /// Inverse hyperbolic cosine.
     /// </summary>
     /// <param name="x">The hyperbolic cosine of an angle.</param>
     /// <returns>The angle.</returns>
-    public static decimal Acosh(decimal x) => Log(x + DecimalEx.Sqrt(x * x - 1));
+    public static decimal Acosh(decimal x)
+    {
+        return Log(x + DecimalEx.Sqrt(x * x - 1));
+    }
 
     /// <summary>
     /// Inverse hyperbolic tangent.
     /// </summary>
     /// <param name="x">The hyperbolic tangent of an angle.</param>
     /// <returns>The angle.</returns>
-    public static decimal Atanh(decimal x) => Log((1 + x) / (1 - x)) / 2;
+    public static decimal Atanh(decimal x)
+    {
+        return Log((1 + x) / (1 - x)) / 2;
+    }
 
     #endregion Hyperbolic trigonometric methods
 
@@ -234,7 +261,10 @@ public static class XDecimal
     /// <summary>
     /// Check if a decimal value is an integer.
     /// </summary>
-    public static bool IsInteger(decimal m) => m == decimal.Truncate(m);
+    public static bool IsInteger(decimal m)
+    {
+        return m == decimal.Truncate(m);
+    }
 
     /// <summary>
     /// Round off a value to a given number of significant figures.

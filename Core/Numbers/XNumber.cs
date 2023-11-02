@@ -17,90 +17,108 @@ public static class XNumber
     /// </summary>
     /// <param name="type">The type to check.</param>
     /// <returns>True if the type is a standard numerical type.</returns>
-    public static bool IsStandardNumberType(Type type) =>
-        type == typeof(sbyte)
-        || type == typeof(byte)
-        || type == typeof(short)
-        || type == typeof(ushort)
-        || type == typeof(int)
-        || type == typeof(uint)
-        || type == typeof(long)
-        || type == typeof(ulong)
-        || type == typeof(Int128)
-        || type == typeof(UInt128)
-        || type == typeof(Half)
-        || type == typeof(float)
-        || type == typeof(double)
-        || type == typeof(decimal)
-        || type == typeof(BigInteger)
-        || type == typeof(Complex);
+    public static bool IsStandardNumberType(Type type)
+    {
+        return type == typeof(sbyte)
+            || type == typeof(byte)
+            || type == typeof(short)
+            || type == typeof(ushort)
+            || type == typeof(int)
+            || type == typeof(uint)
+            || type == typeof(long)
+            || type == typeof(ulong)
+            || type == typeof(Int128)
+            || type == typeof(UInt128)
+            || type == typeof(Half)
+            || type == typeof(float)
+            || type == typeof(double)
+            || type == typeof(decimal)
+            || type == typeof(BigInteger)
+            || type == typeof(Complex);
+    }
 
     /// <summary>
     /// Check if a type is a number type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns>If the type implements INumberBase{TSelf}.</returns>
-    public static bool IsNumberType(Type type) =>
-        XReflection.ImplementsSelfReferencingGenericInterface(type, typeof(INumberBase<>));
+    public static bool IsNumberType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type, typeof(INumberBase<>));
+    }
 
     /// <summary>
     /// Check if a type is a signed number type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns>If the type implements ISignedNumber{TSelf}.</returns>
-    public static bool IsSignedNumberType(Type type) =>
-        XReflection.ImplementsSelfReferencingGenericInterface(type, typeof(ISignedNumber<>));
+    public static bool IsSignedNumberType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type, typeof(ISignedNumber<>));
+    }
 
     /// <summary>
     /// Check if a type is an unsigned number type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns>If the type implements IUnsignedNumber{TSelf}.</returns>
-    public static bool IsUnsignedNumberType(Type type) =>
-        XReflection.ImplementsSelfReferencingGenericInterface(type,
+    public static bool IsUnsignedNumberType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type,
             typeof(IUnsignedNumber<>));
+    }
 
     /// <summary>
     /// Check if a type is an integer type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns>If the type implements IBinaryInteger{TSelf}.</returns>
-    public static bool IsIntegerType(Type type) =>
-        XReflection.ImplementsSelfReferencingGenericInterface(type,
+    public static bool IsIntegerType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type,
             typeof(IBinaryInteger<>));
+    }
 
     /// <summary>
     /// Check if a type is a floating point type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns>If the type implements IFloatingPoint{TSelf}.</returns>
-    public static bool IsFloatingPointType(Type type) =>
-        XReflection.ImplementsSelfReferencingGenericInterface(type,
+    public static bool IsFloatingPointType(Type type)
+    {
+        return XReflection.ImplementsSelfReferencingGenericInterface(type,
             typeof(IFloatingPoint<>));
+    }
 
     /// <summary>
     /// Check if a type is a signed integer type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns></returns>
-    public static bool IsSignedIntegerType(Type type) =>
-        IsSignedNumberType(type) && IsIntegerType(type);
+    public static bool IsSignedIntegerType(Type type)
+    {
+        return IsSignedNumberType(type) && IsIntegerType(type);
+    }
 
     /// <summary>
     /// Check if a type is an unsigned integer type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns></returns>
-    public static bool IsUnsignedIntegerType(Type type) =>
-        IsUnsignedNumberType(type) && IsIntegerType(type);
+    public static bool IsUnsignedIntegerType(Type type)
+    {
+        return IsUnsignedNumberType(type) && IsIntegerType(type);
+    }
 
     /// <summary>
     /// Check if a type is a real (non-complex) number type.
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns></returns>
-    public static bool IsRealNumberType(Type type) =>
-        IsIntegerType(type) || IsFloatingPointType(type);
+    public static bool IsRealNumberType(Type type)
+    {
+        return IsIntegerType(type) || IsFloatingPointType(type);
+    }
 
     /// <summary>
     /// Check if a type is a complex number type.
@@ -108,7 +126,10 @@ public static class XNumber
     /// </summary>
     /// <param name="type">Some type.</param>
     /// <returns></returns>
-    public static bool IsComplexNumberType(Type type) => type == typeof(Complex);
+    public static bool IsComplexNumberType(Type type)
+    {
+        return type == typeof(Complex);
+    }
 
     #endregion Inspection methods
 
@@ -192,7 +213,10 @@ public static class XNumber
     /// <exception cref="MissingMemberException">
     /// If the class doesn't have a static field or property names "MinValue".
     /// </exception>
-    public static T GetMinValue<T>() where T : INumberBase<T> => GetStaticValue<T>("MinValue");
+    public static T GetMinValue<T>() where T : INumberBase<T>
+    {
+        return GetStaticValue<T>("MinValue");
+    }
 
     /// <summary>
     /// Get the maximum value for a specified number type, if specified.
@@ -202,7 +226,10 @@ public static class XNumber
     /// <exception cref="MissingMemberException">
     /// If the class doesn't have a static field or property names "MaxValue".
     /// </exception>
-    public static T GetMaxValue<T>() where T : INumberBase<T> => GetStaticValue<T>("MaxValue");
+    public static T GetMaxValue<T>() where T : INumberBase<T>
+    {
+        return GetStaticValue<T>("MaxValue");
+    }
 
     /// <summary>
     /// Get the minimum and maximum values for a specified number type.
@@ -212,8 +239,10 @@ public static class XNumber
     /// <exception cref="MissingMemberException">
     /// If the class doesn't have static fields or properties called "MinValue" and "MaxValue".
     /// </exception>
-    public static (T min, T max) GetRange<T>() where T : INumberBase<T> =>
-        (GetMinValue<T>(), GetMaxValue<T>());
+    public static (T min, T max) GetRange<T>() where T : INumberBase<T>
+    {
+        return (GetMinValue<T>(), GetMaxValue<T>());
+    }
 
     #endregion Methods related to static properties
 }

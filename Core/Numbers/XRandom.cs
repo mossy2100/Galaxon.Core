@@ -47,7 +47,10 @@ public static class XRandom
     /// The Random.Next() method will only return an int in the range 0..int.MaxValue. This method
     /// will return an unsigned int with a value anywhere in the valid range for that type.
     /// </summary>
-    public static uint NextUint(this Random rnd) => (uint)rnd.NextInt();
+    public static uint NextUint(this Random rnd)
+    {
+        return (uint)rnd.NextInt();
+    }
 
     /// <summary>
     /// Get a random signed long.
@@ -67,7 +70,10 @@ public static class XRandom
     /// <summary>
     /// Get a random unsigned long.
     /// </summary>
-    public static ulong NextUlong(this Random rnd) => (ulong)rnd.NextLong();
+    public static ulong NextUlong(this Random rnd)
+    {
+        return (ulong)rnd.NextLong();
+    }
 
     /// <summary>
     /// Get a random Half.

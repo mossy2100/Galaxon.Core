@@ -25,7 +25,9 @@ public static class XEnumerable
     /// Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to the index.
     /// This can be useful when the index is meaningful and you want to filter on it.
     /// </summary>
-    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> enumerable) =>
-        new (enumerable.Select((item, index) =>
+    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> enumerable)
+    {
+        return new Dictionary<int, T>(enumerable.Select((item, index) =>
             new KeyValuePair<int, T>(index, item)));
+    }
 }

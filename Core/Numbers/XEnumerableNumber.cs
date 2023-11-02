@@ -13,18 +13,22 @@ public static class XEnumerableNumber
     /// If the map function is null or omitted, just get the sum of the values.
     /// </summary>
     public static T Sum<T>(this IEnumerable<T> source, Func<T, T>? map = null)
-        where T : INumberBase<T> =>
-        source.Aggregate(T.AdditiveIdentity,
+        where T : INumberBase<T>
+    {
+        return source.Aggregate(T.AdditiveIdentity,
             (sum, num) => sum + (map == null ? num : map(num)));
+    }
 
     /// <summary>
     /// Get the product of all values in the collection, transformed by the supplied map function.
     /// If the map function is null or omitted, just get the product of the values.
     /// </summary>
     public static T Product<T>(this IEnumerable<T> source, Func<T, T>? map = null)
-        where T : INumberBase<T> =>
-        source.Aggregate(T.MultiplicativeIdentity,
+        where T : INumberBase<T>
+    {
+        return source.Aggregate(T.MultiplicativeIdentity,
             (prod, num) => prod * (map == null ? num : map(num)));
+    }
 
     /// <summary>
     /// Given a collection of T values, get the average (i.e. the arithmetic mean).

@@ -56,8 +56,10 @@ public static class XBinaryInteger
     /// </summary>
     /// <param name="n">The integer.</param>
     /// <returns>The string of superscript characters.</returns>
-    public static string ToSuperscript<T>(this T n) where T : IBinaryInteger<T> =>
-        $"{n}".ToSuperscript();
+    public static string ToSuperscript<T>(this T n) where T : IBinaryInteger<T>
+    {
+        return $"{n}".ToSuperscript();
+    }
 
     /// <summary>
     /// Render an integer as a subscript string.
@@ -66,8 +68,10 @@ public static class XBinaryInteger
     /// </summary>
     /// <param name="n">The integer.</param>
     /// <returns>The string of subscript characters.</returns>
-    public static string ToSubscript<T>(this T n) where T : IBinaryInteger<T> =>
-        $"{n}".ToSubscript();
+    public static string ToSubscript<T>(this T n) where T : IBinaryInteger<T>
+    {
+        return $"{n}".ToSubscript();
+    }
 
     #endregion Superscript and subscript
 }
