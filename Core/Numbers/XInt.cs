@@ -25,21 +25,4 @@ public static class XInt
             >= 0 => (uint)n,
             _ => (uint)-n
         };
-
-    /// <summary>
-    /// Get a random int.
-    /// </summary>
-    public static int GetRandom()
-    {
-        Random rnd = new ();
-
-        // Get a random value in the range 0..int.MaxValue.
-        // It's non-negative, so the most significant bit will always be 0.
-        var i = rnd.Next();
-
-        // Get a random sign bit.
-        var signBit = (byte)rnd.Next(2);
-
-        return (signBit << 31) | i;
-    }
 }

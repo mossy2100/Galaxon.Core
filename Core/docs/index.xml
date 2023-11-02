@@ -704,11 +704,6 @@
             <returns>The rounded number.</returns>
             TODO: Test. If digits is too high an exception will be thrown, so this needs to be checked.
         </member>
-        <member name="M:Galaxon.Core.Numbers.XDecimal.GetRandom">
-            <summary>
-            Returns a random decimal.
-            </summary>
-        </member>
         <member name="M:Galaxon.Core.Numbers.XDecimal.Disassemble(System.Decimal)">
             <summary>
             Disassemble the decimal into bitwise parts.
@@ -759,11 +754,6 @@
             <param name="expBits">The exponent bits.</param>
             <param name="fracBits">The fraction bits.</param>
             <returns>The new double.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XDouble.GetRandom">
-            <summary>
-            Get a random double.
-            </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDouble.IsPositiveInteger(System.Double)">
             <summary>
@@ -867,11 +857,6 @@
             <param name="expBits">The exponent bits.</param>
             <param name="fracBits">The fraction bits.</param>
             <returns>The new float.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XFloat.GetRandom">
-            <summary>
-            Get a random float.
-            </summary>
         </member>
         <member name="T:Galaxon.Core.Numbers.XFloatingPoint">
             <summary>Extension methods for IFloatingPoint{T}.</summary>
@@ -1021,11 +1006,6 @@
             <param name="fracBits">The fraction bits.</param>
             <returns>The new Half.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XHalf.GetRandom">
-            <summary>
-            Get a random Half.
-            </summary>
-        </member>
         <member name="T:Galaxon.Core.Numbers.XInt">
             <summary>Extension methods for int.</summary>
         </member>
@@ -1045,11 +1025,6 @@
             </summary>
             <param name="n">A int value.</param>
             <returns>The absolute value as a uint.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XInt.GetRandom">
-            <summary>
-            Get a random int.
-            </summary>
         </member>
         <member name="T:Galaxon.Core.Numbers.XLong">
             <summary>Extension methods for long.</summary>
@@ -1078,11 +1053,6 @@
             </summary>
             <param name="n">A long value.</param>
             <returns>The absolute value as a ulong.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XLong.GetRandom">
-            <summary>
-            Get a random long.
-            </summary>
         </member>
         <member name="T:Galaxon.Core.Numbers.XNumber">
             <summary>Extension methods for numbers (INumber{T} and INumberBase{T}).</summary>
@@ -1229,6 +1199,56 @@
             If the class doesn't have static fields or properties called "MinValue" and "MaxValue".
             </exception>
         </member>
+        <member name="T:Galaxon.Core.Numbers.XRandom">
+            <summary>
+            Extension methods for Random class.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextShort(System.Random)">
+            <summary>
+            Get a random signed short.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextUshort(System.Random)">
+            <summary>
+            Get a random unsigned short.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextInt(System.Random)">
+            <summary>
+            Get a random signed int.
+            The Random.Next() method will only return an int in the range 0..int.MaxValue. This method
+            will return a signed int with a value anywhere in the valid range for that type.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextUint(System.Random)">
+            <summary>
+            Get a random unsigned int.
+            The Random.Next() method will only return an int in the range 0..int.MaxValue. This method
+            will return an unsigned int with a value anywhere in the valid range for that type.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextLong(System.Random)">
+            <summary>
+            Get a random signed long.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextUlong(System.Random)">
+            <summary>
+            Get a random unsigned long.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextHalf(System.Random)">
+            <summary>
+            Get a random Half.
+            Will not return -0, -±∞, or NaN.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.NextDecimal(System.Random)">
+            <summary>
+            Get a random decimal.
+            </summary>
+        </member>
         <member name="T:Galaxon.Core.Numbers.XSbyte">
             <summary>Extension methods for sbyte.</summary>
         </member>
@@ -1254,45 +1274,6 @@
             </summary>
             <param name="n">A short value.</param>
             <returns>The absolute value as a ushort.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XShort.GetRandom">
-            <summary>
-            Get a random short.
-            </summary>
-        </member>
-        <member name="T:Galaxon.Core.Numbers.XUint">
-            <summary>Extension methods for uint.</summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XUint.GetRandom">
-            <summary>
-            Get a random uint.
-            </summary>
-        </member>
-        <member name="T:Galaxon.Core.Numbers.XUlong">
-            <summary>Extension methods for ulong.</summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XUlong.GetRandom">
-            <summary>
-            Get a random ulong.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XUlong.Sum(System.Collections.Generic.IEnumerable{System.UInt64})">
-            <summary>
-            Get the sum of all values in the collection.
-            </summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XUlong.Sum(System.Collections.Generic.IEnumerable{System.UInt64},System.Func{System.UInt64,System.UInt64})">
-            <summary>
-            Get the sum of all values in the collection, transformed by the supplied function.
-            </summary>
-        </member>
-        <member name="T:Galaxon.Core.Numbers.XUshort">
-            <summary>Extension methods for ushort.</summary>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XUshort.GetRandom">
-            <summary>
-            Get a random ushort.
-            </summary>
         </member>
         <member name="T:Galaxon.Core.Strings.XString">
             <summary>

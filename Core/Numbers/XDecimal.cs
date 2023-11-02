@@ -254,20 +254,6 @@ public static class XDecimal
     }
 
     /// <summary>
-    /// Returns a random decimal.
-    /// </summary>
-    public static decimal GetRandom()
-    {
-        Random rnd = new ();
-        var lo = XInt.GetRandom();
-        var mid = XInt.GetRandom();
-        var hi = XInt.GetRandom();
-        var isNegative = rnd.Next(2) == 1;
-        var scale = (byte)rnd.Next(29);
-        return new decimal(lo, mid, hi, isNegative, scale);
-    }
-
-    /// <summary>
     /// Disassemble the decimal into bitwise parts.
     /// </summary>
     public static (byte signBit, byte scaleBits, UInt128 intBits) Disassemble(this decimal x)

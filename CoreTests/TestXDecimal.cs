@@ -202,9 +202,10 @@ public class TestXDecimal
     public void TestDisassembleAssembleRandom()
     {
         const int n = 100;
+        var rnd = new Random();
         for (var i = 0; i < n; i++)
         {
-            var x = XDecimal.GetRandom();
+            var x = rnd.NextDecimal();
             var (signBit, scaleBits, intBits) = x.Disassemble();
             var y = XDecimal.Assemble(signBit, scaleBits, intBits);
             Assert.AreEqual(x, y);

@@ -25,21 +25,4 @@ public static class XFloat
     /// <returns>The new float.</returns>
     public static float Assemble(byte signBit, ushort expBits, ulong fracBits) =>
         XFloatingPoint.Assemble<float>(signBit, expBits, fracBits);
-
-    /// <summary>
-    /// Get a random float.
-    /// </summary>
-    public static float GetRandom()
-    {
-        Random rnd = new ();
-        while (true)
-        {
-            var bits = XInt.GetRandom();
-            var f = BitConverter.Int32BitsToSingle(bits);
-            if (float.IsFinite(f))
-            {
-                return f;
-            }
-        }
-    }
 }

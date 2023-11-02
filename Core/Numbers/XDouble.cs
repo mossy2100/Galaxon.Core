@@ -61,23 +61,6 @@ public static class XDouble
     public static double Assemble(byte signBit, ushort expBits, ulong fracBits) =>
         XFloatingPoint.Assemble<double>(signBit, expBits, fracBits);
 
-    /// <summary>
-    /// Get a random double.
-    /// </summary>
-    public static double GetRandom()
-    {
-        Random rnd = new ();
-        while (true)
-        {
-            var bits = XLong.GetRandom();
-            var d = BitConverter.Int64BitsToDouble(bits);
-            if (double.IsFinite(d))
-            {
-                return d;
-            }
-        }
-    }
-
     #endregion Miscellaneous methods
 
     #region Methods for checking doubles as integers

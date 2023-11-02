@@ -25,21 +25,4 @@ public static class XHalf
     /// <returns>The new Half.</returns>
     public static Half Assemble(byte signBit, ushort expBits, ulong fracBits) =>
         XFloatingPoint.Assemble<Half>(signBit, expBits, fracBits);
-
-    /// <summary>
-    /// Get a random Half.
-    /// </summary>
-    public static Half GetRandom()
-    {
-        Random rnd = new ();
-        while (true)
-        {
-            var bits = XShort.GetRandom();
-            var d = BitConverter.Int16BitsToHalf(bits);
-            if (Half.IsFinite(d))
-            {
-                return d;
-            }
-        }
-    }
 }

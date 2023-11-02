@@ -18,15 +18,4 @@ public static class XShort
             >= 0 => (ushort)n,
             _ => (ushort)-n
         };
-
-    /// <summary>
-    /// Get a random short.
-    /// </summary>
-    public static short GetRandom()
-    {
-        // Get a random non-negative int and cast to short.
-        // The int value will wrap to a short within the valid range for the type, without overflow.
-        Random rnd = new ();
-        return (short)rnd.Next();
-    }
 }

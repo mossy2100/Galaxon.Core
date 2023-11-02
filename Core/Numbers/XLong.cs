@@ -33,21 +33,4 @@ public static class XLong
             >= 0 => (ulong)n,
             _ => (ulong)-n
         };
-
-    /// <summary>
-    /// Get a random long.
-    /// </summary>
-    public static long GetRandom()
-    {
-        Random rnd = new ();
-
-        // Get a random value in the range 0..long.MaxValue.
-        // It's non-negative, so the most significant bit will always be 0.
-        var n = rnd.NextInt64();
-
-        // Get a random sign bit.
-        var signBit = (byte)rnd.Next(2);
-
-        return ((long)signBit << 63) | n;
-    }
 }
