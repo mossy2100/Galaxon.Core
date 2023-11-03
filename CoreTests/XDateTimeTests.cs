@@ -4,7 +4,7 @@ using static System.DateTimeKind;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXDateTime
+public class XDateTimeTests
 {
     private const double _Delta = 1e-9;
 

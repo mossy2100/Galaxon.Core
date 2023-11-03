@@ -3,7 +3,7 @@
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXDateOnly
+public class XDateOnlyTests
 {
     [TestMethod]
     public void TestDateOnlyGetTotalDays()

@@ -4,7 +4,7 @@ namespace Galaxon.Core.Tests;
 
 // ReSharper disable CompareOfFloatsByEqualityOperator
 [TestClass]
-public class TestXDouble
+public class XDoubleTests
 {
     [TestMethod]
     public void TestFuzzyEquals()

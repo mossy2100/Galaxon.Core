@@ -4,7 +4,7 @@ using Galaxon.Core.Numbers;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXBinaryInteger
+public class XBinaryIntegerTests
 {
     [TestMethod]
     public void TestIntToSuperscript()

@@ -3,7 +3,7 @@ using Galaxon.Core.Numbers;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXInt
+public class XIntTests
 {
     [TestMethod]
     public void TestSqrt()

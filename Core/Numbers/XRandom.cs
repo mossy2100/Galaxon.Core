@@ -77,24 +77,65 @@ public static class XRandom
 
     /// <summary>
     /// Get a random Half.
-    /// Will not return -0, -±∞, or NaN.
+    /// Will not return anything weird like -0, ±∞, or NaN.
     /// </summary>
     public static Half NextHalf(this Random rnd)
     {
-        // expBits can range from 00000..11111, which is 0..31.
-        // We'll ignore 111111, because this means ±infinity or NaN.
-        var expBits = (ushort)rnd.Next(31);
+        // Loop until we get a valid result.
+        while (true)
+        {
+            // Get a random short (16 bits).
+            var i = rnd.NextShort();
 
-        // If 0, we're done.
-        if (expBits == 0) return Half.Zero;
+            // Convert to a Half.
+            var h = BitConverter.Int16BitsToHalf(i);
 
-        // Get a random sign bit.
-        var signBit = (byte)rnd.Next(2);
+            // Check if it's valid.
+            if (Half.IsFinite(h) && h != Half.NegativeZero) return h;
+        }
+    }
 
-        // Get the random fraction bits.
-        var fracBits = (ulong)rnd.Next(1024);
+    /// <summary>
+    /// Get a random float.
+    /// Will not return anything weird like -0, ±∞, or NaN.
+    /// </summary>
+    public static float NextFloat(this Random rnd)
+    {
+        // Loop until we get a valid result.
+        while (true)
+        {
+            // Get a random int (32 bits).
+            var i = rnd.NextInt();
 
-        return XFloatingPoint.Assemble<Half>(signBit, expBits, fracBits);
+            // Convert to a float.
+            var f = BitConverter.Int32BitsToSingle(i);
+
+            // Check if it's valid.
+            if (float.IsFinite(f) && f != float.NegativeZero) return f;
+        }
+    }
+
+    /// <summary>
+    /// Get a random double.
+    /// Will not return anything weird like -0, ±∞, or NaN.
+    /// The built-in Random.NextDouble() method will only return values in the range 0.0..1.0.
+    /// This method can return any valid double value (except the weird ones, as mentioned).
+    /// <see cref="Random.NextDouble"/>
+    /// </summary>
+    public static double NextDoubleFullRange(this Random rnd)
+    {
+        // Loop until we get a valid result.
+        while (true)
+        {
+            // Get a random long (64 bits).
+            var l = rnd.NextInt();
+
+            // Convert to a double.
+            var d = BitConverter.Int64BitsToDouble(l);
+
+            // Check if it's valid.
+            if (double.IsFinite(d) && d != double.NegativeZero) return d;
+        }
     }
 
     /// <summary>

@@ -3,7 +3,7 @@ using Galaxon.Core.Strings;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXString
+public class XStringTests
 {
     [TestMethod]
     public void TestStringToSuperscript()

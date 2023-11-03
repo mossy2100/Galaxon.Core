@@ -3,7 +3,7 @@ using Galaxon.Core.Types;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TextXEnum
+public class XEnumTests
 {
     [TestMethod]
     public void TestToString()

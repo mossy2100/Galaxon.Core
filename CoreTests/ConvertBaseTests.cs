@@ -5,7 +5,7 @@ using Galaxon.Core.Strings;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestConvertBase
+public class ConvertBaseTests
 {
     [TestMethod]
     public void TesIntToBaseZero()
@@ -17,7 +17,7 @@ public class TestConvertBase
         s = i.ToBase(12);
         Assert.AreEqual("0", s);
 
-        s = i.ToBase(40);
+        s = i.ToBase(36);
         Assert.AreEqual("0", s);
     }
 
@@ -177,9 +177,9 @@ public class TestConvertBase
     public void TestToBase32WithCase()
     {
         var x = 12345678901234567890;
-        Assert.AreEqual("amL59hjLhu2mi", x.ToBase(32));
-        Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32, false));
-        Assert.AreEqual("AML59HJLHU2MI", x.ToBase(32, true));
+        Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32));
+        Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32, 1, false));
+        Assert.AreEqual("AML59HJLHU2MI", x.ToBase(32, 1, true));
     }
 
     [TestMethod]

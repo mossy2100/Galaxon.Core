@@ -4,7 +4,7 @@ using Galaxon.Core.Numbers;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXFloatingPoint
+public class XFloatingPointTests
 {
     [TestMethod]
     public void TestHalfMinMaxPosNormalSubnormalValues()

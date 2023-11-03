@@ -5,7 +5,7 @@ using Galaxon.Core.Testing;
 namespace Galaxon.Core.Tests;
 
 [TestClass]
-public class TestXDecimal
+public class XDecimalTests
 {
     [TestMethod]
     public void SinhTest()
