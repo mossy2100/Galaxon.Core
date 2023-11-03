@@ -186,7 +186,8 @@ public static class ConvertBase
     /// <param name="width">The minimum number of digits in the result.</param>
     /// <param name="upper">If letters should be upper-case (false = lower, true = upper).</param>
     /// <returns>The value as a string of hexadecimal digits.</returns>
-    public static string ToHex<T>(this T n, int width = 1, bool upper = false) where T : IBinaryInteger<T>
+    public static string ToHex<T>(this T n, int width = 1, bool upper = false)
+        where T : IBinaryInteger<T>
     {
         return ToBase(n, 16, width, upper);
     }
@@ -236,7 +237,7 @@ public static class ConvertBase
         CheckBase(fromBase);
 
         // Remove/ignore whitespace, decimal points, and digit group separator characters.
-        digits = Regex.Replace(digits, $@"[\s.,_]", "");
+        digits = Regex.Replace(digits, @"[\s.,_]", "");
 
         // See if the value is negative.
         var sign = 1;
@@ -323,7 +324,8 @@ public static class ConvertBase
         catch (OverflowException ex)
         {
             throw new OverflowException(
-                $"The integer represented by the string is outside the valid range for {t.Name}.", ex);
+                $"The integer represented by the string is outside the valid range for {t.Name}.",
+                ex);
         }
     }
 

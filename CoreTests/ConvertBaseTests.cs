@@ -178,7 +178,7 @@ public class ConvertBaseTests
     {
         var x = 12345678901234567890;
         Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32));
-        Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32, 1, false));
+        Assert.AreEqual("aml59hjlhu2mi", x.ToBase(32));
         Assert.AreEqual("AML59HJLHU2MI", x.ToBase(32, 1, true));
     }
 

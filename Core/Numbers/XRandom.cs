@@ -128,7 +128,7 @@ public static class XRandom
         while (true)
         {
             // Get a random long (64 bits).
-            var l = rnd.NextInt();
+            var l = rnd.NextLong();
 
             // Convert to a double.
             var d = BitConverter.Int64BitsToDouble(l);
