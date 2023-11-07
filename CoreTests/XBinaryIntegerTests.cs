@@ -50,7 +50,7 @@ public class XBinaryIntegerTests
         for (var i = 0; i < 100; i++)
         {
             var expected = (int)double.Sqrt(i);
-            var actual = (int)XBigInteger.Sqrt(i);
+            var actual = (int)XBigInteger.TruncSqrt(i);
             Trace.WriteLine($"The truncated square root of {i} is {actual}");
             Assert.AreEqual(expected, actual);
         }
@@ -65,7 +65,7 @@ public class XBinaryIntegerTests
             var n = rnd.Next();
             var sqrt = double.Sqrt(n);
             var expected = (int)sqrt;
-            var actual = (int)XBigInteger.Sqrt(n);
+            var actual = (int)XBigInteger.TruncSqrt(n);
             Trace.WriteLine($"The square root of {n} is {sqrt}. XBigInteger.Sqrt() = {actual}");
             Assert.AreEqual(expected, actual);
         }

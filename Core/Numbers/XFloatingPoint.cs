@@ -246,6 +246,13 @@ public static class XFloatingPoint
         return (signBit, expBits, fracBits);
     }
 
+    /// <summary>Get the exponent bits from a floating point number.</summary>
+    public static ushort GetExpBits<T>(this T x) where T : IFloatingPointIeee754<T>
+    {
+        var (_, expBits, _) = x.Disassemble<T>();
+        return expBits;
+    }
+
     /// <summary>
     /// Assemble a new floating point value from parts.
     /// </summary>

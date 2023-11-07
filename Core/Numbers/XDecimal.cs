@@ -283,9 +283,7 @@ public static class XDecimal
         return scale * Math.Round(m / scale, n);
     }
 
-    /// <summary>
-    /// Disassemble the decimal into bitwise parts.
-    /// </summary>
+    /// <summary>Disassemble the decimal into bitwise parts.</summary>
     public static (byte signBit, byte scaleBits, UInt128 intBits) Disassemble(this decimal x)
     {
         var parts = decimal.GetBits(x);
@@ -297,6 +295,13 @@ public static class XDecimal
         var scaleBits = (byte)((flags >> 16) & 0xff);
         var intBits = ((UInt128)hi << 64) | ((UInt128)mid << 32) | lo;
         return (signBit, scaleBits, intBits);
+    }
+
+    /// <summary>Get the scale bits from a decimal value.</summary>
+    public static byte GetScaleBits(this decimal x)
+    {
+        var (_, scaleBits, _) = x.Disassemble();
+        return scaleBits;
     }
 
     /// <summary>

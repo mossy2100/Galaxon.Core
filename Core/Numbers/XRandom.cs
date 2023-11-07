@@ -54,6 +54,9 @@ public static class XRandom
 
     /// <summary>
     /// Get a random signed long.
+    /// Will return a value in the valid range for long (long.MinValue..long.MaxValue).
+    /// The built in NextInt64 method is restricted to non-negative values:
+    /// <see cref="Random.NextInt64()"/>
     /// </summary>
     public static long NextLong(this Random rnd)
     {
@@ -64,6 +67,7 @@ public static class XRandom
         // Get a random sign bit.
         var signBit = (byte)rnd.Next(2);
 
+        // Set the sign bit.
         return ((long)signBit << 63) | n;
     }
 
@@ -119,7 +123,6 @@ public static class XRandom
     /// Get a random double.
     /// Will not return anything weird like -0, ±∞, or NaN.
     /// The built-in Random.NextDouble() method will only return values in the range 0.0..1.0.
-    /// This method can return any valid double value (except the weird ones, as mentioned).
     /// <see cref="Random.NextDouble"/>
     /// </summary>
     public static double NextDoubleFullRange(this Random rnd)

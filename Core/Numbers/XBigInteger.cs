@@ -164,52 +164,20 @@ public static class XBigInteger
 
     #region Methods relating to exponentation
 
-    /// <summary>Calculate the value of x^y where x and y are BigIntegers.</summary>
-    /// <remarks>
-    /// BigInteger provides a Pow() method, but it only permits an int as the exponent.
-    /// Uses exponentiation by squaring.
-    /// </remarks>
-    /// <param name="x">The base (BigRational).</param>
-    /// <param name="y">The exponent (BigInteger).</param>
-    /// <returns>The result of the calculation.</returns>
-    /// <exception cref="ArgumentOutOfRangeException">If y is negative.</exception>
-    /// <see cref="BigInteger.Pow"/>
-    public static BigInteger Pow(BigInteger x, BigInteger y)
-    {
-        // Guard.
-        if (y < 0)
-        {
-            throw new ArgumentOutOfRangeException(nameof(y), "Cannot be negative.");
-        }
-
-        // Optimizations.
-        if (y == 0) return 1;
-        if (y == 1) return x;
-
-        // Defer to the BigInteger method if possible, which I'm guessing is faster.
-        if (y >= int.MinValue && y <= int.MaxValue) return BigInteger.Pow(x, (int)y);
-
-        // Even integer powers. x^y = (x^2)^(y/2)
-        if (BigInteger.IsEvenInteger(y)) return Pow(x * x, y / 2);
-
-        // Odd integer powers. x^y = x * x^(y-1)
-        return x * Pow(x, y - 1);
-    }
-
-    /// <summary>Compute 2 raised to a given power.</summary>
+    /// <summary>Compute 2 raised to a given integer power.</summary>
     /// <param name="y">The power to which 2 is raised.</param>
     /// <returns>2 raised to the given BigInteger value.</returns>
-    public static BigInteger Exp2(BigInteger y)
+    public static BigInteger Exp2(int y)
     {
-        return Pow(2, y);
+        return BigInteger.Pow(2, y);
     }
 
-    /// <summary>Compute 10 raised to a given power.</summary>
+    /// <summary>Compute 10 raised to a given integer power.</summary>
     /// <param name="y">The power to which 10 is raised.</param>
     /// <returns>10 raised to the given BigInteger value.</returns>
-    public static BigInteger Exp10(BigInteger y)
+    public static BigInteger Exp10(int y)
     {
-        return Pow(10, y);
+        return BigInteger.Pow(10, y);
     }
 
     /// <summary>
@@ -219,17 +187,23 @@ public static class XBigInteger
     /// <param name="n">The BigInteger value.</param>
     /// <returns>The truncated square root.</returns>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    public static BigInteger Sqrt(BigInteger n)
+    public static BigInteger TruncSqrt(BigInteger n)
     {
         // Guard.
         if (n < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(n), "Cannot be negative.");
         }
-
-        // Optimizations.
-        if (n == 0) return 0;
-        if (n == 1) return 1;
+        else if (n == 0)
+        {
+            // Sqrt(0) == 0
+            return 0;
+        }
+        else if (n == 1)
+        {
+            // Sqrt(1) == 1
+            return 1;
+        }
 
         // Compute using Newton's method.
         var x = n;
