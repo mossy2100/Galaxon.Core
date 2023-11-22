@@ -373,4 +373,43 @@ public class XBigIntegerTests
         Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(4, 9));
         Assert.AreEqual(1, XBigInteger.GreatestCommonDivisor(9, 4));
     }
+
+    [TestMethod]
+    public void IsPowerOf2_PowersOf2_ReturnsTrue()
+    {
+        Assert.IsTrue(XBigInteger.IsPowerOf2(1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2(2));
+        Assert.IsTrue(XBigInteger.IsPowerOf2(4));
+        Assert.IsTrue(XBigInteger.IsPowerOf2(8));
+        Assert.IsTrue(XBigInteger.IsPowerOf2(16));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)sbyte.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)byte.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)short.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)ushort.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)int.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)uint.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)long.MaxValue + 1));
+        Assert.IsTrue(XBigInteger.IsPowerOf2((BigInteger)ulong.MaxValue + 1));
+    }
+
+    [TestMethod]
+    public void IsPowerOf2_NonPowersOf2_ReturnsFalse()
+    {
+        Assert.IsFalse(XBigInteger.IsPowerOf2(-1));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(-2));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(-4));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(-8));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(3));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(5));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(6));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(7));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(sbyte.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(byte.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(short.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(ushort.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(int.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(uint.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(long.MaxValue));
+        Assert.IsFalse(XBigInteger.IsPowerOf2(ulong.MaxValue));
+    }
 }

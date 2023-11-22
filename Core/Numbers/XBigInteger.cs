@@ -216,6 +216,23 @@ public static class XBigInteger
         return x;
     }
 
+    /// <summary>Check if a BigInteger is a power of 2.</summary>
+    /// <param name="bi">The BigInteger to inspect.</param>
+    /// <returns>If the value is a power of 2.</returns>
+    public static bool IsPowerOf2(BigInteger bi)
+    {
+        // A number is not a power of 2 if it's less than or equal to 0
+        if (bi <= 0)
+        {
+            return false;
+        }
+
+        // A number is a power of 2 if it has exactly one bit set.
+        // (number - 1) will have all the bits set to the right of the only set bit in number.
+        // Anding number with (number - 1) should give 0 if number is a power of 2.
+        return (bi & (bi - 1)) == 0;
+    }
+
     #endregion Power methods
 
     #region Factorial

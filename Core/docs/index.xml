@@ -457,6 +457,11 @@
             <returns>The truncated square root.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.IsPowerOf2(System.Numerics.BigInteger)">
+            <summary>Check if a BigInteger is a power of 2.</summary>
+            <param name="bi">The BigInteger to inspect.</param>
+            <returns>If the value is a power of 2.</returns>
+        </member>
         <member name="M:Galaxon.Core.Numbers.XBigInteger._Factorial(System.Numerics.BigInteger)">
             <summary>
             Factorial of n, n >= 0.
@@ -1144,31 +1149,31 @@
             Extension methods for Random class.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextShort(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetShort(System.Random)">
             <summary>
             Get a random signed short.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextUshort(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetUshort(System.Random)">
             <summary>
             Get a random unsigned short.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextInt(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetInt(System.Random)">
             <summary>
             Get a random signed int.
             The Random.Next() method will only return an int in the range 0..int.MaxValue. This method
             will return a signed int with a value anywhere in the valid range for that type.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextUint(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetUint(System.Random)">
             <summary>
             Get a random unsigned int.
             The Random.Next() method will only return an int in the range 0..int.MaxValue. This method
             will return an unsigned int with a value anywhere in the valid range for that type.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextLong(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetLong(System.Random)">
             <summary>
             Get a random signed long.
             Will return a value in the valid range for long (long.MinValue..long.MaxValue).
@@ -1176,24 +1181,24 @@
             <see cref="M:System.Random.NextInt64"/>
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextUlong(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetUlong(System.Random)">
             <summary>
             Get a random unsigned long.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextHalf(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetHalf(System.Random)">
             <summary>
             Get a random Half.
             Will not return anything weird like -0, ±∞, or NaN.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextFloat(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetFloat(System.Random)">
             <summary>
             Get a random float.
             Will not return anything weird like -0, ±∞, or NaN.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextDoubleFullRange(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetDouble(System.Random)">
             <summary>
             Get a random double.
             Will not return anything weird like -0, ±∞, or NaN.
@@ -1201,7 +1206,7 @@
             <see cref="M:System.Random.NextDouble"/>
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XRandom.NextDecimal(System.Random)">
+        <member name="M:Galaxon.Core.Numbers.XRandom.GetDecimal(System.Random)">
             <summary>
             Get a random decimal.
             </summary>
@@ -2187,6 +2192,20 @@
             <param name="value"></param>
             <returns></returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
+        </member>
+        <member name="M:Galaxon.Core.Types.XEnum.FindValueByDescription``1(System.String)">
+            <summary>
+            Find an enum value given a description.
+            If no values are found with a matching description, looks for a match on name.
+            Must match exactly (case-sensitive) the Description attribute attached to the value, or the
+            value name.
+            </summary>
+            <param name="description">The description.</param>
+            <typeparam name="T">The enum type.</typeparam>
+            <returns>The value if found.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">
+            If the type param is not an enum, or the description doesn't match any values.
+            </exception>
         </member>
         <member name="T:Galaxon.Core.Types.XReflection">
             <summary>

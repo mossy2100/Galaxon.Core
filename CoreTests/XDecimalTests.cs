@@ -217,7 +217,7 @@ public class XDecimalTests
         var rnd = new Random();
         for (var i = 0; i < n; i++)
         {
-            var x = rnd.NextDecimal();
+            var x = rnd.GetDecimal();
             var (signBit, scaleBits, intBits) = x.Disassemble();
             var y = XDecimal.Assemble(signBit, scaleBits, intBits);
             Assert.AreEqual(x, y);
