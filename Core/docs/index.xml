@@ -150,18 +150,19 @@
             <param name="message"></param>
             <param name="innerException"></param>
         </member>
-        <member name="T:Galaxon.Core.Exceptions.NoMatchingCaseException">
+        <member name="T:Galaxon.Core.Exceptions.MatchNotFoundException">
             <summary>
             This exception type is similar to ArgumentOutOfRangeException, except intended for use in switch
-            statements and expressions, when the value being tested matches none of the case patterns.
+            statements and expressions, when the value being tested matches none of the patterns.
+            It could also be used for when a string doesn't match a regular expression.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Exceptions.NoMatchingCaseException.#ctor">
+        <member name="M:Galaxon.Core.Exceptions.MatchNotFoundException.#ctor">
             <summary>
             Initializes a new instance.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Exceptions.NoMatchingCaseException.#ctor(System.String,System.Exception)">
+        <member name="M:Galaxon.Core.Exceptions.MatchNotFoundException.#ctor(System.String,System.Exception)">
             <summary>
             Initializes a new instance with an error message, and (optionally) a reference to the inner
             exception that is the cause of this exception.
