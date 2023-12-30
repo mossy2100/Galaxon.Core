@@ -2213,70 +2213,76 @@
             Handy reflection-related methods.
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldOrPropertyValue(System.Type,System.String)">
-            <summary>
-            Get the value of a static field or property.
-            </summary>
-            <param name="type">The type.</param>
-            <param name="name">The name of the field or property.</param>
-            <returns>The value of the static field or property.</returns>
-            <exception cref="T:System.MissingMemberException">
-            If the static field or property doesn't exist on the specified type.
-            </exception>
-        </member>
-        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldOrPropertyValue``1(System.String)">
-            <summary>
-            Get the value of a static field or property.
-            </summary>
-            <typeparam name="T">The type.</typeparam>
-            <param name="name">The name of the field or property.</param>
-            <returns>The value of the static field or property.</returns>
-            <exception cref="T:System.MissingMemberException">
-            If the static field or property doesn't exist on the specified type.
-            </exception>
-        </member>
-        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldValue(System.Type,System.String)">
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldValue``1(System.Type,System.String)">
             <summary>
             Get the value of a static field.
             </summary>
-            <param name="type">The type.</param>
+            <param name="classType">The class type.</param>
             <param name="name">The name of the field.</param>
+            <typeparam name="TField">The field type.</typeparam>
             <returns>The value of the static field.</returns>
             <exception cref="T:System.MissingMemberException">
             If the static field doesn't exist on the specified type.
             </exception>
         </member>
-        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldValue``1(System.String)">
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldValue``2(System.String)">
             <summary>
             Get the value of a static field.
             </summary>
-            <typeparam name="T">The type.</typeparam>
             <param name="name">The name of the field.</param>
+            <typeparam name="TClass">The class type.</typeparam>
+            <typeparam name="TField">The field type.</typeparam>
             <returns>The value of the static field.</returns>
             <exception cref="T:System.MissingMemberException">
             If the static field doesn't exist on the specified type.
             </exception>
         </member>
-        <member name="M:Galaxon.Core.Types.XReflection.GetStaticPropertyValue(System.Type,System.String)">
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticPropertyValue``1(System.Type,System.String)">
             <summary>
             Get the value of a static property.
             </summary>
-            <param name="type">The type.</param>
             <param name="name">The name of the property.</param>
+            <param name="classType">The class type.</param>
+            <typeparam name="TProperty">The property type.</typeparam>
             <returns>The value of the static property.</returns>
             <exception cref="T:System.MissingMemberException">
             If the static property doesn't exist on the specified type.
             </exception>
         </member>
-        <member name="M:Galaxon.Core.Types.XReflection.GetStaticPropertyValue``1(System.String)">
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticPropertyValue``2(System.String)">
             <summary>
             Get the value of a static property.
             </summary>
-            <typeparam name="T">The type.</typeparam>
             <param name="name">The name of the property.</param>
+            <typeparam name="TClass">The class type.</typeparam>
+            <typeparam name="TProperty">The property type.</typeparam>
             <returns>The value of the static property.</returns>
             <exception cref="T:System.MissingMemberException">
             If the static property doesn't exist on the specified type.
+            </exception>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldOrPropertyValue``1(System.Type,System.String)">
+            <summary>
+            Get the value of a static field or property.
+            </summary>
+            <param name="name">The name of the property.</param>
+            <param name="classType">The class type.</param>
+            <typeparam name="TMember">The field or property type.</typeparam>
+            <returns>The value of the static field or property.</returns>
+            <exception cref="T:System.MissingMemberException">
+            If the static field or property doesn't exist on the specified type.
+            </exception>
+        </member>
+        <member name="M:Galaxon.Core.Types.XReflection.GetStaticFieldOrPropertyValue``2(System.String)">
+            <summary>
+            Get the value of a static field or property.
+            </summary>
+            <param name="name">The name of the property.</param>
+            <typeparam name="TClass">The class type.</typeparam>
+            <typeparam name="TMember">The field or property type.</typeparam>
+            <returns>The value of the static field or property.</returns>
+            <exception cref="T:System.MissingMemberException">
+            If the static field or property doesn't exist on the specified type.
             </exception>
         </member>
         <member name="M:Galaxon.Core.Types.XReflection.CanCast(System.Type,System.Type)">

@@ -15,21 +15,21 @@ public static class XFloatingPoint
     /// <returns>The corresponding extension type.</returns>
     public static Type? GetExtensionType<T>() where T : IFloatingPointIeee754<T>
     {
-        var xtypeName = "";
-        var type = typeof(T);
+        string extensionTypeName = "";
+        Type type = typeof(T);
         if (type == typeof(Half))
         {
-            xtypeName = "XHalf";
+            extensionTypeName = "XHalf";
         }
         else if (type == typeof(float))
         {
-            xtypeName = "XFloat";
+            extensionTypeName = "XFloat";
         }
         else if (type == typeof(double))
         {
-            xtypeName = "XDouble";
+            extensionTypeName = "XDouble";
         }
-        return Type.GetType($"Galaxon.Core.Numbers.{xtypeName}");
+        return Type.GetType($"Galaxon.Core.Numbers.{extensionTypeName}");
     }
 
     /// <summary>
@@ -37,10 +37,16 @@ public static class XFloatingPoint
     /// </summary>
     public static byte GetTotalNumBits<T>() where T : IFloatingPointIeee754<T>
     {
-        if (GetExtensionType<T>() is Type xtype
-            && XReflection.GetStaticFieldValue(xtype, "TotalNumBits") is byte b)
+        if (GetExtensionType<T>() is { } extensionType)
         {
-            return b;
+            try
+            {
+                return XReflection.GetStaticFieldValue<byte>(extensionType, "TotalNumBits");
+            }
+            catch
+            {
+                // Exception thrown below.
+            }
         }
 
         throw new InvalidOperationException("Unsupported type.");
@@ -51,10 +57,16 @@ public static class XFloatingPoint
     /// </summary>
     public static byte GetNumFracBits<T>() where T : IFloatingPointIeee754<T>
     {
-        if (GetExtensionType<T>() is Type xtype
-            && XReflection.GetStaticFieldValue(xtype, "NumFracBits") is byte b)
+        if (GetExtensionType<T>() is { } extensionType)
         {
-            return b;
+            try
+            {
+                return XReflection.GetStaticFieldValue<byte>(extensionType, "NumFracBits");
+            }
+            catch
+            {
+                // Exception thrown below.
+            }
         }
 
         throw new InvalidOperationException("Unsupported type.");
@@ -121,13 +133,15 @@ public static class XFloatingPoint
     /// </summary>
     public static T GetMinPosSubnormalValue<T>() where T : IFloatingPointIeee754<T>
     {
-        if (XReflection.GetStaticFieldOrPropertyValue<T>("Epsilon") is T result)
+        try
         {
-            return result;
+            return XReflection.GetStaticFieldOrPropertyValue<T, T>("Epsilon");
         }
-
-        throw new InvalidOperationException(
-            $"Could not find MinPosSubnormalValue for {typeof(T).Name}.");
+        catch
+        {
+            throw new InvalidOperationException(
+                $"Could not find the minimum positive subnormal value for {typeof(T).Name}.");
+        }
     }
 
     /// <summary>
@@ -151,13 +165,15 @@ public static class XFloatingPoint
     /// </summary>
     public static T GetMaxPosNormalValue<T>() where T : IFloatingPointIeee754<T>
     {
-        if (XReflection.GetStaticFieldOrPropertyValue<T>("MaxValue") is T result)
+        try
         {
-            return result;
+            return XReflection.GetStaticFieldOrPropertyValue<T, T>("MaxValue");
         }
-
-        throw new InvalidOperationException(
-            $"Could not find MaxPosNormalValue for {typeof(T).Name}.");
+        catch
+        {
+            throw new InvalidOperationException(
+                $"Could not find the maximum positive normal value for {typeof(T).Name}.");
+        }
     }
 
     /// <summary>
@@ -170,12 +186,14 @@ public static class XFloatingPoint
     /// </exception>
     public static T GetNegativeInfinity<T>() where T : IFloatingPointIeee754<T>
     {
-        if (XReflection.GetStaticFieldOrPropertyValue<T>("NegativeInfinity") is T negInf)
+        try
         {
-            return negInf;
+            return XReflection.GetStaticFieldOrPropertyValue<T, T>("NegativeInfinity");
         }
-
-        throw new MissingMemberException(typeof(T).Name, "NegativeInfinity");
+        catch
+        {
+            throw new MissingMemberException(typeof(T).Name, "NegativeInfinity");
+        }
     }
 
     /// <summary>
@@ -188,12 +206,14 @@ public static class XFloatingPoint
     /// </exception>
     public static T GetPositiveInfinity<T>() where T : IFloatingPointIeee754<T>
     {
-        if (XReflection.GetStaticFieldOrPropertyValue<T>("PositiveInfinity") is T posInf)
+        try
         {
-            return posInf;
+            return XReflection.GetStaticFieldOrPropertyValue<T, T>("PositiveInfinity");
         }
-
-        throw new MissingMemberException(typeof(T).Name, "PositiveInfinity");
+        catch
+        {
+            throw new MissingMemberException(typeof(T).Name, "PositiveInfinity");
+        }
     }
 
     /// <summary>

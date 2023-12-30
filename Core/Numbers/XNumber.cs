@@ -197,12 +197,14 @@ public static class XNumber
     /// </exception>
     public static T GetStaticValue<T>(string name) where T : INumberBase<T>
     {
-        var value = XReflection.GetStaticFieldOrPropertyValue<T>(name);
-        if (value == null)
+        try
+        {
+            return XReflection.GetStaticFieldOrPropertyValue<T, T>(name);
+        }
+        catch
         {
             throw new MissingMemberException(typeof(T).Name, name);
         }
-        return (T)value;
     }
 
     /// <summary>
