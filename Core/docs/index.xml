@@ -1238,6 +1238,12 @@
             <param name="n">A short value.</param>
             <returns>The absolute value as a ushort.</returns>
         </member>
+        <member name="T:Galaxon.Core.Strings.EStringCase">
+            <summary>
+            May extend later with LowerSnake, LowerCamel, UpperSnake, UpperCamel, but I'd prefer to keep it
+            simple for now.
+            </summary>
+        </member>
         <member name="T:Galaxon.Core.Strings.XString">
             <summary>
             Extension methods for String.
@@ -1333,6 +1339,13 @@
             </summary>
             <param name="str">The original string.</param>
             <returns>The string with the first letter of each word upper-cased.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.GetCase(System.String)">
+            <summary>
+            Get the string's case.
+            </summary>
+            <param name="str">Source string.</param>
+            <returns>The string's case.</returns>
         </member>
         <member name="M:Galaxon.Core.Strings.XString.ToUpperFirstLetter(System.String)">
             <summary>

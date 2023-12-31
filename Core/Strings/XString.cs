@@ -241,6 +241,31 @@ public static class XString
     }
 
     /// <summary>
+    /// Get the string's case.
+    /// </summary>
+    /// <param name="str">Source string.</param>
+    /// <returns>The string's case.</returns>
+    public static EStringCase GetCase(this string str)
+    {
+        if (str == str.ToLower())
+        {
+            return EStringCase.Lower;
+        }
+
+        if (str == str.ToUpper())
+        {
+            return EStringCase.Upper;
+        }
+
+        if (str == str.ToProper())
+        {
+            return EStringCase.Proper;
+        }
+
+        return EStringCase.Mixed;
+    }
+
+    /// <summary>
     /// Return the string with the first letter converted to upper-case.
     /// The other letters aren't changed.
     /// </summary>
