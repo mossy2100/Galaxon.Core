@@ -72,10 +72,10 @@ public static class XString
     {
         StringBuilder sb = new ();
 
-        foreach (var original in str)
+        foreach (char original in str)
         {
             // Get the replacement character if it's there.
-            if (charMap.TryGetValue(original, out var replacement))
+            if (charMap.TryGetValue(original, out string? replacement))
             {
                 // Append the replacement character.
                 sb.Append(replacement);
@@ -115,7 +115,7 @@ public static class XString
     /// </summary>
     public static string Reverse(this string str)
     {
-        var chars = str.ToArray();
+        char[] chars = str.ToArray();
         Array.Reverse(chars);
         return new string(chars);
     }
@@ -206,14 +206,53 @@ public static class XString
     }
 
     /// <summary>
+    /// Return the string with the first letter of each word upper-case, and all the other letters
+    /// in each word unchanged.
+    /// Words are taken to be sequences of letters and are thus separated by 1 or more non-letters.
+    /// </summary>
+    /// <param name="str">The original string.</param>
+    /// <returns>The string with the first letter of each word upper-cased.</returns>
+    public static string ToProper(this string str)
+    {
+        // Guard.
+        if (string.IsNullOrEmpty(str))
+        {
+            return str;
+        }
+
+        // Iterate through the source string, making letters upper and lower case as needed.
+        StringBuilder result = new ();
+        char? prev = null;
+        foreach (char c in str)
+        {
+            if (prev != null && char.IsLetter(prev.Value))
+            {
+                result.Append(char.IsLetter(c) ? char.ToLower(c) : c);
+            }
+            else
+            {
+                result.Append(char.IsLetter(c) ? char.ToUpper(c) : c);
+            }
+            prev = c;
+        }
+
+        // Return result.
+        return result.ToString();
+    }
+
+    /// <summary>
     /// Return the string with the first letter converted to upper-case.
+    /// The other letters aren't changed.
     /// </summary>
     /// <param name="str">The original string.</param>
     /// <returns>The string with the first letter upper-cased.</returns>
-    public static string UpperCaseFirstLetter(this string str)
+    public static string ToUpperFirstLetter(this string str)
     {
         // Check for empty string.
-        if (str == "") return "";
+        if (str == "")
+        {
+            return "";
+        }
 
         // Return char and concat substring.
         return char.ToUpper(str[0]) + str[1..];
@@ -280,7 +319,7 @@ public static class XString
             {
                 break;
             }
-            var group = str.Length > size ? str[^size..] : str;
+            string group = str.Length > size ? str[^size..] : str;
             if (sb.Length != 0)
             {
                 sb.Prepend(separator);
@@ -307,7 +346,7 @@ public static class XString
     /// </summary>
     public static int? ToInt(this string? str)
     {
-        return int.TryParse(str, out var i) ? i : null;
+        return int.TryParse(str, out int i) ? i : null;
     }
 
     /// <summary>
@@ -316,7 +355,7 @@ public static class XString
     /// </summary>
     public static double? ToDouble(this string? str)
     {
-        return double.TryParse(str, out var d) ? d : null;
+        return double.TryParse(str, out double d) ? d : null;
     }
 
     /// <summary>
@@ -325,7 +364,7 @@ public static class XString
     /// </summary>
     public static decimal? ToDecimal(this string? str)
     {
-        return decimal.TryParse(str, out var m) ? m : null;
+        return decimal.TryParse(str, out decimal m) ? m : null;
     }
 
     #endregion Methods for converting strings to numbers

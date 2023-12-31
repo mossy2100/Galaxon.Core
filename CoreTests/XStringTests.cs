@@ -55,4 +55,56 @@ public class XStringTests
         s2 = s1.ToSmallCaps();
         Assert.AreEqual("10 Tɪᴘꜱ Tᴏ Bᴇᴄᴏᴍᴇ A Gᴏᴏᴅ Pʀᴏɢʀᴀᴍᴍᴇʀ - C# Cᴏʀɴᴇʀ", s2);
     }
+
+    [TestMethod]
+    public void ToProperReturnsEmptyStringGivenEmptyString()
+    {
+        string expected = "";
+        string actual = expected.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void ToProperReturnsWordWithFirstLetterUpperCase()
+    {
+        string source = "cat";
+        string expected = "Cat";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void ToProperMakesCorrectLettersUpperCase()
+    {
+        string source = "here is a simple title, all lower-case";
+        string expected = "Here Is A Simple Title, All Lower-Case";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    [TestMethod]
+    public void ToProperMakesCorrectLettersLowerCase()
+    {
+        string source = "HERE IS A SIMPLE TITLE, ALL UPPER-CASE";
+        string expected = "Here Is A Simple Title, All Upper-Case";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    /// <summary>
+    /// This is an example of how the method is actually broken. It doesn't (yet) know when to
+    /// capitalise the letter after an apostrophe.
+    /// Words like "can't" should be "Can't" in proper case, but words like "O'Henry" should stay
+    /// like that.
+    /// Ideally it would know the difference, and work with single quotes as well as true apostrophe
+    /// characters.
+    /// </summary>
+    [TestMethod]
+    public void ToProperReturnsContractionsWithEachPartProperCase()
+    {
+        string source = "I can't believe it's not butter!";
+        string expected = "I Can'T Believe It'S Not Butter!";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
 }

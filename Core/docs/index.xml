@@ -1325,9 +1325,19 @@
             </summary>
             <exception cref="T:System.NotImplementedException"></exception>
         </member>
-        <member name="M:Galaxon.Core.Strings.XString.UpperCaseFirstLetter(System.String)">
+        <member name="M:Galaxon.Core.Strings.XString.ToProper(System.String)">
+            <summary>
+            Return the string with the first letter of each word upper-case, and all the other letters
+            in each word unchanged.
+            Words are taken to be sequences of letters and are thus separated by 1 or more non-letters.
+            </summary>
+            <param name="str">The original string.</param>
+            <returns>The string with the first letter of each word upper-cased.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.ToUpperFirstLetter(System.String)">
             <summary>
             Return the string with the first letter converted to upper-case.
+            The other letters aren't changed.
             </summary>
             <param name="str">The original string.</param>
             <returns>The string with the first letter upper-cased.</returns>
