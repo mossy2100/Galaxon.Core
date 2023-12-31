@@ -222,18 +222,38 @@ public static class XString
 
         // Iterate through the source string, making letters upper and lower case as needed.
         StringBuilder result = new ();
-        char? prev = null;
+        const string APOSTROPHES = "'’";
+        bool firstLetterOfWordFound = false;
+
         foreach (char c in str)
         {
-            if (prev != null && char.IsLetter(prev.Value))
+            bool isLetter = char.IsLetter(c);
+            bool isApostrophe = APOSTROPHES.Contains(c);
+            bool isWordChar = isLetter || isApostrophe;
+            if (isWordChar)
             {
-                result.Append(char.IsLetter(c) ? char.ToLower(c) : c);
+                if (isLetter)
+                {
+                    if (firstLetterOfWordFound)
+                    {
+                        result.Append(char.ToLower(c));
+                    }
+                    else
+                    {
+                        result.Append(char.ToUpper(c));
+                        firstLetterOfWordFound = true;
+                    }
+                }
+                else // is apostrophe
+                {
+                    result.Append(c);
+                }
             }
-            else
+            else // non-word character
             {
-                result.Append(char.IsLetter(c) ? char.ToUpper(c) : c);
+                result.Append(c);
+                firstLetterOfWordFound = false;
             }
-            prev = c;
         }
 
         // Return result.

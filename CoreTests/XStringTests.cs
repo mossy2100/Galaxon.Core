@@ -92,18 +92,76 @@ public class XStringTests
     }
 
     /// <summary>
-    /// This is an example of how the method is actually broken. It doesn't (yet) know when to
-    /// capitalise the letter after an apostrophe.
-    /// Words like "can't" should be "Can't" in proper case, but words like "O'Henry" should stay
-    /// like that.
-    /// Ideally it would know the difference, and work with single quotes as well as true apostrophe
-    /// characters.
+    /// Test handling of ASCII apostrophe.
     /// </summary>
     [TestMethod]
-    public void ToProperReturnsContractionsWithEachPartProperCase()
+    public void ToProperHandlesAsciiApostrophe()
     {
-        string source = "I can't believe it's not butter!";
-        string expected = "I Can'T Believe It'S Not Butter!";
+        string source = "I can't believe it's not Java!";
+        string expected = "I Can't Believe It's Not Java!";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    /// <summary>
+    /// Test handling of Unicode apostrophe.
+    /// </summary>
+    [TestMethod]
+    public void ToProperHandlesUnicodeApostrophe()
+    {
+        string source = "let’s cook bill’s and your friends’ meals.";
+        string expected = "Let’s Cook Bill’s And Your Friends’ Meals.";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    /// <summary>
+    /// Test handling of words beginning with or preceded by apostrophes.
+    /// </summary>
+    [TestMethod]
+    public void ToProperHandlesApostrophesAtStartOfWords()
+    {
+        string source = "'don’t worry ’bout a thing,' she said.";
+        string expected = "'Don’t Worry ’Bout A Thing,' She Said.";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    /// <summary>
+    /// Show how the method doesn't properly handle proper nouns containing apostrophes.
+    /// This could be fixed by detecting and preserving such words in the source string.
+    /// </summary>
+    [TestMethod]
+    public void ToProperDoesNotCorrectlyHandleProperNounsWithApostrophes()
+    {
+        string source = "Seamus O'Henry loves pretending he's T'Challa.";
+        string expected = "Seamus O'henry Loves Pretending He's T'challa.";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    /// <summary>
+    /// Show how the method doesn't properly handle camel case.
+    /// This could be fixed by detecting and preserving camel-case words in the source string.
+    /// </summary>
+    [TestMethod]
+    public void ToProperDoesNotCorrectlyHandleCamelCase()
+    {
+        string source = "The JavaScript method getElementById() can be useful.";
+        string expected = "The Javascript Method Getelementbyid() Can Be Useful.";
+        string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+    }
+
+    /// <summary>
+    /// Show how the method doesn't properly handle acronyms.
+    /// This could be fixed by detecting and preserving acronyms in the source string.
+    /// </summary>
+    [TestMethod]
+    public void ToProperDoesNotCorrectlyHandleAcronyms()
+    {
+        string source = "She works for NASA on UAVs and HLVs.";
+        string expected = "She Works For Nasa On Uavs And Hlvs.";
         string actual = source.ToProper();
         Assert.AreEqual(expected, actual);
     }
