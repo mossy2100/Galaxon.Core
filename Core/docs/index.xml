@@ -2217,18 +2217,17 @@
             <returns></returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Galaxon.Core.Types.XEnum.FindValueByDescription``1(System.String)">
+        <member name="M:Galaxon.Core.Types.XEnum.TryParse``1(System.String)">
             <summary>
-            Find an enum value given a description.
-            If no values are found with a matching description, looks for a match on name.
-            Must match exactly (case-sensitive) the Description attribute attached to the value, or the
-            value name.
+            Find an enum value given a name or description.
+            If no values are found with a matching name, looks for a match on description.
+            Must match exactly (case-sensitive) the value name or the Description attribute.
             </summary>
-            <param name="description">The description.</param>
+            <param name="nameOrDescription">The enum value name or description.</param>
             <typeparam name="T">The enum type.</typeparam>
-            <returns>The value if found.</returns>
+            <returns>The matching enum value if found, otherwise null.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
-            If the type param is not an enum, or the description doesn't match any values.
+            If the type param is not an enum.
             </exception>
         </member>
         <member name="T:Galaxon.Core.Types.XReflection">

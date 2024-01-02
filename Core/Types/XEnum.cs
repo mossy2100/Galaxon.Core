@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Reflection;
 
 namespace Galaxon.Core.Types;
 
@@ -20,7 +21,7 @@ public static class XEnum
         var name = value.ToString();
 
         // Get the field info of the value.
-        var field = value.GetType().GetField(name);
+        FieldInfo? field = value.GetType().GetField(name);
 
         // If we couldn't find it, the value is invalid.
         if (field == null)
@@ -37,46 +38,46 @@ public static class XEnum
     }
 
     /// <summary>
-    /// Find an enum value given a description.
-    /// If no values are found with a matching description, looks for a match on name.
-    /// Must match exactly (case-sensitive) the Description attribute attached to the value, or the
-    /// value name.
+    /// Find an enum value given a name or description.
+    /// If no values are found with a matching name, looks for a match on description.
+    /// Must match exactly (case-sensitive) the value name or the Description attribute.
     /// </summary>
-    /// <param name="description">The description.</param>
+    /// <param name="nameOrDescription">The enum value name or description.</param>
     /// <typeparam name="T">The enum type.</typeparam>
-    /// <returns>The value if found.</returns>
+    /// <returns>The matching enum value if found, otherwise null.</returns>
     /// <exception cref="ArgumentOutOfRangeException">
-    /// If the type param is not an enum, or the description doesn't match any values.
+    /// If the type param is not an enum.
     /// </exception>
-    public static T FindValueByDescription<T>(string description) where T : struct
+    public static T? TryParse<T>(string nameOrDescription) where T : struct
     {
         // Make sure this is being used with an enum type.
-        var enumType = typeof(T);
+        Type enumType = typeof(T);
         if (!enumType.IsEnum)
         {
-            throw new ArgumentOutOfRangeException(nameof(T), "The provided type must be an enum type.");
+            throw new ArgumentOutOfRangeException(nameof(T),
+                "The provided type must be an enum type.");
         }
 
-        // Inspect each value in the enum for a matching description.
-        foreach (var field in enumType.GetFields())
+        // Look for a matching name.
+        if (Enum.TryParse(nameOrDescription, out T result))
+        {
+            return result;
+        }
+
+        // Look for matching description.
+        foreach (FieldInfo field in enumType.GetFields())
         {
             // Check the description attribute.
-            if (Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) is DescriptionAttribute attribute)
+            if (Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute)) is
+                DescriptionAttribute attribute)
             {
-                if (attribute.Description == description)
+                if (attribute.Description == nameOrDescription)
                 {
                     return (T)field.GetValue(null)!;
                 }
             }
         }
 
-        // As a fallback, look for a matching name.
-        if (Enum.TryParse(description, out T result))
-        {
-            return result;
-        }
-
-        throw new ArgumentOutOfRangeException(nameof(description),
-            $"No value found in enum {enumType.Name} with description or name matching '{description}'.");
+        return null;
     }
 }
