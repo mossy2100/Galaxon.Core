@@ -43,13 +43,13 @@ public static class XEnum
     /// Must match exactly (case-sensitive) the value name or the Description attribute.
     /// </summary>
     /// <param name="nameOrDescription">The enum value's name or description.</param>
-    /// <param name="value">The matching enum value.</param>
+    /// <param name="value">The matching enum value, or default if not found.</param>
     /// <typeparam name="T">The enum type.</typeparam>
     /// <returns>If a matching enum value was found.</returns>
     /// <exception cref="ArgumentOutOfRangeException">
     /// If the type param is not an enum.
     /// </exception>
-    public static bool TryParse<T>(string nameOrDescription, out T? value) where T : struct
+    public static bool TryParse<T>(string nameOrDescription, out T value) where T : struct
     {
         // Make sure this is being used with an enum type.
         Type enumType = typeof(T);
@@ -81,7 +81,7 @@ public static class XEnum
             }
         }
 
-        value = null;
+        value = default(T);
         return false;
     }
 }

@@ -2239,14 +2239,14 @@
             <returns></returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Galaxon.Core.Types.XEnum.TryParse``1(System.String,System.Nullable{``0}@)">
+        <member name="M:Galaxon.Core.Types.XEnum.TryParse``1(System.String,``0@)">
             <summary>
             Similar to Enum.TryParse(), this method finds an enum value given a name or description.
             If no values are found with a matching name, looks for a match on description.
             Must match exactly (case-sensitive) the value name or the Description attribute.
             </summary>
             <param name="nameOrDescription">The enum value's name or description.</param>
-            <param name="value">The matching enum value.</param>
+            <param name="value">The matching enum value, or default if not found.</param>
             <typeparam name="T">The enum type.</typeparam>
             <returns>If a matching enum value was found.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
