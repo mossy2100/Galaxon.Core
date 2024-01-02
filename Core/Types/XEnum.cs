@@ -38,17 +38,18 @@ public static class XEnum
     }
 
     /// <summary>
-    /// Find an enum value given a name or description.
+    /// Similar to Enum.TryParse(), this method finds an enum value given a name or description.
     /// If no values are found with a matching name, looks for a match on description.
     /// Must match exactly (case-sensitive) the value name or the Description attribute.
     /// </summary>
-    /// <param name="nameOrDescription">The enum value name or description.</param>
+    /// <param name="nameOrDescription">The enum value's name or description.</param>
+    /// <param name="value">The matching enum value.</param>
     /// <typeparam name="T">The enum type.</typeparam>
-    /// <returns>The matching enum value if found, otherwise null.</returns>
+    /// <returns>If a matching enum value was found.</returns>
     /// <exception cref="ArgumentOutOfRangeException">
     /// If the type param is not an enum.
     /// </exception>
-    public static T? TryParse<T>(string nameOrDescription) where T : struct
+    public static bool TryParse<T>(string nameOrDescription, out T? value) where T : struct
     {
         // Make sure this is being used with an enum type.
         Type enumType = typeof(T);
@@ -61,7 +62,8 @@ public static class XEnum
         // Look for a matching name.
         if (Enum.TryParse(nameOrDescription, out T result))
         {
-            return result;
+            value = result;
+            return true;
         }
 
         // Look for matching description.
@@ -73,11 +75,13 @@ public static class XEnum
             {
                 if (attribute.Description == nameOrDescription)
                 {
-                    return (T)field.GetValue(null)!;
+                    value = (T)field.GetValue(null)!;
+                    return true;
                 }
             }
         }
 
-        return null;
+        value = null;
+        return false;
     }
 }

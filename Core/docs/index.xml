@@ -1244,6 +1244,28 @@
             simple for now.
             </summary>
         </member>
+        <member name="F:Galaxon.Core.Strings.EStringCase.Lower">
+            <summary>
+            Lower case.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Strings.EStringCase.Upper">
+            <summary>
+            Upper case.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Strings.EStringCase.Proper">
+            <summary>
+            Proper case. This is not the same as title case.
+            In proper case, every word has the first letter upper case, and other letters lower-case.
+            In title case, some short words like articles and prepositions are all lower-case.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Strings.EStringCase.Mixed">
+            <summary>
+            Mixed case (i.e. none of the above).
+            </summary>
+        </member>
         <member name="T:Galaxon.Core.Strings.XString">
             <summary>
             Extension methods for String.
@@ -2217,15 +2239,16 @@
             <returns></returns>
             <exception cref="T:System.ArgumentOutOfRangeException"></exception>
         </member>
-        <member name="M:Galaxon.Core.Types.XEnum.TryParse``1(System.String)">
+        <member name="M:Galaxon.Core.Types.XEnum.TryParse``1(System.String,System.Nullable{``0}@)">
             <summary>
-            Find an enum value given a name or description.
+            Similar to Enum.TryParse(), this method finds an enum value given a name or description.
             If no values are found with a matching name, looks for a match on description.
             Must match exactly (case-sensitive) the value name or the Description attribute.
             </summary>
-            <param name="nameOrDescription">The enum value name or description.</param>
+            <param name="nameOrDescription">The enum value's name or description.</param>
+            <param name="value">The matching enum value.</param>
             <typeparam name="T">The enum type.</typeparam>
-            <returns>The matching enum value if found, otherwise null.</returns>
+            <returns>If a matching enum value was found.</returns>
             <exception cref="T:System.ArgumentOutOfRangeException">
             If the type param is not an enum.
             </exception>
