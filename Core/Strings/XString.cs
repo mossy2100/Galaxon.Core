@@ -208,10 +208,16 @@ public static class XString
     /// <summary>
     /// Return the string with the first letter of each word upper-case, and all the other letters
     /// in each word unchanged.
-    /// Words are taken to be sequences of letters and are thus separated by 1 or more non-letters.
+    /// Words are taken to be sequences of letters and apostrophes (two kinds are supported), and
+    /// are thus separated by 1 or more non-word characters.
     /// </summary>
     /// <param name="str">The original string.</param>
     /// <returns>The string with the first letter of each word upper-cased.</returns>
+    /// <remarks>
+    /// A method ToTitle() could be developed based on this one, but it would require extracting the
+    /// words first, then seeing which ones should be all lower-case (a, an, for, to, etc.) and
+    /// which should have the first letter upper-cased.
+    /// </remarks>
     public static string ToProper(this string str)
     {
         // Guard.
@@ -230,30 +236,20 @@ public static class XString
             bool isLetter = char.IsLetter(c);
             bool isApostrophe = APOSTROPHES.Contains(c);
             bool isWordChar = isLetter || isApostrophe;
-            if (isWordChar)
+            bool toUpper = false;
+
+            if (isLetter && !firstLetterOfWordFound)
             {
-                if (isLetter)
-                {
-                    if (firstLetterOfWordFound)
-                    {
-                        result.Append(char.ToLower(c));
-                    }
-                    else
-                    {
-                        result.Append(char.ToUpper(c));
-                        firstLetterOfWordFound = true;
-                    }
-                }
-                else // is apostrophe
-                {
-                    result.Append(c);
-                }
+                toUpper = true;
+                firstLetterOfWordFound = true;
             }
-            else // non-word character
+            else if (!isWordChar)
             {
-                result.Append(c);
                 firstLetterOfWordFound = false;
             }
+
+            // Add the character, upper-cased only if it's the first one in the word.
+            result.Append(toUpper ? char.ToUpper(c) : c);
         }
 
         // Return result.
@@ -262,6 +258,7 @@ public static class XString
 
     /// <summary>
     /// Get the string's case.
+    /// If it could not be detected, defaults to Mixed.
     /// </summary>
     /// <param name="str">Source string.</param>
     /// <returns>The string's case.</returns>
@@ -282,7 +279,44 @@ public static class XString
             return EStringCase.Proper;
         }
 
+        // This has to come after ToUpper() and ToProper() otherwise they wouldn't ever be detected.
+        if (str == str.ToUpperFirstLetter())
+        {
+            return EStringCase.UpperFirstLetter;
+        }
+
         return EStringCase.Mixed;
+    }
+
+    /// <summary>
+    /// Generates a new string from a source string and a desired string case.
+    /// </summary>
+    /// <param name="str">Source string.</param>
+    /// <param name="stringCase">The string case to convert to.</param>
+    /// <returns>The new string.</returns>
+    public static string SetCase(this string str, EStringCase stringCase)
+    {
+        if (stringCase == EStringCase.Lower)
+        {
+            return str.ToLower();
+        }
+
+        if (stringCase == EStringCase.Upper)
+        {
+            return str.ToUpper();
+        }
+
+        if (stringCase == EStringCase.UpperFirstLetter)
+        {
+            return str.ToUpperFirstLetter();
+        }
+
+        if (stringCase == EStringCase.Proper)
+        {
+            return str.ToProper();
+        }
+
+        return str;
     }
 
     /// <summary>

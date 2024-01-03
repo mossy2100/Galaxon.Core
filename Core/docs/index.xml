@@ -1254,6 +1254,11 @@
             Upper case.
             </summary>
         </member>
+        <member name="F:Galaxon.Core.Strings.EStringCase.UpperFirstLetter">
+            <summary>
+            Upper case, first letter only.
+            </summary>
+        </member>
         <member name="F:Galaxon.Core.Strings.EStringCase.Proper">
             <summary>
             Proper case. This is not the same as title case.
@@ -1357,17 +1362,32 @@
             <summary>
             Return the string with the first letter of each word upper-case, and all the other letters
             in each word unchanged.
-            Words are taken to be sequences of letters and are thus separated by 1 or more non-letters.
+            Words are taken to be sequences of letters and apostrophes (two kinds are supported), and
+            are thus separated by 1 or more non-word characters.
             </summary>
             <param name="str">The original string.</param>
             <returns>The string with the first letter of each word upper-cased.</returns>
+            <remarks>
+            A method ToTitle() could be developed based on this one, but it would require extracting the
+            words first, then seeing which ones should be all lower-case (a, an, for, to, etc.) and
+            which should have the first letter upper-cased.
+            </remarks>
         </member>
         <member name="M:Galaxon.Core.Strings.XString.GetCase(System.String)">
             <summary>
             Get the string's case.
+            If it could not be detected, defaults to Mixed.
             </summary>
             <param name="str">Source string.</param>
             <returns>The string's case.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Strings.XString.SetCase(System.String,Galaxon.Core.Strings.EStringCase)">
+            <summary>
+            Generates a new string from a source string and a desired string case.
+            </summary>
+            <param name="str">Source string.</param>
+            <param name="stringCase">The string case to convert to.</param>
+            <returns>The new string.</returns>
         </member>
         <member name="M:Galaxon.Core.Strings.XString.ToUpperFirstLetter(System.String)">
             <summary>

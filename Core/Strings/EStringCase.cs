@@ -17,6 +17,11 @@ public enum EStringCase
     Upper,
 
     /// <summary>
+    /// Upper case, first letter only.
+    /// </summary>
+    UpperFirstLetter,
+
+    /// <summary>
     /// Proper case. This is not the same as title case.
     /// In proper case, every word has the first letter upper case, and other letters lower-case.
     /// In title case, some short words like articles and prepositions are all lower-case.

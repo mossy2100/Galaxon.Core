@@ -74,20 +74,34 @@ public class XStringTests
     }
 
     [TestMethod]
-    public void ToProperMakesCorrectLettersUpperCase()
+    public void ToProperMakesFirstLetterOfEachWordUpperCase()
     {
-        string source = "here is a simple title, all lower-case";
-        string expected = "Here Is A Simple Title, All Lower-Case";
+        string source = "How to cook dairy-free macaroni";
+        string expected = "How To Cook Dairy-Free Macaroni";
         string actual = source.ToProper();
         Assert.AreEqual(expected, actual);
     }
 
+    /// <summary>
+    /// Show how the method doesn't lower-case any characters, even if the words aren't acronyms.
+    /// Also shows one way to solve this problem.
+    /// </summary>
     [TestMethod]
     public void ToProperMakesCorrectLettersLowerCase()
     {
         string source = "HERE IS A SIMPLE TITLE, ALL UPPER-CASE";
-        string expected = "Here Is A Simple Title, All Upper-Case";
+        string expected = "HERE IS A SIMPLE TITLE, ALL UPPER-CASE";
         string actual = source.ToProper();
+        Assert.AreEqual(expected, actual);
+
+        // Use ToLower() before ToProper() in order to convert words that look like acronyms to
+        // words that look like words.
+        source = source.ToLower();
+        expected = "here is a simple title, all upper-case";
+        Assert.AreEqual(expected, source);
+
+        expected = "Here Is A Simple Title, All Upper-Case";
+        actual = source.ToProper();
         Assert.AreEqual(expected, actual);
     }
 
@@ -128,40 +142,39 @@ public class XStringTests
     }
 
     /// <summary>
-    /// Show how the method doesn't properly handle proper nouns containing apostrophes.
-    /// This could be fixed by detecting and preserving such words in the source string.
+    /// Show how the method doesn't lower-case letters after the first one in the word, thereby
+    /// preserving proper nouns with apostrophes.
     /// </summary>
     [TestMethod]
-    public void ToProperDoesNotCorrectlyHandleProperNounsWithApostrophes()
+    public void ToProperHandlesProperNounsWithApostrophes()
     {
         string source = "Seamus O'Henry loves pretending he's T'Challa.";
-        string expected = "Seamus O'henry Loves Pretending He's T'challa.";
+        string expected = "Seamus O'Henry Loves Pretending He's T'Challa.";
         string actual = source.ToProper();
         Assert.AreEqual(expected, actual);
     }
 
     /// <summary>
-    /// Show how the method doesn't properly handle camel case.
-    /// This could be fixed by detecting and preserving camel-case words in the source string.
+    /// Show how the method doesn't properly handle camel case variable, method (etc.) names,
+    /// because it doesn't know they aren't normal words.
     /// </summary>
     [TestMethod]
-    public void ToProperDoesNotCorrectlyHandleCamelCase()
+    public void ToProperDoesNotRecogniseCamelCase()
     {
-        string source = "The JavaScript method getElementById() can be useful.";
-        string expected = "The Javascript Method Getelementbyid() Can Be Useful.";
+        string source = "Correct use of the JavaScript method getElementById().";
+        string expected = "Correct Use Of The JavaScript Method GetElementById().";
         string actual = source.ToProper();
         Assert.AreEqual(expected, actual);
     }
 
     /// <summary>
-    /// Show how the method doesn't properly handle acronyms.
-    /// This could be fixed by detecting and preserving acronyms in the source string.
+    /// Show how the method properly handles acronyms.
     /// </summary>
     [TestMethod]
-    public void ToProperDoesNotCorrectlyHandleAcronyms()
+    public void ToProperHandlesAcronyms()
     {
-        string source = "She works for NASA on UAVs and HLVs.";
-        string expected = "She Works For Nasa On Uavs And Hlvs.";
+        string source = "How to work for NASA on UAVs and HLVs.";
+        string expected = "How To Work For NASA On UAVs And HLVs.";
         string actual = source.ToProper();
         Assert.AreEqual(expected, actual);
     }
