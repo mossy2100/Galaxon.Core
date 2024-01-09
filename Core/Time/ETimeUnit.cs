@@ -71,6 +71,11 @@ public enum ETimeUnit
     Year,
 
     /// <summary>
+    /// Period equal to 4 years.
+    /// </summary>
+    Olympiad,
+
+    /// <summary>
     /// Decade (dec). 1 dec = 10 y
     /// </summary>
     Decade,

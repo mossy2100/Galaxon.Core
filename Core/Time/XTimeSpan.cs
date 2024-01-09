@@ -277,63 +277,74 @@ public static class XTimeSpan
 
     #endregion Years per unit of time
 
-    #region Solar cycles
+    #region Gregorian solar cycles
 
     /// <summary>
-    /// The Gregorian Calendars repeats on a 400-year cycle called the *solar cycle*.
+    /// The Gregorian Calendar repeats on a 400-year cycle called the "Gregorian solar cycle".
+    /// (Not to be confused with the 11-year solar cycle.)
     /// There are 97 leap years in that period, giving an average calendar year length of
     /// 365 + (97/400) = 365.2425 days/year.
     /// 1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
     /// 5 Gregorian solar cycles = 2000 y = 2 ky
-    /// Solar cycles are not ordinarily numbered, nor given a specific start date.
+    /// Gregorian solar cycles are not ordinarily numbered, nor given a specific start date.
     /// However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
-    /// 1 Jan, 1 AD, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
+    /// 1 Jan, 1 CE, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
     /// was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
     /// See:
     /// - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)"/>
     /// - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
     /// </summary>
-    public const long YearsPerSolarCycle = 400L;
+    public const long YearsPerGregorianSolarCycle = 400;
 
     /// <summary>
-    /// Number of olympiads in an Gregorian solar cycle.
+    /// Number of olympiads in a Gregorian solar cycle.
     /// </summary>
-    public const long OlympiadsPerSolarCycle = 100L;
+    public const long OlympiadsPerGregorianSolarCycle = 100;
+
+    /// <summary>
+    /// Number of centuries in a Gregorian solar cycle.
+    /// </summary>
+    public const long CenturiesPerGregorianSolarCycle = 4;
+
+    /// <summary>
+    /// Number of decades in a Gregorian solar cycle.
+    /// </summary>
+    public const long DecadesPerGregorianSolarCycle = 40;
 
     /// <summary>
     /// The number of leap years in a Gregorian solar cycle.
     /// </summary>
-    public const long LeapYearsPerSolarCycle = 97L;
+    public const long LeapYearsPerGregorianSolarCycle = 97;
 
     /// <summary>
     /// The number of common years in a Gregorian solar cycle.
     /// </summary>
-    public const long CommonYearsPerSolarCycle = 303L;
+    public const long CommonYearsPerGregorianSolarCycle = 303;
 
     /// <summary>
     /// The number of months in a Gregorian solar cycle.
     /// </summary>
-    public const long MonthsPerSolarCycle = 4800L;
+    public const long MonthsPerGregorianSolarCycle = 4800;
 
     /// <summary>
     /// The number of weeks in a Gregorian solar cycle.
     /// </summary>
-    public const long WeeksPerSolarCycle = 20_871L;
+    public const long WeeksPerGregorianSolarCycle = 20_871;
 
     /// <summary>
     /// The number of days in a Gregorian solar cycle.
     /// </summary>
-    public const long DaysPerSolarCycle = 146_097L;
+    public const long DaysPerGregorianSolarCycle = 146_097;
 
     /// <summary>
     /// The number of seconds in a Gregorian solar cycle.
     /// </summary>
-    public const long SecondsPerSolarCycle = 12_622_780_800L;
+    public const long SecondsPerGregorianSolarCycle = 12_622_780_800;
 
     /// <summary>
     /// The number of ticks in a Gregorian solar cycle.
     /// </summary>
-    public const long TicksPerSolarCycle = 126_227_808_000_000_000L;
+    public const long TicksPerGregorianSolarCycle = 126_227_808_000_000_000;
 
     #endregion Solar cycles
 
