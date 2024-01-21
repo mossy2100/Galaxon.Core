@@ -4,10 +4,10 @@ namespace Galaxon.Core.Numbers;
 public static class XFloat
 {
     /// <summary>The total number of bits in the value.</summary>
-    public const byte TotalNumBits = 32;
+    public const byte TOTAL_NUM_BITS = 32;
 
     /// <summary>The number of bits in the fraction.</summary>
-    public const byte NumFracBits = 23;
+    public const byte NUM_FRAC_BITS = 23;
 
     /// <summary>
     /// Disassemble the float into its bitwise components.

@@ -8,13 +8,13 @@ public static class XDecimal
     #region Constants
 
     /// <summary>The number of bits in the exponent.</summary>
-    public const byte NumExpBits = 8;
+    public const byte NUM_EXP_BITS = 8;
 
     /// <summary>The number of bits in the integer part.</summary>
-    public const byte NumIntBits = 96;
+    public const byte NUM_INT_BITS = 96;
 
     /// <summary>The minimum scale factor (inverse decimal exponent).</summary>
-    public const short MaxScale = 28;
+    public const short MAX_SCALE = 28;
 
     #endregion Constants
 
@@ -66,13 +66,13 @@ public static class XDecimal
         decimal x;
 
         // Some cleverness to avoid overflow if scale == 29.
-        if (scale <= MaxScale)
+        if (scale <= MAX_SCALE)
         {
             x = m / Exp10(scale);
         }
         else
         {
-            x = m / 1e28m / Exp10(scale - MaxScale);
+            x = m / 1e28m / Exp10(scale - MAX_SCALE);
         }
 
         // Use the Taylor series.
@@ -320,10 +320,10 @@ public static class XDecimal
         }
 
         // Check scaleBits is within the valid range.
-        if (scaleBits > MaxScale)
+        if (scaleBits > MAX_SCALE)
         {
             throw new ArgumentOutOfRangeException(nameof(scaleBits),
-                $"Must be less than or equal to {MaxScale}.");
+                $"Must be less than or equal to {MAX_SCALE}.");
         }
 
         // Check intBits is within the valid range.

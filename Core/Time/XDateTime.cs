@@ -14,7 +14,7 @@ public static class XDateTime
     /// .NET (0001-01-01 00:00:00 UTC).
     /// <see cref="GetTotalDays"/>
     /// </summary>
-    public const double JulianPeriodOffset = 1721425.5;
+    public const double JULIAN_PERIOD_OFFSET = 1721425.5;
 
     #endregion Constants
 
@@ -48,7 +48,7 @@ public static class XDateTime
     /// <returns></returns>
     public static DateTime AddWeeks(this DateTime dt, double weeks)
     {
-        return dt.AddDays(weeks * XTimeSpan.DaysPerWeek);
+        return dt.AddDays(weeks * XTimeSpan.DAYS_PER_WEEK);
     }
 
     #endregion Methods for addition and subtraction
@@ -110,7 +110,7 @@ public static class XDateTime
     /// <returns>The number of years since the epoch start.</returns>
     public static double GetTotalYears(this DateTime dt)
     {
-        return (double)dt.Ticks / XTimeSpan.TicksPerYear;
+        return (double)dt.Ticks / XTimeSpan.TICKS_PER_YEAR;
     }
 
     #endregion Methods for getting the instant as a count of time units
@@ -148,7 +148,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalYears(double years)
     {
-        var ticks = (long)Math.Round(years * XTimeSpan.TicksPerYear);
+        var ticks = (long)Math.Round(years * XTimeSpan.TICKS_PER_YEAR);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
@@ -165,7 +165,7 @@ public static class XDateTime
     /// <returns>The Julian Day value</returns>
     public static double ToJulianDay(this DateTime dt)
     {
-        return JulianPeriodOffset + GetTotalDays(dt);
+        return JULIAN_PERIOD_OFFSET + GetTotalDays(dt);
     }
 
     /// <summary>
@@ -177,7 +177,7 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromJulianDay(double jd)
     {
-        return FromTotalDays(jd - JulianPeriodOffset);
+        return FromTotalDays(jd - JULIAN_PERIOD_OFFSET);
     }
 
     #endregion Conversion to/from Julian Day

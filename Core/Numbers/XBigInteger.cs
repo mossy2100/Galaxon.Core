@@ -230,6 +230,7 @@ public static class XBigInteger
         // A number is a power of 2 if it has exactly one bit set.
         // (number - 1) will have all the bits set to the right of the only set bit in number.
         // Anding number with (number - 1) should give 0 if number is a power of 2.
+        // For example, 0b1000000 & 0b0111111 == 0
         return (bi & (bi - 1)) == 0;
     }
 

@@ -13,7 +13,7 @@ public static class XDateOnly
     /// <summary>
     /// Same as DateTimeFormatInfo.SortableDateTimePattern, but without the time.
     /// </summary>
-    public const string SortableDatePattern = "yyyy-MM-dd";
+    public const string SORTABLE_DATE_PATTERN = "yyyy-MM-dd";
 
     /// <summary>
     /// Format the date using ISO 8601 format YYYY-MM-DD.
@@ -23,7 +23,7 @@ public static class XDateOnly
     /// <returns>A string representing the date in ISO format.</returns>
     public static string ToIsoString(this DateOnly date)
     {
-        return date.ToString(SortableDatePattern);
+        return date.ToString(SORTABLE_DATE_PATTERN);
     }
 
     #endregion Formatting
@@ -100,7 +100,7 @@ public static class XDateOnly
     /// <returns>The number of years since the epoch start.</returns>
     public static double GetTotalYears(this DateOnly date)
     {
-        return (double)date.GetTicks() / XTimeSpan.TicksPerYear;
+        return (double)date.GetTicks() / XTimeSpan.TICKS_PER_YEAR;
     }
 
     #endregion Methods for getting the instant as a count of time units
@@ -138,7 +138,7 @@ public static class XDateOnly
     /// <returns>The resulting date.</returns>
     public static DateOnly AddWeeks(this DateOnly date, int weeks)
     {
-        return date.AddDays(weeks * (int)XTimeSpan.DaysPerWeek);
+        return date.AddDays(weeks * (int)XTimeSpan.DAYS_PER_WEEK);
     }
 
     /// <summary>
@@ -322,7 +322,7 @@ public static class XDateOnly
         // Get the number of days in the month.
         GregorianCalendar gc = new ();
         var daysInMonth = gc.GetDaysInMonth(year, month);
-        var daysPerWeek = (int)XTimeSpan.DaysPerWeek;
+        var daysPerWeek = (int)XTimeSpan.DAYS_PER_WEEK;
         int day;
 
         if (n > 0)

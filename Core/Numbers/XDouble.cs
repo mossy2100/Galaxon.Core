@@ -8,13 +8,13 @@ public static class XDouble
     /// <summary>
     /// The default maximum difference between 2 double values being compared for equality.
     /// </summary>
-    public const double Delta = 1e-9;
+    public const double DELTA = 1e-9;
 
     /// <summary>The total number of bits in the value.</summary>
-    public const byte TotalNumBits = 64;
+    public const byte TOTAL_NUM_BITS = 64;
 
     /// <summary>The number of bits in the fraction.</summary>
-    public const byte NumFracBits = 52;
+    public const byte NUM_FRAC_BITS = 52;
 
     #endregion Constants
 
@@ -110,7 +110,7 @@ public static class XDouble
     /// <param name="b">Second number.</param>
     /// <param name="tolerance">The maximum allowable difference between them.</param>
     /// <returns>If close enough to equal.</returns>
-    public static bool FuzzyEquals(this double a, double b, double tolerance = Delta)
+    public static bool FuzzyEquals(this double a, double b, double tolerance = DELTA)
     {
         // Ensure tolerance is non-negative.
         if (tolerance < 0)
@@ -132,7 +132,7 @@ public static class XDouble
     /// <param name="b"></param>
     /// <param name="tolerance"></param>
     /// <returns></returns>
-    public static bool FuzzyEquals(this double? a, double? b, double tolerance = Delta)
+    public static bool FuzzyEquals(this double? a, double? b, double tolerance = DELTA)
     {
         // If they're both null then they're equal.
         if (!a.HasValue && !b.HasValue)
@@ -153,7 +153,7 @@ public static class XDouble
     /// <summary>
     /// IsInteger() can be a bit strict. This method allows for some fuzziness.
     /// </summary>
-    public static bool FuzzyIsInteger(double d, double tolerance = Delta)
+    public static bool FuzzyIsInteger(double d, double tolerance = DELTA)
     {
         return d.FuzzyEquals(Math.Round(d), tolerance);
     }
@@ -161,7 +161,7 @@ public static class XDouble
     /// <summary>
     /// Check if a double is a positive integer, with some fuzziness.
     /// </summary>
-    public static bool FuzzyIsPositiveInteger(double d, double tolerance = Delta)
+    public static bool FuzzyIsPositiveInteger(double d, double tolerance = DELTA)
     {
         return d > 0 && FuzzyIsInteger(d, tolerance);
     }
@@ -169,7 +169,7 @@ public static class XDouble
     /// <summary>
     /// Check if a double is a negative integer, with some fuzziness.
     /// </summary>
-    public static bool FuzzyIsNegativeInteger(double d, double tolerance = Delta)
+    public static bool FuzzyIsNegativeInteger(double d, double tolerance = DELTA)
     {
         return d < 0 && FuzzyIsInteger(d, tolerance);
     }

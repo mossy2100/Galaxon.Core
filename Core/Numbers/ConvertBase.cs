@@ -58,13 +58,13 @@ public static class ConvertBase
     #region Constants
 
     /// <summary>The minimum base supported by the type.</summary>
-    public const int MinBase = 2;
+    public const int MIN_BASE = 2;
 
     /// <summary>The maximum base supported by the type.</summary>
-    public const int MaxBase = 36;
+    public const int MAX_BASE = 36;
 
     /// <summary>Valid digit characters.</summary>
-    public const string Digits = "0123456789abcdefghijklmnopqrstuvwxyz";
+    public const string DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz";
 
     #endregion Constants
 
@@ -129,7 +129,7 @@ public static class ConvertBase
             {
                 // Get the next digit.
                 var rem = bi % toBase;
-                sbDigits.Insert(0, Digits[(int)rem]);
+                sbDigits.Insert(0, DIGITS[(int)rem]);
 
                 // Check if we're done.
                 bi -= rem;
@@ -395,10 +395,10 @@ public static class ConvertBase
     /// <exception cref="ArgumentOutOfRangeException">If the base is out of range.</exception>
     private static void CheckBase(byte radix)
     {
-        if (radix is < MinBase or > MaxBase)
+        if (radix is < MIN_BASE or > MAX_BASE)
         {
             throw new ArgumentOutOfRangeException(nameof(radix),
-                $"Value must be in the range {MinBase}..{MaxBase}.");
+                $"Value must be in the range {MIN_BASE}..{MAX_BASE}.");
         }
     }
 
@@ -412,7 +412,7 @@ public static class ConvertBase
         Dictionary<char, byte> digitValues = new ();
         for (byte i = 0; i < radix; i++)
         {
-            var c = Digits[i];
+            var c = DIGITS[i];
             if (char.IsLetter(c))
             {
                 // Add both the upper- and lower-case variants.

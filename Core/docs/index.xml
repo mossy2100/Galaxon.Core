@@ -239,13 +239,13 @@
              <see href="https://en.wikipedia.org/wiki/Hexadecimal"/>
              <see href="https://en.wikipedia.org/wiki/Base32"/>
         </member>
-        <member name="F:Galaxon.Core.Numbers.ConvertBase.MinBase">
+        <member name="F:Galaxon.Core.Numbers.ConvertBase.MIN_BASE">
             <summary>The minimum base supported by the type.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.ConvertBase.MaxBase">
+        <member name="F:Galaxon.Core.Numbers.ConvertBase.MAX_BASE">
             <summary>The maximum base supported by the type.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.ConvertBase.Digits">
+        <member name="F:Galaxon.Core.Numbers.ConvertBase.DIGITS">
             <summary>Valid digit characters.</summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToBase``1(``0,System.Byte,System.Int32,System.Boolean)">
@@ -514,13 +514,13 @@
         <member name="T:Galaxon.Core.Numbers.XDecimal">
             <summary>Extension methods for decimal.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XDecimal.NumExpBits">
+        <member name="F:Galaxon.Core.Numbers.XDecimal.NUM_EXP_BITS">
             <summary>The number of bits in the exponent.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XDecimal.NumIntBits">
+        <member name="F:Galaxon.Core.Numbers.XDecimal.NUM_INT_BITS">
             <summary>The number of bits in the integer part.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XDecimal.MaxScale">
+        <member name="F:Galaxon.Core.Numbers.XDecimal.MAX_SCALE">
             <summary>The minimum scale factor (inverse decimal exponent).</summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDecimal.Log(System.Decimal)">
@@ -666,15 +666,15 @@
         <member name="T:Galaxon.Core.Numbers.XDouble">
             <summary>Extension methods and other bonus stuff for double.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XDouble.Delta">
+        <member name="F:Galaxon.Core.Numbers.XDouble.DELTA">
             <summary>
             The default maximum difference between 2 double values being compared for equality.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XDouble.TotalNumBits">
+        <member name="F:Galaxon.Core.Numbers.XDouble.TOTAL_NUM_BITS">
             <summary>The total number of bits in the value.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XDouble.NumFracBits">
+        <member name="F:Galaxon.Core.Numbers.XDouble.NUM_FRAC_BITS">
             <summary>The number of bits in the fraction.</summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XDouble.RoundSigFigs(System.Double,System.Int32)">
@@ -780,10 +780,10 @@
         <member name="T:Galaxon.Core.Numbers.XFloat">
             <summary>Extension methods and other bonus stuff for float.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XFloat.TotalNumBits">
+        <member name="F:Galaxon.Core.Numbers.XFloat.TOTAL_NUM_BITS">
             <summary>The total number of bits in the value.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XFloat.NumFracBits">
+        <member name="F:Galaxon.Core.Numbers.XFloat.NUM_FRAC_BITS">
             <summary>The number of bits in the fraction.</summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XFloat.Disassemble(System.Single)">
@@ -931,10 +931,10 @@
         <member name="T:Galaxon.Core.Numbers.XHalf">
             <summary>Extension methods and other bonus stuff for Half.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XHalf.TotalNumBits">
+        <member name="F:Galaxon.Core.Numbers.XHalf.TOTAL_NUM_BITS">
             <summary>The total number of bits in the value.</summary>
         </member>
-        <member name="F:Galaxon.Core.Numbers.XHalf.NumFracBits">
+        <member name="F:Galaxon.Core.Numbers.XHalf.NUM_FRAC_BITS">
             <summary>The number of bits in the fraction.</summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.XHalf.Disassemble(System.Half)">
@@ -1610,7 +1610,7 @@
             Extension methods for the DateOnly class.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XDateOnly.SortableDatePattern">
+        <member name="F:Galaxon.Core.Time.XDateOnly.SORTABLE_DATE_PATTERN">
             <summary>
             Same as DateTimeFormatInfo.SortableDateTimePattern, but without the time.
             </summary>
@@ -1816,7 +1816,7 @@
             Extension methods for the DateTime class.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XDateTime.JulianPeriodOffset">
+        <member name="F:Galaxon.Core.Time.XDateTime.JULIAN_PERIOD_OFFSET">
             <summary>
             The number of days from the start of the Julian period to the start of the epoch used by
             .NET (0001-01-01 00:00:00 UTC).
@@ -1972,172 +1972,172 @@
             <param name="toUnit">The result units.</param>
             <returns>The amount of the new unit.</returns>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MinutesPerHour">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MINUTES_PER_HOUR">
             <summary>
             The number of minutes in an hour.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MinutesPerDay">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MINUTES_PER_DAY">
             <summary>
             The number of minutes in a day.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.HoursPerDay">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.HOURS_PER_DAY">
             <summary>
             The number of hours in an ephemeris day.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.HoursPerWeek">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.HOURS_PER_WEEK">
             <summary>
             The number of hours in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.WeeksPerMonth">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.WEEKS_PER_MONTH">
             <summary>
             The number of weeks in an average Gregorian month.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.WeeksPerYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.WEEKS_PER_YEAR">
             <summary>
             The number of weeks in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MonthsPerYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MONTHS_PER_YEAR">
             <summary>
             The number of months in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerNanosecond">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_NANOSECOND">
             <summary>
             The number of ticks in a nanosecond.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerWeek">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_WEEK">
             <summary>
             The number of ticks in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerMonth">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MONTH">
             <summary>
             The number of ticks in a month.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_YEAR">
             <summary>
             The number of ticks in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerDecade">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_DECADE">
             <summary>
             The number of ticks in a Gregorian decade.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerCentury">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_CENTURY">
             <summary>
             The number of ticks in a Gregorian century.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerMillennium">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MILLENNIUM">
             <summary>
             The number of ticks in a Gregorian millennium.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerTick">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_TICK">
             <summary>
             The number of seconds in a nanosecond.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerMicrosecond">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MICROSECOND">
             <summary>
             The number of seconds in a microsecond.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerMillisecond">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MILLISECOND">
             <summary>
             The number of seconds in a millisecond.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerMinute">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MINUTE">
             <summary>
             The number of seconds in a minute.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerHour">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_HOUR">
             <summary>
             The number of seconds in an hour.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerDay">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_DAY">
             <summary>
             The number of seconds in an ephemeris day.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerWeek">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_WEEK">
             <summary>
             The number of seconds in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerMonth">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MONTH">
             <summary>
             The average number of seconds in a month.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_YEAR">
             <summary>
             The average number of seconds in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerDecade">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_DECADE">
             <summary>
             The average number of seconds in a Gregorian decade.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerCentury">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_CENTURY">
             <summary>
             The average number of seconds in a Gregorian century.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerMillennium">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MILLENNIUM">
             <summary>
             The average number of seconds in a Gregorian millennium.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerWeek">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_WEEK">
             <summary>
             The number of days in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerMonth">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_MONTH">
             <summary>
             The average number of days in a Gregorian month.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_YEAR">
             <summary>
             The average number of days in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerDecade">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_DECADE">
             <summary>
             The average number of days in a Gregorian decade.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerCentury">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_CENTURY">
             <summary>
             The average number of days in a Gregorian century.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerMillennium">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_MILLENNIUM">
             <summary>
             The average number of days in a Gregorian millennium.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerOlympiad">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_OLYMPIAD">
             <summary>
             Number of years in an olympiad.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerDecade">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_DECADE">
             <summary>
             The number of years in a decade.
             The precise length of a decade depends on what year is being used.
@@ -2146,17 +2146,17 @@
             (3652.42198781 d on average).
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerCentury">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_CENTURY">
             <summary>
             The number of years in a century.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerMillennium">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_MILLENNIUM">
             <summary>
             The number of years in a millennium.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.YearsPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The Gregorian Calendar repeats on a 400-year cycle called the "Gregorian solar cycle".
             (Not to be confused with the 11-year solar cycle.)
@@ -2173,88 +2173,88 @@
             - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.OlympiadsPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.OLYMPIADS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             Number of olympiads in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.CenturiesPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.CENTURIES_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             Number of centuries in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DecadesPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DECADES_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             Number of decades in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.LeapYearsPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.LEAP_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of leap years in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.CommonYearsPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.COMMON_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of common years in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MonthsPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MONTHS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of months in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.WeeksPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.WEEKS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of weeks in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of days in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of seconds in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TicksPerGregorianSolarCycle">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of ticks in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_YEAR">
             <summary>
             The number of days in a Julian Calendar year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianDecade">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_DECADE">
             <summary>
             The number of days in a Julian Calendar decade.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianCentury">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_CENTURY">
             <summary>
             The number of days in a Julian Calendar century.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerJulianMillennium">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_MILLENNIUM">
             <summary>
             The number of days in a Julian Calendar millennium.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SecondsPerSolarDay">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_SOLAR_DAY">
             <summary>
             The number of seconds in a solar day (as at 2023).
             It is increasing by about 2 milliseconds per century.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerLunation">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_LUNATION">
             <summary>
             Number of days in a synodic lunar month (a.k.a. "lunation").
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DaysPerTropicalYear">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_TROPICAL_YEAR">
             <summary>
             The number of days in the mean tropical year B1900 (days).
             This value is taken from the SOFA (Standards of Fundamental Astronomy) library, which is

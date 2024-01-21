@@ -213,9 +213,9 @@ public class XDecimalTests
     [TestMethod]
     public void TestDisassembleAssembleRandom()
     {
-        const int n = 100;
+        const int N = 100;
         var rnd = new Random();
-        for (var i = 0; i < n; i++)
+        for (var i = 0; i < N; i++)
         {
             var x = rnd.GetDecimal();
             var (signBit, scaleBits, intBits) = x.Disassemble();

@@ -4,10 +4,10 @@ namespace Galaxon.Core.Numbers;
 public static class XHalf
 {
     /// <summary>The total number of bits in the value.</summary>
-    public const byte TotalNumBits = 16;
+    public const byte TOTAL_NUM_BITS = 16;
 
     /// <summary>The number of bits in the fraction.</summary>
-    public const byte NumFracBits = 10;
+    public const byte NUM_FRAC_BITS = 10;
 
     /// <summary>
     /// Disassemble the Half into its bitwise components.
