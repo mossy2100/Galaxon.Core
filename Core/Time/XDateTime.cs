@@ -154,31 +154,55 @@ public static class XDateTime
 
     #endregion Create new object from time unit count
 
-    #region Conversion to/from Julian Day
+    #region Conversion to/from Julian Date
 
     /// <summary>
-    /// Express the DateTime as a Julian Day.
+    /// Express the DateTime as a Julian Date.
     /// The time of day information in the DateTime will be expressed as the fractional part of
-    /// the return value. Note, however, a Julian Day begins at 12:00 noon.
+    /// the return value. Note, however, a Julian Date begins at 12:00 noon.
     /// </summary>
     /// <param name="dt">The DateTime instance.</param>
-    /// <returns>The Julian Day value</returns>
-    public static double ToJulianDay(this DateTime dt)
+    /// <returns>The Julian Date</returns>
+    public static double ToJulianDate(this DateTime dt)
     {
         return JULIAN_PERIOD_OFFSET + GetTotalDays(dt);
     }
 
     /// <summary>
-    /// Convert a Julian Day value to a DateTime object.
+    /// Convert a Julian Date (Universal Time) to a DateTime object.
     /// </summary>
     /// <param name="jd">
-    /// The Julian Day value. May include a fractional part indicating the time of day.
+    /// The Julian Date in UT. May include a fractional part indicating the time of day.
     /// </param>
     /// <returns>A new DateTime object.</returns>
-    public static DateTime FromJulianDay(double jd)
+    public static DateTime FromJulianDate(double jd)
     {
         return FromTotalDays(jd - JULIAN_PERIOD_OFFSET);
     }
 
-    #endregion Conversion to/from Julian Day
+    #endregion Conversion to/from Julian Date
+
+    #region Year start and end
+
+    /// <summary>
+    /// Get the DateTime for the start of a given Gregorian year.
+    /// </summary>
+    /// <param name="y">The year number.</param>
+    /// <returns></returns>
+    public static DateTime GetYearStart(int y)
+    {
+        return new DateTime(y, 1, 1);
+    }
+
+    /// <summary>
+    /// Get the DateTime for the end of a given Gregorian year.
+    /// </summary>
+    /// <param name="y">The year number.</param>
+    /// <returns></returns>
+    public static DateTime GetYearEnd(int y)
+    {
+        return GetYearStart(y + 1).Subtract(new TimeSpan(1));
+    }
+
+    #endregion Year start and end
 }

@@ -194,9 +194,9 @@
              <summary>
              This class supports conversion between integers and strings of digits in a specified base,
              which can be in the range 2..36.
-            
+
              All built-in integer types are supported, including Int128, UInt128, and BigInteger.
-            
+
              As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
              Lower-case is the default for output strings.
              In the ToBase(), ToHex(), and ToTria() methods, the "upper" parameter can be used to specify if
@@ -215,7 +215,7 @@
              Multiple coding standards for CSS require lower-case hex digits in color literals.
              Other than that, I can't find any standards that mandate one over the other. It seems upper-case
              is favoured in older languages, lower-case in newer.
-            
+
              The core methods are ToBase() and FromBase(). In addition, convenience methods are provided for
              all bases that are powers of 2, which are the most commonly used:
              |------------------|------------------------|--------|--------------------------|
@@ -1923,6 +1923,20 @@
             </param>
             <returns>A new DateTime object.</returns>
         </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.GetYearStart(System.Int32)">
+            <summary>
+            Get the DateTime for the start of a given Gregorian year.
+            </summary>
+            <param name="y">The year number.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.GetYearEnd(System.Int32)">
+            <summary>
+            Get the DateTime for the end of a given Gregorian year.
+            </summary>
+            <param name="y">The year number.</param>
+            <returns></returns>
+        </member>
         <member name="T:Galaxon.Core.Time.XTimeOnly">
             <summary>
             Extension methods for TimeOnly.
@@ -2228,6 +2242,11 @@
             The number of days in a Julian Calendar year.
             </summary>
         </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_JULIAN_YEAR">
+            <summary>
+            The number of ticks in a Julian Calendar year.
+            </summary>
+        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_DECADE">
             <summary>
             The number of days in a Julian Calendar decade.
@@ -2236,6 +2255,11 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_CENTURY">
             <summary>
             The number of days in a Julian Calendar century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_JULIAN_CENTURY">
+            <summary>
+            The number of ticks in a Julian Calendar century.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_MILLENNIUM">
@@ -2247,11 +2271,17 @@
             <summary>
             The number of seconds in a solar day (as at 2023).
             It is increasing by about 2 milliseconds per century.
+            TODO make this a function taking year as a parameter.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_LUNATION">
             <summary>
             Number of days in a synodic lunar month (a.k.a. "lunation").
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_LUNATION">
+            <summary>
+            Number of ticks in a synodic lunar month (a.k.a. "lunation").
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_TROPICAL_YEAR">

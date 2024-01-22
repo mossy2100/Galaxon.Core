@@ -356,6 +356,11 @@ public static class XTimeSpan
     public const double DAYS_PER_JULIAN_YEAR = 365.25;
 
     /// <summary>
+    /// The number of ticks in a Julian Calendar year.
+    /// </summary>
+    public const long TICKS_PER_JULIAN_YEAR = (long)(DAYS_PER_JULIAN_YEAR * TimeSpan.TicksPerDay);
+
+    /// <summary>
     /// The number of days in a Julian Calendar decade.
     /// </summary>
     public const double DAYS_PER_JULIAN_DECADE = 3652.5;
@@ -364,6 +369,11 @@ public static class XTimeSpan
     /// The number of days in a Julian Calendar century.
     /// </summary>
     public const long DAYS_PER_JULIAN_CENTURY = 36_525L;
+
+    /// <summary>
+    /// The number of ticks in a Julian Calendar century.
+    /// </summary>
+    public const long TICKS_PER_JULIAN_CENTURY = DAYS_PER_JULIAN_CENTURY * TimeSpan.TicksPerDay;
 
     /// <summary>
     /// The number of days in a Julian Calendar millennium.
@@ -377,6 +387,7 @@ public static class XTimeSpan
     /// <summary>
     /// The number of seconds in a solar day (as at 2023).
     /// It is increasing by about 2 milliseconds per century.
+    /// TODO make this a function taking year as a parameter.
     /// </summary>
     public const double SECONDS_PER_SOLAR_DAY = 86_400.002;
 
@@ -384,6 +395,11 @@ public static class XTimeSpan
     /// Number of days in a synodic lunar month (a.k.a. "lunation").
     /// </summary>
     public const double DAYS_PER_LUNATION = 29.530_588_861;
+
+    /// <summary>
+    /// Number of ticks in a synodic lunar month (a.k.a. "lunation").
+    /// </summary>
+    public const double TICKS_PER_LUNATION = DAYS_PER_LUNATION * TimeSpan.TicksPerDay;
 
     /// <summary>
     /// The number of days in the mean tropical year B1900 (days).

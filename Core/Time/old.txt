@@ -50,7 +50,7 @@ class DateOnlyExtensions
 {
     /// <summary>
     /// Formula from page 61, Astronomical Algorithms 2nd ed. by Jean Meeus.
-    /// 
+    ///
     /// NB: The result gives the Julian Day at the start of the given date
     /// (00:00:00, i.e. midnight), which will always have a fraction of 0.5,
     /// since a Julian Day starts at 12:00:00 (noon).

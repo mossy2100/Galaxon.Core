@@ -217,31 +217,27 @@ public static class XDateOnly
     #region Conversion to/from Julian Day
 
     /// <summary>
-    /// Convert a  DateOnly object to a Julian Day value.
-    /// The result gives the Julian Day at the start of the given date
-    /// (00:00:00, i.e. midnight), which will always have a fraction of 0.5, since a Julian Day
-    /// starts at 12:00:00 (noon).
-    /// <see cref="XDateTime.ToJulianDay"/>
+    /// Convert a DateOnly object to a Julian Day Number.
+    /// The result gives the Julian Day Number of a given date.
     /// </summary>
     /// <param name="date">The DateOnly instance.</param>
-    /// <returns>The Julian Day value.</returns>
-    public static double ToJulianDay(this DateOnly date)
+    /// <returns>The Julian Day Number.</returns>
+    public static int ToJulianDay(this DateOnly date)
     {
-        return date.ToDateTime().ToJulianDay();
+        return (int)date.ToDateTime().ToJulianDate();
     }
 
     /// <summary>
-    /// Convert a Julian Day value to a date.
+    /// Convert a Julian Day Number to a Gregorian Date.
     /// </summary>
-    /// <see cref="XDateTime.FromJulianDay(double)"/>
     /// <param name="jd">
-    /// The Julian Day value. If a fractional part indicating the time of day is included, this
+    /// The Julian Day Number. If a fractional part indicating the time of day is included, this
     /// information will be discarded.
     /// </param>
     /// <returns>A new DateOnly object.</returns>
     public static DateOnly FromJulianDay(double jd)
     {
-        return DateOnly.FromDateTime(XDateTime.FromJulianDay(jd));
+        return DateOnly.FromDateTime(XDateTime.FromJulianDate(jd));
     }
 
     #endregion Conversion to/from Julian Day
