@@ -194,9 +194,9 @@
              <summary>
              This class supports conversion between integers and strings of digits in a specified base,
              which can be in the range 2..36.
-
+            
              All built-in integer types are supported, including Int128, UInt128, and BigInteger.
-
+            
              As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
              Lower-case is the default for output strings.
              In the ToBase(), ToHex(), and ToTria() methods, the "upper" parameter can be used to specify if
@@ -215,7 +215,7 @@
              Multiple coding standards for CSS require lower-case hex digits in color literals.
              Other than that, I can't find any standards that mandate one over the other. It seems upper-case
              is favoured in older languages, lower-case in newer.
-
+            
              The core methods are ToBase() and FromBase(). In addition, convenience methods are provided for
              all bases that are powers of 2, which are the most commonly used:
              |------------------|------------------------|--------|--------------------------|
@@ -1078,31 +1078,19 @@
             <param name="type">Some type.</param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)">
+        <member name="M:Galaxon.Core.Numbers.XNumber.Modulo``1(``0,``0)">
             <summary>
-            Integer division and modulo operation using floored division.
+            Corrected modulo operation, using floored division.
             The modulus will always have the same sign as the divisor.
             Unlike the truncated division and modulo provided by C#'s operators, floored division
             produces a regular cycling pattern through both negative and positive values of the divisor.
             It permits things like:
-            bool isOdd = Mod(num, 2) == 1;
+            bool isOdd = Modulo(num, 2) == 1;
             Trying to do this using the % operator will fail for negative divisors, however. e.g.
             bool isOdd = num % 2 == 1;
             In this case, if num is negative 0, num % 2 == -1
             </summary>
             <see href="https://en.wikipedia.org/wiki/Modulo_operation"/>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.Div``1(``0,``0)">
-            <summary>
-            Corrected integer division operation.
-            </summary>
-            <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)"/>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.Mod``1(``0,``0)">
-            <summary>
-            Corrected modulo operation.
-            </summary>
-            <see cref="M:Galaxon.Core.Numbers.XNumber.DivMod``1(``0,``0)"/>
         </member>
         <member name="M:Galaxon.Core.Numbers.XNumber.GetStaticValue``1(System.String)">
             <summary>
@@ -1733,83 +1721,21 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.ToJulianDay(System.DateOnly)">
             <summary>
-            Convert a  DateOnly object to a Julian Day value.
-            The result gives the Julian Day at the start of the given date
-            (00:00:00, i.e. midnight), which will always have a fraction of 0.5, since a Julian Day
-            starts at 12:00:00 (noon).
-            <see cref="M:Galaxon.Core.Time.XDateTime.ToJulianDay(System.DateTime)"/>
+            Convert a DateOnly object to a Julian Day Number.
+            The result gives the Julian Day Number of a given date.
             </summary>
             <param name="date">The DateOnly instance.</param>
-            <returns>The Julian Day value.</returns>
+            <returns>The Julian Day Number.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)">
             <summary>
-            Convert a Julian Day value to a date.
+            Convert a Julian Day Number to a Gregorian Date.
             </summary>
-            <see cref="M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)"/>
             <param name="jd">
-            The Julian Day value. If a fractional part indicating the time of day is included, this
+            The Julian Day Number. If a fractional part indicating the time of day is included, this
             information will be discarded.
             </param>
             <returns>A new DateOnly object.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.GetEaster(System.Int32)">
-            <summary>
-            Get the date of Easter Sunday in the given year.
-            Formula is from Wikipedia.
-            This method uses the "Meeus/Jones/Butcher" algorithm from 1876, with the New Scientist
-            modifications from 1961.
-            Tested for years 1600..2299.
-            </summary>
-            <see href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm"/>
-            <see href="https://www.census.gov/data/software/x13as/genhol/easter-dates.html"/>
-            <see href="https://www.assa.org.au/edm"/>
-            <param name="year">The Gregorian year number.</param>
-            <returns>The date of Easter Sunday for the given year.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.GetChristmas(System.Int32)">
-            <summary>
-            Get the date of Christmas Day in the given year.
-            </summary>
-            <param name="year">The year.</param>
-            <returns>The date of Christmas in the given year.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.GetNthWeekdayInMonth(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
-            <summary>
-            Find the nth weekday in a given month.
-            Example:
-            <code>
-            // Get the 4th Thursday in January, 2023.
-            DateOnly meetup = XDateOnly.GetNthWeekdayInMonth(2023, 1, 4, DayOfWeek.Thursday);
-            </code>
-            A negative value for n means count from the end of the month.
-            n = -1 means the last one in the month. n = -2 means the second-last, etc.
-            Example:
-            <code>
-            // Get the last Monday in November, 2025.
-            DateOnly meetup = XDateOnly.GetNthWeekdayInMonth(2025, 11, -1, DayOfWeek.Monday);
-            </code>
-            </summary>
-            <param name="year">The year.</param>
-            <param name="month">The month.</param>
-            <param name="n">Which occurence of the day of the week within the month.</param>
-            <param name="dayOfWeek">The day of the week.</param>
-            <returns>The requested date.</returns>
-            <exception cref="T:System.ArgumentOutOfRangeException">If Abs(n) not in the range 1..5</exception>
-            <exception cref="T:System.InvalidOperationException">If a valid date could not be found.</exception>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.GetThanksgiving(System.Int32,System.String)">
-            <summary>
-            Find the date of Thanksgiving for a specified country in a given year.
-            Only years with a holiday called "Thanksgiving" are supported. The default is "US".
-            </summary>
-            <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance"/>
-            <param name="year">The year.</param>
-            <param name="countryCode">The ISO 2-letter country code.</param>
-            <returns>The date of Thanksgiving.</returns>
-            <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
-            Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
-            </exception>
         </member>
         <member name="T:Galaxon.Core.Time.XDateTime">
             <summary>
@@ -1905,21 +1831,21 @@
             <param name="years">The number of years. May include a fractional part.</param>
             <returns>A new DateTime object.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.ToJulianDay(System.DateTime)">
+        <member name="M:Galaxon.Core.Time.XDateTime.ToJulianDate(System.DateTime)">
             <summary>
-            Express the DateTime as a Julian Day.
+            Express the DateTime as a Julian Date.
             The time of day information in the DateTime will be expressed as the fractional part of
-            the return value. Note, however, a Julian Day begins at 12:00 noon.
+            the return value. Note, however, a Julian Date begins at 12:00 noon.
             </summary>
             <param name="dt">The DateTime instance.</param>
-            <returns>The Julian Day value</returns>
+            <returns>The Julian Date</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.FromJulianDay(System.Double)">
+        <member name="M:Galaxon.Core.Time.XDateTime.FromJulianDate(System.Double)">
             <summary>
-            Convert a Julian Day value to a DateTime object.
+            Convert a Julian Date (Universal Time) to a DateTime object.
             </summary>
             <param name="jd">
-            The Julian Day value. May include a fractional part indicating the time of day.
+            The Julian Date in UT. May include a fractional part indicating the time of day.
             </param>
             <returns>A new DateTime object.</returns>
         </member>
@@ -1936,6 +1862,103 @@
             </summary>
             <param name="y">The year number.</param>
             <returns></returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.IsLeapYear(System.Int32)">
+            <summary>
+            Check if a year is a leap year.
+            As we're using the floored division version of the modulo operator, years can be negative.
+            The .NET GregorianCalendar and DateTime classes only supports positive years.
+            To convert from BCE (BC) to a negative (proleptic) Gregorian Calendar year number, subtract
+            the year from 1.
+              e.g. 45 BCE = 1 - 45 = -44
+            </summary>
+            <param name="y">The year number in the proleptic Gregorian Calendar.</param>
+            <returns>If the year is a leap year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.DaysInYear(System.Int32)">
+            <summary>
+            Get the number of days in a year.
+            Supports negative years, unlike the .NET GregorianCalendar or DateTime classes.
+            </summary>
+            <param name="y">The year number in the proleptic Gregorian Calendar.</param>
+            <returns>The number of days in the year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.DaysInMonth(System.Int32,System.Int32)">
+            <summary>
+            Get the number of days in a month.
+            Supports negative years, unlike the .NET GregorianCalendar or DateTime classes.
+            </summary>
+            <param name="y">The year number in the proleptic Gregorian Calendar.</param>
+            <param name="m">The month number.</param>
+            <returns>The number of days in the month.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.DayOfYear(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Which day of the year is a given date.
+            Supports negative years, unlike the .NET GregorianCalendar or DateTime classes.
+            </summary>
+            <param name="y">The year number in the proleptic Gregorian Calendar.</param>
+            <param name="m">The month number.</param>
+            <param name="d">The day of the month.</param>
+            <returns>The day of the year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.Easter(System.Int32)">
+            <summary>
+            Get the date of Easter Sunday in the given year.
+            Formula is from Wikipedia.
+            This method uses the "Meeus/Jones/Butcher" algorithm from 1876, with the New Scientist
+            modifications from 1961.
+            Tested for years 1600..2299.
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/Date_of_Easter#Anonymous_Gregorian_algorithm"/>
+            <see href="https://www.census.gov/data/software/x13as/genhol/easter-dates.html"/>
+            <see href="https://www.assa.org.au/edm"/>
+            <param name="year">The Gregorian year number.</param>
+            <returns>The date of Easter Sunday for the given year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.Christmas(System.Int32)">
+            <summary>
+            Get the date of Christmas Day in the given year.
+            </summary>
+            <param name="year">The year.</param>
+            <returns>The date of Christmas in the given year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.NthWeekdayInMonth(System.Int32,System.Int32,System.Int32,System.DayOfWeek)">
+             <summary>
+             Find the nth weekday in a given month.
+            
+             Example: Get the 4th Thursday in January, 2023.
+             <code>
+             DateOnly meetup = XDateOnly.GetNthWeekdayInMonth(2023, 1, 4, DayOfWeek.Thursday);
+             </code>
+            
+             A negative value for n means count from the end of the month.
+             n = -1 means the last one in the month. n = -2 means the second-last, etc.
+             Example: Get the last Monday in November, 2025.
+             <code>
+             DateOnly meetup = XDateOnly.GetNthWeekdayInMonth(2025, 11, -1, DayOfWeek.Monday);
+             </code>
+             </summary>
+             <param name="year">The year.</param>
+             <param name="month">The month.</param>
+             <param name="n">Which occurence of the day of the week within the month.</param>
+             <param name="dayOfWeek">The day of the week.</param>
+             <returns>The requested date.</returns>
+             <exception cref="T:System.ArgumentOutOfRangeException">If Abs(n) not in the range 1..5</exception>
+             <exception cref="T:System.InvalidOperationException">If a valid date could not be found.</exception>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.Thanksgiving(System.Int32,System.String)">
+            <summary>
+            Find the date of Thanksgiving for a specified country in a given year.
+            Only years with a holiday called "Thanksgiving" are supported. The default is "US".
+            </summary>
+            <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance"/>
+            <param name="year">The year.</param>
+            <param name="countryCode">The ISO 2-letter country code.</param>
+            <returns>The date of Thanksgiving.</returns>
+            <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
+            Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
+            </exception>
         </member>
         <member name="T:Galaxon.Core.Time.XTimeOnly">
             <summary>
