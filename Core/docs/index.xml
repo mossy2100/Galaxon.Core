@@ -1078,7 +1078,7 @@
             <param name="type">Some type.</param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.XNumber.Modulo``1(``0,``0)">
+        <member name="M:Galaxon.Core.Numbers.XNumber.Mod``1(``0,``0)">
             <summary>
             Corrected modulo operation, using floored division.
             The modulus will always have the same sign as the divisor.
@@ -1719,34 +1719,9 @@
             <param name="dayOfYear">The day of the year (1..366).</param>
             <returns>The resulting date.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.ToJulianDay(System.DateOnly)">
-            <summary>
-            Convert a DateOnly object to a Julian Day Number.
-            The result gives the Julian Day Number of a given date.
-            </summary>
-            <param name="date">The DateOnly instance.</param>
-            <returns>The Julian Day Number.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateOnly.FromJulianDay(System.Double)">
-            <summary>
-            Convert a Julian Day Number to a Gregorian Date.
-            </summary>
-            <param name="jd">
-            The Julian Day Number. If a fractional part indicating the time of day is included, this
-            information will be discarded.
-            </param>
-            <returns>A new DateOnly object.</returns>
-        </member>
         <member name="T:Galaxon.Core.Time.XDateTime">
             <summary>
             Extension methods for the DateTime class.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XDateTime.JULIAN_PERIOD_OFFSET">
-            <summary>
-            The number of days from the start of the Julian period to the start of the epoch used by
-            .NET (0001-01-01 00:00:00 UTC).
-            <see cref="M:Galaxon.Core.Time.XDateTime.GetTotalDays(System.DateTime)"/>
             </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.ToIsoString(System.DateTime)">
@@ -1780,12 +1755,12 @@
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.GetTimeOnly(System.DateTime)">
             <summary>
-            Get the time part of a DateTime as a TimeOnly object.
+            Get the time of day part of a DateTime as a TimeOnly object.
             An alternative to the TimeOfDay property, which returns a TimeSpan.
             </summary>
             <see cref="P:System.DateTime.TimeOfDay"/>
             <param name="dt">The DateTime.</param>
-            <returns>The time part of the DateTime.</returns>
+            <returns>The time of day part of the DateTime.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.GetTotalSeconds(System.DateTime)">
             <summary>
@@ -1807,6 +1782,11 @@
             </summary>
             <param name="dt">The DateTime instance.</param>
             <returns>The number of years since the epoch start.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XDateTime.GetCurrentUtc">
+            <summary>
+            Get the current DateTime in UTC.
+            </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)">
             <summary>
@@ -1831,24 +1811,6 @@
             <param name="years">The number of years. May include a fractional part.</param>
             <returns>A new DateTime object.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.ToJulianDate(System.DateTime)">
-            <summary>
-            Express the DateTime as a Julian Date.
-            The time of day information in the DateTime will be expressed as the fractional part of
-            the return value. Note, however, a Julian Date begins at 12:00 noon.
-            </summary>
-            <param name="dt">The DateTime instance.</param>
-            <returns>The Julian Date</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.FromJulianDate(System.Double)">
-            <summary>
-            Convert a Julian Date (Universal Time) to a DateTime object.
-            </summary>
-            <param name="jd">
-            The Julian Date in UT. May include a fractional part indicating the time of day.
-            </param>
-            <returns>A new DateTime object.</returns>
-        </member>
         <member name="M:Galaxon.Core.Time.XDateTime.GetYearStart(System.Int32)">
             <summary>
             Get the DateTime for the start of a given Gregorian year.
@@ -1862,6 +1824,188 @@
             </summary>
             <param name="y">The year number.</param>
             <returns></returns>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_MONTH">
+            <summary>
+            The average number of weeks in a Gregorian calendar month.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_YEAR">
+            <summary>
+            The average number of weeks in a Gregorian calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MONTHS_PER_YEAR">
+            <summary>
+            The number of months in a Gregorian calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_MONTH">
+            <summary>
+            The average number of ticks in a Gregorian calendar month.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_YEAR">
+            <summary>
+            The average number of ticks in a Gregorian calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_DECADE">
+            <summary>
+            The average number of ticks in a Gregorian calendar decade.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_CENTURY">
+            <summary>
+            The average number of ticks in a Gregorian calendar century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_MILLENNIUM">
+            <summary>
+            The average number of ticks in a Gregorian calendar millennium.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_MONTH">
+            <summary>
+            The average number of milliseconds in a Gregorian calendar month.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_YEAR">
+            <summary>
+            The average number of milliseconds in a Gregorian calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_DECADE">
+            <summary>
+            The average number of milliseconds in a Gregorian calendar decade.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_CENTURY">
+            <summary>
+            The average number of milliseconds in a Gregorian calendar century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_MILLENNIUM">
+            <summary>
+            The average number of milliseconds in a Gregorian calendar millennium.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_MONTH">
+            <summary>
+            The average number of seconds in a Gregorian calendar month.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_YEAR">
+            <summary>
+            The average number of seconds in a Gregorian calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_DECADE">
+            <summary>
+            The average number of seconds in a Gregorian calendar decade.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_CENTURY">
+            <summary>
+            The average number of seconds in a Gregorian calendar century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_MILLENNIUM">
+            <summary>
+            The average number of seconds in a Gregorian calendar millennium.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_MONTH">
+            <summary>
+            The average number of days in a Gregorian calendar month.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_YEAR">
+            <summary>
+            The average number of days in a Gregorian calendar year.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_DECADE">
+            <summary>
+            The average number of days in a Gregorian calendar decade.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_CENTURY">
+            <summary>
+            The average number of days in a Gregorian calendar century.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_MILLENNIUM">
+            <summary>
+            The average number of days in a Gregorian calendar millennium.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.YEARS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The Gregorian Calendar repeats on a 400-year cycle called the "Gregorian solar cycle".
+            (Not to be confused with the 11-year solar cycle.)
+            There are 97 leap years in that period, giving an average calendar year length of
+            365 + (97/400) = 365.2425 days/year.
+            1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
+            5 Gregorian solar cycles = 2000 y = 2 ky
+            Gregorian solar cycles are not ordinarily numbered, nor given a specific start date.
+            However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
+            1 Jan, 1 CE, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
+            was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
+            See:
+            - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)"/>
+            - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.OLYMPIADS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            Number of olympiads in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.CENTURIES_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            Number of centuries in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DECADES_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            Number of decades in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.LEAP_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of leap years in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.COMMON_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of common years in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MONTHS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of months in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of weeks in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of days in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of seconds in a Gregorian solar cycle.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_GREGORIAN_SOLAR_CYCLE">
+            <summary>
+            The number of ticks in a Gregorian solar cycle.
+            </summary>
         </member>
         <member name="M:Galaxon.Core.Time.XGregorianCalendar.IsLeapYear(System.Int32)">
             <summary>
@@ -1891,6 +2035,15 @@
             <param name="y">The year number in the proleptic Gregorian Calendar.</param>
             <param name="m">The month number.</param>
             <returns>The number of days in the month.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.SecondsInYear(System.Int32)">
+            <summary>
+            Get the number of seconds in a year.
+            Supports negative years, unlike the .NET GregorianCalendar or DateTime classes.
+            Currently does not support leap seconds. May add this capability later.
+            </summary>
+            <param name="y">The year number in the proleptic Gregorian Calendar.</param>
+            <returns>The number of seconds in the year.</returns>
         </member>
         <member name="M:Galaxon.Core.Time.XGregorianCalendar.DayOfYear(System.Int32,System.Int32,System.Int32)">
             <summary>
@@ -2029,24 +2182,39 @@
             The number of hours in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.WEEKS_PER_MONTH">
-            <summary>
-            The number of weeks in an average Gregorian month.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.WEEKS_PER_YEAR">
-            <summary>
-            The number of weeks in a Gregorian year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MONTHS_PER_YEAR">
-            <summary>
-            The number of months in a Gregorian year.
-            </summary>
-        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_NANOSECOND">
             <summary>
             The number of ticks in a nanosecond.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MICROSECOND">
+            <summary>
+            The number of ticks in a microsecond.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MILLISECOND">
+            <summary>
+            The number of ticks in a millisecond.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_SECOND">
+            <summary>
+            The number of ticks in a second.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MINUTE">
+            <summary>
+            The number of ticks in a minute.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_HOUR">
+            <summary>
+            The number of ticks in an hour.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_DAY">
+            <summary>
+            The number of ticks in a day.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_WEEK">
@@ -2054,29 +2222,44 @@
             The number of ticks in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MONTH">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_NANOSECOND">
             <summary>
-            The number of ticks in a month.
+            The number of milliseconds in a nanosecond.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_YEAR">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_TICK">
             <summary>
-            The number of ticks in a Gregorian year.
+            The number of milliseconds in a tick.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_DECADE">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_MICROSECOND">
             <summary>
-            The number of ticks in a Gregorian decade.
+            The number of milliseconds in a microsecond.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_CENTURY">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_SECOND">
             <summary>
-            The number of ticks in a Gregorian century.
+            The number of milliseconds in a second.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MILLENNIUM">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_MINUTE">
             <summary>
-            The number of ticks in a Gregorian millennium.
+            The number of milliseconds in a minute.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_HOUR">
+            <summary>
+            The number of milliseconds in an hour.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_DAY">
+            <summary>
+            The number of milliseconds in an ephemeris day.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_WEEK">
+            <summary>
+            The number of milliseconds in a week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_TICK">
@@ -2114,59 +2297,9 @@
             The number of seconds in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MONTH">
-            <summary>
-            The average number of seconds in a month.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_YEAR">
-            <summary>
-            The average number of seconds in a Gregorian year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_DECADE">
-            <summary>
-            The average number of seconds in a Gregorian decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_CENTURY">
-            <summary>
-            The average number of seconds in a Gregorian century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MILLENNIUM">
-            <summary>
-            The average number of seconds in a Gregorian millennium.
-            </summary>
-        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_WEEK">
             <summary>
             The number of days in a week.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_MONTH">
-            <summary>
-            The average number of days in a Gregorian month.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_YEAR">
-            <summary>
-            The average number of days in a Gregorian year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_DECADE">
-            <summary>
-            The average number of days in a Gregorian decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_CENTURY">
-            <summary>
-            The average number of days in a Gregorian century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_MILLENNIUM">
-            <summary>
-            The average number of days in a Gregorian millennium.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_OLYMPIAD">
@@ -2177,10 +2310,6 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_DECADE">
             <summary>
             The number of years in a decade.
-            The precise length of a decade depends on what year is being used.
-            For a example, a Gregorian decade (3652.425 d on average) will have a different
-            length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
-            (3652.42198781 d on average).
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_CENTURY">
@@ -2191,103 +2320,6 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_MILLENNIUM">
             <summary>
             The number of years in a millennium.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The Gregorian Calendar repeats on a 400-year cycle called the "Gregorian solar cycle".
-            (Not to be confused with the 11-year solar cycle.)
-            There are 97 leap years in that period, giving an average calendar year length of
-            365 + (97/400) = 365.2425 days/year.
-            1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
-            5 Gregorian solar cycles = 2000 y = 2 ky
-            Gregorian solar cycles are not ordinarily numbered, nor given a specific start date.
-            However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
-            1 Jan, 1 CE, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
-            was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
-            See:
-            - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)"/>
-            - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.OLYMPIADS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            Number of olympiads in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.CENTURIES_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            Number of centuries in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DECADES_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            Number of decades in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.LEAP_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of leap years in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.COMMON_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of common years in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MONTHS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of months in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.WEEKS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of weeks in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of days in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of seconds in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of ticks in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_YEAR">
-            <summary>
-            The number of days in a Julian Calendar year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_JULIAN_YEAR">
-            <summary>
-            The number of ticks in a Julian Calendar year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_DECADE">
-            <summary>
-            The number of days in a Julian Calendar decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_CENTURY">
-            <summary>
-            The number of days in a Julian Calendar century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_JULIAN_CENTURY">
-            <summary>
-            The number of ticks in a Julian Calendar century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_JULIAN_MILLENNIUM">
-            <summary>
-            The number of days in a Julian Calendar millennium.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_SOLAR_DAY">

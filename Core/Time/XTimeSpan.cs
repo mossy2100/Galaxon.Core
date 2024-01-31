@@ -43,11 +43,11 @@ public static class XTimeSpan
             ETimeUnit.Hour => amount * TimeSpan.TicksPerHour,
             ETimeUnit.Day => amount * TimeSpan.TicksPerDay,
             ETimeUnit.Week => amount * TICKS_PER_WEEK,
-            ETimeUnit.Month => amount * TICKS_PER_MONTH,
-            ETimeUnit.Year => amount * TICKS_PER_YEAR,
-            ETimeUnit.Decade => amount * TICKS_PER_DECADE,
-            ETimeUnit.Century => amount * TICKS_PER_CENTURY,
-            ETimeUnit.Millennium => amount * TICKS_PER_MILLENNIUM,
+            ETimeUnit.Month => amount * XGregorianCalendar.TICKS_PER_MONTH,
+            ETimeUnit.Year => amount * XGregorianCalendar.TICKS_PER_YEAR,
+            ETimeUnit.Decade => amount * XGregorianCalendar.TICKS_PER_DECADE,
+            ETimeUnit.Century => amount * XGregorianCalendar.TICKS_PER_CENTURY,
+            ETimeUnit.Millennium => amount * XGregorianCalendar.TICKS_PER_MILLENNIUM,
             _ => throw new ArgumentOutOfRangeException(nameof(fromUnit), "Invalid time unit.")
         };
 
@@ -62,11 +62,11 @@ public static class XTimeSpan
             ETimeUnit.Hour => ticks / TimeSpan.TicksPerHour,
             ETimeUnit.Day => ticks / TimeSpan.TicksPerDay,
             ETimeUnit.Week => ticks / TICKS_PER_WEEK,
-            ETimeUnit.Month => ticks / TICKS_PER_MONTH,
-            ETimeUnit.Year => ticks / TICKS_PER_YEAR,
-            ETimeUnit.Decade => ticks / TICKS_PER_DECADE,
-            ETimeUnit.Century => ticks / TICKS_PER_CENTURY,
-            ETimeUnit.Millennium => ticks / TICKS_PER_MILLENNIUM,
+            ETimeUnit.Month => ticks / XGregorianCalendar.TICKS_PER_MONTH,
+            ETimeUnit.Year => ticks / XGregorianCalendar.TICKS_PER_YEAR,
+            ETimeUnit.Decade => ticks / XGregorianCalendar.TICKS_PER_DECADE,
+            ETimeUnit.Century => ticks / XGregorianCalendar.TICKS_PER_CENTURY,
+            ETimeUnit.Millennium => ticks / XGregorianCalendar.TICKS_PER_MILLENNIUM,
             _ => throw new ArgumentOutOfRangeException(nameof(toUnit), "Invalid time unit.")
         };
     }
@@ -95,21 +95,6 @@ public static class XTimeSpan
     /// </summary>
     public const long HOURS_PER_WEEK = 168L;
 
-    /// <summary>
-    /// The number of weeks in an average Gregorian month.
-    /// </summary>
-    public const double WEEKS_PER_MONTH = 4.348_125;
-
-    /// <summary>
-    /// The number of weeks in a Gregorian year.
-    /// </summary>
-    public const double WEEKS_PER_YEAR = 52.1775;
-
-    /// <summary>
-    /// The number of months in a Gregorian year.
-    /// </summary>
-    public const long MONTHS_PER_YEAR = 12L;
-
     #endregion Miscelleanous conversion factors
 
     #region Ticks per unit of time
@@ -120,36 +105,85 @@ public static class XTimeSpan
     public const double TICKS_PER_NANOSECOND = 0.01;
 
     /// <summary>
+    /// The number of ticks in a microsecond.
+    /// </summary>
+    public const double TICKS_PER_MICROSECOND = TimeSpan.TicksPerMicrosecond;
+
+    /// <summary>
+    /// The number of ticks in a millisecond.
+    /// </summary>
+    public const double TICKS_PER_MILLISECOND = TimeSpan.TicksPerMillisecond;
+
+    /// <summary>
+    /// The number of ticks in a second.
+    /// </summary>
+    public const double TICKS_PER_SECOND = TimeSpan.TicksPerSecond;
+
+    /// <summary>
+    /// The number of ticks in a minute.
+    /// </summary>
+    public const double TICKS_PER_MINUTE = TimeSpan.TicksPerMinute;
+
+    /// <summary>
+    /// The number of ticks in an hour.
+    /// </summary>
+    public const double TICKS_PER_HOUR = TimeSpan.TicksPerHour;
+
+    /// <summary>
+    /// The number of ticks in a day.
+    /// </summary>
+    public const double TICKS_PER_DAY = TimeSpan.TicksPerDay;
+
+    /// <summary>
     /// The number of ticks in a week.
     /// </summary>
     public const long TICKS_PER_WEEK = 6_048_000_000_000L;
 
-    /// <summary>
-    /// The number of ticks in a month.
-    /// </summary>
-    public const long TICKS_PER_MONTH = 26_297_460_000_000L;
-
-    /// <summary>
-    /// The number of ticks in a Gregorian year.
-    /// </summary>
-    public const long TICKS_PER_YEAR = 315_569_520_000_000L;
-
-    /// <summary>
-    /// The number of ticks in a Gregorian decade.
-    /// </summary>
-    public const long TICKS_PER_DECADE = 3_155_695_200_000_000L;
-
-    /// <summary>
-    /// The number of ticks in a Gregorian century.
-    /// </summary>
-    public const long TICKS_PER_CENTURY = 31_556_952_000_000_000L;
-
-    /// <summary>
-    /// The number of ticks in a Gregorian millennium.
-    /// </summary>
-    public const long TICKS_PER_MILLENNIUM = 315_569_520_000_000_000L;
-
     #endregion Seconds per unit of time
+
+    #region Milliseconds per unit of time
+
+    /// <summary>
+    /// The number of milliseconds in a nanosecond.
+    /// </summary>
+    public const double MILLISECONDS_PER_NANOSECOND = 1e-6;
+
+    /// <summary>
+    /// The number of milliseconds in a tick.
+    /// </summary>
+    public const double MILLISECONDS_PER_TICK = 1e-04;
+
+    /// <summary>
+    /// The number of milliseconds in a microsecond.
+    /// </summary>
+    public const double MILLISECONDS_PER_MICROSECOND = 1e-3;
+
+    /// <summary>
+    /// The number of milliseconds in a second.
+    /// </summary>
+    public const double MILLISECONDS_PER_SECOND = 1e3;
+
+    /// <summary>
+    /// The number of milliseconds in a minute.
+    /// </summary>
+    public const long MILLISECONDS_PER_MINUTE = 60_000L;
+
+    /// <summary>
+    /// The number of milliseconds in an hour.
+    /// </summary>
+    public const long MILLISECONDS_PER_HOUR = 3_600_000L;
+
+    /// <summary>
+    /// The number of milliseconds in an ephemeris day.
+    /// </summary>
+    public const long MILLISECONDS_PER_DAY = 86_400_000L;
+
+    /// <summary>
+    /// The number of milliseconds in a week.
+    /// </summary>
+    public const long MILLISECONDS_PER_WEEK = 604_800_000L;
+
+    #endregion Milliseconds per unit of time
 
     #region Seconds per unit of time
 
@@ -188,31 +222,6 @@ public static class XTimeSpan
     /// </summary>
     public const long SECONDS_PER_WEEK = 604_800L;
 
-    /// <summary>
-    /// The average number of seconds in a month.
-    /// </summary>
-    public const long SECONDS_PER_MONTH = 2_629_746L;
-
-    /// <summary>
-    /// The average number of seconds in a Gregorian year.
-    /// </summary>
-    public const long SECONDS_PER_YEAR = 31_556_952L;
-
-    /// <summary>
-    /// The average number of seconds in a Gregorian decade.
-    /// </summary>
-    public const long SECONDS_PER_DECADE = 315_569_520L;
-
-    /// <summary>
-    /// The average number of seconds in a Gregorian century.
-    /// </summary>
-    public const long SECONDS_PER_CENTURY = 3_155_695_200L;
-
-    /// <summary>
-    /// The average number of seconds in a Gregorian millennium.
-    /// </summary>
-    public const long SECONDS_PER_MILLENNIUM = 31_556_952_000L;
-
     #endregion Seconds per unit of time
 
     #region Days per unit of time
@@ -221,31 +230,6 @@ public static class XTimeSpan
     /// The number of days in a week.
     /// </summary>
     public const long DAYS_PER_WEEK = 7L;
-
-    /// <summary>
-    /// The average number of days in a Gregorian month.
-    /// </summary>
-    public const double DAYS_PER_MONTH = 30.436_875;
-
-    /// <summary>
-    /// The average number of days in a Gregorian year.
-    /// </summary>
-    public const double DAYS_PER_YEAR = 365.2425;
-
-    /// <summary>
-    /// The average number of days in a Gregorian decade.
-    /// </summary>
-    public const double DAYS_PER_DECADE = 3652.425;
-
-    /// <summary>
-    /// The average number of days in a Gregorian century.
-    /// </summary>
-    public const double DAYS_PER_CENTURY = 36_524.25;
-
-    /// <summary>
-    /// The average number of days in a Gregorian millennium.
-    /// </summary>
-    public const double DAYS_PER_MILLENNIUM = 365_242.5;
 
     #endregion Days per unit of time
 
@@ -258,10 +242,6 @@ public static class XTimeSpan
 
     /// <summary>
     /// The number of years in a decade.
-    /// The precise length of a decade depends on what year is being used.
-    /// For a example, a Gregorian decade (3652.425 d on average) will have a different
-    /// length to an Islamic Calendar decade (about 3543.67 d on average) or a tropical decade
-    /// (3652.42198781 d on average).
     /// </summary>
     public const long YEARS_PER_DECADE = 10L;
 
@@ -276,111 +256,6 @@ public static class XTimeSpan
     public const long YEARS_PER_MILLENNIUM = 1000L;
 
     #endregion Years per unit of time
-
-    #region Gregorian solar cycles
-
-    /// <summary>
-    /// The Gregorian Calendar repeats on a 400-year cycle called the "Gregorian solar cycle".
-    /// (Not to be confused with the 11-year solar cycle.)
-    /// There are 97 leap years in that period, giving an average calendar year length of
-    /// 365 + (97/400) = 365.2425 days/year.
-    /// 1 Gregorian solar cycle = 400 y = 4800 mon = 20,871 w = 146,097 d
-    /// 5 Gregorian solar cycles = 2000 y = 2 ky
-    /// Gregorian solar cycles are not ordinarily numbered, nor given a specific start date.
-    /// However, within the proleptic Gregorian epoch (the one used by .NET), which began on Monday,
-    /// 1 Jan, 1 CE, we are currently in the 6th solar cycle. It began on Monday, 1 Jan, 2001, which
-    /// was also the first day of the 3rd millennium AD. It will end on Sunday, 31 Dec, 2400.
-    /// See:
-    /// - <see href="https://en.wikipedia.org/wiki/Solar_cycle_(calendar)"/>
-    /// - <see href="https://en.wikipedia.org/wiki/Proleptic_Gregorian_calendar"/>
-    /// </summary>
-    public const long YEARS_PER_GREGORIAN_SOLAR_CYCLE = 400;
-
-    /// <summary>
-    /// Number of olympiads in a Gregorian solar cycle.
-    /// </summary>
-    public const long OLYMPIADS_PER_GREGORIAN_SOLAR_CYCLE = 100;
-
-    /// <summary>
-    /// Number of centuries in a Gregorian solar cycle.
-    /// </summary>
-    public const long CENTURIES_PER_GREGORIAN_SOLAR_CYCLE = 4;
-
-    /// <summary>
-    /// Number of decades in a Gregorian solar cycle.
-    /// </summary>
-    public const long DECADES_PER_GREGORIAN_SOLAR_CYCLE = 40;
-
-    /// <summary>
-    /// The number of leap years in a Gregorian solar cycle.
-    /// </summary>
-    public const long LEAP_YEARS_PER_GREGORIAN_SOLAR_CYCLE = 97;
-
-    /// <summary>
-    /// The number of common years in a Gregorian solar cycle.
-    /// </summary>
-    public const long COMMON_YEARS_PER_GREGORIAN_SOLAR_CYCLE = 303;
-
-    /// <summary>
-    /// The number of months in a Gregorian solar cycle.
-    /// </summary>
-    public const long MONTHS_PER_GREGORIAN_SOLAR_CYCLE = 4800;
-
-    /// <summary>
-    /// The number of weeks in a Gregorian solar cycle.
-    /// </summary>
-    public const long WEEKS_PER_GREGORIAN_SOLAR_CYCLE = 20_871;
-
-    /// <summary>
-    /// The number of days in a Gregorian solar cycle.
-    /// </summary>
-    public const long DAYS_PER_GREGORIAN_SOLAR_CYCLE = 146_097;
-
-    /// <summary>
-    /// The number of seconds in a Gregorian solar cycle.
-    /// </summary>
-    public const long SECONDS_PER_GREGORIAN_SOLAR_CYCLE = 12_622_780_800;
-
-    /// <summary>
-    /// The number of ticks in a Gregorian solar cycle.
-    /// </summary>
-    public const long TICKS_PER_GREGORIAN_SOLAR_CYCLE = 126_227_808_000_000_000;
-
-    #endregion Solar cycles
-
-    #region Julian Calendar
-
-    /// <summary>
-    /// The number of days in a Julian Calendar year.
-    /// </summary>
-    public const double DAYS_PER_JULIAN_YEAR = 365.25;
-
-    /// <summary>
-    /// The number of ticks in a Julian Calendar year.
-    /// </summary>
-    public const long TICKS_PER_JULIAN_YEAR = (long)(DAYS_PER_JULIAN_YEAR * TimeSpan.TicksPerDay);
-
-    /// <summary>
-    /// The number of days in a Julian Calendar decade.
-    /// </summary>
-    public const double DAYS_PER_JULIAN_DECADE = 3652.5;
-
-    /// <summary>
-    /// The number of days in a Julian Calendar century.
-    /// </summary>
-    public const long DAYS_PER_JULIAN_CENTURY = 36_525L;
-
-    /// <summary>
-    /// The number of ticks in a Julian Calendar century.
-    /// </summary>
-    public const long TICKS_PER_JULIAN_CENTURY = DAYS_PER_JULIAN_CENTURY * TimeSpan.TicksPerDay;
-
-    /// <summary>
-    /// The number of days in a Julian Calendar millennium.
-    /// </summary>
-    public const long DAYS_PER_JULIAN_MILLENNIUM = 365_250L;
-
-    #endregion Julian Calendar
 
     #region Astronomical
 

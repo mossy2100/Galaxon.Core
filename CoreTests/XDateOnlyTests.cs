@@ -50,54 +50,6 @@ public class XDateOnlyTests
     }
 
     [TestMethod]
-    public void TestDateOnlyToJulianDay()
-    {
-        DateOnly date;
-
-        // Test start of range.
-        date = new DateOnly(1, 1, 1);
-        Assert.AreEqual(date.ToJulianDay(), 1721425.5);
-
-        // Test current date.
-        date = new DateOnly(2022, 6, 8);
-        Assert.AreEqual(date.ToJulianDay(), 2459738.5);
-
-        // Test middle of range.
-        date = new DateOnly(5000, 7, 2);
-        Assert.AreEqual(date.ToJulianDay(), 3547454.5);
-
-        // Test end of range.
-        date = new DateOnly(9999, 12, 31);
-        Assert.AreEqual(date.ToJulianDay(), 5373483.5);
-    }
-
-    [TestMethod]
-    public void TestDateOnlyFromJulianDay()
-    {
-        DateOnly date1, date2;
-
-        // Test start of range.
-        date1 = new DateOnly(1, 1, 1);
-        date2 = XDateOnly.FromJulianDay(1721425.5);
-        Assert.AreEqual(date1.GetTicks(), date2.GetTicks());
-
-        // Test current date.
-        date1 = new DateOnly(2022, 6, 8);
-        date2 = XDateOnly.FromJulianDay(2459738.5);
-        Assert.AreEqual(date1.GetTicks(), date2.GetTicks());
-
-        // Test middle of range.
-        date1 = new DateOnly(5000, 7, 2);
-        date2 = XDateOnly.FromJulianDay(3547454.5);
-        Assert.AreEqual(date1.GetTicks(), date2.GetTicks());
-
-        // Test end of range.
-        date1 = new DateOnly(9999, 12, 31);
-        date2 = XDateOnly.FromJulianDay(5373483.5);
-        Assert.AreEqual(date1.GetTicks(), date2.GetTicks());
-    }
-
-    [TestMethod]
     public void TestSubtract()
     {
         // This uses the dates of Halley's Comet from example 7.d in AA2 p64.

@@ -99,7 +99,7 @@ public static class XDateOnly
     /// <returns>The number of years since the epoch start.</returns>
     public static double GetTotalYears(this DateOnly date)
     {
-        return (double)date.GetTicks() / XTimeSpan.TICKS_PER_YEAR;
+        return (double)date.GetTicks() / XGregorianCalendar.TICKS_PER_YEAR;
     }
 
     #endregion Methods for getting the instant as a count of time units
@@ -212,32 +212,4 @@ public static class XDateOnly
     }
 
     #endregion Create new object
-
-    #region Conversion to/from Julian Day
-
-    /// <summary>
-    /// Convert a DateOnly object to a Julian Day Number.
-    /// The result gives the Julian Day Number of a given date.
-    /// </summary>
-    /// <param name="date">The DateOnly instance.</param>
-    /// <returns>The Julian Day Number.</returns>
-    public static int ToJulianDay(this DateOnly date)
-    {
-        return (int)date.ToDateTime().ToJulianDate();
-    }
-
-    /// <summary>
-    /// Convert a Julian Day Number to a Gregorian Date.
-    /// </summary>
-    /// <param name="jd">
-    /// The Julian Day Number. If a fractional part indicating the time of day is included, this
-    /// information will be discarded.
-    /// </param>
-    /// <returns>A new DateOnly object.</returns>
-    public static DateOnly FromJulianDay(double jd)
-    {
-        return DateOnly.FromDateTime(XDateTime.FromJulianDate(jd));
-    }
-
-    #endregion Conversion to/from Julian Day
 }

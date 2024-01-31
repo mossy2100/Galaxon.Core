@@ -7,17 +7,6 @@ namespace Galaxon.Core.Time;
 /// </summary>
 public static class XDateTime
 {
-    #region Constants
-
-    /// <summary>
-    /// The number of days from the start of the Julian period to the start of the epoch used by
-    /// .NET (0001-01-01 00:00:00 UTC).
-    /// <see cref="GetTotalDays"/>
-    /// </summary>
-    public const double JULIAN_PERIOD_OFFSET = 1721425.5;
-
-    #endregion Constants
-
     #region Formatting
 
     /// <summary>
@@ -68,12 +57,12 @@ public static class XDateTime
     }
 
     /// <summary>
-    /// Get the time part of a DateTime as a TimeOnly object.
+    /// Get the time of day part of a DateTime as a TimeOnly object.
     /// An alternative to the TimeOfDay property, which returns a TimeSpan.
     /// </summary>
     /// <see cref="DateTime.TimeOfDay"/>
     /// <param name="dt">The DateTime.</param>
-    /// <returns>The time part of the DateTime.</returns>
+    /// <returns>The time of day part of the DateTime.</returns>
     public static TimeOnly GetTimeOnly(this DateTime dt)
     {
         return TimeOnly.FromTimeSpan(dt.TimeOfDay);
@@ -110,12 +99,20 @@ public static class XDateTime
     /// <returns>The number of years since the epoch start.</returns>
     public static double GetTotalYears(this DateTime dt)
     {
-        return (double)dt.Ticks / XTimeSpan.TICKS_PER_YEAR;
+        return (double)dt.Ticks / XGregorianCalendar.TICKS_PER_YEAR;
     }
 
     #endregion Methods for getting the instant as a count of time units
 
-    #region Create new object from time unit count
+    #region Create new object
+
+    /// <summary>
+    /// Get the current DateTime in UTC.
+    /// </summary>
+    public static DateTime GetCurrentUtc()
+    {
+        return new DateTime(DateTime.Now.Ticks, DateTimeKind.Utc);
+    }
 
     /// <summary>
     /// Create a new DateTime given the number of seconds since the start of the epoch.
@@ -148,39 +145,11 @@ public static class XDateTime
     /// <returns>A new DateTime object.</returns>
     public static DateTime FromTotalYears(double years)
     {
-        var ticks = (long)Math.Round(years * XTimeSpan.TICKS_PER_YEAR);
+        var ticks = (long)Math.Round(years * XGregorianCalendar.TICKS_PER_YEAR);
         return new DateTime(ticks, DateTimeKind.Utc);
     }
 
-    #endregion Create new object from time unit count
-
-    #region Conversion to/from Julian Date
-
-    /// <summary>
-    /// Express the DateTime as a Julian Date.
-    /// The time of day information in the DateTime will be expressed as the fractional part of
-    /// the return value. Note, however, a Julian Date begins at 12:00 noon.
-    /// </summary>
-    /// <param name="dt">The DateTime instance.</param>
-    /// <returns>The Julian Date</returns>
-    public static double ToJulianDate(this DateTime dt)
-    {
-        return JULIAN_PERIOD_OFFSET + GetTotalDays(dt);
-    }
-
-    /// <summary>
-    /// Convert a Julian Date (Universal Time) to a DateTime object.
-    /// </summary>
-    /// <param name="jd">
-    /// The Julian Date in UT. May include a fractional part indicating the time of day.
-    /// </param>
-    /// <returns>A new DateTime object.</returns>
-    public static DateTime FromJulianDate(double jd)
-    {
-        return FromTotalDays(jd - JULIAN_PERIOD_OFFSET);
-    }
-
-    #endregion Conversion to/from Julian Date
+    #endregion Create new object
 
     #region Year start and end
 
