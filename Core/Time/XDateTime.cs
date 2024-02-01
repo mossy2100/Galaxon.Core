@@ -37,7 +37,7 @@ public static class XDateTime
     /// <returns></returns>
     public static DateTime AddWeeks(this DateTime dt, double weeks)
     {
-        return dt.AddDays(weeks * XTimeSpan.DAYS_PER_WEEK);
+        return dt.AddDays(weeks * XGregorianCalendar.DAYS_PER_WEEK);
     }
 
     #endregion Methods for addition and subtraction

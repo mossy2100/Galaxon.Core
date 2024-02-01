@@ -3,124 +3,112 @@ using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Time;
 
+/// <summary>
+/// Extension methods for the GregorianCalendar class, and other useful methods relating to the
+/// Gregorian Calendar.
+/// </summary>
 public static class XGregorianCalendar
 {
-    #region Conversion factors
+    #region Ticks per unit
 
     /// <summary>
-    /// The average number of weeks in a Gregorian calendar month.
+    /// The average number of ticks in a (ephemeris) week.
     /// </summary>
-    public const decimal WEEKS_PER_MONTH = 4.348_125M;
+    public const long TICKS_PER_WEEK = 6_048_000_000_000L;
 
     /// <summary>
-    /// The average number of weeks in a Gregorian calendar year.
-    /// </summary>
-    public const decimal WEEKS_PER_YEAR = 52.1775M;
-
-    /// <summary>
-    /// The number of months in a Gregorian calendar year.
-    /// </summary>
-    public const long MONTHS_PER_YEAR = 12L;
-
-    /// <summary>
-    /// The average number of ticks in a Gregorian calendar month.
+    /// The average number of ticks in a Gregorian month.
     /// </summary>
     public const long TICKS_PER_MONTH = 26_297_460_000_000L;
 
     /// <summary>
-    /// The average number of ticks in a Gregorian calendar year.
+    /// The average number of ticks in a Gregorian year.
     /// </summary>
     public const long TICKS_PER_YEAR = 315_569_520_000_000L;
 
-    /// <summary>
-    /// The average number of ticks in a Gregorian calendar decade.
-    /// </summary>
-    public const long TICKS_PER_DECADE = 3_155_695_200_000_000L;
+    #endregion Ticks per unit
+
+    #region Milliseconds per unit
 
     /// <summary>
-    /// The average number of ticks in a Gregorian calendar century.
+    /// The number of milliseconds in a (ephemeris) week.
     /// </summary>
-    public const long TICKS_PER_CENTURY = 31_556_952_000_000_000L;
+    public const long MILLISECONDS_PER_WEEK = 604_800_000L;
 
     /// <summary>
-    /// The average number of ticks in a Gregorian calendar millennium.
-    /// </summary>
-    public const long TICKS_PER_MILLENNIUM = 315_569_520_000_000_000L;
-
-    /// <summary>
-    /// The average number of milliseconds in a Gregorian calendar month.
+    /// The average number of milliseconds in a Gregorian month.
     /// </summary>
     public const long MILLISECONDS_PER_MONTH = 2_629_746_000L;
 
     /// <summary>
-    /// The average number of milliseconds in a Gregorian calendar year.
+    /// The average number of milliseconds in a Gregorian year.
     /// </summary>
     public const long MILLISECONDS_PER_YEAR = 31_556_952_000L;
 
-    /// <summary>
-    /// The average number of milliseconds in a Gregorian calendar decade.
-    /// </summary>
-    public const long MILLISECONDS_PER_DECADE = 315_569_520_000L;
+    #endregion Milliseconds per unit
+
+    #region Seconds per unit
 
     /// <summary>
-    /// The average number of milliseconds in a Gregorian calendar century.
+    /// The number of seconds in a (ephemeris) week.
     /// </summary>
-    public const long MILLISECONDS_PER_CENTURY = 3_155_695_200_000L;
+    public const long SECONDS_PER_WEEK = 604_800L;
 
     /// <summary>
-    /// The average number of milliseconds in a Gregorian calendar millennium.
-    /// </summary>
-    public const long MILLISECONDS_PER_MILLENNIUM = 31_556_952_000_000L;
-
-    /// <summary>
-    /// The average number of seconds in a Gregorian calendar month.
+    /// The average number of seconds in a Gregorian month.
     /// </summary>
     public const long SECONDS_PER_MONTH = 2_629_746L;
 
     /// <summary>
-    /// The average number of seconds in a Gregorian calendar year.
+    /// The average number of seconds in a Gregorian year.
     /// </summary>
     public const long SECONDS_PER_YEAR = 31_556_952L;
 
-    /// <summary>
-    /// The average number of seconds in a Gregorian calendar decade.
-    /// </summary>
-    public const long SECONDS_PER_DECADE = 315_569_520L;
+    #endregion Seconds per unit
+
+    #region Days per unit
 
     /// <summary>
-    /// The average number of seconds in a Gregorian calendar century.
+    /// The number of days in a Gregorian week.
     /// </summary>
-    public const long SECONDS_PER_CENTURY = 3_155_695_200L;
+    public const long DAYS_PER_WEEK = 7L;
 
     /// <summary>
-    /// The average number of seconds in a Gregorian calendar millennium.
-    /// </summary>
-    public const long SECONDS_PER_MILLENNIUM = 31_556_952_000L;
-
-    /// <summary>
-    /// The average number of days in a Gregorian calendar month.
+    /// The average number of days in a Gregorian month.
     /// </summary>
     public const decimal DAYS_PER_MONTH = 30.436_875M;
 
     /// <summary>
-    /// The average number of days in a Gregorian calendar year.
+    /// The average number of days in a Gregorian year.
     /// </summary>
     public const decimal DAYS_PER_YEAR = 365.2425M;
 
-    /// <summary>
-    /// The average number of days in a Gregorian calendar decade.
-    /// </summary>
-    public const decimal DAYS_PER_DECADE = 3652.425M;
+    #endregion Days per unit
+
+    #region Weeks per unit
 
     /// <summary>
-    /// The average number of days in a Gregorian calendar century.
+    /// The average number of weeks in a Gregorian month.
     /// </summary>
-    public const decimal DAYS_PER_CENTURY = 36_524.25M;
+    public const decimal WEEKS_PER_MONTH = 4.348_125M;
 
     /// <summary>
-    /// The average number of days in a Gregorian calendar millennium.
+    /// The average number of weeks in a Gregorian year.
     /// </summary>
-    public const decimal DAYS_PER_MILLENNIUM = 365_242.5M;
+    public const decimal WEEKS_PER_YEAR = 52.1775M;
+
+    #endregion Weeks per unit
+
+    #region Months per unit
+
+    /// <summary>
+    /// The number of months in a Gregorian year.
+    /// </summary>
+    public const long MONTHS_PER_YEAR = 12L;
+
+    #endregion Months per unit
+
+    #region Constants relating to Gregorian solar cycles
 
     /// <summary>
     /// The Gregorian Calendar repeats on a 400-year cycle called the "Gregorian solar cycle".
@@ -150,24 +138,9 @@ public static class XGregorianCalendar
     public const long CENTURIES_PER_GREGORIAN_SOLAR_CYCLE = 4L;
 
     /// <summary>
-    /// Number of decades in a Gregorian solar cycle.
-    /// </summary>
-    public const long DECADES_PER_GREGORIAN_SOLAR_CYCLE = 40L;
-
-    /// <summary>
     /// The number of leap years in a Gregorian solar cycle.
     /// </summary>
     public const long LEAP_YEARS_PER_GREGORIAN_SOLAR_CYCLE = 97L;
-
-    /// <summary>
-    /// The number of common years in a Gregorian solar cycle.
-    /// </summary>
-    public const long COMMON_YEARS_PER_GREGORIAN_SOLAR_CYCLE = 303L;
-
-    /// <summary>
-    /// The number of months in a Gregorian solar cycle.
-    /// </summary>
-    public const long MONTHS_PER_GREGORIAN_SOLAR_CYCLE = 4800L;
 
     /// <summary>
     /// The number of weeks in a Gregorian solar cycle.
@@ -189,7 +162,7 @@ public static class XGregorianCalendar
     /// </summary>
     public const long TICKS_PER_GREGORIAN_SOLAR_CYCLE = 126_227_808_000_000_000L;
 
-    #endregion Conversion factors
+    #endregion Constants relating to Gregorian solar cycles
 
     #region Replacment methods that support negative years
 
@@ -359,7 +332,7 @@ public static class XGregorianCalendar
 
         // Get the number of days in the month.
         int daysInMonth = DaysInMonth(year, month);
-        var daysPerWeek = (int)XTimeSpan.DAYS_PER_WEEK;
+        var daysPerWeek = (int)XGregorianCalendar.DAYS_PER_WEEK;
         int day;
 
         if (n > 0)

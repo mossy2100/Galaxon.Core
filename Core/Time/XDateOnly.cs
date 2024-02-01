@@ -137,7 +137,7 @@ public static class XDateOnly
     /// <returns>The resulting date.</returns>
     public static DateOnly AddWeeks(this DateOnly date, int weeks)
     {
-        return date.AddDays(weeks * (int)XTimeSpan.DAYS_PER_WEEK);
+        return date.AddDays(weeks * (int)XGregorianCalendar.DAYS_PER_WEEK);
     }
 
     /// <summary>

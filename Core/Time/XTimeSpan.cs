@@ -34,7 +34,7 @@ public static class XTimeSpan
     {
         var ticks = fromUnit switch
         {
-            ETimeUnit.Nanosecond => amount * TICKS_PER_NANOSECOND,
+            ETimeUnit.Nanosecond => amount / NANOSECONDS_PER_TICK,
             ETimeUnit.Tick => amount,
             ETimeUnit.Microsecond => amount * TimeSpan.TicksPerMicrosecond,
             ETimeUnit.Millisecond => amount * TimeSpan.TicksPerMillisecond,
@@ -45,15 +45,15 @@ public static class XTimeSpan
             ETimeUnit.Week => amount * TICKS_PER_WEEK,
             ETimeUnit.Month => amount * XGregorianCalendar.TICKS_PER_MONTH,
             ETimeUnit.Year => amount * XGregorianCalendar.TICKS_PER_YEAR,
-            ETimeUnit.Decade => amount * XGregorianCalendar.TICKS_PER_DECADE,
-            ETimeUnit.Century => amount * XGregorianCalendar.TICKS_PER_CENTURY,
-            ETimeUnit.Millennium => amount * XGregorianCalendar.TICKS_PER_MILLENNIUM,
+            ETimeUnit.Decade => amount * XGregorianCalendar.TICKS_PER_YEAR * 10,
+            ETimeUnit.Century => amount * XGregorianCalendar.TICKS_PER_YEAR * 100,
+            ETimeUnit.Millennium => amount * XGregorianCalendar.TICKS_PER_YEAR * 1000,
             _ => throw new ArgumentOutOfRangeException(nameof(fromUnit), "Invalid time unit.")
         };
 
         return toUnit switch
         {
-            ETimeUnit.Nanosecond => ticks / TICKS_PER_NANOSECOND,
+            ETimeUnit.Nanosecond => ticks * NANOSECONDS_PER_TICK,
             ETimeUnit.Tick => ticks,
             ETimeUnit.Microsecond => ticks / TimeSpan.TicksPerMicrosecond,
             ETimeUnit.Millisecond => ticks / TimeSpan.TicksPerMillisecond,
@@ -64,9 +64,9 @@ public static class XTimeSpan
             ETimeUnit.Week => ticks / TICKS_PER_WEEK,
             ETimeUnit.Month => ticks / XGregorianCalendar.TICKS_PER_MONTH,
             ETimeUnit.Year => ticks / XGregorianCalendar.TICKS_PER_YEAR,
-            ETimeUnit.Decade => ticks / XGregorianCalendar.TICKS_PER_DECADE,
-            ETimeUnit.Century => ticks / XGregorianCalendar.TICKS_PER_CENTURY,
-            ETimeUnit.Millennium => ticks / XGregorianCalendar.TICKS_PER_MILLENNIUM,
+            ETimeUnit.Decade => ticks / (XGregorianCalendar.TICKS_PER_YEAR * 10),
+            ETimeUnit.Century => ticks / (XGregorianCalendar.TICKS_PER_YEAR * 100),
+            ETimeUnit.Millennium => ticks / (XGregorianCalendar.TICKS_PER_YEAR * 1000),
             _ => throw new ArgumentOutOfRangeException(nameof(toUnit), "Invalid time unit.")
         };
     }
@@ -97,12 +97,16 @@ public static class XTimeSpan
 
     #endregion Miscelleanous conversion factors
 
-    #region Ticks per unit of time
+    #region Nanoseconds per unit of time
 
     /// <summary>
-    /// The number of ticks in a nanosecond.
+    /// The number of nanoseconds in a tick.
     /// </summary>
-    public const double TICKS_PER_NANOSECOND = 0.01;
+    public const long NANOSECONDS_PER_TICK = 100L;
+
+    #endregion Nanoseconds per unit of time
+
+    #region Ticks per unit of time
 
     /// <summary>
     /// The number of ticks in a microsecond.
@@ -144,21 +148,6 @@ public static class XTimeSpan
     #region Milliseconds per unit of time
 
     /// <summary>
-    /// The number of milliseconds in a nanosecond.
-    /// </summary>
-    public const double MILLISECONDS_PER_NANOSECOND = 1e-6;
-
-    /// <summary>
-    /// The number of milliseconds in a tick.
-    /// </summary>
-    public const double MILLISECONDS_PER_TICK = 1e-04;
-
-    /// <summary>
-    /// The number of milliseconds in a microsecond.
-    /// </summary>
-    public const double MILLISECONDS_PER_MICROSECOND = 1e-3;
-
-    /// <summary>
     /// The number of milliseconds in a second.
     /// </summary>
     public const double MILLISECONDS_PER_SECOND = 1e3;
@@ -188,21 +177,6 @@ public static class XTimeSpan
     #region Seconds per unit of time
 
     /// <summary>
-    /// The number of seconds in a nanosecond.
-    /// </summary>
-    public const double SECONDS_PER_TICK = 1e-07;
-
-    /// <summary>
-    /// The number of seconds in a microsecond.
-    /// </summary>
-    public const double SECONDS_PER_MICROSECOND = 1e-6;
-
-    /// <summary>
-    /// The number of seconds in a millisecond.
-    /// </summary>
-    public const double SECONDS_PER_MILLISECOND = 1e-3;
-
-    /// <summary>
     /// The number of seconds in a minute.
     /// </summary>
     public const long SECONDS_PER_MINUTE = 60L;
@@ -223,15 +197,6 @@ public static class XTimeSpan
     public const long SECONDS_PER_WEEK = 604_800L;
 
     #endregion Seconds per unit of time
-
-    #region Days per unit of time
-
-    /// <summary>
-    /// The number of days in a week.
-    /// </summary>
-    public const long DAYS_PER_WEEK = 7L;
-
-    #endregion Days per unit of time
 
     #region Years per unit of time
 
@@ -282,6 +247,11 @@ public static class XTimeSpan
     /// assumed to be authoritative.
     /// </summary>
     public const double DAYS_PER_TROPICAL_YEAR = 365.242_198_781;
+
+    /// <summary>
+    /// Number of ticks in a tropical year.
+    /// </summary>
+    public const double TICKS_PER_TROPICAL_YEAR = DAYS_PER_TROPICAL_YEAR * TimeSpan.TicksPerDay;
 
     #endregion Astronomical
 }

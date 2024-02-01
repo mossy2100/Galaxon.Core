@@ -170,6 +170,20 @@
             <param name="message">The message.</param>
             <param name="innerException">The inner exception.</param>
         </member>
+        <member name="T:Galaxon.Core.Files.XDirectory">
+            <summary>
+            Extension methods for the Directory class, and other useful methods for working with
+            directories.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Files.XDirectory.GetSolutionDirectory">
+            <summary>
+            Gets the path to the solution directory containing the solution file (.sln).
+            </summary>
+            <returns>
+            The path to the solution directory if found, or <c>null</c> if no solution file was found.
+            </returns>
+        </member>
         <member name="T:Galaxon.Core.Functional.Memoization">
             <summary>Enables memoization of pure functions.</summary>
         </member>
@@ -1825,119 +1839,85 @@
             <param name="y">The year number.</param>
             <returns></returns>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_MONTH">
+        <member name="T:Galaxon.Core.Time.XGregorianCalendar">
             <summary>
-            The average number of weeks in a Gregorian calendar month.
+            Extension methods for the GregorianCalendar class, and other useful methods relating to the
+            Gregorian Calendar.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_YEAR">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_WEEK">
             <summary>
-            The average number of weeks in a Gregorian calendar year.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MONTHS_PER_YEAR">
-            <summary>
-            The number of months in a Gregorian calendar year.
+            The average number of ticks in a (ephemeris) week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_MONTH">
             <summary>
-            The average number of ticks in a Gregorian calendar month.
+            The average number of ticks in a Gregorian month.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_YEAR">
             <summary>
-            The average number of ticks in a Gregorian calendar year.
+            The average number of ticks in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_DECADE">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_WEEK">
             <summary>
-            The average number of ticks in a Gregorian calendar decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_CENTURY">
-            <summary>
-            The average number of ticks in a Gregorian calendar century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.TICKS_PER_MILLENNIUM">
-            <summary>
-            The average number of ticks in a Gregorian calendar millennium.
+            The number of milliseconds in a (ephemeris) week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_MONTH">
             <summary>
-            The average number of milliseconds in a Gregorian calendar month.
+            The average number of milliseconds in a Gregorian month.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_YEAR">
             <summary>
-            The average number of milliseconds in a Gregorian calendar year.
+            The average number of milliseconds in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_DECADE">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_WEEK">
             <summary>
-            The average number of milliseconds in a Gregorian calendar decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_CENTURY">
-            <summary>
-            The average number of milliseconds in a Gregorian calendar century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MILLISECONDS_PER_MILLENNIUM">
-            <summary>
-            The average number of milliseconds in a Gregorian calendar millennium.
+            The number of seconds in a (ephemeris) week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_MONTH">
             <summary>
-            The average number of seconds in a Gregorian calendar month.
+            The average number of seconds in a Gregorian month.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_YEAR">
             <summary>
-            The average number of seconds in a Gregorian calendar year.
+            The average number of seconds in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_DECADE">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_WEEK">
             <summary>
-            The average number of seconds in a Gregorian calendar decade.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_CENTURY">
-            <summary>
-            The average number of seconds in a Gregorian calendar century.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.SECONDS_PER_MILLENNIUM">
-            <summary>
-            The average number of seconds in a Gregorian calendar millennium.
+            The number of days in a Gregorian week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_MONTH">
             <summary>
-            The average number of days in a Gregorian calendar month.
+            The average number of days in a Gregorian month.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_YEAR">
             <summary>
-            The average number of days in a Gregorian calendar year.
+            The average number of days in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_DECADE">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_MONTH">
             <summary>
-            The average number of days in a Gregorian calendar decade.
+            The average number of weeks in a Gregorian month.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_CENTURY">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_YEAR">
             <summary>
-            The average number of days in a Gregorian calendar century.
+            The average number of weeks in a Gregorian year.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DAYS_PER_MILLENNIUM">
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MONTHS_PER_YEAR">
             <summary>
-            The average number of days in a Gregorian calendar millennium.
+            The number of months in a Gregorian year.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.YEARS_PER_GREGORIAN_SOLAR_CYCLE">
@@ -1967,24 +1947,9 @@
             Number of centuries in a Gregorian solar cycle.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.DECADES_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            Number of decades in a Gregorian solar cycle.
-            </summary>
-        </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.LEAP_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
             <summary>
             The number of leap years in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.COMMON_YEARS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of common years in a Gregorian solar cycle.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MONTHS_PER_GREGORIAN_SOLAR_CYCLE">
-            <summary>
-            The number of months in a Gregorian solar cycle.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XGregorianCalendar.WEEKS_PER_GREGORIAN_SOLAR_CYCLE">
@@ -2182,9 +2147,9 @@
             The number of hours in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_NANOSECOND">
+        <member name="F:Galaxon.Core.Time.XTimeSpan.NANOSECONDS_PER_TICK">
             <summary>
-            The number of ticks in a nanosecond.
+            The number of nanoseconds in a tick.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_MICROSECOND">
@@ -2222,21 +2187,6 @@
             The number of ticks in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_NANOSECOND">
-            <summary>
-            The number of milliseconds in a nanosecond.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_TICK">
-            <summary>
-            The number of milliseconds in a tick.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_MICROSECOND">
-            <summary>
-            The number of milliseconds in a microsecond.
-            </summary>
-        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.MILLISECONDS_PER_SECOND">
             <summary>
             The number of milliseconds in a second.
@@ -2262,21 +2212,6 @@
             The number of milliseconds in a week.
             </summary>
         </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_TICK">
-            <summary>
-            The number of seconds in a nanosecond.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MICROSECOND">
-            <summary>
-            The number of seconds in a microsecond.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MILLISECOND">
-            <summary>
-            The number of seconds in a millisecond.
-            </summary>
-        </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_MINUTE">
             <summary>
             The number of seconds in a minute.
@@ -2295,11 +2230,6 @@
         <member name="F:Galaxon.Core.Time.XTimeSpan.SECONDS_PER_WEEK">
             <summary>
             The number of seconds in a week.
-            </summary>
-        </member>
-        <member name="F:Galaxon.Core.Time.XTimeSpan.DAYS_PER_WEEK">
-            <summary>
-            The number of days in a week.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Time.XTimeSpan.YEARS_PER_OLYMPIAD">
@@ -2344,6 +2274,11 @@
             The number of days in the mean tropical year B1900 (days).
             This value is taken from the SOFA (Standards of Fundamental Astronomy) library, which is
             assumed to be authoritative.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Time.XTimeSpan.TICKS_PER_TROPICAL_YEAR">
+            <summary>
+            Number of ticks in a tropical year.
             </summary>
         </member>
         <member name="T:Galaxon.Core.Types.XEnum">
