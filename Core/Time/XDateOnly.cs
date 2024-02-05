@@ -7,6 +7,15 @@ namespace Galaxon.Core.Time;
 /// </summary>
 public static class XDateOnly
 {
+    #region Properties
+
+    /// <summary>
+    /// Get today's date.
+    /// </summary>
+    public static DateOnly Today => DateOnly.FromDateTime(DateTime.Now);
+
+    #endregion Properties
+
     #region Formatting
 
     /// <summary>

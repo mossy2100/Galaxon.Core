@@ -1,4 +1,4 @@
-using Galaxon.Core.Exceptions;
+using System.Globalization;
 using Galaxon.Core.Numbers;
 
 namespace Galaxon.Core.Time;
@@ -332,7 +332,7 @@ public static class XGregorianCalendar
 
         // Get the number of days in the month.
         int daysInMonth = DaysInMonth(year, month);
-        var daysPerWeek = (int)XGregorianCalendar.DAYS_PER_WEEK;
+        var daysPerWeek = (int)DAYS_PER_WEEK;
         int day;
 
         if (n > 0)
@@ -369,45 +369,263 @@ public static class XGregorianCalendar
     }
 
     /// <summary>
-    /// Find the date of Thanksgiving for a specified country in a given year.
-    /// Only years with a holiday called "Thanksgiving" are supported. The default is "US".
+    /// Find the date of Thanksgiving (US and some other countries).
     /// </summary>
     /// <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance"/>
     /// <param name="year">The year.</param>
-    /// <param name="countryCode">The ISO 2-letter country code.</param>
     /// <returns>The date of Thanksgiving.</returns>
-    /// <exception cref="ArgumentInvalidException">
-    /// Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
-    /// </exception>
-    public static DateOnly Thanksgiving(int year, string countryCode = "US")
+    public static DateOnly Thanksgiving(int year)
     {
-        return countryCode switch
-        {
-            // Norfolk Island: Last Wednesday in November.
-            "NF" => NthWeekdayInMonth(year, 11, -1, DayOfWeek.Wednesday),
-
-            // Canada: 2nd Monday in October.
-            "CA" => NthWeekdayInMonth(year, 10, 2, DayOfWeek.Monday),
-
-            // Grenada: October 25.
-            "GD" => new DateOnly(year, 10, 25),
-
-            // Liberia: 1st Thursday in November.
-            "LR" => NthWeekdayInMonth(year, 11, 1, DayOfWeek.Thursday),
-
-            // Rwanda: 1st Friday in August.
-            "RW" => NthWeekdayInMonth(year, 8, 1, DayOfWeek.Friday),
-
-            // Saint Lucia: 1st Monday in October.
-            "LC" => NthWeekdayInMonth(year, 10, 1, DayOfWeek.Monday),
-
-            // US, etc.: 4th Thursday in November.
-            "US" or "NL" or "PH" or "BR" => NthWeekdayInMonth(year, 11, 4, DayOfWeek.Thursday),
-
-            _ => throw new ArgumentOutOfRangeException(nameof(countryCode),
-                "A date for Thanksgiving could not be determined for the specified country.")
-        };
+        // Get the 4th Thursday in November.
+        return NthWeekdayInMonth(year, 11, 4, DayOfWeek.Thursday);
     }
 
     #endregion Find special dates
+
+    #region Year and month start and end
+
+    /// <summary>
+    /// Get the DateTime for the start of a given Gregorian year.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <param name="kind">The DateTimeKind.</param>
+    /// <returns>A DateTime representing the start of the year (UT).</returns>
+    public static DateTime YearStart(int year, DateTimeKind kind = DateTimeKind.Unspecified)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        return new DateTime(year, 1, 1, 0, 0, 0, kind);
+    }
+
+    /// <summary>
+    /// Get the DateTime for the end of a given Gregorian year.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <param name="kind">The DateTimeKind.</param>
+    /// <returns>A DateTime representing the end of the year (UT).</returns>
+    public static DateTime YearEnd(int year, DateTimeKind kind = DateTimeKind.Unspecified)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        // There isn't a DateTime constructor that allows us to specify the time of day with
+        // resolution of 1 tick (the best is microsecond), so instead, we get the start point of the
+        // following year and subtract 1 tick.
+        return YearStart(year + 1, kind).Subtract(new TimeSpan(1));
+    }
+
+    /// <summary>
+    /// Get the DateTime for the start of a given Gregorian month.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <param name="month">The month (1 through 12).</param>
+    /// <param name="kind">The DateTimeKind.</param>
+    /// <returns>A DateTime representing the start of the month (UT).</returns>
+    public static DateTime MonthStart(int year, int month,
+        DateTimeKind kind = DateTimeKind.Unspecified)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        // Check month is valid.
+        if (month is < 1 or > 12)
+        {
+            throw new ArgumentOutOfRangeException(nameof(month),
+                "Month must be in the range 1..12");
+        }
+
+        return new DateTime(year, month, 1, 0, 0, 0, kind);
+    }
+
+    /// <summary>
+    /// Get the DateTime for the end of a given Gregorian month.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <param name="month">The month (1 through 12).</param>
+    /// <param name="kind">The DateTimeKind.</param>
+    /// <returns>A DateTime representing the end of the month (UT).</returns>
+    public static DateTime MonthEnd(int year, int month,
+        DateTimeKind kind = DateTimeKind.Unspecified)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        // Check month is valid.
+        if (month is < 1 or > 12)
+        {
+            throw new ArgumentOutOfRangeException(nameof(month),
+                "Month must be in the range 1..12");
+        }
+
+        // There isn't a DateTime constructor that allows us to specify the time of day with
+        // resolution of 1 tick (the best is microsecond), so instead, we get the start point of the
+        // following month and subtract 1 tick.
+        if (month == 12)
+        {
+            month = 1;
+            year++;
+        }
+        return MonthStart(year, month, kind).Subtract(new TimeSpan(1));
+    }
+
+    /// <summary>
+    /// Returns the date of the first day of the year for the specified year.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <returns>The first day of the specified year.</returns>
+    public static DateOnly YearFirstDay(int year)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        return new DateOnly(year, 1, 1);
+    }
+
+    /// <summary>
+    /// Returns the last day of the year for the specified year.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <returns>The last day of the specified year.</returns>
+    public static DateOnly YearLastDay(int year)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        return new DateOnly(year, 12, 31);
+    }
+
+    /// <summary>
+    /// Returns the date of the first day of the specified month.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <param name="month">The month (1 through 12).</param>
+    /// <returns>The first day of the specified month.</returns>
+    public static DateOnly MonthFirstDay(int year, int month)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        // Check month is valid.
+        if (month is < 1 or > 12)
+        {
+            throw new ArgumentOutOfRangeException(nameof(month),
+                "Month must be in the range 1..12");
+        }
+
+        return new DateOnly(year, month, 1);
+    }
+
+    /// <summary>
+    /// Returns the date of the last day of the specified month for the specified year.
+    /// </summary>
+    /// <param name="year">The year (1 through 9999).</param>
+    /// <param name="month">The month (1 through 12).</param>
+    /// <returns>The last day of the specified month and year.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">Thrown when the month is not in the valid range (1-12).</exception>
+    public static DateOnly MonthLastDay(int year, int month)
+    {
+        // Check year is valid.
+        if (year is < 1 or > 9999)
+        {
+            throw new ArgumentOutOfRangeException(nameof(year),
+                "Year must be in the range 1..9999");
+        }
+
+        // Check month is valid.
+        if (month is < 1 or > 12)
+        {
+            throw new ArgumentOutOfRangeException(nameof(month),
+                "Month must be in the range 1..12");
+        }
+
+        return new DateOnly(year, month, DaysInMonth(year, month));
+    }
+
+    #endregion Year and month start and end
+
+    #region Month names
+
+    /// <summary>
+    /// Dictionary mapping month numbers (1-12) to month names.
+    /// </summary>
+    public static readonly Dictionary<int, string> MonthNames = new ()
+    {
+        { 1, "January" },
+        { 2, "February" },
+        { 3, "March" },
+        { 4, "April" },
+        { 5, "May" },
+        { 6, "June" },
+        { 7, "July" },
+        { 8, "August" },
+        { 9, "September" },
+        { 10, "October" },
+        { 11, "November" },
+        { 12, "December" }
+    };
+
+    /// <summary>
+    /// Converts a month name to its corresponding number (1-12).
+    /// </summary>
+    /// <param name="monthName">The month name (case-insensitive).</param>
+    /// <returns>The month number.</returns>
+    /// <exception cref="ArgumentException">Thrown when the provided month name is invalid.</exception>
+    public static int MonthNameToNumber(string monthName)
+    {
+        monthName = CultureInfo.CurrentCulture.TextInfo.ToTitleCase(monthName.ToLowerInvariant());
+
+        if (MonthNames.ContainsValue(monthName))
+        {
+            return MonthNames.FirstOrDefault(x => x.Value == monthName).Key;
+        }
+
+        throw new ArgumentException("Invalid month name.", nameof(monthName));
+    }
+
+    /// <summary>
+    /// Converts a month number (1-12) to its corresponding name.
+    /// </summary>
+    /// <param name="monthNumber">The month number (1-12).</param>
+    /// <returns>The month name.</returns>
+    /// <exception cref="ArgumentException">Thrown when the provided month number is invalid.</exception>
+    public static string MonthNumberToName(int monthNumber)
+    {
+        if (MonthNames.ContainsKey(monthNumber))
+        {
+            return MonthNames[monthNumber];
+        }
+
+        throw new ArgumentException("Invalid month number.", nameof(monthNumber));
+    }
+
+    #endregion Month names
 }

@@ -7,6 +7,15 @@ namespace Galaxon.Core.Time;
 /// </summary>
 public static class XDateTime
 {
+    #region Properties
+
+    /// <summary>
+    /// Get the current DateTime in UTC.
+    /// </summary>
+    public static DateTime NowUtc => new (DateTime.Now.Ticks, DateTimeKind.Utc);
+
+    #endregion Properties
+
     #region Formatting
 
     /// <summary>
@@ -107,14 +116,6 @@ public static class XDateTime
     #region Create new object
 
     /// <summary>
-    /// Get the current DateTime in UTC.
-    /// </summary>
-    public static DateTime GetCurrentUtc()
-    {
-        return new DateTime(DateTime.Now.Ticks, DateTimeKind.Utc);
-    }
-
-    /// <summary>
     /// Create a new DateTime given the number of seconds since the start of the epoch.
     /// </summary>
     /// <param name="seconds">The number of seconds.</param>
@@ -150,28 +151,4 @@ public static class XDateTime
     }
 
     #endregion Create new object
-
-    #region Year start and end
-
-    /// <summary>
-    /// Get the DateTime for the start of a given Gregorian year.
-    /// </summary>
-    /// <param name="y">The year number.</param>
-    /// <returns></returns>
-    public static DateTime GetYearStart(int y)
-    {
-        return new DateTime(y, 1, 1);
-    }
-
-    /// <summary>
-    /// Get the DateTime for the end of a given Gregorian year.
-    /// </summary>
-    /// <param name="y">The year number.</param>
-    /// <returns></returns>
-    public static DateTime GetYearEnd(int y)
-    {
-        return GetYearStart(y + 1).Subtract(new TimeSpan(1));
-    }
-
-    #endregion Year start and end
 }

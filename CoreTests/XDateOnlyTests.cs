@@ -225,14 +225,5 @@ public class XDateOnlyTests
 
         d = XGregorianCalendar.Thanksgiving(2023);
         Assert.AreEqual("2023-11-23", d.ToIsoString());
-
-        d = XGregorianCalendar.Thanksgiving(2023, "RW");
-        Assert.AreEqual("2023-08-04", d.ToIsoString());
-
-        d = XGregorianCalendar.Thanksgiving(2023, "NF");
-        Assert.AreEqual("2023-11-29", d.ToIsoString());
-
-        d = XGregorianCalendar.Thanksgiving(2023, "GD");
-        Assert.AreEqual("2023-10-25", d.ToIsoString());
     }
 }

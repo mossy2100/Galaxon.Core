@@ -1612,6 +1612,11 @@
             Extension methods for the DateOnly class.
             </summary>
         </member>
+        <member name="P:Galaxon.Core.Time.XDateOnly.Today">
+            <summary>
+            Get today's date.
+            </summary>
+        </member>
         <member name="F:Galaxon.Core.Time.XDateOnly.SORTABLE_DATE_PATTERN">
             <summary>
             Same as DateTimeFormatInfo.SortableDateTimePattern, but without the time.
@@ -1738,6 +1743,11 @@
             Extension methods for the DateTime class.
             </summary>
         </member>
+        <member name="P:Galaxon.Core.Time.XDateTime.NowUtc">
+            <summary>
+            Get the current DateTime in UTC.
+            </summary>
+        </member>
         <member name="M:Galaxon.Core.Time.XDateTime.ToIsoString(System.DateTime)">
             <summary>
             Format the date using ISO format YYYY-MM-DDThh:mm:ss.
@@ -1797,11 +1807,6 @@
             <param name="dt">The DateTime instance.</param>
             <returns>The number of years since the epoch start.</returns>
         </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetCurrentUtc">
-            <summary>
-            Get the current DateTime in UTC.
-            </summary>
-        </member>
         <member name="M:Galaxon.Core.Time.XDateTime.FromTotalSeconds(System.Double)">
             <summary>
             Create a new DateTime given the number of seconds since the start of the epoch.
@@ -1824,20 +1829,6 @@
             </summary>
             <param name="years">The number of years. May include a fractional part.</param>
             <returns>A new DateTime object.</returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetYearStart(System.Int32)">
-            <summary>
-            Get the DateTime for the start of a given Gregorian year.
-            </summary>
-            <param name="y">The year number.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Galaxon.Core.Time.XDateTime.GetYearEnd(System.Int32)">
-            <summary>
-            Get the DateTime for the end of a given Gregorian year.
-            </summary>
-            <param name="y">The year number.</param>
-            <returns></returns>
         </member>
         <member name="T:Galaxon.Core.Time.XGregorianCalendar">
             <summary>
@@ -2065,18 +2056,99 @@
              <exception cref="T:System.ArgumentOutOfRangeException">If Abs(n) not in the range 1..5</exception>
              <exception cref="T:System.InvalidOperationException">If a valid date could not be found.</exception>
         </member>
-        <member name="M:Galaxon.Core.Time.XGregorianCalendar.Thanksgiving(System.Int32,System.String)">
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.Thanksgiving(System.Int32)">
             <summary>
-            Find the date of Thanksgiving for a specified country in a given year.
-            Only years with a holiday called "Thanksgiving" are supported. The default is "US".
+            Find the date of Thanksgiving (US and some other countries).
             </summary>
             <see href="https://en.wikipedia.org/wiki/Thanksgiving#Observance"/>
             <param name="year">The year.</param>
-            <param name="countryCode">The ISO 2-letter country code.</param>
             <returns>The date of Thanksgiving.</returns>
-            <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
-            Either this country doesn't celebrate Thanksgiving, or the method doesn't support it.
-            </exception>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.YearStart(System.Int32,System.DateTimeKind)">
+            <summary>
+            Get the DateTime for the start of a given Gregorian year.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <param name="kind">The DateTimeKind.</param>
+            <returns>A DateTime representing the start of the year (UT).</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.YearEnd(System.Int32,System.DateTimeKind)">
+            <summary>
+            Get the DateTime for the end of a given Gregorian year.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <param name="kind">The DateTimeKind.</param>
+            <returns>A DateTime representing the end of the year (UT).</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.MonthStart(System.Int32,System.Int32,System.DateTimeKind)">
+            <summary>
+            Get the DateTime for the start of a given Gregorian month.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <param name="month">The month (1 through 12).</param>
+            <param name="kind">The DateTimeKind.</param>
+            <returns>A DateTime representing the start of the month (UT).</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.MonthEnd(System.Int32,System.Int32,System.DateTimeKind)">
+            <summary>
+            Get the DateTime for the end of a given Gregorian month.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <param name="month">The month (1 through 12).</param>
+            <param name="kind">The DateTimeKind.</param>
+            <returns>A DateTime representing the end of the month (UT).</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.YearFirstDay(System.Int32)">
+            <summary>
+            Returns the date of the first day of the year for the specified year.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <returns>The first day of the specified year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.YearLastDay(System.Int32)">
+            <summary>
+            Returns the last day of the year for the specified year.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <returns>The last day of the specified year.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.MonthFirstDay(System.Int32,System.Int32)">
+            <summary>
+            Returns the date of the first day of the specified month.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <param name="month">The month (1 through 12).</param>
+            <returns>The first day of the specified month.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.MonthLastDay(System.Int32,System.Int32)">
+            <summary>
+            Returns the date of the last day of the specified month for the specified year.
+            </summary>
+            <param name="year">The year (1 through 9999).</param>
+            <param name="month">The month (1 through 12).</param>
+            <returns>The last day of the specified month and year.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when the month is not in the valid range (1-12).</exception>
+        </member>
+        <member name="F:Galaxon.Core.Time.XGregorianCalendar.MonthNames">
+            <summary>
+            Dictionary mapping month numbers (1-12) to month names.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.MonthNameToNumber(System.String)">
+            <summary>
+            Converts a month name to its corresponding number (1-12).
+            </summary>
+            <param name="monthName">The month name (case-insensitive).</param>
+            <returns>The month number.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the provided month name is invalid.</exception>
+        </member>
+        <member name="M:Galaxon.Core.Time.XGregorianCalendar.MonthNumberToName(System.Int32)">
+            <summary>
+            Converts a month number (1-12) to its corresponding name.
+            </summary>
+            <param name="monthNumber">The month number (1-12).</param>
+            <returns>The month name.</returns>
+            <exception cref="T:System.ArgumentException">Thrown when the provided month number is invalid.</exception>
         </member>
         <member name="T:Galaxon.Core.Time.XTimeOnly">
             <summary>
