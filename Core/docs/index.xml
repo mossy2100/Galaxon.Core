@@ -2054,7 +2054,7 @@
              <param name="dayOfWeek">The day of the week.</param>
              <returns>The requested date.</returns>
              <exception cref="T:System.ArgumentOutOfRangeException">If Abs(n) not in the range 1..5</exception>
-             <exception cref="T:System.InvalidOperationException">If a valid date could not be found.</exception>
+             <exception cref="T:System.ArgumentOutOfRangeException">If a valid date could not be found.</exception>
         </member>
         <member name="M:Galaxon.Core.Time.XGregorianCalendar.Thanksgiving(System.Int32)">
             <summary>

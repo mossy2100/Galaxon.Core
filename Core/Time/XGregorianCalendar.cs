@@ -321,50 +321,35 @@ public static class XGregorianCalendar
     /// <param name="dayOfWeek">The day of the week.</param>
     /// <returns>The requested date.</returns>
     /// <exception cref="ArgumentOutOfRangeException">If Abs(n) not in the range 1..5</exception>
-    /// <exception cref="InvalidOperationException">If a valid date could not be found.</exception>
+    /// <exception cref="ArgumentOutOfRangeException">If a valid date could not be found.</exception>
     public static DateOnly NthWeekdayInMonth(int year, int month, int n, DayOfWeek dayOfWeek)
     {
+        // Guard.
         if (Math.Abs(n) is < 1 or > 5)
         {
             throw new ArgumentOutOfRangeException(nameof(n),
                 "The absolute value must be in the range 1..5.");
         }
 
-        // Get the number of days in the month.
-        int daysInMonth = DaysInMonth(year, month);
-        var daysPerWeek = (int)DAYS_PER_WEEK;
-        int day;
+        int daysInMonth = DateTime.DaysInMonth(year, month);
+        int daysPerWeek = 7;
 
-        if (n > 0)
-        {
-            // Get the number of days difference between the start of the month and the result.
-            DateOnly firstOfMonth = new (year, month, 1);
-            int diffDays = dayOfWeek - firstOfMonth.DayOfWeek;
-            if (diffDays < 0)
-            {
-                diffDays += daysPerWeek;
-            }
-            day = 1 + (n - 1) * daysPerWeek + diffDays;
-        }
-        else
-        {
-            // Get the number of days difference between the end of the month and the result.
-            DateOnly lastOfMonth = new (year, month, daysInMonth);
-            int diffDays = lastOfMonth.DayOfWeek - dayOfWeek;
-            if (diffDays < 0)
-            {
-                diffDays += daysPerWeek;
-            }
-            day = daysInMonth + (n + 1) * daysPerWeek - diffDays;
-        }
+        // Get the first or last day of the month.
+        DateOnly firstOrLastOfMonth = new DateOnly(year, month, n > 0 ? 1 : daysInMonth);
 
-        // Check day of month is valid.
-        if (day < 0 || day > daysInMonth)
+        // Calculate the offset to the next or previous day of the week.
+        int diffDays = ((int)dayOfWeek - (int)firstOrLastOfMonth.DayOfWeek + daysPerWeek)
+            % daysPerWeek;
+
+        // Calculate the day of the month.
+        int day = firstOrLastOfMonth.Day + (n - (n > 0 ? 1 : 0)) * daysPerWeek + diffDays;
+
+        // Check if the calculated day is within the month.
+        if (day < 1 || day > daysInMonth)
         {
             throw new ArgumentOutOfRangeException(nameof(n), "Could not find a valid date.");
         }
 
-        // Return the requested date.
         return new DateOnly(year, month, day);
     }
 
