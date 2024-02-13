@@ -2,32 +2,11 @@
 
 namespace Galaxon.Core.Numbers;
 
+/// <summary>
+/// Stuff related to angles.
+/// </summary>
 public static class Angles
 {
-    #region String methods
-
-    /// <summary>
-    /// Formats the angle as degrees, arcminutes, and arcseconds.
-    /// e.g. The angle 4.0 radians is equal to 229.183118052329° which is converted to the string
-    /// 229° 10′ 59.225″
-    /// NB: No sign is shown for the arcminutes and arcseconds values.
-    /// However, if the degrees value is negative, then the arcminutes and arcseconds values will
-    /// also be negative (or zero).
-    /// </summary>
-    /// <param name="degrees">The angle in degrees.</param>
-    /// <param name="scale">
-    /// The number of decimal places to display for the arcseconds value.
-    /// </param>
-    /// <returns>A string with the formatted angle.</returns>
-    public static string FormatDms(double degrees, byte scale = 0)
-    {
-        (double wholeDegrees, double arcminutes, double arcseconds) = DegToDms(degrees);
-        var arcsecondsString = Abs(arcseconds).ToString($"F{scale}");
-        return $"{wholeDegrees}° {Abs(arcminutes)}′ {arcsecondsString}″";
-    }
-
-    #endregion String methods
-
     #region Normalize methods
 
     /// <summary>
@@ -103,22 +82,15 @@ public static class Angles
     /// <returns>The angle in degrees.</returns>
     public static double DmsToDeg(double degrees, double arcminutes, double arcseconds = 0)
     {
-        return degrees + arcminutes / ARCMINUTES_PER_DEGREE + arcseconds / ARCSECONDS_PER_DEGREE;
+        return degrees
+            + (arcminutes / ARCMINUTES_PER_DEGREE)
+            + (arcseconds / ARCSECONDS_PER_DEGREE);
     }
 
     /// <summary>
-    /// Convert degrees, arcminutes, and arcseconds to radians.
-    /// </summary>
-    /// <param name="degrees">The number of degrees.</param>
-    /// <param name="arcminutes">The number of arcminutes.</param>
-    /// <param name="arcseconds">The number of arcseconds.</param>
-    /// <returns>The angle in radians.</returns>
-    public static double DmsToRad(double degrees, double arcminutes, double arcseconds = 0)
-    {
-        return DegToRad(DmsToDeg(degrees, arcminutes, arcseconds));
-    }
-
-    /// <summary>
+    /// TODO> This is the same as Sexagesimal.ToUnitsMinutesSeconds(), except that it uses doubles
+    /// TODO> instead of decimals. Pick one and eliminate this method.
+    ///
     /// Convert an angle from degrees to degrees, arcminutes, and arcseconds.
     /// The degrees and arcminutes values will be whole numbers, but the arcseconds value could have
     /// a fractional part.
@@ -138,22 +110,6 @@ public static class Angles
         double fracArcminutes = arcminutes - wholeArcminutes;
         double arcseconds = fracArcminutes * ARCSECONDS_PER_ARCMINUTE;
         return (degrees: wholeDegrees, arcminutes: wholeArcminutes, arcseconds);
-    }
-
-    /// <summary>
-    /// Convert an angle from radians to degrees, arcminutes, and arcseconds.
-    /// The degrees and arcminutes values will be whole numbers, but the arcseconds value could have
-    /// a fractional part.
-    /// The arcminutes and arcseconds values will have the same sign as the degrees value, or be
-    /// zero.
-    /// </summary>
-    /// <param name="radians">The angle in radians.</param>
-    /// <returns>
-    /// A tuple containing 3 double values representing degrees, arcminutes, and arcseconds.
-    /// </returns>
-    public static (double degrees, double arcminutes, double arcseconds) RadToDms(double radians)
-    {
-        return DegToDms(RadToDeg(radians));
     }
 
     #endregion Conversion methods

@@ -204,20 +204,10 @@
             <typeparam name="TResult">Result type.</typeparam>
             <returns>The memoized version of the pure function.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.Angles.FormatDms(System.Double,System.Byte)">
+        <member name="T:Galaxon.Core.Numbers.Angles">
             <summary>
-            Formats the angle as degrees, arcminutes, and arcseconds.
-            e.g. The angle 4.0 radians is equal to 229.183118052329° which is converted to the string
-            229° 10′ 59.225″
-            NB: No sign is shown for the arcminutes and arcseconds values.
-            However, if the degrees value is negative, then the arcminutes and arcseconds values will
-            also be negative (or zero).
+            Stuff related to angles.
             </summary>
-            <param name="degrees">The angle in degrees.</param>
-            <param name="scale">
-            The number of decimal places to display for the arcseconds value.
-            </param>
-            <returns>A string with the formatted angle.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.Angles.NormalizeRadians(System.Double,System.Boolean)">
             <summary>
@@ -266,40 +256,21 @@
             <param name="arcseconds">The number of arcseconds.</param>
             <returns>The angle in degrees.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.Angles.DmsToRad(System.Double,System.Double,System.Double)">
-            <summary>
-            Convert degrees, arcminutes, and arcseconds to radians.
-            </summary>
-            <param name="degrees">The number of degrees.</param>
-            <param name="arcminutes">The number of arcminutes.</param>
-            <param name="arcseconds">The number of arcseconds.</param>
-            <returns>The angle in radians.</returns>
-        </member>
         <member name="M:Galaxon.Core.Numbers.Angles.DegToDms(System.Double)">
-            <summary>
-            Convert an angle from degrees to degrees, arcminutes, and arcseconds.
-            The degrees and arcminutes values will be whole numbers, but the arcseconds value could have
-            a fractional part.
-            The arcminutes and arcseconds values will have the same sign as the degrees value, or be
-            zero.
-            </summary>
-            <param name="degrees">The angle in degrees.</param>
-            <returns>
-            A tuple containing 3 double values representing degrees, arcminutes, and arcseconds.
-            </returns>
-        </member>
-        <member name="M:Galaxon.Core.Numbers.Angles.RadToDms(System.Double)">
-            <summary>
-            Convert an angle from radians to degrees, arcminutes, and arcseconds.
-            The degrees and arcminutes values will be whole numbers, but the arcseconds value could have
-            a fractional part.
-            The arcminutes and arcseconds values will have the same sign as the degrees value, or be
-            zero.
-            </summary>
-            <param name="radians">The angle in radians.</param>
-            <returns>
-            A tuple containing 3 double values representing degrees, arcminutes, and arcseconds.
-            </returns>
+             <summary>
+             TODO> This is the same as Sexagesimal.ToUnitsMinutesSeconds(), except that it uses doubles
+             TODO> instead of decimals. Pick one and eliminate this method.
+            
+             Convert an angle from degrees to degrees, arcminutes, and arcseconds.
+             The degrees and arcminutes values will be whole numbers, but the arcseconds value could have
+             a fractional part.
+             The arcminutes and arcseconds values will have the same sign as the degrees value, or be
+             zero.
+             </summary>
+             <param name="degrees">The angle in degrees.</param>
+             <returns>
+             A tuple containing 3 double values representing degrees, arcminutes, and arcseconds.
+             </returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.Angles.SinSqr(System.Double)">
             <summary>
@@ -560,7 +531,6 @@
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromTetra``1(System.String)">
             <summary>
             Convert a string of tetrasexagesimal digits into an integer.
-            NB: At this stage, only conversion from the ASCII (base64hex) notation is supported.
             </summary>
             <typeparam name="T">The integer type to create.</typeparam>
             <param name="digits">The string of digits to parse.</param>
@@ -651,8 +621,7 @@
         </member>
         <member name="T:Galaxon.Core.Numbers.Sexagesimal">
             <summary>
-            Utility class for converting decimal numbers to sexagesimal values. This can be integer,
-            minutes, and seconds parts, or formatted strings.
+            Utility class for converting floating point values to sexagesimal values.
             </summary>
         </member>
         <member name="F:Galaxon.Core.Numbers.Sexagesimal.BASE">
@@ -675,28 +644,26 @@
             <param name="position"></param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToUnitsMinutesSeconds(System.Decimal)">
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToUnitsMinutesSeconds(System.Double)">
             <summary>
-            Convert a decimal value into units, minutes, and seconds.
-            This can be used to convert a decimal number of hours to integer hours with minutes and
-            seconds, or an angle in decimal degrees to integer degrees, arcminutes, and arcseconds.
+            Convert a double value into units, minutes, and seconds.
+            This can be used to convert a time to hours, minutes, and seconds, or an angle to degrees,
+            arcminutes, and arcseconds.
             The units part will be a signed integer, not limited to the range 0-59.
             The minutes part will be an integer in the range 0-59.
             The seconds part will be a decimal in the range 0-59.999...
             The minutes and seconds values will have the same sign as the whole number, or be
             zero.
             </summary>
-            <param name="n">
-            The decimal value to convert. This could be a time in hours or an angle in degrees.
-            </param>
+            <param name="n">The value to convert.</param>
             <returns>
-            A tuple containing values representing the units (hours or degrees), minutes (or
-            arcminutes), and seconds (or arcseconds).
+            A tuple representing the units (hours or degrees), minutes (or arcminutes), and seconds (or
+            arcseconds).
             </returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.Sexagesimal.FromUnitsMinutesSeconds(System.Decimal,System.Decimal,System.Decimal)">
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.FromUnitsMinutesSeconds(System.Double,System.Double,System.Double)">
             <summary>
-            Convert a value provided as units (e.g. hours or degrees), minutes and seconds, to a decimal
+            Convert a value provided as units (e.g. hours or degrees), minutes and seconds, to a double
             value.
             </summary>
             <param name="units"></param>
@@ -704,12 +671,13 @@
             <param name="seconds"></param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToString(System.Decimal,Galaxon.Core.Numbers.ESexagesimalNotation)">
-            <summary>Convert a decimal value to units, minutes, and seconds notation.</summary>
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToString(System.Double,Galaxon.Core.Numbers.ESexagesimalNotation,System.Byte)">
+            <summary>Convert a double value to units, minutes, and seconds notation.</summary>
             <param name="n">
-            The decimal value to convert. This could be a time in hours or an angle in degrees.
+            The double value to convert. This could be a time in hours or an angle in degrees.
             </param>
             <param name="notation">The notation to use for the output string.</param>
+            <param name="precision">The number of decimal places to use for the seconds part.</param>
             <returns>The argument as a string formatted using the specified notation.</returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.XBigInteger">

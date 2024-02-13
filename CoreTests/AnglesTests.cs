@@ -1,4 +1,5 @@
-﻿using static Galaxon.Core.Numbers.Angles;
+﻿using Galaxon.Core.Numbers;
+using static Galaxon.Core.Numbers.Angles;
 using Galaxon.Core.Testing;
 
 namespace Galaxon.Core.Tests;
@@ -221,38 +222,38 @@ public class AnglesTests
     {
         // Test 0.
         double deg = 0;
-        Assert.AreEqual("0° 0′ 0″", FormatDms(deg));
+        Assert.AreEqual("0°0′0″", Sexagesimal.ToString(deg));
 
         // Test whole number of degrees.
         deg = 12;
-        Assert.AreEqual("12° 0′ 0″", FormatDms(deg));
+        Assert.AreEqual("12°0′0″", Sexagesimal.ToString(deg));
 
         // Test degrees and arcminutes.
         deg = 12.5666666666667;
-        Assert.AreEqual("12° 34′ 0″", FormatDms(deg));
+        Assert.AreEqual("12°34′0″", Sexagesimal.ToString(deg));
 
         // Test degrees, arcminutes, and arcseconds.
         deg = 12.5822222222222;
-        Assert.AreEqual("12° 34′ 56″", FormatDms(deg));
+        Assert.AreEqual("12°34′56″", Sexagesimal.ToString(deg));
 
         // Test degrees, arcminutes, arcseconds, and milliarcseconds.
         deg = 12.5824413888889;
-        Assert.AreEqual("12° 34′ 56.789″", FormatDms(deg, 3));
+        Assert.AreEqual("12°34′56.789″", Sexagesimal.ToString(deg, precision: 3));
 
         // Test whole negative degrees.
         deg = -12;
-        Assert.AreEqual("-12° 0′ 0″", FormatDms(deg));
+        Assert.AreEqual("-12°0′0″", Sexagesimal.ToString(deg));
 
         // Test negative degrees and arcminutes.
         deg = -12.5666666666667;
-        Assert.AreEqual("-12° 34′ 0″", FormatDms(deg));
+        Assert.AreEqual("-12°34′0″", Sexagesimal.ToString(deg));
 
         // Test negative degrees, arcminutes, and arcseconds.
         deg = -12.5822222222222;
-        Assert.AreEqual("-12° 34′ 56″", FormatDms(deg));
+        Assert.AreEqual("-12°34′56″", Sexagesimal.ToString(deg));
 
         // Test negative degrees, arcminutes, arcseconds, and milliarcseconds.
         deg = -12.5824413888889;
-        Assert.AreEqual("-12° 34′ 56.789″", FormatDms(deg, 3));
+        Assert.AreEqual("-12°34′56.789″", Sexagesimal.ToString(deg, precision: 3));
     }
 }

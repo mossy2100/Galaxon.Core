@@ -167,15 +167,19 @@ public static class ConvertBase
         StringBuilder sbDigits = new ();
         foreach (byte digitValue in digitValues)
         {
-            sbDigits.Prepend(DIGITS[digitValue]);
+            // Get the character with this value.
+            char c = DIGITS[digitValue];
+
+            // Transform the case if necessary.
+            if (upper && char.IsLetter(c))
+            {
+                c = char.ToUpper(c);
+            }
+
+            // Add the digit to the start of the string.
+            sbDigits.Prepend(c);
         }
         string result = sbDigits.ToString();
-
-        // Transform the result case if necessary.
-        if (upper)
-        {
-            result = result.ToUpper();
-        }
 
         // Pad to the desired width.
         return result.PadLeft(width, '0');
@@ -281,7 +285,7 @@ public static class ConvertBase
 
         // Remove digit grouping characters. We'll allow them to be present anywhere in the input
         // string without throwing an exception, even if they aren't in the correct positions.
-        // Any other non-digit characters will throw an exception.
+        // Any other characters that are invalid for the specified base will throw an exception.
         digits = Regex.Replace(digits, $"[{DIGIT_GROUPING_CHARACTERS}]", "");
 
         // See if the value is negative.
@@ -317,7 +321,6 @@ public static class ConvertBase
         value *= sign;
 
         // Try to convert the value to the target type.
-        Type t = typeof(T);
         try
         {
             return XReflection.Cast<BigInteger, T>(value);
@@ -325,7 +328,7 @@ public static class ConvertBase
         catch (OverflowException ex)
         {
             throw new OverflowException(
-                $"The integer represented by the string is outside the valid range for {t.Name}.",
+                $"The integer represented by the string is outside the valid range for {typeof(T).Name}.",
                 ex);
         }
     }
@@ -387,7 +390,6 @@ public static class ConvertBase
 
     /// <summary>
     /// Convert a string of tetrasexagesimal digits into an integer.
-    /// NB: At this stage, only conversion from the ASCII (base64hex) notation is supported.
     /// </summary>
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
@@ -423,20 +425,21 @@ public static class ConvertBase
     private static Dictionary<char, byte> GetDigitValuesForBase(byte radix)
     {
         Dictionary<char, byte> digitValues = new ();
+
         for (byte i = 0; i < radix; i++)
         {
             char c = DIGITS[i];
+
+            // The value equals the index within the digit string.
+            digitValues[c] = i;
+
+            // For letter characters, add the upper-case variant, too.
             if (char.IsLetter(c))
             {
-                // Add both the upper- and lower-case variants.
                 digitValues[char.ToUpper(c)] = i;
-                digitValues[char.ToLower(c)] = i;
-            }
-            else
-            {
-                digitValues[c] = i;
             }
         }
+
         return digitValues;
     }
 
