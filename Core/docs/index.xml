@@ -542,28 +542,38 @@
             <param name="position"></param>
             <returns></returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToHoursMinutesSeconds(System.Decimal)">
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToUnitsMinutesSeconds(System.Decimal)">
             <summary>
-            Convert a decimal value into a hours, minutes, and seconds.
-            This can also be used to convert an angle from decimal degrees to integer degrees,
-            arcminutes, and arcseconds.
-            The hours part will be an integer.
-            The minutes part will be a sexagesimal digit, i.e. an integer in the range 0-59.
+            Convert a decimal value into units, minutes, and seconds.
+            This can be used to convert a decimal number of hours to integer hours with minutes and
+            seconds, or an angle in decimal degrees to integer degrees, arcminutes, and arcseconds.
+            The units part will be a signed integer, not limited to the range 0-59.
+            The minutes part will be an integer in the range 0-59.
             The seconds part will be a decimal in the range 0-59.999...
             The minutes and seconds values will have the same sign as the whole number, or be
             zero.
             </summary>
-            <param name="decimalHours">
+            <param name="n">
             The decimal value to convert. This could be a time in hours or an angle in degrees.
             </param>
             <returns>
-            A tuple containing values representing the hours (or degrees), minutes (or arcminutes),
-            and seconds (or arcseconds).
+            A tuple containing values representing the units (hours or degrees), minutes (or
+            arcminutes), and seconds (or arcseconds).
             </returns>
         </member>
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.FromUnitsMinutesSeconds(System.Decimal,System.Decimal,System.Decimal)">
+            <summary>
+            Convert a value provided as units (e.g. hours or degrees), minutes and seconds, to a decimal
+            value.
+            </summary>
+            <param name="units"></param>
+            <param name="minutes"></param>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
         <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToString(System.Decimal,Galaxon.Core.Numbers.ESexagesimalNotation)">
-            <summary>Convert a decimal value to integer, minutes, and seconds notation.</summary>
-            <param name="decimalHours">
+            <summary>Convert a decimal value to units, minutes, and seconds notation.</summary>
+            <param name="n">
             The decimal value to convert. This could be a time in hours or an angle in degrees.
             </param>
             <param name="notation">The notation to use for the output string.</param>
