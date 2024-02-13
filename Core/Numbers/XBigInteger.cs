@@ -261,4 +261,47 @@ public static class XBigInteger
         Memoization.Memoize<BigInteger, BigInteger>(_Factorial);
 
     #endregion Factorial
+
+    #region Methods relating to division
+
+    /// <summary>
+    /// Return the floored division of 2 BigInteger values.
+    /// </summary>
+    /// <param name="dividend"></param>
+    /// <param name="divisor"></param>
+    /// <returns></returns>
+    /// <exception cref="DivideByZeroException"></exception>
+    public static BigInteger FlooredDivision(BigInteger dividend, BigInteger divisor)
+    {
+        // Guard.
+        if (divisor == 0)
+        {
+            throw new DivideByZeroException("Cannot divide by zero.");
+        }
+
+        // Adjust for negative result by adding 1 before division.
+        if (dividend.Sign != divisor.Sign)
+        {
+            return (dividend - divisor + 1) / divisor;
+        }
+
+        // Positive result, arguments have the same sign.
+        return dividend / divisor;
+    }
+
+    /// <summary>
+    /// Return the floored division of 2 BigInteger values, with the remainder after division.
+    /// </summary>
+    /// <param name="dividend"></param>
+    /// <param name="divisor"></param>
+    /// <returns>A tuple containing the result of the floored division, and the remainder.</returns>
+    /// <exception cref="DivideByZeroException"></exception>
+    public static (BigInteger, BigInteger) DivMod(BigInteger dividend, BigInteger divisor)
+    {
+        BigInteger q = FlooredDivision(dividend, divisor);
+        BigInteger r = XNumber.Mod(dividend, divisor);
+        return (q, r);
+    }
+
+    #endregion Methods relating to division
 }

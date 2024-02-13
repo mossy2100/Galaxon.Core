@@ -34,7 +34,7 @@ public static class XRandom
     {
         // Get a random value in the range 0..int.MaxValue.
         // It's non-negative, so the most significant bit will always be 0.
-        var i = rnd.Next();
+        int i = rnd.Next();
 
         // Get a random sign bit.
         var signBit = (byte)rnd.Next(2);
@@ -62,7 +62,7 @@ public static class XRandom
     {
         // Get a random value in the range 0..long.MaxValue.
         // It's non-negative, so the most significant bit will always be 0.
-        var n = rnd.NextInt64();
+        long n = rnd.NextInt64();
 
         // Get a random sign bit.
         var signBit = (byte)rnd.Next(2);
@@ -89,13 +89,16 @@ public static class XRandom
         while (true)
         {
             // Get a random short (16 bits).
-            var i = rnd.GetShort();
+            short i = rnd.GetShort();
 
             // Convert to a Half.
-            var h = BitConverter.Int16BitsToHalf(i);
+            Half h = BitConverter.Int16BitsToHalf(i);
 
             // Check if it's valid.
-            if (Half.IsFinite(h) && h != Half.NegativeZero) return h;
+            if (Half.IsFinite(h) && h != Half.NegativeZero)
+            {
+                return h;
+            }
         }
     }
 
@@ -109,13 +112,16 @@ public static class XRandom
         while (true)
         {
             // Get a random int (32 bits).
-            var i = rnd.GetInt();
+            int i = rnd.GetInt();
 
             // Convert to a float.
-            var f = BitConverter.Int32BitsToSingle(i);
+            float f = BitConverter.Int32BitsToSingle(i);
 
             // Check if it's valid.
-            if (float.IsFinite(f) && f != float.NegativeZero) return f;
+            if (float.IsFinite(f) && f != float.NegativeZero)
+            {
+                return f;
+            }
         }
     }
 
@@ -131,13 +137,16 @@ public static class XRandom
         while (true)
         {
             // Get a random long (64 bits).
-            var l = rnd.GetLong();
+            long l = rnd.GetLong();
 
             // Convert to a double.
-            var d = BitConverter.Int64BitsToDouble(l);
+            double d = BitConverter.Int64BitsToDouble(l);
 
             // Check if it's valid.
-            if (double.IsFinite(d) && d != double.NegativeZero) return d;
+            if (double.IsFinite(d) && d != double.NegativeZero)
+            {
+                return d;
+            }
         }
     }
 
@@ -146,11 +155,43 @@ public static class XRandom
     /// </summary>
     public static decimal GetDecimal(this Random rnd)
     {
-        var lo = rnd.GetInt();
-        var mid = rnd.GetInt();
-        var hi = rnd.GetInt();
-        var isNegative = rnd.Next(2) == 1;
+        int lo = rnd.GetInt();
+        int mid = rnd.GetInt();
+        int hi = rnd.GetInt();
+        bool isNegative = rnd.Next(2) == 1;
         var scale = (byte)rnd.Next(29);
         return new decimal(lo, mid, hi, isNegative, scale);
+    }
+
+    /// <summary>
+    /// Simulate rolling a dice with a given number of sides.
+    /// This is designed for board games.
+    /// Using DnD notation, if you want to roll, say, 1d20, call <code>rnd.DieRoll(20)</code>
+    /// </summary>
+    /// <param name="rnd">The Random object.</param>
+    /// <param name="sides">The number of sides on the dice.</param>
+    /// <returns></returns>
+    public static int DieRoll(this Random rnd, int sides)
+    {
+        return rnd.Next(1, sides + 1);
+    }
+
+    /// <summary>
+    /// Simulate rolling multiple dice with the same number of sides.
+    /// This is designed for board games.
+    /// Using DnD notation, if you want to roll, say, 3d6, call <code>rnd.DiceRoll(3, 6)</code>
+    /// </summary>
+    /// <param name="rnd">The Random object.</param>
+    /// <param name="nDice">The number of dice to roll.</param>
+    /// <param name="sides">The number of sides on the dice.</param>
+    /// <returns></returns>
+    public static int DiceRoll(this Random rnd, int nDice, int sides)
+    {
+        int result = 0;
+        for (int i = 0; i < nDice; i++)
+        {
+            result += rnd.DieRoll(sides);
+        }
+        return result;
     }
 }

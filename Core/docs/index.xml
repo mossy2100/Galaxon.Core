@@ -207,13 +207,13 @@
         <member name="T:Galaxon.Core.Numbers.ConvertBase">
              <summary>
              This class supports conversion between integers and strings of digits in a specified base,
-             which can be in the range 2..36.
+             which can be in the range 2..64.
             
              All built-in integer types are supported, including Int128, UInt128, and BigInteger.
             
              As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
-             Lower-case is the default for output strings.
-             In the ToBase(), ToHex(), and ToTria() methods, the "upper" parameter can be used to specify if
+             Lower-case is the default for strings returned from methods.
+             In the ToBase(), ToHex(), and ToDuo() methods, the "upper" parameter can be used to specify if
              the result should use upper-case letters instead.
              Lower-case letters are the default because upper-case letters are more easily confused with
              numerals than lower-case. For example:
@@ -226,12 +226,12 @@
              The only similar problem with lower-case letters is that 'l' can look like '1'. However, these
              days, most fonts, especially those used by IDEs, are chosen so that it's easy to distinguish
              between letters and numbers, so it's not the issue it once was.
-             Multiple coding standards for CSS require lower-case hex digits in color literals.
+             Multiple coding standards for CSS require hex digits in color literals to be lower-case.
              Other than that, I can't find any standards that mandate one over the other. It seems upper-case
              is favoured in older languages, lower-case in newer.
             
              The core methods are ToBase() and FromBase(). In addition, convenience methods are provided for
-             all bases that are powers of 2, which are the most commonly used:
+             bases that are a power of 2.
              |------------------|------------------------|--------|--------------------------|
              |  Bits per digit  |  Numeral system        |  Base  |  Methods                 |
              |------------------|------------------------|--------|--------------------------|
@@ -239,12 +239,33 @@
              |        2         |  quaternary            |    4   |  ToQuat()   FromQuat()   |
              |        3         |  octal                 |    8   |  ToOct()    FromOct()    |
              |        4         |  hexadecimal           |   16   |  ToHex()    FromHex()    |
-             |        5         |  triacontakaidecimal * |   32   |  ToTria()   FromTria()   |
+             |        5         |  duotrigesimal         |   32   |  ToDuo()    FromDuo()    |
+             |        6         |  tetrasexagesimal      |   64   |  ToTetra()  FromTetra()  |
              |------------------|------------------------|--------|--------------------------|
-             * The general term for base 32 is "duotrigesimal". However, there are multiple methods in use
-             for encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
-             also known as "base32hex". It's the same encoding used in Java in JavaScript. The term is
-             abbreviated here as "Tria" for the sake of the ToTria() and FromTria() methods.
+            
+             The system used for base-32 encoding is known as base32hex or triacontakaidecimal. It is a
+             simple continuation of hexadecimal that uses the English letters from g-v (or G-V) to
+             represent the values 16-31. It is the same system used by JavaScript.
+            
+             The system used for base-64 encoding is new. It could perhaps be called "base64hex". It's also
+             a continuation of hexadecimal (and the above base32hex) that uses the letters w-z (or W-Z) to
+             represent the values 32-35, and printable non-alphanumeric ASCII characters to represent the
+             values 36-63. These characters are ordered by ASCII value. As there are 33 such characters, 5
+             are excluded.
+             The characters selected for exclusion include the 4 characters used for digit grouping:
+               space ( )
+               period (.)
+               comma (,)
+               apostrophe (')
+             The dash (-) is also excluded, as this is taken to indicate a negative value. A dash is only
+             valid at the start of a string.
+            
+             Certain programming languages support underscores (_) for digit grouping. However, because there
+             are only 95 printable ASCII characters, the underscore is not excluded from the base64hex
+             character set and has a value of 58.
+            
+             At this stage there is no support for decimal or floating point values, although it's
+             possible this could be added in the future.
              </summary>
              <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems"/>
              <see href="https://en.wikipedia.org/wiki/Binary_number"/>
@@ -252,15 +273,28 @@
              <see href="https://en.wikipedia.org/wiki/Octal"/>
              <see href="https://en.wikipedia.org/wiki/Hexadecimal"/>
              <see href="https://en.wikipedia.org/wiki/Base32"/>
+             <see href="https://en.wikipedia.org/wiki/Sexagesimal"/>
+             <see href="https://en.wikipedia.org/wiki/Base64"/>
         </member>
         <member name="F:Galaxon.Core.Numbers.ConvertBase.MIN_BASE">
-            <summary>The minimum base supported by the type.</summary>
+            <summary>
+            The minimum supported base.
+            </summary>
         </member>
         <member name="F:Galaxon.Core.Numbers.ConvertBase.MAX_BASE">
-            <summary>The maximum base supported by the type.</summary>
+            <summary>
+            The maximum supported base.
+            </summary>
         </member>
         <member name="F:Galaxon.Core.Numbers.ConvertBase.DIGITS">
-            <summary>Valid digit characters.</summary>
+            <summary>
+            Digit characters. The index of a character in the string equals its value.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.ConvertBase.DIGIT_GROUPING_CHARACTERS">
+            <summary>
+            Digit grouping characters.
+            </summary>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.ToBase``1(``0,System.Byte,System.Int32,System.Boolean)">
             <summary>
@@ -315,13 +349,21 @@
             <param name="upper">If letters should be upper-case (false = lower, true = upper).</param>
             <returns>The value as a string of hexadecimal digits.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.ConvertBase.ToTria``1(``0,System.Int32,System.Boolean)">
-            <summary>Convert integer to triacontakaidecimal (base 32) digits.</summary>
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.ToDuo``1(``0,System.Int32,System.Boolean)">
+            <summary>Convert integer to duotrigesimal digits.</summary>
             <typeparam name="T">The integer type.</typeparam>
             <param name="n">The integer to convert.</param>
             <param name="width">The minimum number of digits in the result.</param>
             <param name="upper">If letters should be upper-case (false = lower, true = upper).</param>
-            <returns>The value as a string of triacontakaidecimal digits.</returns>
+            <returns>The value as a string of duotrigesimal digits.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.ToTetra``1(``0,System.Int32,System.Boolean)">
+            <summary>Convert integer to tetrasexagesimal digits.</summary>
+            <typeparam name="T">The integer type.</typeparam>
+            <param name="n">The integer to convert.</param>
+            <param name="width">The minimum number of digits in the result.</param>
+            <param name="upper">If letters should be upper-case (false = lower, true = upper).</param>
+            <returns>The value as a string of tetrasexagesimal digits.</returns>
         </member>
         <member name="M:Galaxon.Core.Numbers.ConvertBase.FromBase``1(System.String,System.Byte)">
             <summary>
@@ -374,9 +416,18 @@
             <param name="digits">The string of digits to parse.</param>
             <returns>The integer equivalent of the digits.</returns>
         </member>
-        <member name="M:Galaxon.Core.Numbers.ConvertBase.FromTria``1(System.String)">
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.FromDuo``1(System.String)">
             <summary>
-            Convert a string of triacontakaidecimal digits into an integer.
+            Convert a string of duotrigesimal digits into an integer.
+            </summary>
+            <typeparam name="T">The integer type to create.</typeparam>
+            <param name="digits">The string of digits to parse.</param>
+            <returns>The integer equivalent of the digits.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.FromTetra``1(System.String)">
+            <summary>
+            Convert a string of tetrasexagesimal digits into an integer.
+            NB: At this stage, only conversion from the ASCII (base64hex) notation is supported.
             </summary>
             <typeparam name="T">The integer type to create.</typeparam>
             <param name="digits">The string of digits to parse.</param>
@@ -389,12 +440,134 @@
             <param name="radix">The base to check.</param>
             <exception cref="T:System.ArgumentOutOfRangeException">If the base is out of range.</exception>
         </member>
-        <member name="M:Galaxon.Core.Numbers.ConvertBase.GetDigitValues(System.Byte)">
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.GetDigitValuesForBase(System.Byte)">
             <summary>
             Get the values of valid digits for the specified base.
             </summary>
             <param name="radix">The base.</param>
             <returns>The map of digit characters to their values.</returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.ConvertBase.CalcDigitValues``1(``0,System.Byte)">
+            <summary>
+            Calculate the digit values for a non-negative integer when converted to a given base.
+            </summary>
+            <param name="n">The integer.</param>
+            <param name="toBase">The base.</param>
+            <typeparam name="T">The integer type.</typeparam>
+            <returns>
+            The digit values as a list of bytes. An item's index in the list will equal the exponent
+            (i.e. the first item will have an index of 0, corresponding to the exponent of 0 or units
+            position). Thus the digit values will be in the reverse order to how they would appear if
+            written using positional notation.</returns>
+            <exception cref="T:System.ArgumentOutOfRangeException">If the argument is non-negative.</exception>
+        </member>
+        <member name="T:Galaxon.Core.Numbers.ESexagesimalNotation">
+            <summary>
+            Enum for the different notations used to represent sexagesimal numbers.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.ESexagesimalNotation.Angle">
+            <summary>
+            A method of writing sexagesimal numbers using degrees, arcminutes, and arcseconds notation,
+            which uses the degree character and prime characters.
+            The degrees part can be any integer, not limited to the range of a sexagesimal value.
+            The arcminutes part will be a sexagesimal digit (0-59).
+            The arcseconds part can be a sexagesimal digit or a decimal value in the range 0-59.999...
+            e.g. 123°15′6.789″
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.ESexagesimalNotation.Colons">
+            <summary>
+            A method of writing sexagesimal numbers using colons to separate digits.
+            The hours part can be any integer, not limited to the range of a sexagesimal value.
+            The minutes part will be a sexagesimal digit (0-59).
+            The seconds part can be a sexagesimal digit or a decimal value in the range 0-59.999 (etc.).
+            The minutes and seconds parts are left-padded with a 0 to make at least 2 digits, if
+            necessary.
+            e.g. 123:45:06.789
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.ESexagesimalNotation.TimeUnits">
+            <summary>
+            A method of writing sexagesimal numbers using h, m, and s to indicate hours, minutes, and
+            seconds.
+            The hours part can be any integer, not limited to the range of a sexagesimal value.
+            The minutes part will be a sexagesimal digit (0-59).
+            The seconds part can be a sexagesimal digit or a decimal value in the range 0-59.999...
+            e.g. 123h45m6.789s
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.ESexagesimalNotation.Neugebauer">
+            <summary>
+            Neugebauer notation. A method of writing sexagesimal numbers using semicolons and commas.
+            <see href="https://en.wikipedia.org/wiki/Sexagesimal#Notations"/>
+            The semicolon separates the integer and fractional part. Commas separate digits before and
+            after the semicolon.
+            Each sexagesimal digit is represented as decimal value in the range 0-59.
+            e.g. 29;31,50,8,20
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.ESexagesimalNotation.Primes">
+            <summary>
+            A method of writing sexagesimal numbers using minutes, seconds, thirds, and fourths
+            notation, which uses the degree character and prime characters.
+            Each sexagesimal digit is represented as decimal value in the range 0-59.
+            It's similar to Angle except all digits are limited to sexagesimal range.
+            e.g. 36‷25‶15‵1°15′2″36‴49⁗
+            </summary>
+        </member>
+        <member name="T:Galaxon.Core.Numbers.Sexagesimal">
+            <summary>
+            Utility class for converting decimal numbers to sexagesimal values. This can be integer,
+            minutes, and seconds parts, or formatted strings.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.Sexagesimal.BASE">
+            <summary>
+            The radix or base of sexagesimal numbers.
+            </summary>
+        </member>
+        <member name="F:Galaxon.Core.Numbers.Sexagesimal._POSITION_TO_PRIMES">
+            <summary>
+            Map of digit position in sexagesimal number to the correct character for degrees, minutes,
+            seconds notation.
+            </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.PositionToPrimes(System.Byte,System.Int32)">
+            <summary>
+            Get the correct string of degree or prime characters to indicate the position of a
+            sexagesimal digit within a number.
+            </summary>
+            <param name="digit">The digit</param>
+            <param name="position"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToHoursMinutesSeconds(System.Decimal)">
+            <summary>
+            Convert a decimal value into a hours, minutes, and seconds.
+            This can also be used to convert an angle from decimal degrees to integer degrees,
+            arcminutes, and arcseconds.
+            The hours part will be an integer.
+            The minutes part will be a sexagesimal digit, i.e. an integer in the range 0-59.
+            The seconds part will be a decimal in the range 0-59.999...
+            The minutes and seconds values will have the same sign as the whole number, or be
+            zero.
+            </summary>
+            <param name="decimalHours">
+            The decimal value to convert. This could be a time in hours or an angle in degrees.
+            </param>
+            <returns>
+            A tuple containing values representing the hours (or degrees), minutes (or arcminutes),
+            and seconds (or arcseconds).
+            </returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.Sexagesimal.ToString(System.Decimal,Galaxon.Core.Numbers.ESexagesimalNotation)">
+            <summary>Convert a decimal value to integer, minutes, and seconds notation.</summary>
+            <param name="decimalHours">
+            The decimal value to convert. This could be a time in hours or an angle in degrees.
+            </param>
+            <param name="notation">The notation to use for the output string.</param>
+            <returns>The argument as a string formatted using the specified notation.</returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.XBigInteger">
             <summary>Extension methods for BigInteger.</summary>
@@ -488,6 +661,24 @@
         </member>
         <member name="F:Galaxon.Core.Numbers.XBigInteger.Factorial">
             <summary>Public memoized version of the Factorial method.</summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.FlooredDivision(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Return the floored division of 2 BigInteger values.
+            </summary>
+            <param name="dividend"></param>
+            <param name="divisor"></param>
+            <returns></returns>
+            <exception cref="T:System.DivideByZeroException"></exception>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XBigInteger.DivMod(System.Numerics.BigInteger,System.Numerics.BigInteger)">
+            <summary>
+            Return the floored division of 2 BigInteger values, with the remainder after division.
+            </summary>
+            <param name="dividend"></param>
+            <param name="divisor"></param>
+            <returns>A tuple containing the result of the floored division, and the remainder.</returns>
+            <exception cref="T:System.DivideByZeroException"></exception>
         </member>
         <member name="T:Galaxon.Core.Numbers.XBinaryInteger">
             <summary>
@@ -1213,6 +1404,27 @@
             <summary>
             Get a random decimal.
             </summary>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.DieRoll(System.Random,System.Int32)">
+            <summary>
+            Simulate rolling a dice with a given number of sides.
+            This is designed for board games.
+            Using DnD notation, if you want to roll, say, 1d20, call <code>rnd.DieRoll(20)</code>
+            </summary>
+            <param name="rnd">The Random object.</param>
+            <param name="sides">The number of sides on the dice.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Galaxon.Core.Numbers.XRandom.DiceRoll(System.Random,System.Int32,System.Int32)">
+            <summary>
+            Simulate rolling multiple dice with the same number of sides.
+            This is designed for board games.
+            Using DnD notation, if you want to roll, say, 3d6, call <code>rnd.DiceRoll(3, 6)</code>
+            </summary>
+            <param name="rnd">The Random object.</param>
+            <param name="nDice">The number of dice to roll.</param>
+            <param name="sides">The number of sides on the dice.</param>
+            <returns></returns>
         </member>
         <member name="T:Galaxon.Core.Numbers.XSbyte">
             <summary>Extension methods for sbyte.</summary>

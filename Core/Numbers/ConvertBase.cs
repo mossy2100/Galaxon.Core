@@ -1,20 +1,22 @@
-﻿using System.Numerics;
+﻿using System.ComponentModel.DataAnnotations;
+using System.Numerics;
 using System.Text;
 using System.Text.RegularExpressions;
 using Galaxon.Core.Exceptions;
+using Galaxon.Core.Strings;
 using Galaxon.Core.Types;
 
 namespace Galaxon.Core.Numbers;
 
 /// <summary>
 /// This class supports conversion between integers and strings of digits in a specified base,
-/// which can be in the range 2..36.
+/// which can be in the range 2..64.
 ///
 /// All built-in integer types are supported, including Int128, UInt128, and BigInteger.
 ///
 /// As in hexadecimal literals, upper-case letters have the same value as lower-case letters.
-/// Lower-case is the default for output strings.
-/// In the ToBase(), ToHex(), and ToTria() methods, the "upper" parameter can be used to specify if
+/// Lower-case is the default for strings returned from methods.
+/// In the ToBase(), ToHex(), and ToDuo() methods, the "upper" parameter can be used to specify if
 /// the result should use upper-case letters instead.
 /// Lower-case letters are the default because upper-case letters are more easily confused with
 /// numerals than lower-case. For example:
@@ -27,12 +29,12 @@ namespace Galaxon.Core.Numbers;
 /// The only similar problem with lower-case letters is that 'l' can look like '1'. However, these
 /// days, most fonts, especially those used by IDEs, are chosen so that it's easy to distinguish
 /// between letters and numbers, so it's not the issue it once was.
-/// Multiple coding standards for CSS require lower-case hex digits in color literals.
+/// Multiple coding standards for CSS require hex digits in color literals to be lower-case.
 /// Other than that, I can't find any standards that mandate one over the other. It seems upper-case
 /// is favoured in older languages, lower-case in newer.
 ///
 /// The core methods are ToBase() and FromBase(). In addition, convenience methods are provided for
-/// all bases that are powers of 2, which are the most commonly used:
+/// bases that are a power of 2.
 /// |------------------|------------------------|--------|--------------------------|
 /// |  Bits per digit  |  Numeral system        |  Base  |  Methods                 |
 /// |------------------|------------------------|--------|--------------------------|
@@ -40,12 +42,33 @@ namespace Galaxon.Core.Numbers;
 /// |        2         |  quaternary            |    4   |  ToQuat()   FromQuat()   |
 /// |        3         |  octal                 |    8   |  ToOct()    FromOct()    |
 /// |        4         |  hexadecimal           |   16   |  ToHex()    FromHex()    |
-/// |        5         |  triacontakaidecimal * |   32   |  ToTria()   FromTria()   |
+/// |        5         |  duotrigesimal         |   32   |  ToDuo()    FromDuo()    |
+/// |        6         |  tetrasexagesimal      |   64   |  ToTetra()  FromTetra()  |
 /// |------------------|------------------------|--------|--------------------------|
-/// * The general term for base 32 is "duotrigesimal". However, there are multiple methods in use
-/// for encoding base 32 digits; the one used here is called "triacontakaidecimal" (see link below),
-/// also known as "base32hex". It's the same encoding used in Java in JavaScript. The term is
-/// abbreviated here as "Tria" for the sake of the ToTria() and FromTria() methods.
+///
+/// The system used for base-32 encoding is known as base32hex or triacontakaidecimal. It is a
+/// simple continuation of hexadecimal that uses the English letters from g-v (or G-V) to
+/// represent the values 16-31. It is the same system used by JavaScript.
+///
+/// The system used for base-64 encoding is new. It could perhaps be called "base64hex". It's also
+/// a continuation of hexadecimal (and the above base32hex) that uses the letters w-z (or W-Z) to
+/// represent the values 32-35, and printable non-alphanumeric ASCII characters to represent the
+/// values 36-63. These characters are ordered by ASCII value. As there are 33 such characters, 5
+/// are excluded.
+/// The characters selected for exclusion include the 4 characters used for digit grouping:
+///   space ( )
+///   period (.)
+///   comma (,)
+///   apostrophe (')
+/// The dash (-) is also excluded, as this is taken to indicate a negative value. A dash is only
+/// valid at the start of a string.
+///
+/// Certain programming languages support underscores (_) for digit grouping. However, because there
+/// are only 95 printable ASCII characters, the underscore is not excluded from the base64hex
+/// character set and has a value of 58.
+///
+/// At this stage there is no support for decimal or floating point values, although it's
+/// possible this could be added in the future.
 /// </summary>
 /// <see href="https://en.wikipedia.org/wiki/List_of_numeral_systems"/>
 /// <see href="https://en.wikipedia.org/wiki/Binary_number"/>
@@ -53,18 +76,32 @@ namespace Galaxon.Core.Numbers;
 /// <see href="https://en.wikipedia.org/wiki/Octal"/>
 /// <see href="https://en.wikipedia.org/wiki/Hexadecimal"/>
 /// <see href="https://en.wikipedia.org/wiki/Base32"/>
+/// <see href="https://en.wikipedia.org/wiki/Sexagesimal"/>
+/// <see href="https://en.wikipedia.org/wiki/Base64"/>
 public static class ConvertBase
 {
     #region Constants
 
-    /// <summary>The minimum base supported by the type.</summary>
+    /// <summary>
+    /// The minimum supported base.
+    /// </summary>
     public const int MIN_BASE = 2;
 
-    /// <summary>The maximum base supported by the type.</summary>
-    public const int MAX_BASE = 36;
+    /// <summary>
+    /// The maximum supported base.
+    /// </summary>
+    public const int MAX_BASE = 64;
 
-    /// <summary>Valid digit characters.</summary>
-    public const string DIGITS = "0123456789abcdefghijklmnopqrstuvwxyz";
+    /// <summary>
+    /// Digit characters. The index of a character in the string equals its value.
+    /// </summary>
+    public const string DIGITS =
+        "0123456789abcdefghijklmnopqrstuvwxyz!\"#$%&()*+/:;<=>?@[\\]^_`{|}~";
+
+    /// <summary>
+    /// Digit grouping characters.
+    /// </summary>
+    public const string DIGIT_GROUPING_CHARACTERS = " ,.'";
 
     #endregion Constants
 
@@ -95,58 +132,52 @@ public static class ConvertBase
     public static string ToBase<T>(this T n, byte toBase, int width = 1, bool upper = false)
         where T : IBinaryInteger<T>
     {
-        // Check the base is valid.
+        // Guard. Check the base is valid.
         CheckBase(toBase);
 
-        // Make sure width is valid.
+        // Guard. Make sure width is valid.
         if (width < 1)
         {
-            width = 1;
+            throw new ArgumentOutOfRangeException(nameof(width), "Must be at least 1.");
         }
 
-        // Initialize the result.
-        var result = "";
-
-        // Check for zero.
-        if (n != T.Zero)
+        // Convert value to BigInteger. It's much easier to work with BigInteger than T, and any
+        // integer type can be converted to BigInteger.
+        if (n is not BigInteger bi)
         {
-            // Convert value to BigInteger. It's much easier to work with BigInteger than T, and any
-            // integer type can be converted to BigInteger.
-            if (n is not BigInteger bi)
-            {
-                bi = XReflection.Cast<T, BigInteger>(n);
-            }
-
-            // Check for negative value.
-            if (bi < 0)
-            {
-                return "-" + (-bi).ToBase(toBase, width, upper);
-            }
-
-            // Build the output string.
-            StringBuilder sbDigits = new ();
-            while (true)
-            {
-                // Get the next digit.
-                var rem = bi % toBase;
-                sbDigits.Insert(0, DIGITS[(int)rem]);
-
-                // Check if we're done.
-                bi -= rem;
-                if (bi == 0) break;
-
-                // Prepare for next iteration.
-                bi /= toBase;
-            }
-            result = sbDigits.ToString();
-
-            // Transform the result case if necessary.
-            if (upper)
-            {
-                result = result.ToUpper();
-            }
+            bi = XReflection.Cast<T, BigInteger>(n);
         }
 
+        // Check for 0.
+        if (bi == 0)
+        {
+            return "0";
+        }
+
+        // Check for negative value.
+        if (bi < 0)
+        {
+            return "-" + (-bi).ToBase(toBase, width, upper);
+        }
+
+        // Get the digit values.
+        List<byte> digitValues = bi.CalcDigitValues(toBase);
+
+        // Build the output string.
+        StringBuilder sbDigits = new ();
+        foreach (byte digitValue in digitValues)
+        {
+            sbDigits.Prepend(DIGITS[digitValue]);
+        }
+        string result = sbDigits.ToString();
+
+        // Transform the result case if necessary.
+        if (upper)
+        {
+            result = result.ToUpper();
+        }
+
+        // Pad to the desired width.
         return result.PadLeft(width, '0');
     }
 
@@ -192,16 +223,28 @@ public static class ConvertBase
         return ToBase(n, 16, width, upper);
     }
 
-    /// <summary>Convert integer to triacontakaidecimal (base 32) digits.</summary>
+    /// <summary>Convert integer to duotrigesimal digits.</summary>
     /// <typeparam name="T">The integer type.</typeparam>
     /// <param name="n">The integer to convert.</param>
     /// <param name="width">The minimum number of digits in the result.</param>
     /// <param name="upper">If letters should be upper-case (false = lower, true = upper).</param>
-    /// <returns>The value as a string of triacontakaidecimal digits.</returns>
-    public static string ToTria<T>(this T n, int width = 1, bool upper = false)
+    /// <returns>The value as a string of duotrigesimal digits.</returns>
+    public static string ToDuo<T>(this T n, int width = 1, bool upper = false)
         where T : IBinaryInteger<T>
     {
         return ToBase(n, 32, width, upper);
+    }
+
+    /// <summary>Convert integer to tetrasexagesimal digits.</summary>
+    /// <typeparam name="T">The integer type.</typeparam>
+    /// <param name="n">The integer to convert.</param>
+    /// <param name="width">The minimum number of digits in the result.</param>
+    /// <param name="upper">If letters should be upper-case (false = lower, true = upper).</param>
+    /// <returns>The value as a string of tetrasexagesimal digits.</returns>
+    public static string ToTetra<T>(this T n, int width = 1, bool upper = false)
+        where T : IBinaryInteger<T>
+    {
+        return ToBase(n, 64, width, upper);
     }
 
     #endregion Extension methods
@@ -236,11 +279,13 @@ public static class ConvertBase
         // Check the base is valid. This could throw an ArgumentOutOfRangeException.
         CheckBase(fromBase);
 
-        // Remove/ignore whitespace, decimal points, and digit group separator characters.
-        digits = Regex.Replace(digits, @"[\s.,_]", "");
+        // Remove digit grouping characters. We'll allow them to be present anywhere in the input
+        // string without throwing an exception, even if they aren't in the correct positions.
+        // Any other non-digit characters will throw an exception.
+        digits = Regex.Replace(digits, $"[{DIGIT_GROUPING_CHARACTERS}]", "");
 
         // See if the value is negative.
-        var sign = 1;
+        int sign = 1;
         if (digits[0] == '-')
         {
             sign = -1;
@@ -248,18 +293,18 @@ public static class ConvertBase
             digits = digits[1..];
         }
 
-        // Get a map of valid digits to their value.
-        var digitValues = GetDigitValues(fromBase);
+        // Get a map of valid digits to their value, for this base.
+        Dictionary<char, byte> digitValues = GetDigitValuesForBase(fromBase);
 
         // Do the conversion.
         BigInteger value = 0;
-        foreach (var c in digits)
+        foreach (char c in digits)
         {
             // Try to get the character value from the map.
-            if (!digitValues.TryGetValue(c, out var digitValue))
+            if (!digitValues.TryGetValue(c, out byte digitValue))
             {
-                var digitChars = digitValues.Select(kvp => kvp.Key).ToArray();
-                var digitList = string.Join(", ", digitChars[..^1]) + " and " + digitChars[^1];
+                char[] digitChars = digitValues.Select(kvp => kvp.Key).ToArray();
+                string digitList = string.Join(", ", digitChars[..^1]) + " and " + digitChars[^1];
                 throw new ArgumentFormatException(nameof(digits),
                     $"A string representing a number in base {fromBase} may only include the digits {digitList}.");
             }
@@ -267,59 +312,15 @@ public static class ConvertBase
             // Add it to the result.
             value = value * fromBase + digitValue;
         }
+
         // Make the result negative or positive as needed.
         value *= sign;
 
         // Try to convert the value to the target type.
-        var t = typeof(T);
+        Type t = typeof(T);
         try
         {
             return XReflection.Cast<BigInteger, T>(value);
-            // if (t == typeof(sbyte))
-            // {
-            //     return (T)(object)(sbyte)value;
-            // }
-            // if (t == typeof(byte))
-            // {
-            //     return (T)(object)(byte)value;
-            // }
-            // if (t == typeof(short))
-            // {
-            //     return (T)(object)(short)value;
-            // }
-            // if (t == typeof(ushort))
-            // {
-            //     return (T)(object)(ushort)value;
-            // }
-            // if (t == typeof(int))
-            // {
-            //     return (T)(object)(int)value;
-            // }
-            // if (t == typeof(uint))
-            // {
-            //     return (T)(object)(uint)value;
-            // }
-            // if (t == typeof(long))
-            // {
-            //     return (T)(object)(long)value;
-            // }
-            // if (t == typeof(ulong))
-            // {
-            //     return (T)(object)(ulong)value;
-            // }
-            // if (t == typeof(Int128))
-            // {
-            //     return (T)(object)(Int128)value;
-            // }
-            // if (t == typeof(UInt128))
-            // {
-            //     return (T)(object)(UInt128)value;
-            // }
-            // if (t == typeof(BigInteger))
-            // {
-            //     return (T)(object)value;
-            // }
-            // throw new InvalidCastException($"The type {t.Name} is unsupported.");
         }
         catch (OverflowException ex)
         {
@@ -374,14 +375,26 @@ public static class ConvertBase
     }
 
     /// <summary>
-    /// Convert a string of triacontakaidecimal digits into an integer.
+    /// Convert a string of duotrigesimal digits into an integer.
     /// </summary>
     /// <typeparam name="T">The integer type to create.</typeparam>
     /// <param name="digits">The string of digits to parse.</param>
     /// <returns>The integer equivalent of the digits.</returns>
-    public static T FromTria<T>(string digits) where T : IBinaryInteger<T>
+    public static T FromDuo<T>(string digits) where T : IBinaryInteger<T>
     {
         return FromBase<T>(digits, 32);
+    }
+
+    /// <summary>
+    /// Convert a string of tetrasexagesimal digits into an integer.
+    /// NB: At this stage, only conversion from the ASCII (base64hex) notation is supported.
+    /// </summary>
+    /// <typeparam name="T">The integer type to create.</typeparam>
+    /// <param name="digits">The string of digits to parse.</param>
+    /// <returns>The integer equivalent of the digits.</returns>
+    public static T FromTetra<T>(string digits) where T : IBinaryInteger<T>
+    {
+        return FromBase<T>(digits, 64);
     }
 
     #endregion Static conversion methods
@@ -398,7 +411,7 @@ public static class ConvertBase
         if (radix is < MIN_BASE or > MAX_BASE)
         {
             throw new ArgumentOutOfRangeException(nameof(radix),
-                $"Value must be in the range {MIN_BASE}..{MAX_BASE}.");
+                $"The base must be in the range {MIN_BASE}..{MAX_BASE}.");
         }
     }
 
@@ -407,12 +420,12 @@ public static class ConvertBase
     /// </summary>
     /// <param name="radix">The base.</param>
     /// <returns>The map of digit characters to their values.</returns>
-    private static Dictionary<char, byte> GetDigitValues(byte radix)
+    private static Dictionary<char, byte> GetDigitValuesForBase(byte radix)
     {
         Dictionary<char, byte> digitValues = new ();
         for (byte i = 0; i < radix; i++)
         {
-            var c = DIGITS[i];
+            char c = DIGITS[i];
             if (char.IsLetter(c))
             {
                 // Add both the upper- and lower-case variants.
@@ -425,6 +438,64 @@ public static class ConvertBase
             }
         }
         return digitValues;
+    }
+
+    /// <summary>
+    /// Calculate the digit values for a non-negative integer when converted to a given base.
+    /// </summary>
+    /// <param name="n">The integer.</param>
+    /// <param name="toBase">The base.</param>
+    /// <typeparam name="T">The integer type.</typeparam>
+    /// <returns>
+    /// The digit values as a list of bytes. An item's index in the list will equal the exponent
+    /// (i.e. the first item will have an index of 0, corresponding to the exponent of 0 or units
+    /// position). Thus the digit values will be in the reverse order to how they would appear if
+    /// written using positional notation.</returns>
+    /// <exception cref="ArgumentOutOfRangeException">If the argument is non-negative.</exception>
+    internal static List<byte> CalcDigitValues<T>(this T n, byte toBase) where T : IBinaryInteger<T>
+    {
+        // Guard against negative argument.
+        if (T.IsNegative(n))
+        {
+            throw new ArgumentOutOfRangeException(nameof(n), "Must be non-negative.");
+        }
+
+        // Initialize the result.
+        var result = new List<byte>();
+
+        // Check for zero.
+        if (T.IsZero(n))
+        {
+            result.Add(0);
+            return result;
+        }
+
+        // Convert value to BigInteger. It's much easier to work with BigInteger than T, and any
+        // integer type can be converted to BigInteger.
+        if (n is not BigInteger bi)
+        {
+            bi = XReflection.Cast<T, BigInteger>(n);
+        }
+
+        // Get the digit values.
+        while (true)
+        {
+            // Get the next digit.
+            BigInteger rem = bi % toBase;
+            result.Add((byte)rem);
+
+            // Check if we're done.
+            bi -= rem;
+            if (bi == 0)
+            {
+                break;
+            }
+
+            // Prepare for next iteration.
+            bi /= toBase;
+        }
+
+        return result;
     }
 
     #endregion Private helper methods
