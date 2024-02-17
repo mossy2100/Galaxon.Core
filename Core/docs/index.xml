@@ -19,13 +19,26 @@
             Extension methods for Dictionary.
             </summary>
         </member>
+        <member name="M:Galaxon.Core.Collections.XDictionary.HasUniqueValues``2(System.Collections.Generic.Dictionary{``0,``1})">
+            <summary>
+            Checks if a dictionary contains unique values.
+            </summary>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <param name="dict">The dictionary to check.</param>
+            <returns>True if the dictionary contains unique values; otherwise, false.</returns>
+            <remarks>
+            This method utilizes LINQ's All method to efficiently check if all values in the dictionary
+            are unique. It uses a HashSet to track unique values.
+            </remarks>
+        </member>
         <member name="M:Galaxon.Core.Collections.XDictionary.Flip``2(System.Collections.Generic.Dictionary{``0,``1})">
             <summary>
             Create a new dictionary from the instance with keys and values flipped.
             </summary>
-            <param name="dict">The instance.</param>
-            <typeparam name="TKey">The key type.</typeparam>
-            <typeparam name="TValue">The value type.</typeparam>
+            <typeparam name="TKey">The type of the keys in the dictionary.</typeparam>
+            <typeparam name="TValue">The type of the values in the dictionary.</typeparam>
+            <param name="dict">The dictionary to flip.</param>
             <returns>The flipped dictionary.</returns>
             <exception cref="T:Galaxon.Core.Exceptions.ArgumentInvalidException">
             If the instance contains duplicate values.
@@ -44,11 +57,16 @@
             result will have one instance of "cat".
             </summary>
         </member>
-        <member name="M:Galaxon.Core.Collections.XEnumerable.ToDictionary``1(System.Collections.Generic.IEnumerable{``0})">
+        <member name="M:Galaxon.Core.Collections.XEnumerable.ToIndex``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to the index.
-            This can be useful when the index is meaningful and you want to filter on it.
+            Converts an IEnumerable of objects with an Id property to a Dictionary{int, T},
+            using the value of the Id property as the key.
             </summary>
+            <typeparam name="T">The type of objects in the IEnumerable.</typeparam>
+            <param name="items">The IEnumerable of objects.</param>
+            <returns>
+            A Dictionary{int, T} with the Id property values as keys and the objects as values.
+            </returns>
         </member>
         <member name="T:Galaxon.Core.Exceptions.ArgumentFormatException">
             <summary>

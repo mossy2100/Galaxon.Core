@@ -1,3 +1,5 @@
+using System.Reflection;
+
 namespace Galaxon.Core.Collections;
 
 /// <summary>
@@ -11,23 +13,52 @@ public static class XEnumerable
     /// For example, if list1 has two instances of "cat" and list2 has one instance of "cat", the
     /// result will have one instance of "cat".
     /// </summary>
-    public static IEnumerable<T> Diff<T>(this IEnumerable<T> list1, IEnumerable<T> list2)
+    public static IEnumerable<T> Diff<T>(this IEnumerable<T> A, IEnumerable<T> B)
     {
-        var result = list1.ToList();
-        foreach (var item in list2)
+        var set2 = new HashSet<T>(B);
+
+        foreach (T item in A)
         {
-            result.Remove(item);
+            if (!set2.Contains(item))
+            {
+                yield return item;
+            }
+            else
+            {
+                // Remove all occurrences of item from set2
+                set2.Remove(item);
+            }
         }
-        return result;
     }
 
     /// <summary>
-    /// Convert an IEnumerable{T} into a dictionary with the dictionary's keys set to the index.
-    /// This can be useful when the index is meaningful and you want to filter on it.
+    /// Converts an IEnumerable of objects with an Id property to a Dictionary{int, T},
+    /// using the value of the Id property as the key.
     /// </summary>
-    public static Dictionary<int, T> ToDictionary<T>(this IEnumerable<T> enumerable)
+    /// <typeparam name="T">The type of objects in the IEnumerable.</typeparam>
+    /// <param name="items">The IEnumerable of objects.</param>
+    /// <returns>
+    /// A Dictionary{int, T} with the Id property values as keys and the objects as values.
+    /// </returns>
+    public static Dictionary<int, T> ToIndex<T>(this IEnumerable<T> items)
     {
-        return new Dictionary<int, T>(enumerable.Select((item, index) =>
-            new KeyValuePair<int, T>(index, item)));
+        var dict = new Dictionary<int, T>();
+
+        // Check for the integer Id property.
+        Type t = typeof(T);
+        PropertyInfo? idProperty = t.GetProperty("Id", typeof(int));
+        if (idProperty == null || !idProperty.CanRead)
+        {
+            throw new InvalidOperationException(
+                $"Type {t.Name} does not have a readable integer Id property.");
+        }
+
+        foreach (T item in items)
+        {
+            int id = (int)idProperty.GetValue(item)!;
+            dict[id] = item;
+        }
+
+        return dict;
     }
 }
